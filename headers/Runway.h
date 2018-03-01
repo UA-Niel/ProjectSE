@@ -8,25 +8,31 @@
 
 #include "Airport.h"
 #include "Airplane.h"
+using namespace std;
 
 class Runway {
-    public:
-        //Add airplane to runway, return true on success
-        bool addAirplane(Airplane& airplane);
-        
-        //Accessors and mutators
-        void setId(const int id);
-        void setName(const std::string& name);
-        void setAirport(const int airportId);
+public:
 
-        int getId();
-        std::string& getName();
-        int getAirport();
+    bool properlyInitialized() const;
 
-    private:
-        int runwayId;   //PRIMARY_KEY
-        std::string _name;
-        std::vector<int> airplanesOnRunway;
+    //Add airplane to runway, return true on success
+    bool addAirplane(Airplane& airplane);
+
+    //Accessors and mutators
+    void setId(int id);
+    void setName(const string& name);
+    void setAirport(int airportId);
+    int getId() const;
+    string& getName() const;
+    int getAirport() const;
+
+    Runway(int runwayId, const string &_name, const vector<int> &airplanesOnRunway);
+
+private:
+    int runwayId;   //PRIMARY_KEY
+    string _name;
+    vector<int> airplanesOnRunway;
+    Runway* _initCheck;
 };
 
 #endif
