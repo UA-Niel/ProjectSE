@@ -3,6 +3,7 @@
 #include "Airport.h"
 #include "Airplane.h"
 #include "Runway.h"
+#include "Gate.h"
 
 using namespace std;
 
@@ -32,8 +33,8 @@ Runway& Airport::getRunway(const int id) {
 }
 //Get Gate&
 Gate& Airport::getGate(const int id) {
-    Airport p;
-    return p;
+    Gate g;
+    return g;
 }
 
 //Set ID
