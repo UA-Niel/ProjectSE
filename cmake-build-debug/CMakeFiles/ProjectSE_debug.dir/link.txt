@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Werror -g  -pthread CMakeFiles/ProjectSE_debug.dir/headers/Airport.cpp.o CMakeFiles/ProjectSE_debug.dir/main.cpp.o  -o ProjectSE_debug  -L/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/gtest/lib -Wl,-rpath,/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/gtest/lib -lgtest 
