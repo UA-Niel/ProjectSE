@@ -5,30 +5,37 @@
 
 #include <string>
 #include "Airport.h"
+using namespace std;
 
 class Airplane {
-    public:
-        //Make the airplane depart, return true if succesful
-        bool depart();
-        //Let the airplane land, return true if succesful
-        bool land();
+public:
+    //initialized
+    bool properlyInitialized() const;
 
-        //Accessors and mutators
-        void setId(const int id);
-        void setCallsign(const std::string& callsign);
-        void setModel(const std::string& model);
-        void setStatus(const int status);
+    //Make the airplane depart, return true if succesful
+    bool depart();
+    //Let the airplane land, return true if succesful
+    bool land();
+    //Accessors and mutators
+    void setId(int id);
+    void setCallsign(const string& callsign);
+    void setModel(const string& model);
+    void setStatus(int status);
 
-        int getId();
-        std::string& getCallsign();
-        std::string& getModel();
-        int getStatus();
+    int getId() const;
+    string& getCallsign() const;
+    string& getModel() const;
+    int getStatus() const;
 
-    private:
-        int _airplaneId; //PRIMARY_KEY
-        std::string _callsign;
-        std::string _model;
-        int _status;
+    //Constructor
+    Airplane(int _airplaneId, const string &_callsign, const string &_model, int _status);
+
+private:
+    int _airplaneId; //PRIMARY_KEY
+    string _callsign;
+    string _model;
+    int _status;
+    Airplane* _initCheck;
 };
 
 #endif
