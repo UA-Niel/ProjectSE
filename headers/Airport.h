@@ -6,51 +6,56 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 class Airplane;
 class Runway;
 class Gate;
 
 class Airport {
-    public:
-        //Adding objects to Airport, return true on success
-        bool addAirplane(Airplane& airplane);
-        bool addRunway(Runway& runway);
-        bool addGate(Gate& gate);
+public:
+    //Adding objects to Airport, return true on success
+    bool addAirplane(Airplane& airplane);
+    bool addRunway(Runway& runway);
+    bool addGate(Gate& gate);
+    //Removing objects of Airport, return true on success
+    bool removeAirplane(int id);
+    bool removeRunway(int id);
+    bool removeGate(int id);
 
-        //Removing objects of Airport, return true on success
-        bool removeAirplane(const int id);
-        bool removeRunway(const int id);
-        bool removeGate(const int id);
-        
-        //Accessors and mutators
-        Airplane& getAirplane(const int id);
-        Runway& getRunway(const int id);
-        Gate& getGate(const int id);
+    bool properlyInitialized() const;
 
-        void setId(const int id);
-        void setName(const std::string name);
-        void setIATA(const std::string IATA);
-        void setCallsign(const std::string callsign);
+    //Accessors and mutators
+    Airplane& getAirplane(int id) const;
+    Runway& getRunway(int id) const;
+    Gate& getGate(int id) const;
+    void setId(int id);
+    void setName(string name);
+    void setIATA(string IATA);
+    void setCallsign(string callsign);
+    int getId() const;
+    string& getName() const;
+    string& getIATA() const;
+    string& getCallsign() const;
 
-        int getId();
-        std::string& getName();
-        std::string& getIATA();
-        std::string& getCallsign();
-        
+    Airport(const vector<Runway> &_runways, const vector<Gate> &_gates, int _airportId, const string &_name,
+            const string &_IATA, const string &_callsign);
 
-    private:
-        //All airplanes on the airport
-        std::vector<Airplane> _airplanesOnAirport;
-        //Runways of the airport
-        std::vector<Runway> _runways;
-        //Gates of the airport
-        std::vector<Gate> _gates;
 
-        //Other properties
-        int _airportId; //PRIMARY_KEY
-        std::string _name;
-        std::string _IATA;
-        std::string _callsign;
+private:
+    //All airplanes on the airport
+    vector<Airplane> _airplanesOnAirport;
+    //Runways of the airport
+    vector<Runway> _runways;
+    //Gates of the airport
+    vector<Gate> _gates;
+    //Other properties
+    int _airportId; //PRIMARY_KEY
+    string _name;
+    string _IATA;
+    string _callsign;
+    //Init check:
+    Airport* _initCheck;
 };
 
 #endif //AIRPORT_H
