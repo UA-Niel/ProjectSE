@@ -34,9 +34,9 @@ public:
     void setIATA(string IATA);
     void setCallsign(string callsign);
     int getId() const;
-    string& getName() const;
-    string& getIATA() const;
-    string& getCallsign() const;
+    const string& getName() const;
+    const string& getIATA() const;
+    const string& getCallsign() const;
 
     Airport(const vector<Runway> &_runways, const vector<Gate> &_gates, int _airportId, const string &_name,
             const string &_IATA, const string &_callsign);

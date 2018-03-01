@@ -22,7 +22,11 @@ bool Airplane::properlyInitialized() const {
     return _initCheck == this;
 }
 
+//Constructors
 Airplane::Airplane(int _airplaneId, const string &_callsign, const string &_model, int _status)
         : _airplaneId(_airplaneId), _callsign(_callsign), _model(_model), _status(_status){
+    _initCheck = this;
+}
+Airplane::Airplane() {
     _initCheck = this;
 }

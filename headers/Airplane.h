@@ -29,6 +29,7 @@ public:
 
     //Constructor
     Airplane(int _airplaneId, const string &_callsign, const string &_model, int _status);
+    Airplane();
 
 private:
     int _airplaneId; //PRIMARY_KEY

@@ -67,13 +67,13 @@ void Airport::setCallsign(const std::string callsign) {
 int Airport::getId() const{
     return _airportId;
 }
-std::string &Airport::getName() const{
+const std::string &Airport::getName() const{
     return _name;
 }
-std::string &Airport::getIATA() const{
+const std::string &Airport::getIATA() const{
     return _IATA;
 }
-std::string &Airport::getCallsign() const{
+const std::string &Airport::getCallsign() const{
     return _callsign;
 }
 

@@ -24,3 +24,6 @@ Runway::Runway(int runwayId, const string &_name, const vector<int> &airplanesOn
                                                                                                   airplanesOnRunway) {
     _initCheck = this;
 }
+Runway::Runway() {
+    _initCheck = this;
+}

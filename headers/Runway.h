@@ -26,7 +26,9 @@ public:
     string& getName() const;
     int getAirport() const;
 
+    //Constructor
     Runway(int runwayId, const string &_name, const vector<int> &airplanesOnRunway);
+    Runway();
 
 private:
     int runwayId;   //PRIMARY_KEY
