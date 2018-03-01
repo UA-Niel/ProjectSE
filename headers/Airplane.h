@@ -25,10 +25,10 @@ class Airplane {
         int getStatus();
 
     private:
-        int _airplaneId = 0; //PRIMARY_KEY
-        std::string _callsign = "";
-        std::string _model = "";
-        int _status = 0;
+        int _airplaneId; //PRIMARY_KEY
+        std::string _callsign;
+        std::string _model;
+        int _status;
 };
 
 #endif

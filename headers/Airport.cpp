@@ -1,6 +1,10 @@
 //Declaration file for Airport-class
 
 #include "Airport.h"
+#include "Airplane.h"
+#include "Runway.h"
+
+using namespace std;
 
 //Add Airplane
 bool Airport::addAirplane(Airplane& airplane) {return true;}
@@ -17,11 +21,20 @@ bool Airport::removeRunway(const int id) {return true;}
 bool Airport::removeGate(const int id) {return true;}
 
 //Get Airplane&
-Airplane& Airport::getAirplane(const int id) {}
+Airplane& Airport::getAirplane(const int id) {
+    Airplane a;
+    return a;
+}
 //Get Runway&
-Runway& Airport::getRunway(const int id) {}
+Runway& Airport::getRunway(const int id) {
+    Runway r;
+    return r;
+}
 //Get Gate&
-Gate& Airport::getGate(const int id) {}
+Gate& Airport::getGate(const int id) {
+    Airport p;
+    return p;
+}
 
 //Set ID
 void Airport::setId(const int id) {}

@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/headers/Airplane.h
+string
+-
+Airport.h
+/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/headers/Airport.h
+
+/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/headers/Airport.cpp
+Airport.h
+/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/headers/Airport.h
+Airplane.h
+/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/headers/Airplane.h
+Runway.h
+/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/headers/Runway.h
+
+/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/headers/Airport.h
+vector
+-
+string
+-
+
+/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/headers/Runway.h
+string
+-
+vector
+-
+Airport.h
+/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/headers/Airport.h
+Airplane.h
+/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/headers/Airplane.h
+
+/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/main.cpp
+iostream
+-
+string
+-
+headers/Airport.h
+/home/freek/Documents/ProjectSoftwareEngineering/Project/ProjectSE/headers/Airport.h
+

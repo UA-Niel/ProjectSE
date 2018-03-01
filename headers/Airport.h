@@ -47,10 +47,10 @@ class Airport {
         std::vector<Gate> _gates;
 
         //Other properties
-        int _airportId = 0; //PRIMARY_KEY
-        std::string _name = "";
-        std::string _IATA = "";
-        std::string _callsign = "";
+        int _airportId; //PRIMARY_KEY
+        std::string _name;
+        std::string _IATA;
+        std::string _callsign;
 };
 
 #endif //AIRPORT_H

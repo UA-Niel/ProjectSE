@@ -1,0 +1,3 @@
+#gitignore file
+ProjectSE/cmake-build-debug/
+.idea/

@@ -24,8 +24,8 @@ class Runway {
         int getAirport();
 
     private:
-        int runwayId = 0;   //PRIMARY_KEY
-        std::string _name = "";
+        int runwayId;   //PRIMARY_KEY
+        std::string _name;
         std::vector<int> airplanesOnRunway;
 };
 
