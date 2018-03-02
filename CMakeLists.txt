@@ -19,6 +19,7 @@ set(RELEASE_SOURCE_FILES
         headers/Airport.h
         headers/Runway.cpp
         headers/Runway.h
+        headers/Gate.h
         main.cpp)
 
 # Set source files for DEBUG target TODO: update with correct files
