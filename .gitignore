@@ -1,3 +1,4 @@
 #gitignore file
 cmake-build-debug/
 .idea/
+main
