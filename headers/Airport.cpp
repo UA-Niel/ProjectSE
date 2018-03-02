@@ -1,5 +1,6 @@
 //Declaration file for Airport-class
 
+
 #include "Airport.h"
 #include "Airplane.h"
 #include "Runway.h"
@@ -77,6 +78,8 @@ const std::string &Airport::getCallsign() const{
     return _callsign;
 }
 
+//Constructors
+Airport::Airport() {_initCheck = this;}
 Airport::Airport(const vector<Runway> &_runways, const vector<Gate> &_gates, int _airportId, const string &_name,
                  const string &_IATA, const string &_callsign) : _runways(_runways), _gates(_gates),
                                                                  _airportId(_airportId), _name(_name), _IATA(_IATA),

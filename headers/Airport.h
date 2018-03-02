@@ -6,11 +6,13 @@
 #include <vector>
 #include <string>
 
+#include "Airplane.h"
+#include "Runway.h"
+#include "Gate.h"
+
 using namespace std;
 
-class Airplane;
-class Runway;
-class Gate;
+
 
 class Airport {
 public:
@@ -38,6 +40,8 @@ public:
     const string& getIATA() const;
     const string& getCallsign() const;
 
+    //Constructors
+    Airport();
     Airport(const vector<Runway> &_runways, const vector<Gate> &_gates, int _airportId, const string &_name,
             const string &_IATA, const string &_callsign);
 

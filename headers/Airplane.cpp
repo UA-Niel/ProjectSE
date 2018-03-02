@@ -9,11 +9,13 @@ bool Airplane::land() {return true;}
 
 //Accessors and mutators
 void Airplane::setId(const int id) {}
+void Airplane::setNumber(const std::string& name) {}
 void Airplane::setCallsign(const std::string& callsign) {}
 void Airplane::setModel(const std::string& model) {}
 void Airplane::setStatus(const int status) {}
 
 int Airplane::getId() const{}
+std::string& Airplane::getNumber() const{}
 std::string& Airplane::getCallsign() const{}
 std::string& Airplane::getModel() const{}
 int Airplane::getStatus() const{}
