@@ -40,15 +40,15 @@ int Airplane::getId() const{
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     return _airplaneId;
 }
-std::string& Airplane::getNumber() const{
+std::string Airplane::getNumber() const{
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     return _number;
 }
-std::string& Airplane::getCallsign() const{
+std::string Airplane::getCallsign() const{
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     return _callsign;
 }
-std::string& Airplane::getModel() const{
+std::string Airplane::getModel() const{
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     return _model;
 }

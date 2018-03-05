@@ -49,7 +49,7 @@ public:
      * REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
      * @return name of the runway
      */
-    string& getName() const;
+    string getName() const;
 
     /**
      * REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");

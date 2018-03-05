@@ -24,10 +24,10 @@ public:
     void setStatus(int status);
 
     int getId() const;
-    string& getCallsign() const;
-    string& getModel() const;
+    string getCallsign() const;
+    string getModel() const;
     int getStatus() const;
-    std::string& getNumber() const;
+    std::string getNumber() const;
 
     //Constructor
     Airplane(int _airplaneId, const string &callsign, const string &_model, int _status);

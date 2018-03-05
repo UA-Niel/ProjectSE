@@ -30,7 +30,7 @@ int Runway::getId() const{
     return _runwayId;
 }
 
-std::string& Runway::getName() const{
+std::string Runway::getName() const{
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
     return _name;
 }
