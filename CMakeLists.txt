@@ -2,9 +2,8 @@ cmake_minimum_required(VERSION 3.6)
 project(ProjectSE)
 
 set(CMAKE_CXX_STANDARD 98)
-#set(CMAKE_CXX_FLAGS "-Wall -Werror") TODO: aanzetten
-#set(CMAKE_EXE_LINKER_FLAGS -pthread) TODO: aanzetten
-
+#set(CMAKE_CXX_FLAGS "-Wall -Werror")
+#set(CMAKE_EXE_LINKER_FLAGS -pthread)
 # Set include dir
 include_directories(gtest/include)
 
@@ -13,6 +12,7 @@ link_directories(gtest/lib)
 
 # Set source files for RELEASE target
 set(RELEASE_SOURCE_FILES
+        DesignByContract.h
         headers/Airplane.cpp
         headers/Airplane.h
         headers/Airport.cpp
@@ -24,6 +24,7 @@ set(RELEASE_SOURCE_FILES
 
 # Set source files for DEBUG target TODO: update with correct files
 set(DEBUG_SOURCE_FILES
+        DesignByContract.h
         headers/Airport.cpp
         main.cpp)
 

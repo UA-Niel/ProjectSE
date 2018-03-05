@@ -30,7 +30,7 @@ public:
     std::string& getNumber() const;
 
     //Constructor
-    Airplane(int _airplaneId, const string &_callsign, const string &_model, int _status);
+    Airplane(int _airplaneId, const string &callsign, const string &_model, int _status);
     Airplane();
 
 private:

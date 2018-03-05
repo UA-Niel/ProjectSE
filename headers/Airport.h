@@ -12,7 +12,7 @@
 
 using namespace std;
 
-
+//TODO: add "REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly")" in comments
 
 class Airport {
 public:
