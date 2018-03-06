@@ -11,7 +11,7 @@
     #define ENSURE(assertion, what) \
         if (!(assertion)) __assert (what, __FILE__, __LINE__);
 
-#elif defined(_WIN32) || defined(__WIN64)
+#elif defined(_WIN32) || defined(_WIN64)
 #define REQUIRE(assertion, what) \
         if (!(assertion)) _assert (what, __FILE__, __LINE__);
 
