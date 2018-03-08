@@ -22,9 +22,6 @@ public:
     /**
      * \brief Checks if the airport class is initialized correctly
      * @return Returns true if the airport is correctly initialized
-     *
-     * **Preconditions:**
-     * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
     bool properlyInitialized() const;
 
@@ -39,7 +36,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
-    bool addAirplane(Airplane& airplane);
+    bool addAirplane(Airplane* airplane);
 
     /**
      * \brief Adds a runway to the airport
@@ -52,7 +49,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
-    bool addRunway(Runway& runway);
+    bool addRunway(Runway* runway);
 
     /**
      * \brief Adds a runway to the airport
@@ -65,7 +62,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
-    bool addGate(Gate& gate);
+    bool addGate(Gate* gate);
 
     /**
      * \brief Removes an airplane from the airport
@@ -116,7 +113,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
-    Airplane& getAirplane(int id);
+    Airplane* getAirplane(int id);
 
     /**
      * \brief Gets a pointer to a runway from the airport
@@ -126,7 +123,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
-    Runway& getRunway(int id);
+    Runway* getRunway(int id);
 
     /**
      * \brief Gets a pointer to a gate from the airport
@@ -136,7 +133,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
-    Gate& getGate(int id);
+    Gate* getGate(int id);
 
     /**
      * \brief Sets a new ID for the airport
@@ -231,7 +228,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
-    Airport(const vector<Runway> &_runways, const vector<Gate> &_gates, int _airportId, const string &_name,
+    Airport(const vector<Runway*> _runways, const vector<Gate*> _gates, int _airportId, const string &_name,
             const string &_IATA, const string &_callsign);
 
 
