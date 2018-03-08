@@ -73,6 +73,7 @@ public:
 
 private:
     int _runwayId;   //PRIMARY_KEY
+    int _myAirport;
     string _name;
     vector<Airplane*> _airplanesOnRunway;
     Runway* _initCheck;
