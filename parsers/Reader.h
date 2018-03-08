@@ -6,12 +6,17 @@
 #include <string>
 #include <map>
 #include "../headers/Airport.h"
+#include "../headers/Route.h"
 
 //Loading the airport from an input-file into memory
 //:param fileName => Filename to read from
-//:param textBuffer => variable which will contain text from file
 //:return bool => True on success
 Airport loadAirportFromFile(const char* fileName);
+
+//Loading all the routes from an input-file into memory
+//:param fileName => Filename to read from
+//:return bool => True on success
+const std::vector<Route>& loadRoutesFromFile(const char* fileName);
 
 //Describing the possible elements
 //(RUNWAY, AIRPLANE, AIRPORT)
