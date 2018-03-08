@@ -105,7 +105,17 @@ Airport loadAirportFromFile(const char* fileName) {
                         std::string t = text->Value();
                         myAirplane.setModel(t);    
                     }
-                    //STATUS??
+                    if (eValue == "status") {
+                        TiXmlNode* x = e->FirstChild();
+                        TiXmlText* text = x->ToText();
+                        std::string t = text->Value();
+                    
+                        if (t == "Standing") myAirplane.setStatus(0);
+                        if (t == "Taxing") myAirplane.setStatus(1);
+                        if (t == "Approaching") myAirplane.setStatus(2);
+                        if (t == "Landing") myAirplane.setStatus(3);
+                        
+                    }
                 }
             }
         }

@@ -23,6 +23,7 @@ void Runway::setName(const std::string& name) {
 
 void Runway::setAirport(const int id) {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly")
+    _myAirport = id;    
 }
 
 int Runway::getId() const{
@@ -37,7 +38,7 @@ std::string Runway::getName() const{
 
 int Runway::getAirport() const{
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
-    return 0;
+    return _myAirport;
 }
 
 bool Runway::properlyInitialized() const {
