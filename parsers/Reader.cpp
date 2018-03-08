@@ -7,6 +7,7 @@
 #include <string>
 #include <iostream>
 #include <map>
+#include <sstream>
 
 //loadAirportFromFile
 Airport loadAirportFromFile(const char* fileName) {
@@ -52,8 +53,11 @@ Airport loadAirportFromFile(const char* fileName) {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                       
-                        int amountOfGates = std::stoi(t);
+                        
+                        int amountOfGates;
+                        std::istringstream ss(t);
+                        ss >> amountOfGates;
+
                         for (int i = 0; i < amountOfGates; i++) {
                             Gate myGate;
                             myAirport.addGate(myGate);
@@ -141,72 +145,4 @@ ElementType elementType(const std::string& element) {
     }
 
     return type;
-}
-
-
-//////////////////////////////////////
-//Loading routes from File
-const std::vector<Route>& loadRoutesFromFile(const char* fileName) { 
-    TiXmlDocument doc;
-    
-    //Loading file and check if it loaded correct
-    if (!doc.LoadFile(fileName)) {
-        std::cout<<"error"<<std::endl;
-    
-    } else { 
-        //Creating vector holding routes
-        std::vector<Route> routes;
-        
-        //Getting root element
-        TiXmlElement* root = doc.FirstChildElement();
-
-        //Looping over all elements
-        for (TiXmlElement* elem = root->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
-                
-                //Checking if element is ROUTE
-                std::string elemType = elem->Value();
-                if (elemType != "ROUTE") return false;  
-
-                //Creating instance of route
-                Route myRoute;
-
-                for (TiXmlElement* e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
-             
-                   std::string eValue = e->Value();
-                   if (eValue = "id") {
-                        TiXmlNode* x = e->FirstChild();
-                        TiXmlText* text = x->ToText();
-                        std::string t = text->Value();
-                        myRoute.setId(t);
-                   }
-                   if (eValue = "airplane") {
-                        TiXmlNode* x = e->FirstChild();
-                        TiXmlText* text = x->ToText();
-                        std::string t = text->Value();
-                        myRoute.setAirplane(t);
-                   }
-                   if (eValue = "startingairport") {
-                        TiXmlNode* x = e->FirstChild();
-                        TiXmlText* text = x->ToText();
-                        std::string t = text->Value();
-
-                        int x;
-                        std::istringstream ss(t) >> x;
-
-                        myRoute.setStartingAirport(x);
-                   }
-                   if (eValue = "destinationairport") {
-                        TiXmlNode* x = e->FirstChild();
-                        TiXmlText* text = x->ToText();
-                        std::string t = text->Value();
-                        myRoute.setDestinationAirport(t);
-                   }
-                    
-                   //Adding route to vector
-                   routes.push_back(myRoute);
-            }
-        }
-    }
-
-    return routes;
 }

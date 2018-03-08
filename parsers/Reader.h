@@ -23,7 +23,8 @@ const std::vector<Route>& loadRoutesFromFile(const char* fileName);
 enum ElementType {
     RUNWAY,
     AIRPLANE,
-    AIRPORT
+    AIRPORT,
+    INVALID
 };
 
 //Recognizing element type from <Element> string
