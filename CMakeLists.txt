@@ -32,7 +32,7 @@ set(DEBUG_SOURCE_FILES
         headers/Runway.cpp
         headers/Runway.h
         headers/Gate.h
-        main.cpp)
+        mainTests.cpp)
 
 # Create RELEASE target
 add_executable(ProjectSE ${RELEASE_SOURCE_FILES})
