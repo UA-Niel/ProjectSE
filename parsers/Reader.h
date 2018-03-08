@@ -18,7 +18,8 @@ Airport loadAirportFromFile(const char* fileName);
 enum ElementType {
     RUNWAY,
     AIRPLANE,
-    AIRPORT
+    AIRPORT,
+    INVALID
 };
 
 //Recognizing element type from <Element> string

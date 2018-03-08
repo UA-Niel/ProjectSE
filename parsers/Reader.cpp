@@ -1,12 +1,13 @@
 //Implementation file for Read-parser
 
 #include "Reader.h"
-#include "library/tinyxml.h"
+#include "./library/tinyxml.h"
 
 #include <fstream>
 #include <string>
 #include <iostream>
 #include <map>
+#include <sstream>
 
 //loadFromFile
 Airport loadAirportFromFile(const char* fileName) {
@@ -53,7 +54,10 @@ Airport loadAirportFromFile(const char* fileName) {
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
                         
-                        int amountOfGates = std::stoi(t);
+                        int amountOfGates;
+                        std::istringstream ss(t);
+                        ss >> amountOfGates;
+
                         for (int i = 0; i < amountOfGates; i++) {
                             Gate myGate;
                             myAirport.addGate(myGate);
@@ -118,7 +122,7 @@ Airport loadAirportFromFile(const char* fileName) {
 
 //Recognizing elementType
 ElementType elementType(const std::string& element) {
-    ElementType type;
+    ElementType type = INVALID;
 
     if (element == "AIRPORT") {
         type = AIRPORT;
