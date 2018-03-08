@@ -38,7 +38,7 @@ bool Airport::removeAirplane(const int id) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
 
     int counter = 0;
-    for (int i = 0; i < this->_airplanesOnAirport.size(); i++) {
+    for(unsigned int i = 0; i < this->_airplanesOnAirport.size(); i++) {
         if (this->_airplanesOnAirport[i]->getId() == id) break;
         counter++;
     }
@@ -52,7 +52,7 @@ bool Airport::removeRunway(const int id) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     
     int counter = 0;
-    for (int i = 0; i < this->_runways.size(); i++) {
+    for(unsigned int i = 0; i < this->_runways.size(); i++) {
         if (this->_runways[i]->getId() == id) break;
         counter++;
     }
@@ -66,7 +66,7 @@ bool Airport::removeGate(const int id) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     
     int counter = 0;
-    for (int i = 0; i < this->_gates.size(); i++) {
+    for (unsigned int i = 0; i < this->_gates.size(); i++) {
         if (this->_gates[i]->getId() == id) break;
         counter++;
     }
@@ -81,25 +81,29 @@ Airplane* Airport::getAirplane(const int id) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
    
 
-    for (int i = 0; i < this->_airplanesOnAirport.size(); i++) {
+    for(unsigned int i = 0; i < this->_airplanesOnAirport.size(); i++) {
         if (this->_airplanesOnAirport[i]->getId() == id) return this->_airplanesOnAirport[i];
     }
+
+    return NULL;
 }
 //Get Runway&
 Runway* Airport::getRunway(const int id) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     
-    for (int i = 0; i < this->_runways.size(); i++) {
+    for(unsigned int i = 0; i < this->_runways.size(); i++) {
         if (this->_runways[i]->getId() == id) return this->_runways[i];
     }
+    return NULL;
 }
 //Get Gate&
 Gate* Airport::getGate(const int id)  {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     
-    for (int i = 0; i < this->_gates.size(); i++) {
+    for(unsigned int i = 0; i < this->_gates.size(); i++) {
         if (this->_gates[i]->getId() == id) return this->_gates[i];
     }
+    return NULL;
 }
 
 //Setters:
@@ -139,7 +143,11 @@ const std::string &Airport::getCallsign() const{
 }
 
 //Constructors
-Airport::Airport() {
+Airport::Airport(){
+    _airportId = -1;
+    _callsign = "";
+    _name = "";
+    _IATA = "";
     _initCheck = this;
     ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
 }
