@@ -212,7 +212,7 @@ public:
      * \brief Default constructor for airport
      *
      * **Preconditions:**
-     * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+     * - ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
     Airport();
 
@@ -226,7 +226,7 @@ public:
      * @param _callsign Std::string callsign of the airport
      *
      * **Preconditions:**
-     * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+     * - ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
     Airport(const vector<Runway*> _runways, const vector<Gate*> _gates, int _airportId, const string &_name,
             const string &_IATA, const string &_callsign);
