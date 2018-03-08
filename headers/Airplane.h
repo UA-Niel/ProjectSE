@@ -23,6 +23,7 @@ public:
     /**
      * \brief Makes the airplane depart
      * @return true if the airplanes departed successfully
+     *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
@@ -31,6 +32,7 @@ public:
     /**
      * \brief Lets the airplane land
      * @return true if the airplane landed successfully
+     *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
@@ -39,6 +41,7 @@ public:
     /**
      * \brief Gives the airplane a new ID
      * @param id This is the new ID of the airplane
+     *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
@@ -47,6 +50,7 @@ public:
     /**
      * \brief Gives the airplane a new number
      * @param number The new number of the airplane
+     *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
@@ -56,6 +60,7 @@ public:
      * \brief Gives the airplane a new callsign
      * \n \n
      * @param callsign The new callsign of the airplane
+     *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
@@ -64,6 +69,7 @@ public:
     /**
      * \brief Gives the airplane a new model
      * @param model The new model of the airplane
+     *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
@@ -72,6 +78,7 @@ public:
     /**
      * \brief Gives the airplane a new status
      * @param status The new status of the airplane
+     *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
@@ -80,6 +87,7 @@ public:
     /**
      * \brief Gets the ID of the airplane
      * @return The ID of the airplane
+     *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
@@ -88,6 +96,7 @@ public:
     /**
      * \brief Gets the callsign of the airplane
      * @return The callsign of the airplane
+     *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
@@ -96,6 +105,7 @@ public:
     /**
      * \brief Gets the model of the airplane
      * @return The model of the airplane
+     *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
@@ -104,6 +114,7 @@ public:
     /**
      * \brief Gets the status of the airplane
      * @return The ID code of the airplane
+     *
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
@@ -140,8 +151,8 @@ public:
      * \brief constructor of the airplane class
      *
      * This constructor is the default constructor
-     *  \n \n
-     * **postconditons:**
+     *
+     * **Postconditons:**
      * - ENSURE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
     Airplane();
