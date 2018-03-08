@@ -23,6 +23,8 @@ set(RELEASE_SOURCE_FILES
         parsers/library/tinystr.cpp
         parsers/Reader.h
         headers/Airplane.cpp
+        headers/Gate.h
+        headers/Gate.cpp
         headers/Airplane.h
         headers/Airport.cpp
         headers/Airport.h

@@ -1,0 +1,225 @@
+\hypertarget{class_runway}{}\section{Runway Class Reference}
+\label{class_runway}\index{Runway@{Runway}}
+
+
+Class that represents a runway.  
+
+
+
+
+{\ttfamily \#include $<$Runway.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the airport class is initialized correctly. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_runway_ae07554e4e41faea8ef9654385449b25b}{add\+Airplane}} (\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$airplane)
+\begin{DoxyCompactList}\small\item\em Adds an airplane to the runway. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_runway_af587fc8f841c10a99427cf7a0f442fce}{set\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Gives the runway a new ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_runway_ab601d0a69ecffc0042d69cf0eb0cdaba}{set\+Name}} (const string \&name)
+\begin{DoxyCompactList}\small\item\em Gives the runway a new name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_runway_a6614626321a1f4c33f24800cbe78d330}{set\+Airport}} (int airport\+Id)
+\begin{DoxyCompactList}\small\item\em Gives the runway a new \mbox{\hyperlink{class_airport}{Airport}} ID. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_runway_afd718b92fbf2bdcbdc5c3da48a76c7af}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns the id of the runway. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_runway_a525e4c94639bde05c335492d5229f882}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Returns the name of the runway. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_runway_ac6d84fd93863115c2b96912b4432d76e}{get\+Airport}} () const
+\begin{DoxyCompactList}\small\item\em Returns the ID of the airport. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_runway_a9907eac3d79e7a4bddd8b00bf1a15bce}{Runway}} (int runway\+Id, const string \&\+\_\+name, const vector$<$ \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$$>$ \&airplanes\+On\+Runway)
+\begin{DoxyCompactList}\small\item\em Constructor which initializes all members. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_runway_a75b9355b4953bd430f7c6ea0a18b465a}{Runway}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for runway. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that represents a runway. 
+
+A runway has an ID, id of the airport it is part of, a name and eventually airplanes 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_runway_a9907eac3d79e7a4bddd8b00bf1a15bce}\label{class_runway_a9907eac3d79e7a4bddd8b00bf1a15bce}} 
+\index{Runway@{Runway}!Runway@{Runway}}
+\index{Runway@{Runway}!Runway@{Runway}}
+\subsubsection{\texorpdfstring{Runway()}{Runway()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Runway\+::\+Runway (\begin{DoxyParamCaption}\item[{int}]{runway\+Id,  }\item[{const string \&}]{\+\_\+name,  }\item[{const vector$<$ \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$$>$ \&}]{airplanes\+On\+Runway }\end{DoxyParamCaption})}
+
+
+
+Constructor which initializes all members. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em runway\+Id} & Id of runway \\
+\hline
+{\em \+\_\+name} & Name of runway \\
+\hline
+{\em airplanes\+On\+Runway} & Planes on runway\\
+\hline
+\end{DoxyParams}
+{\bfseries Postconditions\+:}
+\begin{DoxyItemize}
+\item E\+N\+S\+U\+RE(this-\/$>$\mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized()}}, \char`\"{}\+Runway is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_runway_a75b9355b4953bd430f7c6ea0a18b465a}\label{class_runway_a75b9355b4953bd430f7c6ea0a18b465a}} 
+\index{Runway@{Runway}!Runway@{Runway}}
+\index{Runway@{Runway}!Runway@{Runway}}
+\subsubsection{\texorpdfstring{Runway()}{Runway()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Runway\+::\+Runway (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for runway. 
+
+{\bfseries Postconditons\+:}
+\begin{DoxyItemize}
+\item E\+N\+S\+U\+RE(this-\/$>$\mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized()}}, \char`\"{}\+Runway is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_runway_ae07554e4e41faea8ef9654385449b25b}\label{class_runway_ae07554e4e41faea8ef9654385449b25b}} 
+\index{Runway@{Runway}!add\+Airplane@{add\+Airplane}}
+\index{add\+Airplane@{add\+Airplane}!Runway@{Runway}}
+\subsubsection{\texorpdfstring{add\+Airplane()}{addAirplane()}}
+{\footnotesize\ttfamily bool Runway\+::add\+Airplane (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$}]{airplane }\end{DoxyParamCaption})}
+
+
+
+Adds an airplane to the runway. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airplane} & \mbox{\hyperlink{class_airplane}{Airplane}} which needs to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the airplane is added correctly
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized()}}, \char`\"{}\+Runway is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_runway_ac6d84fd93863115c2b96912b4432d76e}\label{class_runway_ac6d84fd93863115c2b96912b4432d76e}} 
+\index{Runway@{Runway}!get\+Airport@{get\+Airport}}
+\index{get\+Airport@{get\+Airport}!Runway@{Runway}}
+\subsubsection{\texorpdfstring{get\+Airport()}{getAirport()}}
+{\footnotesize\ttfamily int Runway\+::get\+Airport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the ID of the airport. 
+
+\begin{DoxyReturn}{Returns}
+ID of the airport
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized()}}, \char`\"{}\+Runway is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_runway_afd718b92fbf2bdcbdc5c3da48a76c7af}\label{class_runway_afd718b92fbf2bdcbdc5c3da48a76c7af}} 
+\index{Runway@{Runway}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Runway@{Runway}}
+\subsubsection{\texorpdfstring{get\+Id()}{getId()}}
+{\footnotesize\ttfamily int Runway\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the id of the runway. 
+
+\begin{DoxyReturn}{Returns}
+Id of the runway
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized()}}, \char`\"{}\+Runway is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_runway_a525e4c94639bde05c335492d5229f882}\label{class_runway_a525e4c94639bde05c335492d5229f882}} 
+\index{Runway@{Runway}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Runway@{Runway}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily std\+::string Runway\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the name of the runway. 
+
+\begin{DoxyReturn}{Returns}
+Name of the runway
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized()}}, \char`\"{}\+Runway is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_runway_a360d98246cabf3aa929765f81a656348}\label{class_runway_a360d98246cabf3aa929765f81a656348}} 
+\index{Runway@{Runway}!properly\+Initialized@{properly\+Initialized}}
+\index{properly\+Initialized@{properly\+Initialized}!Runway@{Runway}}
+\subsubsection{\texorpdfstring{properly\+Initialized()}{properlyInitialized()}}
+{\footnotesize\ttfamily bool Runway\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the airport class is initialized correctly. 
+
+\begin{DoxyReturn}{Returns}
+Returns true if the airport is correctly initialized
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized()}}, \char`\"{}\+Runway is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_runway_a6614626321a1f4c33f24800cbe78d330}\label{class_runway_a6614626321a1f4c33f24800cbe78d330}} 
+\index{Runway@{Runway}!set\+Airport@{set\+Airport}}
+\index{set\+Airport@{set\+Airport}!Runway@{Runway}}
+\subsubsection{\texorpdfstring{set\+Airport()}{setAirport()}}
+{\footnotesize\ttfamily void Runway\+::set\+Airport (\begin{DoxyParamCaption}\item[{int}]{airport\+Id }\end{DoxyParamCaption})}
+
+
+
+Gives the runway a new \mbox{\hyperlink{class_airport}{Airport}} ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airport\+Id} & New \mbox{\hyperlink{class_airport}{Airport}} ID for the runway\\
+\hline
+\end{DoxyParams}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized()}}, \char`\"{}\+Runway is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_runway_af587fc8f841c10a99427cf7a0f442fce}\label{class_runway_af587fc8f841c10a99427cf7a0f442fce}} 
+\index{Runway@{Runway}!set\+Id@{set\+Id}}
+\index{set\+Id@{set\+Id}!Runway@{Runway}}
+\subsubsection{\texorpdfstring{set\+Id()}{setId()}}
+{\footnotesize\ttfamily void Runway\+::set\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Gives the runway a new ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & New ID for the runway\\
+\hline
+\end{DoxyParams}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized()}}, \char`\"{}\+Runway is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_runway_ab601d0a69ecffc0042d69cf0eb0cdaba}\label{class_runway_ab601d0a69ecffc0042d69cf0eb0cdaba}} 
+\index{Runway@{Runway}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Runway@{Runway}}
+\subsubsection{\texorpdfstring{set\+Name()}{setName()}}
+{\footnotesize\ttfamily void Runway\+::set\+Name (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Gives the runway a new name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & New name for the runway\\
+\hline
+\end{DoxyParams}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized()}}, \char`\"{}\+Runway is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/Runway.\+h\item 
+headers/Runway.\+cpp\end{DoxyCompactItemize}

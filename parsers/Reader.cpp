@@ -59,7 +59,7 @@ Airport loadAirportFromFile(const char* fileName) {
                         ss >> amountOfGates;
 
                         for (int i = 0; i < amountOfGates; i++) {
-                           // Gate myGate;
+                            Gate myGate;
                             myAirport.addGate(new Gate);
                         }
                     }
