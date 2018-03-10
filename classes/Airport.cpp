@@ -1,4 +1,7 @@
-//Declaration file for Airport-class
+/**
+ * \file
+ * This file contains the implementation of Airport
+ */
 
 #include "Airport.h"
 #include "Airplane.h"

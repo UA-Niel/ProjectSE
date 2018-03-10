@@ -287,7 +287,7 @@
 // use them on Windows Mobile.
 #if !GTEST_OS_WINDOWS
 // This assumes that non-Windows OSes provide unistd.h. For OSes where this
-// is not the case, we need to include headers that provide the functions
+// is not the case, we need to include classes that provide the functions
 // mentioned above.
 # include <unistd.h>
 # include <strings.h>

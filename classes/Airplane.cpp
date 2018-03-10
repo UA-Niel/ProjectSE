@@ -1,4 +1,7 @@
-//Implementation file for Airplane-class
+/**
+ * \file
+ * This file contains the implementation of Airplane
+ */
 
 #include "Airplane.h"
 #include "../DesignByContract.h"

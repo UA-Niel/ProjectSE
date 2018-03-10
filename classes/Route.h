@@ -1,4 +1,7 @@
-//Header-file for Route-class
+/**
+ * \file
+ * This file contains the declaration of the Route class
+ */
 
 #ifndef ROUTE_H
 #define ROUTE_H

@@ -1,4 +1,7 @@
-//Implementation-file for Route-class
+/**
+ * \file
+ * This file contains the implementation of Route
+ */
 
 #include "Route.h"
 #include <vector>

@@ -1,4 +1,7 @@
-//Header file for Gate-class
+/**
+ * \file
+ * This file contains the declaration of the Gate class
+ */
 
 #ifndef GATE_H
 #define GATE_H

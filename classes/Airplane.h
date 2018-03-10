@@ -1,5 +1,7 @@
-//Header file for Airplane-class
-
+/**
+ * \file
+ * This file contains the declarations of the Airplane class
+ */
 #ifndef AIRPLANE_H
 #define AIRPLANE_H
 
