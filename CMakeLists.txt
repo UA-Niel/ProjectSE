@@ -22,6 +22,8 @@ set(GLOB DEBUG_SOURCE_FILES
 
 list(APPEND DEBUG_SOURCE_FILES
         mainTests.cpp
+        AirportOutputTests.cpp
+        AirportOutputTests.h
         utils.h
         utils.cpp
         DesignByContract.h
@@ -46,7 +48,7 @@ list(APPEND RELEASE_SOURCE_FILES
         )
 
 # Create RELEASE target
-add_executable(ProjectSE ${RELEASE_SOURCE_FILES})
+add_executable(ProjectSE ${RELEASE_SOURCE_FILES} AirportOutputTests.cpp AirportOutputTests.h)
 
 # Create DEBUG target
 add_executable(ProjectSE_debug ${DEBUG_SOURCE_FILES})
