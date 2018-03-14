@@ -254,6 +254,8 @@ public:
 
     const vector<Airplane *> &getAirplanes() const;
 
+    std::vector<Runway*> *getRunways();
+
 
 private:
     vector<Airplane*> _airplanesOnAirport; /**<Vector of pointers to airplanes*/

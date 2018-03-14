@@ -7,8 +7,8 @@
 
 #include <string>
 #include "Gate.h"
-#include "Runway.h"
 
+class Runway;
 class Airport;
 
 
@@ -166,7 +166,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
-    Runway& checkFreeRunway(Airport* ap);
+    Runway* checkFreeRunway(Airport* ap);
 
     /**
      * \brief constructor of the airplane class

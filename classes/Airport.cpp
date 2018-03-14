@@ -180,4 +180,6 @@ const vector<Airplane *> &Airport::getAirplanes() const {
     return _airplanesOnAirport;
 }
 
-
+std::vector<Runway*>* Airport::getRunways() {
+    return &_runways;
+}

@@ -31,11 +31,14 @@ Airport* loadAirportFromFile(const char* fileName) {
         for (TiXmlElement* elem = root->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
             //Detecting elementType
             std::string elemType = elem->Value();
+            //std::cout << "xxxx " << elemType << std::endl;
             if (elementType(elemType) == AIRPORT) { 
                 //Looping over all child elements
                 //and adding properties to Airport-class
                 for (TiXmlElement* e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
                    std::string eValue = e->Value();
+
+                    //std::cout <<"eee " <<  eValue << std::endl;
 
                     if (eValue == "name") {
                         TiXmlNode* x = e->FirstChild();

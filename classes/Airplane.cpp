@@ -3,7 +3,9 @@
  * This file contains the implementation of Airplane
  */
 
+#include "Airport.h"
 #include "Airplane.h"
+#include "Runway.h"
 #include "../DesignByContract.h"
 
 //Depart
@@ -16,7 +18,7 @@ bool Airplane::land(Runway* runway) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     
     //Plane land
-    runway->_airplanesOnRunway.push_back(this);
+    runway->getAirplanesOnRunway().push_back(this);
 
     return true;
 }
@@ -39,7 +41,7 @@ bool Airplane::approach(Airport* ap) {
 
     //Airplane lands on free runway
     //Check for free runway
-    Runway* freeRunway = freeRunwaycheckFreeRunway(ap);
+    Runway* freeRunway = checkFreeRunway(ap);
 
     //Let plane land on the free runway
     this->land(freeRunway);
@@ -49,10 +51,10 @@ bool Airplane::approach(Airport* ap) {
 
 //Returns a free runway]
 //:param Airport* ap: Our airport
-Runway& checkFreeRunway(Airport* ap) {
-    for (int i = 0; i < ap->_runways.size(); i++) {
-        if (ap->_runways[i]._airplanesOnRunway.size() == 0) {
-            return ap->_runways[i];
+Runway* Airplane::checkFreeRunway(Airport* ap) {
+    for (int i = 0; i < ap->getRunways()->size(); i++) {
+        if (ap->getRunway(i)->getAirplanesOnRunway().size() == 0) {
+            return ap->getRunway(i);
         }
     }
 }
