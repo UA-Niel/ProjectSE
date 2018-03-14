@@ -11,9 +11,9 @@ include_directories(gtest/include)
 link_directories(gtest/lib)
 
 # Set source files for DEBUG target
-file(GLOB DEBUG_SOURCE_FILES
-        headers/*.h
-        headers/*.cpp
+set(GLOB DEBUG_SOURCE_FILES
+        classes/*.h
+        classes/*.cpp
         parsers/*.h
         parsers/*.cpp
         parsers/library/*.cpp
@@ -29,8 +29,8 @@ list(APPEND DEBUG_SOURCE_FILES
 
 # Set source files for RELEASE target
 file(GLOB RELEASE_SOURCE_FILES
-        headers/*.h
-        headers/*.cpp
+        classes/*.h
+        classes/*.cpp
         parsers/*.h
         parsers/*.cpp
         parsers/library/*.cpp

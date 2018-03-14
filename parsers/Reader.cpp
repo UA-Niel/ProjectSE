@@ -129,7 +129,7 @@ Airport* loadAirportFromFile(const char* fileName) {
 
         return myAirport;
     }
-    return Airport();
+    return new Airport();
 }
 
 //Recognizing elementType
