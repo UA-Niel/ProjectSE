@@ -234,6 +234,26 @@ public:
     Airport(const vector<Runway*> _runways, const vector<Gate*> _gates, int _airportId, const string &_name,
             const string &_IATA, const string &_callsign);
 
+    /**
+     * \brief Check how many gates the Airport has
+     * @return Unsigned integer for the number of gates
+     *
+     * **Preconditions:**
+     * - ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
+     */
+    unsigned int getNrOfGates() const;
+
+    /**
+     * \brief Check how many runways the Airport has
+     * @return Unsigned integer for the number of runways
+     *
+     * **Preconditions:**
+     * - ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
+     */
+    unsigned int getNrOfRunways() const;
+
+    const vector<Airplane *> &getAirplanes() const;
+
 
 private:
     vector<Airplane*> _airplanesOnAirport; /**<Vector of pointers to airplanes*/
@@ -244,7 +264,7 @@ private:
     string _IATA; /**<Airport IATA string*/
     string _callsign; /**<Airport callsign string*/
     //Init check:
-    Airport* _initCheck; /**<member used in @see properlyInitalized() to check if the airplane is initalized correctly*/
+    Airport* _initCheck; /**<member used in @see properlyInitalized to check if the airplane is initalized correctly*/
 };
 
 #endif //AIRPORT_H

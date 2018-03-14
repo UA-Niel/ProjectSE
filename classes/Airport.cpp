@@ -166,4 +166,18 @@ bool Airport::properlyInitialized() const {
     return _initCheck == this;
 }
 
+unsigned int Airport::getNrOfGates() const {
+    REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+    return _gates.size();
+}
+
+unsigned int Airport::getNrOfRunways() const {
+    REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+    return _runways.size();
+}
+
+const vector<Airplane *> &Airport::getAirplanes() const {
+    return _airplanesOnAirport;
+}
+
 
