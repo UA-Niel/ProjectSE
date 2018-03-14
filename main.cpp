@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 
 #include "classes/Airplane.h"
 #include "classes/Airport.h"
@@ -29,10 +30,15 @@ int main(int argc, char* argv[]) {
 //    ap->setIATA("FVP");
 //    ap->setId(7);
 //    ap->addAirplane(airp);
-//
-//    AirportExporter airportExporter(ap);
-//    airportExporter.startOutput();
-//    airportExporter.outputBasicInfo(cout);
+
+    ofstream file("BasicOutputTestsTemplate1.txt");
+    vector<Runway*>runways;
+    vector<Gate*>gates;
+    Airport ap(runways, gates, 0, "myAirport", "MAP", "This is my Airport");
+    AirportExporter airportExporter(&ap);
+    airportExporter.startOutput();
+    airportExporter.outputBasicInfo(cout);
+    file.close();
 
 
     return 0;
