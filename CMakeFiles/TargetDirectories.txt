@@ -1,4 +1,0 @@
-/home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles/rebuild_cache.dir
-/home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles/edit_cache.dir
-/home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles/ProjectSE.dir
-/home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles/ProjectSE_debug.dir
