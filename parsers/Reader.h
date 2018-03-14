@@ -5,13 +5,13 @@
 
 #include <string>
 #include <map>
-#include "../headers/Airport.h"
-#include "../headers/Route.h"
+#include "../classes/Airport.h"
+#include "../classes/Route.h"
 
 //Loading the airport from an input-file into memory
 //:param fileName => Filename to read from
 //:return bool => True on success
-Airport loadAirportFromFile(const char* fileName);
+Airport* loadAirportFromFile(const char* fileName);
 
 //Loading all the routes from an input-file into memory
 //:param fileName => Filename to read from
