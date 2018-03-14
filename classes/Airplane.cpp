@@ -24,7 +24,7 @@ bool Airplane::land(Runway* runway) {
 }
 //Taxi
 bool Airplane::taxi(Gate* gate) {
-
+    return false;
 }
 //Approach
 bool Airplane::approach(Airport* ap) {
@@ -52,11 +52,12 @@ bool Airplane::approach(Airport* ap) {
 //Returns a free runway]
 //:param Airport* ap: Our airport
 Runway* Airplane::checkFreeRunway(Airport* ap) {
-    for (int i = 0; i < ap->getRunways()->size(); i++) {
+    for (unsigned int i = 0; i < ap->getRunways()->size(); i++) {
         if (ap->getRunway(i)->getAirplanesOnRunway().size() == 0) {
             return ap->getRunway(i);
         }
     }
+    return NULL;
 }
 
 //Accessors and mutators

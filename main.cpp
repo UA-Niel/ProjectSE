@@ -37,10 +37,10 @@ int main(int argc, char* argv[]) {
     ofstream file("BasicOutputTestsTemplate1.txt");
     vector<Runway*>runways;
     vector<Gate*>gates;
-    Airport ap(runways, gates, 0, "myAirport", "MAP", "This is my Airport");
-    AirportExporter airportExporter(p);
+    Airport ap(runways, gates, 0, "myAirport", "MAP", "this is my Airport");
+    AirportExporter airportExporter(&ap);
     airportExporter.startOutput();
-    airportExporter.outputBasicInfo(cout);
+    airportExporter.outputAirportDetails(file);
     file.close();
 
 
