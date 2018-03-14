@@ -2,6 +2,7 @@
 
 #include "Reader.h"
 #include "library/tinyxml.h"
+#include "library/tinystr.h"
 
 #include <fstream>
 #include <string>
@@ -10,18 +11,18 @@
 #include <sstream>
 
 //loadAirportFromFile
-Airport loadAirportFromFile(const char* fileName) {
+Airport* loadAirportFromFile(const char* fileName) {
     TiXmlDocument doc;
     
     //Loading file and check if it loaded correct
     if (!doc.LoadFile(fileName)) {
-        std::cout<<"error"<<std::endl;
+        std::cout<< "Error: " << doc.ErrorDesc() << std::endl;
     
     } else { 
 
         //Create instance of Airport
-        Airport myAirport;
-        myAirport.setId(1);
+        Airport* myAirport = new Airport;
+        myAirport->setId(1);
 
         //Getting root element
         TiXmlElement* root = doc.FirstChildElement();
@@ -40,13 +41,13 @@ Airport loadAirportFromFile(const char* fileName) {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                        myAirport.setName(t);
+                        myAirport->setName(t);
                     }
                     if (eValue == "iata") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                        myAirport.setIATA(t);
+                        myAirport->setIATA(t);
                      
                     }
                     if (eValue == "gates") {
@@ -60,7 +61,7 @@ Airport loadAirportFromFile(const char* fileName) {
 
                         for (int i = 0; i < amountOfGates; i++) {
                             Gate myGate;
-                            myAirport.addGate(new Gate);
+                            myAirport->addGate(new Gate);
                         }
                     }
                 }
@@ -80,7 +81,7 @@ Airport loadAirportFromFile(const char* fileName) {
                         myRunway.setName(t);
                     }
                     if (eValue == "airport") {
-                        myRunway.setAirport(myAirport.getId());
+                        myRunway.setAirport(myAirport->getId());
                     }
                 }
             }

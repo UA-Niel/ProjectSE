@@ -10,8 +10,8 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    Airport p = loadAirportFromFile("inputs/airport1.xml");
-    cout << "Hello world!" << endl;
+    Airport* p = loadAirportFromFile("inputs/airport1.xml");
+    cout << p->getId() << endl;
 
     return 0;
 }
