@@ -72,7 +72,7 @@ Airport* loadAirportFromFile(const char* fileName) {
         
             //Adding runway
             if (elementType(elemType) == RUNWAY) {
-                Runway myRunway;
+                static Runway myRunway;
                 
                 for (TiXmlElement* e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
                    std::string eValue = e->Value();
@@ -87,10 +87,12 @@ Airport* loadAirportFromFile(const char* fileName) {
                         myRunway.setAirport(myAirport->getId());
                     }
                 }
+
+                myAirport->addRunway(&myRunway);
             }
             //Adding airplane
             if (elementType(elemType) == AIRPLANE) {
-                Airplane myAirplane;
+                static Airplane myAirplane;
 
                 for (TiXmlElement* e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
                    std::string eValue = e->Value();
