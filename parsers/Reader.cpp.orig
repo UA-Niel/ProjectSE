@@ -2,7 +2,6 @@
 
 #include "Reader.h"
 #include "library/tinyxml.h"
-#include "library/tinystr.h"
 
 #include <fstream>
 #include <string>
@@ -11,18 +10,18 @@
 #include <sstream>
 
 //loadAirportFromFile
-Airport* loadAirportFromFile(const char* fileName) {
+Airport loadAirportFromFile(const char* fileName) {
     TiXmlDocument doc;
     
     //Loading file and check if it loaded correct
     if (!doc.LoadFile(fileName)) {
-        std::cout<< "Error: " << doc.ErrorDesc() << std::endl;
+        std::cout<<"error"<<std::endl;
     
     } else { 
 
         //Create instance of Airport
-        Airport* myAirport = new Airport;
-        myAirport->setId(1);
+        Airport myAirport;
+        myAirport.setId(1);
 
         //Getting root element
         TiXmlElement* root = doc.FirstChildElement();
@@ -31,26 +30,23 @@ Airport* loadAirportFromFile(const char* fileName) {
         for (TiXmlElement* elem = root->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement()) {
             //Detecting elementType
             std::string elemType = elem->Value();
-            //std::cout << "xxxx " << elemType << std::endl;
             if (elementType(elemType) == AIRPORT) { 
                 //Looping over all child elements
                 //and adding properties to Airport-class
                 for (TiXmlElement* e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
                    std::string eValue = e->Value();
 
-                    //std::cout <<"eee " <<  eValue << std::endl;
-
                     if (eValue == "name") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                        myAirport->setName(t);
+                        myAirport.setName(t);
                     }
                     if (eValue == "iata") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                        myAirport->setIATA(t);
+                        myAirport.setIATA(t);
                      
                     }
                     if (eValue == "gates") {
@@ -63,8 +59,12 @@ Airport* loadAirportFromFile(const char* fileName) {
                         ss >> amountOfGates;
 
                         for (int i = 0; i < amountOfGates; i++) {
+<<<<<<< HEAD
+                           // Gate myGate;
+=======
                             Gate myGate;
-                            myAirport->addGate(new Gate);
+>>>>>>> 5c073184398afba616c5b8ea2f35771503efc423
+                            myAirport.addGate(new Gate);
                         }
                     }
                 }
@@ -72,7 +72,7 @@ Airport* loadAirportFromFile(const char* fileName) {
         
             //Adding runway
             if (elementType(elemType) == RUNWAY) {
-                static Runway myRunway;
+                Runway myRunway;
                 
                 for (TiXmlElement* e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
                    std::string eValue = e->Value();
@@ -84,15 +84,13 @@ Airport* loadAirportFromFile(const char* fileName) {
                         myRunway.setName(t);
                     }
                     if (eValue == "airport") {
-                        myRunway.setAirport(myAirport->getId());
+                        myRunway.setAirport(myAirport.getId());
                     }
                 }
-
-                myAirport->addRunway(&myRunway);
             }
             //Adding airplane
             if (elementType(elemType) == AIRPLANE) {
-                static Airplane myAirplane;
+                Airplane myAirplane;
 
                 for (TiXmlElement* e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
                    std::string eValue = e->Value();
@@ -134,7 +132,6 @@ Airport* loadAirportFromFile(const char* fileName) {
 
         return myAirport;
     }
-    return new Airport();
 }
 
 //Recognizing elementType

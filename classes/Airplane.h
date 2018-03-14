@@ -6,6 +6,11 @@
 #define AIRPLANE_H
 
 #include <string>
+#include "Gate.h"
+
+class Runway;
+class Airport;
+
 
 using namespace std;
 
@@ -33,12 +38,34 @@ public:
 
     /**
      * \brief Lets the airplane land
+     * @param runway Runway to land on
      * @return true if the airplane landed successfully
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
-    bool land();
+    bool land(Runway* runway);
+
+    /**
+     * \brief Lets the airplane taxi
+     * @param gate Gate to taxi to
+     * @return true if the airplane 
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    bool taxi(Gate* gate);
+
+    /**
+     * \brief Lets the airplane approach
+     * @param ap Pointer to airport to approach
+     * @return true if the airplane approached successfully
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    bool approach(Airport* ap);
+    
 
     /**
      * \brief Gives the airplane a new ID
@@ -132,6 +159,14 @@ public:
      */
     std::string getNumber() const;
 
+    /**
+     * \brief Returns the free runway
+     * @return The free runway
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    Runway* checkFreeRunway(Airport* ap);
 
     /**
      * \brief constructor of the airplane class
@@ -166,6 +201,8 @@ private:
     string _model; /**<The model of the airplane*/
     int _status; /**<The status of the airplane*/
     Airplane* _initCheck; /**<member used in @see properlyInitalized() to check if the airplane is initalized correctly*/
+    
+    int _height; /**<Variable to hold current height of the airplane>*/
 };
 
 #endif

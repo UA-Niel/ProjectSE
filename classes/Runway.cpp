@@ -13,6 +13,12 @@ bool Runway::addAirplane(Airplane* airplane) {
     return true;
 }
 
+//Return airplanes
+std::vector<Airplane*>& Runway::getAirplanesOnRunway() {
+    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly")
+    return _airplanesOnRunway;
+}
+
 //Accessors and mutators
 void Runway::setId(const int id) {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly")

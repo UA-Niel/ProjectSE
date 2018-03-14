@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include "Airplane.h"
+
 using namespace std;
 
 /**
@@ -34,6 +35,15 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
      */
     bool addAirplane(Airplane* airplane);
+
+    /**
+     * \brief Returns the whole vector of all airplanes on runway
+     * @return Airplanes
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+     */
+    std::vector<Airplane*>& getAirplanesOnRunway();
 
     //Accessors and mutator:
     /**

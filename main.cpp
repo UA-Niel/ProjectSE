@@ -19,8 +19,11 @@ using namespace std;
 int main(int argc, char* argv[]) {
     const char* str = "inputs/airport1.xml";
     Airport* p = loadAirportFromFile(str);
+    
     cout << "Hello world!" << endl;
     cout << p->getName() << endl;
+    std::cout << "Runway Size: " << p->getRunways()->size() << std::endl;
+
 
 //    Airport* ap = new Airport();
 //    Airplane* airp = new Airplane(3, "Mooi vliegtuigje", "Heel mooi", 7);
@@ -35,7 +38,7 @@ int main(int argc, char* argv[]) {
     vector<Runway*>runways;
     vector<Gate*>gates;
     Airport ap(runways, gates, 0, "myAirport", "MAP", "This is my Airport");
-    AirportExporter airportExporter(&ap);
+    AirportExporter airportExporter(p);
     airportExporter.startOutput();
     airportExporter.outputBasicInfo(cout);
     file.close();
