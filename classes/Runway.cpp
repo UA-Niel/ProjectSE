@@ -1,4 +1,7 @@
-//Implementation file for Runway-class
+/**
+ * \file
+ * This file contains the implementation of Runway
+ */
 
 #include "Runway.h"
 #include "../DesignByContract.h"

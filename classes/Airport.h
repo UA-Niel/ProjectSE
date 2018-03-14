@@ -1,4 +1,7 @@
-//Header file for Airport-class
+/**
+ * \file
+ * This file contains all information about the Airport class
+ */
 
 #ifndef AIRPORT_H
 #define AIRPORT_H

@@ -1,9 +1,14 @@
+/**
+ * \file
+ * This is the main file of the project
+ */
+
 #include <iostream>
 #include <string>
 
-#include "headers/Airplane.h"
-#include "headers/Airport.h"
-#include "headers/Runway.h"
+#include "classes/Airplane.h"
+#include "classes/Airport.h"
+#include "classes/Runway.h"
 
 #include "parsers/Reader.h"
 

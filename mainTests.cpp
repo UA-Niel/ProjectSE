@@ -1,5 +1,10 @@
+/**
+ * \file
+ * This is the main file for all the gtests
+ */
+
 #include <iostream>
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 using namespace std;
 
 int main(int argc, char* argv[]) {

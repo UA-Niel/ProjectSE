@@ -1,4 +1,7 @@
-//Header file for Runway
+/**
+ * \file
+ * This file contains the declaration of the Runway class
+ */
 
 #ifndef RUNWAY_H
 #define RUNWAY_H
@@ -19,9 +22,6 @@ public:
     /**
      * \brief Checks if the airport class is initialized correctly
      * @return Returns true if the airport is correctly initialized
-     *
-     * **Preconditions:**
-     * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
      */
     bool properlyInitialized() const;
 

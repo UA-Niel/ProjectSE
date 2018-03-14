@@ -1,4 +1,7 @@
-//Implementation file for Gate-class
+/**
+ * \file
+ * This file contains the implementation of Gate
+ */
 
 #include "Gate.h"
 #include "../DesignByContract.h"
