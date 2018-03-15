@@ -70,4 +70,10 @@ void AirportExporter::stopOutput() {
     _startOutput = false;
 }
 
+void AirportExporter::outputString(ostream &stream, std::string outputString) {
+    REQUIRE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
+    REQUIRE(_startOutput, "StartOutput has to be true before it can be stopped");
+    stream << outputString << endl;
+}
+
 
