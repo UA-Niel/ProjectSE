@@ -5,10 +5,10 @@
  * This file contains the declaration of the AirportExporter class
  */
 
-#include "Airport.h"
 #include "../DesignByContract.h"
 
 using namespace std;
+class Airport;
 
 /**
  * \brief This class is used for Airport Exporter Exceptions
@@ -67,7 +67,8 @@ class AirportExporter {
 private:
     AirportExporter* _initCheck; /**<Member used to check if the class is initalized correctly in properlyInitalized()*/
     bool _startOutput; /**<Bool to check if the output is started*/
-    Airport* _airport;
+    Airport* _airport; /**<Pointer to airport, the source for the output*/
+    std::ostream& _stream;
 public:
     /**
      * \brief default destructor for AirportExporter
@@ -83,7 +84,7 @@ public:
      * **Postconditions:**
      * - ENSURE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
      */
-    AirportExporter();
+    AirportExporter(std::ostream& stream);
 
     /**
      * \brief Constructor which takes an airport as parameter
@@ -92,13 +93,14 @@ public:
      * **Postconditions:**
      * - ENSURE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
      */
-    explicit AirportExporter(Airport *airport);
+    AirportExporter(Airport *airport, std::ostream& stream);
 
     /**
      * \brief Checks if the AirportExporter class is initialized correctly
      * @return Returns true if the AirportExporter is correctly initialized
      */
     bool properlyInitalized() const;
+
 
     /**
      * \brief Getter for member _airport
@@ -138,29 +140,26 @@ public:
 
     /**
      * \brief Exports the details of the airport to the specified stream
-     * @param stream Stream where the output needs to go
      *
      * **Preconditions**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
      * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
      * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
      */
-    void outputAirportDetails(ostream& stream);
+    void outputAirportDetails();
 
     /**
      * \brief Exports the details of the airplanes to the specified stream
-     * @param stream Stream where the output needs to go
      *
      * **Preconditions**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
      * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
      * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
      */
-    void outputPlaneDetails(ostream& stream);
+    void outputPlaneDetails();
 
     /**
      * \brief Exports basic information of the airport to specified stream
-     * @param stream Stream where the output needs to go
      *
      * This method uses @see outputAirportDetails and @see outputPlaneDetails and combines them
      *
@@ -169,19 +168,18 @@ public:
      * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
      * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
      */
-    void outputBasicInfo(ostream& stream);
+    void outputBasicInfo();
 
     /**
      * \brief Exports a given string to the specified stream
      *
-     * @param stream Stream where the output needs to go
      * @param outputString String to output to stream
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
      * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
      */
-    void outputString(ostream& stream, std::string outputString);
+    void outputString(std::string outputString);
 
 };
 

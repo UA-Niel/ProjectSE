@@ -34,13 +34,16 @@ int main(int argc, char* argv[]) {
 //    ap->setId(7);
 //    ap->addAirplane(airp);
 
-    ofstream file("BasicOutputTestsTemplate1.txt");
+    ofstream file("testOutput/BasicOutputTestsTemplate2.txt");
     vector<Runway*>runways;
     vector<Gate*>gates;
     Airport ap(runways, gates, 0, "myAirport", "MAP", "this is my Airport");
-    AirportExporter airportExporter(&ap);
+    Airplane plane(1,"my callsign", "my model", 0);
+    plane.setNumber("abc123");
+    ap.addAirplane(&plane);
+    AirportExporter airportExporter(&ap, file);
     airportExporter.startOutput();
-    airportExporter.outputAirportDetails(file);
+    airportExporter.outputPlaneDetails();
     file.close();
 
 

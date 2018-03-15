@@ -1,12 +1,14 @@
 #include <iostream>
 #include "AirportExporter.h"
+#include "Airport.h"
 
 
 AirportExporter::~AirportExporter() {
     REQUIRE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
 }
 
-AirportExporter::AirportExporter() : _initCheck(this), _startOutput(false), _airport(NULL) {
+AirportExporter::AirportExporter(ostream& stream) : _initCheck(this), _startOutput(false), _airport(NULL),
+                                                          _stream(stream)  {
     ENSURE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
 }
 
@@ -14,7 +16,7 @@ bool AirportExporter::properlyInitalized() const{
     return this == _initCheck;
 }
 
-AirportExporter::AirportExporter(Airport *airport) : _airport(airport) {
+AirportExporter::AirportExporter(Airport *airport, ostream& stream) : _airport(airport), _stream(stream) {
     _initCheck = this;
     _startOutput = false;
     ENSURE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
@@ -35,33 +37,33 @@ void AirportExporter::startOutput() {
     _startOutput = true;
 }
 
-void AirportExporter::outputAirportDetails(ostream &stream) {
+void AirportExporter::outputAirportDetails() {
     REQUIRE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
     REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
     REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
-    stream << "Airport: " << _airport->getName() << " (" << _airport->getIATA() << ")" << endl;
-    stream << "\t-> gates: " << _airport->getNrOfGates() << endl;
-    stream << "\t-> runways: " << _airport->getNrOfRunways() << endl << endl;
+    _stream << "Airport: " << _airport->getName() << " (" << _airport->getIATA() << ")" << endl;
+    _stream << "\t-> gates: " << _airport->getNrOfGates() << endl;
+    _stream << "\t-> runways: " << _airport->getNrOfRunways() << endl << endl;
 }
 
-void AirportExporter::outputPlaneDetails(ostream &stream) {
+void AirportExporter::outputPlaneDetails() {
     REQUIRE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
     REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
     REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
 
     for(unsigned int i = 0; i<_airport->getAirplanes().size(); i++){
         Airplane* airplane = _airport->getAirplanes()[i];
-        stream << "Airplane: " << airplane->getNumber() << " (" << airplane->getCallsign() << ")" << endl;
-        stream << "\t-> model: " << airplane->getModel() << endl << endl;
+        _stream << "Airplane: " << airplane->getNumber() << " (" << airplane->getCallsign() << ")" << endl;
+        _stream << "\t-> model: " << airplane->getModel() << endl << endl;
     }
 }
 
-void AirportExporter::outputBasicInfo(ostream &stream) {
+void AirportExporter::outputBasicInfo() {
     REQUIRE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
     REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
     REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput() first");
-    outputAirportDetails(stream);
-    outputPlaneDetails(stream);
+    outputAirportDetails();
+    outputPlaneDetails();
 }
 
 void AirportExporter::stopOutput() {
@@ -70,10 +72,12 @@ void AirportExporter::stopOutput() {
     _startOutput = false;
 }
 
-void AirportExporter::outputString(ostream &stream, std::string outputString) {
+void AirportExporter::outputString(std::string outputString) {
     REQUIRE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
     REQUIRE(_startOutput, "StartOutput has to be true before it can be stopped");
-    stream << outputString << endl;
+    _stream << outputString << endl;
 }
+
+
 
 
