@@ -27,16 +27,20 @@ bool Airplane::land(Runway* runway) {
 
     return true;
 }
-//Taxi to gate
+//Taxi
+<<<<<<< HEAD
 bool Airplane::taxi(Gate* gate) {
     this->setStatus(Airplane::Status::TAXING);
 
     //Let plane go to gate
     gate->setPlaneAtGate(this);
    
-    this->setStatus(Airplane::Status::STANDING);
+    this->setStatus(Airplane::Status::AT_GATE);
 
-    return true;
+=======
+bool Airplane::taxi(Runway* gate) {
+>>>>>>> b7f41166d8ccd33bf7671516092887825a768392
+    return false;
 }
 //Approach
 bool Airplane::approach(Airport* ap) {
@@ -63,7 +67,6 @@ bool Airplane::approach(Airport* ap) {
     }
 
 
-/*
     //Airplane lands on free runway
     //Check for free runway
     Runway* freeRunway = checkFreeRunway(ap);
@@ -72,27 +75,16 @@ bool Airplane::approach(Airport* ap) {
     this->land(freeRunway);
 
     this->setStatus(Airplane::Status::LANDED);
-*/
+
     return true;
 }
 
-//Returns a free runway
+//Returns a free runway]
 //:param Airport* ap: Our airport
 Runway* Airplane::checkFreeRunway(Airport* ap) {
     for (unsigned int i = 0; i < ap->getRunways()->size(); i++) {
         if (ap->getRunway(i)->getAirplanesOnRunway().size() == 0) {
             return ap->getRunway(i);
-        }
-    }
-    return NULL;
-}
-
-//Returns a free gate
-//:param Airport* ap: Our airport
-Gate* Airplane::checkFreeGate(Airport* ap) {
-    for (unsigned int i = 0; i < ap->getAllGates().size(); i++) {
-        if (ap->getAllGates()[i]->getPlaneAtGate() == NULL) {
-            return ap->getAllGates()[i];
         }
     }
     return NULL;

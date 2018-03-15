@@ -91,6 +91,18 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
     std::vector<Airplane*> getAllAirplanes();
+    
+     /**
+     * \brief Returns vector of all gates on the airport
+     *
+     * Returns all the gates in a vector
+     *
+     * @return std::vector<Gate*>
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+     */
+    std::vector<Gate*> getAllGates();
 
     /**
      * \brief Removes a runway from the airport
@@ -229,6 +241,9 @@ public:
      * **Preconditions:**
      * - ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
+    
+    
+    
     Airport();
 
     /**

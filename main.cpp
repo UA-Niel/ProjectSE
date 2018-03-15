@@ -22,6 +22,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
     const char* str = "inputs/airport1.xml";
     Airport* p = loadAirportFromFile(str);
+    Runway* freeRunway = nullptr;
  
     //Start simulation
     //1) Let airplane land
@@ -55,15 +56,50 @@ int main(int argc, char* argv[]) {
         for (int i = 0; i < p->getAllAirplanes().size(); i++) {
             Airplane* plane = p->getAllAirplanes()[i];
             
-            if (plane->getHeight() > 1000) airplaneAboveThousandFeet = true;
+            if (plane->getHeight() > 1000) {
+                airplaneAboveThousandFeet = true;
+            } else {
+                //Plane is below 1000ft,
+                //Landing procedure started
+                plane->setStatus(Airplane::Status::LANDING);
+
+                //Get free runway
+                freeRunway = plane->checkFreeRunway(p);
+
+                OUTPUT << plane->getCallsign() << " is landing at " << p->getName() << " on runway " << freeRunway->getName(); 
+            }
+            
         }
     } while (airplaneAboveThousandFeet);
 
+    //No planes above thousand feet anymore
+    //Let them land
+    for (int i = 0; i < p->getAllAirplanes().size(); i++) {
+        Airplane* plane = p->getAllAirplanes()[i];
+        if (plane->land(freeRunway)) {
+            OUTPUT << plane->getCallsign() << " has landed at " << p->getName() << " on runway " << freeRunway->getName(); 
+            
+            //Get free gate
+            Gate* gate = plane->checkFreeGate(p);
+            
+            //Plane landed, let it taxi
+            if (plane->taxi(gate)) {
+                OUTPUT << plane->getCallsign() << " is taxing to " << gate->getId();
+            
+                //Check if plane is standing correctly
+                if (plane->getStatus() == Airplane::Status::STANDING) {
+                    OUTPUT << plane->getCallsign() << " is standing at " << gate->getId();
+                }
+            }
+        }
+    }
 
+
+/*    
     toCout.stopOutput();
     toTxt.stopOutput();
     outputFile.close();
-    /*ofstream file("testOutput/BasicOutputTestsTemplate3.txt");
+    ofstream file("testOutput/BasicOutputTestsTemplate3.txt");
     vector<Runway*>runways;
     vector<Gate*>gates;
     Airport ap(runways, gates, 0, "myAirport", "MAP", "this is my Airport");

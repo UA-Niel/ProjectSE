@@ -56,6 +56,11 @@ std::vector<Airplane*> Airport::getAllAirplanes() {
     return this->_airplanesOnAirport;
 }
 
+//Get all gates
+std::vector<Gate*> Airport::getAllGates() {
+    return this->_gates;
+}
+
 //Remove Runway
 bool Airport::removeRunway(const int id) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
@@ -199,7 +204,7 @@ void Airport::assignGateToPlaneForDeparture(Airplane *airplane) {
     for(unsigned int i = 0; i<_runways.size(); i++){
         Runway* runway = _runways[i];
         if(runway->getAirplanesOnRunway().empty()){
-            airplane->taxi(runway);
+            //airplane->taxi(runway);
         }
     }
 

@@ -66,7 +66,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
-    bool taxi(Runway* gate);
+    bool taxi(Gate* gate);
 
     /**
      * \brief Lets the airplane approach
@@ -179,6 +179,16 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
     Runway* checkFreeRunway(Airport* ap);
+    
+       /**
+     * \brief Returns the free gate
+     * @return The free gate
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    Gate* checkFreeGate(Airport* ap);
+
 
     /**
      * \brief Seths the height
