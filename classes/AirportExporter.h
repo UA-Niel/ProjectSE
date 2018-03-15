@@ -171,6 +171,18 @@ public:
      */
     void outputBasicInfo(ostream& stream);
 
+    /**
+     * \brief Exports a given string to the specified stream
+     *
+     * @param stream Stream where the output needs to go
+     * @param outputString String to output to stream
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
+     * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
+     */
+    void outputString(ostream& stream, std::string outputString);
+
 };
 
 #endif //PROJECTSE_AIRPORTEXPORTER_H
