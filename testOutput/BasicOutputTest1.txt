@@ -1,0 +1,4 @@
+Airport: myAirport (MAP)
+	-> gates: 0
+	-> runways: 0
+
