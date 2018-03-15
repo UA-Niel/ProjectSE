@@ -1,0 +1,7 @@
+INIT... Antwerp International Airport
+
+Airport: Antwerp International Airport (ANR)
+	-> gates: 0
+	-> runways: 1
+
+There are currently no airplanes

@@ -16,6 +16,8 @@ protected:
     }
 
     Airport airport;
+
+    void setupAirport();
 };
 
 

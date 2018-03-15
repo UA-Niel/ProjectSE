@@ -264,9 +264,25 @@ public:
      */
     unsigned int getNrOfRunways() const;
 
+    /**
+     * \brief Returns the airplanes of the airport
+     * @return Vector containing pointers of the Airplanes of the Airport
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+     */
     const vector<Airplane *> &getAirplanes() const;
 
+    /**
+     * \brief Returns the runways of the Airport
+     * @return Vector containing pointers to the Runways of the Airport
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+     */
     std::vector<Runway*> *getRunways();
+
+    void assignGateToPlaneForDeparture(Airplane* airplane);
 
 
 private:

@@ -60,21 +60,10 @@ int main(int argc, char* argv[]) {
     } while (airplaneAboveThousandFeet);
 
 
-/*    cout << "Hello world!" << endl;
-    cout << p->getName() << endl;
-    std::cout << "Runway Size: " << p->getRunways()->size() << std::endl;
-
-
-//    Airport* ap = new Airport();
-//    Airplane* airp = new Airplane(3, "Mooi vliegtuigje", "Heel mooi", 7);
-//    airp->setNumber("Airbus27");
-//    ap->setName("Freeks vliegparadijs");
-//    ap->setCallsign("LOLOLOLO");
-//    ap->setIATA("FVP");
-//    ap->setId(7);
-//    ap->addAirplane(airp);
-
-    ofstream file("testOutput/BasicOutputTestsTemplate2.txt");
+    toCout.stopOutput();
+    toTxt.stopOutput();
+    outputFile.close();
+    /*ofstream file("testOutput/BasicOutputTestsTemplate3.txt");
     vector<Runway*>runways;
     vector<Gate*>gates;
     Airport ap(runways, gates, 0, "myAirport", "MAP", "this is my Airport");
@@ -86,6 +75,6 @@ int main(int argc, char* argv[]) {
     airportExporter.outputPlaneDetails();
     file.close();
 
-*/
+    file.close();*/
     return 0;
 }
