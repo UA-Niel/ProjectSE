@@ -81,6 +81,18 @@ public:
     bool removeAirplane(int id);
 
     /**
+     * \brief Returns vector of all Airplanes on the airport
+     *
+     * Returns all the airplanes in a vector
+     *
+     * @return std::vector<Airplane*>
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+     */
+    std::vector<Airplane*> getAllAirplanes();
+
+    /**
      * \brief Removes a runway from the airport
      *
      * Removes a runway from the airport and returns true if successful

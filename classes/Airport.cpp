@@ -50,6 +50,12 @@ bool Airport::removeAirplane(const int id) {
 
     return true;
 }
+
+//Get all airplanes 
+std::vector<Airplane*> Airport::getAllAirplanes() {
+    return this->_airplanesOnAirport;
+}
+
 //Remove Runway
 bool Airport::removeRunway(const int id) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");

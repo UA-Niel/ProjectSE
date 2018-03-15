@@ -6,6 +6,7 @@
  */
 
 #include "../DesignByContract.h"
+#include <string>
 
 using namespace std;
 class Airport;

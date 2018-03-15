@@ -6,6 +6,10 @@
 #ifndef GATE_H
 #define GATE_H
 
+#include <vector>
+
+class Airplane;
+
 class Gate {
     public:
     //Constructors
@@ -15,12 +19,16 @@ class Gate {
     void setId(const int id);
     int getId() const;
 
+    void setPlaneAtGate(Airplane* plane);
+    Airplane* getPlaneAtGate();
+
     //Initialized
     bool properlyInitialized() const;
 
     private:
     int _id;
-    Gate* _initCheck;    
+    Gate* _initCheck; 
+    Airplane* _planeAtGate;
 };
 
 

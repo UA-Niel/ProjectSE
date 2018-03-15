@@ -18,6 +18,13 @@ int Gate::getId() const {
     return this->_id;
 }
 
+void Gate::setPlaneAtGate(Airplane* plane) {
+    this->_planeAtGate = plane; 
+}
+Airplane* Gate::getPlaneAtGate() {
+    return this->_planeAtGate;
+}
+
 bool Gate::properlyInitialized() const {
     return _initCheck == this;
 }

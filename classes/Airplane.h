@@ -7,6 +7,7 @@
 
 #include <string>
 #include "Gate.h"
+#include "AirportExporter.h"
 
 class Runway;
 class Airport;
@@ -20,6 +21,17 @@ using namespace std;
  */
 class Airplane {
 public:
+    enum Status {
+        APPROACHING,
+        LANDED,
+        IN_AIR,
+        AT_GATE,
+        STANDING,
+        TAXING,
+        LANDING,
+        UNKNOWN
+    };
+
 
     /**
      * \brief checks if the Airplane class is initialized correctly
@@ -111,7 +123,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
-    void setStatus(int status);
+    void setStatus(Status status);
 
     /**
      * \brief Gets the ID of the airplane
@@ -148,7 +160,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
-    int getStatus() const;
+    Status getStatus() const;
 
     /**
      * \brief Gets the number of the airplane
@@ -169,6 +181,26 @@ public:
     Runway* checkFreeRunway(Airport* ap);
 
     /**
+     * \brief Seths the height
+     *
+     * @param int height
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    void setHeight(const int height);
+
+    /**
+     * \brief Returns the height
+     *
+     * @return int height
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    int getHeight();
+
+    /**
      * \brief constructor of the airplane class
      *
      * This constructor takes an id, callsign, model and status
@@ -177,31 +209,35 @@ public:
      * @param callsign The callsign of the airplane
      * @param _model The model of the airplane
      * @param _status The status of the airplane
+     * @param Exporter to handle outputting
      *
      * **Postconditons:**
      * - ENSURE(this->properlyInitialized(), "Airplane is not initialized correctly");
      *
      */
-    Airplane(int _airplaneId, const string &callsign, const string &_model, int _status);
+    Airplane(int _airplaneId, const string &callsign, const string &_model, Airplane::Status& status, const std::string& number/*, AirportExporter* exporter*/); 
 
     /**
      * \brief constructor of the airplane class
      *
      * This constructor is the default constructor
      *
+     * @param Exporter to handle outputting
+     *
      * **Postconditons:**
      * - ENSURE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
-    Airplane();
+    Airplane(/*AirportExporter* exporter*/);
 
 private:
     int _airplaneId; /**<The ID of the airplane, this is a unique ID*/
     std::string _number; /**<The number of the airplane*/
     string _callsign; /**<The callsign of the airplane*/
     string _model; /**<The model of the airplane*/
-    int _status; /**<The status of the airplane*/
+    Status _status; /**<The status of the airplane*/
     Airplane* _initCheck; /**<member used in @see properlyInitalized() to check if the airplane is initalized correctly*/
-    
+   
+   // AirportExporter* _exporter; /**<Holding the exporter>*/
     int _height; /**<Variable to hold current height of the airplane>*/
 };
 
