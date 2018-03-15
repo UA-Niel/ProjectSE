@@ -38,7 +38,7 @@ void AirportExporter::startOutput() {
 void AirportExporter::outputAirportDetails(ostream &stream) {
     REQUIRE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
     REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
-    REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput() first");
+    REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
     stream << "Airport: " << _airport->getName() << " (" << _airport->getIATA() << ")" << endl;
     stream << "\t-> gates: " << _airport->getNrOfGates() << endl;
     stream << "\t-> runways: " << _airport->getNrOfRunways() << endl << endl;
@@ -47,7 +47,7 @@ void AirportExporter::outputAirportDetails(ostream &stream) {
 void AirportExporter::outputPlaneDetails(ostream &stream) {
     REQUIRE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
     REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
-    REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput() first");
+    REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
 
     for(unsigned int i = 0; i<_airport->getAirplanes().size(); i++){
         Airplane* airplane = _airport->getAirplanes()[i];
@@ -62,6 +62,12 @@ void AirportExporter::outputBasicInfo(ostream &stream) {
     REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput() first");
     outputAirportDetails(stream);
     outputPlaneDetails(stream);
+}
+
+void AirportExporter::stopOutput() {
+    REQUIRE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
+    REQUIRE(_startOutput, "StartOutput has to be true before it can be stopped");
+    _startOutput = false;
 }
 
 

@@ -11,44 +11,75 @@ include_directories(gtest/include)
 link_directories(gtest/lib)
 
 # Set source files for DEBUG target
-set(GLOB DEBUG_SOURCE_FILES
-        classes/*.h
-        classes/*.cpp
-        parsers/*.h
-        parsers/*.cpp
-        parsers/library/*.cpp
-        parsers/library/*.h
-        )
 
-list(APPEND DEBUG_SOURCE_FILES
-        mainTests.cpp
-        AirportOutputTests.cpp
-        AirportOutputTests.h
-        utils.h
-        utils.cpp
+set(DEBUG_SOURCE_FILES
+        classes/Gate.cpp
+        classes/Gate.h
+        classes/Runway.h
+        classes/Runway.cpp
+        classes/Airport.h
+        classes/Airport.cpp
+        classes/Airplane.h
+        classes/Airplane.cpp
+        classes/AirportExporter.cpp
+        classes/AirportExporter.h
+        classes/Route.cpp
+        classes/Route.h
+
+        parsers/library/tinystr.cpp
+        parsers/library/tinystr.h
+        parsers/library/tinyxml.cpp
+        parsers/library/tinyxml.h
+        parsers/library/tinyxmlerror.cpp
+        parsers/library/tinyxmlparser.cpp
+
+        parsers/Reader.cpp
+        parsers/Reader.h
+
         DesignByContract.h
+        utils.cpp
+        utils.h
+
+        AirportOutputTests.h
+        AirportOutputTests.cpp
+        mainTests.cpp
         )
 
 # Set source files for RELEASE target
-file(GLOB RELEASE_SOURCE_FILES
-        classes/*.h
-        classes/*.cpp
-        parsers/*.h
-        parsers/*.cpp
-        parsers/library/*.cpp
-        parsers/library/*.h
-        )
 
+set(RELEASE_SOURCE_FILES
+        classes/Gate.cpp
+        classes/Gate.h
+        classes/Runway.h
+        classes/Runway.cpp
+        classes/Airport.h
+        classes/Airport.cpp
+        classes/Airplane.h
+        classes/Airplane.cpp
+        classes/AirportExporter.cpp
+        classes/AirportExporter.h
+        classes/Route.cpp
+        classes/Route.h
 
-list(APPEND RELEASE_SOURCE_FILES
-        main.cpp
-        utils.h
-        utils.cpp
+        parsers/library/tinystr.cpp
+        parsers/library/tinystr.h
+        parsers/library/tinyxml.cpp
+        parsers/library/tinyxml.h
+        parsers/library/tinyxmlerror.cpp
+        parsers/library/tinyxmlparser.cpp
+
+        parsers/Reader.cpp
+        parsers/Reader.h
+
         DesignByContract.h
+        utils.cpp
+        utils.h
+
+        main.cpp
         )
 
 # Create RELEASE target
-add_executable(ProjectSE ${RELEASE_SOURCE_FILES} AirportOutputTests.cpp AirportOutputTests.h)
+add_executable(ProjectSE ${RELEASE_SOURCE_FILES})
 
 # Create DEBUG target
 add_executable(ProjectSE_debug ${DEBUG_SOURCE_FILES})

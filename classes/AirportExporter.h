@@ -20,6 +20,9 @@ public:
     /**
      * \brief Constructor for AirportExporterException taking message as parameter
      * @param msg Error message for AirportExporterException
+     *
+     * **Postconditions:**
+     * - ENSURE(this->properlyInitalized(), "AirportExporterException class is not initalized correctly");
      */
     AirportExporterException(const string &msg) : _msg(msg){
         _msg = "Airport Exporter Exception:\n\t"
@@ -39,12 +42,18 @@ public:
     /**
      * \brief Throws the error message
      * @return Error message (c_string)
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitalized(), "AirportExporterException class is not initalized correctly");
      */
     const char* what() const throw(){
         REQUIRE(properlyInitalized(), "AirportExporterException class is not initalized correctly")
         return _msg.c_str();
     }
 
+    /**
+     * \brief Basic destructor for AirportExporterException class
+     */
     virtual ~AirportExporterException() throw() {}
 
 };
@@ -112,10 +121,20 @@ public:
     /**
      * \brief Makes sure the output can be generated
      *
-     * **Preconditions**
+     * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
      */
     void startOutput();
+
+    /**
+     * \brief Stops the output form being generated
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
+     * - REQUIRE(_startOutput, "StartOutput has to be true before it can be stopped");
+     */
+    void stopOutput();
+
 
     /**
      * \brief Exports the details of the airport to the specified stream
@@ -124,7 +143,7 @@ public:
      * **Preconditions**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
      * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
-     * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput() first");
+     * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
      */
     void outputAirportDetails(ostream& stream);
 
@@ -135,7 +154,7 @@ public:
      * **Preconditions**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
      * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
-     * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput() first");
+     * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
      */
     void outputPlaneDetails(ostream& stream);
 
@@ -148,11 +167,10 @@ public:
      * **Preconditions**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
      * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
-     * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput() first");
+     * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
      */
     void outputBasicInfo(ostream& stream);
 
 };
-
 
 #endif //PROJECTSE_AIRPORTEXPORTER_H

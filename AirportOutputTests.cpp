@@ -7,9 +7,9 @@ TEST_F(AirportOutputTests, FileCompare){
     ASSERT_TRUE(DirectoryExists("testOutput"));
 
     ofstream myFile;
-    myFile.open("testOutput/fileComparetest1.txt");
+    myFile.open("testOutput/fileCompare1.txt");
     myFile.close();
-    myFile.open("testOutput/fileComparetest2.txt");
+    myFile.open("testOutput/fileCompare2.txt");
     myFile.close();
 
     EXPECT_TRUE(FileExists("testOutput/fileCompare1.txt"));
@@ -18,8 +18,8 @@ TEST_F(AirportOutputTests, FileCompare){
     EXPECT_TRUE(FileIsEmpty("testOutput/fileCompare2.txt"));
 
     //Comparison of two empty files
-    EXPECT_TRUE(FileCompare("testOutput/file1.txt", "testOutput/file2.txt"));
-    EXPECT_TRUE(FileCompare("testOutput/file2.txt", "testOutput/file1.txt"));
+    EXPECT_TRUE(FileCompare("testOutput/fileCompare1.txt", "testOutput/fileCompare2.txt"));
+    EXPECT_TRUE(FileCompare("testOutput/fileCompare2.txt", "testOutput/fileCompare1.txt"));
 
     //Comparison of empty with non empty file
     myFile.open("testOutput/fileCompare3.txt");
@@ -56,7 +56,28 @@ TEST_F(AirportOutputTests, BasicOutputTest){
     airport.setId(12);
     airport.setIATA("MAP");
     airport.setCallsign("this is my Airport");
-    ofstream myFile("testOutput/BasicOutputTest1.txt");
-    AirportExporter airportExporter(&airport);
+    ofstream myFile;
+    myFile.open("testOutput/BasicOutputTest1.txt");
+    AirportExporter airportExporter;
+
+    //Try writing while no airport is assigned to output
+    airportExporter.startOutput();
+    EXPECT_DEATH(airportExporter.outputAirportDetails(myFile), "AirportExporter did not find the airport, "
+            "is it initalized correctly?");
+    airportExporter.stopOutput();
+
+    airportExporter.set_airport(&airport);
+
+    //Try writing without enabling output
+    EXPECT_DEATH(airportExporter.outputAirportDetails(myFile), "AirportExporter output is not started, "
+            "use the method startOutput first");
+
+    //Test for Airport details
+    airportExporter.startOutput();
     airportExporter.outputAirportDetails(myFile);
+    airportExporter.outputAirportDetails(cout);
+    EXPECT_TRUE(FileCompare("testOutput/BasicOutputTestsTemplate1.txt", "testOutput/BasicOutputTest1.txt"));
+    EXPECT_TRUE(FileCompare("testOutput/BasicOutputTest1.txt", "testOutput/BasicOutputTestsTemplate1.txt"));
+    myFile.clear();
+    EXPECT_TRUE(FileIsEmpty("testOutput/BasicOutputTest1.txt"));
 }
