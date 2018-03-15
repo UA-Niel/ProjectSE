@@ -27,8 +27,8 @@ TEST_F(AirportOutputTests, FileCompare){
     EXPECT_TRUE(FileIsEmpty("testOutput/fileCompare2.txt"));
 
     //Comparison of two empty files
-    //EXPECT_TRUE(FileCompare("testOutput/fileCompare1.txt", "testOutput/fileCompare2.txt"));
-    //EXPECT_TRUE(FileCompare("testOutput/fileCompare2.txt", "testOutput/fileCompare1.txt"));
+    EXPECT_TRUE(FileCompare("testOutput/fileCompare1.txt", "testOutput/fileCompare2.txt"));
+    EXPECT_TRUE(FileCompare("testOutput/fileCompare2.txt", "testOutput/fileCompare1.txt"));
 
     //Comparison of empty with non empty file
     myFile.open("testOutput/fileCompare3.txt");
@@ -91,7 +91,7 @@ TEST_F(AirportOutputTests, AirplaneDetailsOutput){
     //when there are no planes:
     airportExporter.startOutput();
     airportExporter.outputPlaneDetails();
-    //TODO: EXPECT_FALSE(FileIsEmpty("testOutput/AirplaneDetailsOutput1.txt"));
+    EXPECT_FALSE(FileIsEmpty("testOutput/AirplaneDetailsOutput1.txt"));
     EXPECT_TRUE(FileCompare("testOutput/AirplaneDetailsOutput1.txt", "testOutput/outputTemplate1.txt"));
     EXPECT_TRUE(FileCompare("testOutput/outputTemplate1.txt", "testOutput/AirplaneDetailsOutput1.txt"));
     airportExporter.stopOutput();
@@ -150,7 +150,7 @@ TEST_F(AirportOutputTests, AirportDetailsOutput){
     //Test for Airport details
     airportExporter.startOutput();
     airportExporter.outputAirportDetails();
-    //TODO: EXPECT_FALSE(FileIsEmpty("testOutput/AirportDetailsOutput1.txt"));
+    EXPECT_FALSE(FileIsEmpty("testOutput/AirportDetailsOutput1.txt"));
     EXPECT_TRUE(FileCompare("testOutput/outputTemplate4.txt", "testOutput/AirportDetailsOutput1.txt"));
     EXPECT_TRUE(FileCompare("testOutput/AirportDetailsOutput1.txt", "testOutput/outputTemplate4.txt"));
 

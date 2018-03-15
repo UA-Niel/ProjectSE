@@ -6,11 +6,9 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-
 #include "classes/Airplane.h"
 #include "classes/Airport.h"
 #include "classes/Runway.h"
-
 #include "parsers/Reader.h"
 #include "classes/AirportExporter.h"
 
@@ -19,26 +17,24 @@ using namespace std;
 int main(int argc, char* argv[]) {
     const char* str = "inputs/airport1.xml";
     Airport* nationalAirport = loadAirportFromFile(str);
-    ofstream outputFile("testOutput/outputTemplate4.txt");
-
-    Airport airport;
-
-    airport.setName("myAirport");
-    airport.setId(12);
-    airport.setIATA("MAP");
-    airport.setCallsign("this is my Airport");
-
-    AirportExporter toTxt(&airport, outputFile);
+    ofstream outputFile("output.txt");
+    AirportExporter toTxt(nationalAirport, outputFile);
     AirportExporter toCout(nationalAirport, cout);
-
     toTxt.startOutput();
     toCout.startOutput();
 
+    toCout.outputString("INIT... " + nationalAirport->getName() + "\n");
+    toTxt.outputString("INIT... " + nationalAirport->getName() + "\n");
 
-    toTxt.outputAirportDetails();
+    cout << nationalAirport->getAirplanes().size() << endl;
+
+    toCout.outputBasicInfo();
+    toTxt.outputBasicInfo();
 
 
-
+    toCout.stopOutput();
+    toTxt.stopOutput();
+    outputFile.close();
     /*ofstream file("testOutput/BasicOutputTestsTemplate3.txt");
     vector<Runway*>runways;
     vector<Gate*>gates;
@@ -58,9 +54,5 @@ int main(int argc, char* argv[]) {
     airportExporter.outputPlaneDetails();
 
     file.close();*/
-
-    toCout.stopOutput();
-    toTxt.stopOutput();
-    outputFile.close();
     return 0;
 }
