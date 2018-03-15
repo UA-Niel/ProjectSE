@@ -1,0 +1,28 @@
+/**
+ * \file
+ * This is the main file of the project
+ */
+
+#include <iostream>
+#include <string>
+
+#include "classes/Airplane.h"
+#include "classes/Airport.h"
+#include "classes/Runway.h"
+
+#include "parsers/Reader.h"
+
+using namespace std;
+
+int main(int argc, char* argv[]) {
+<<<<<<< HEAD
+    Airport* p = loadAirportFromFile("inputs/airport1.xml");
+    cout << p->getId() << endl;
+
+=======
+    const char* str = "inputs/airport1.xml";
+    Airport p = loadAirportFromFile(str);
+    cout << "Hello world!" << endl;
+>>>>>>> 2fcfd5f3a7a2935497b80805c2ca76b616224b96
+    return 0;
+}

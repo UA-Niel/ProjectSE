@@ -12,6 +12,10 @@ CMakeFiles/ProjectSE.dir/headers/Airport.cpp.o: headers/Airport.h
 CMakeFiles/ProjectSE.dir/headers/Airport.cpp.o: headers/Gate.h
 CMakeFiles/ProjectSE.dir/headers/Airport.cpp.o: headers/Runway.h
 
+CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o: DesignByContract.h
+CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o: headers/Gate.cpp
+CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o: headers/Gate.h
+
 CMakeFiles/ProjectSE.dir/headers/Runway.cpp.o: DesignByContract.h
 CMakeFiles/ProjectSE.dir/headers/Runway.cpp.o: headers/Airplane.h
 CMakeFiles/ProjectSE.dir/headers/Runway.cpp.o: headers/Runway.cpp

@@ -225,9 +225,33 @@ CMakeFiles/ProjectSE.dir/headers/Airplane.cpp.o.provides: CMakeFiles/ProjectSE.d
 CMakeFiles/ProjectSE.dir/headers/Airplane.cpp.o.provides.build: CMakeFiles/ProjectSE.dir/headers/Airplane.cpp.o
 
 
+CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o: CMakeFiles/ProjectSE.dir/flags.make
+CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o: headers/Gate.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o -c /home/niel/Projects/ProjectSE/ProjectSE/headers/Gate.cpp
+
+CMakeFiles/ProjectSE.dir/headers/Gate.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProjectSE.dir/headers/Gate.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/niel/Projects/ProjectSE/ProjectSE/headers/Gate.cpp > CMakeFiles/ProjectSE.dir/headers/Gate.cpp.i
+
+CMakeFiles/ProjectSE.dir/headers/Gate.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProjectSE.dir/headers/Gate.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/niel/Projects/ProjectSE/ProjectSE/headers/Gate.cpp -o CMakeFiles/ProjectSE.dir/headers/Gate.cpp.s
+
+CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o.requires:
+
+.PHONY : CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o.requires
+
+CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o.provides: CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o.requires
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o.provides.build
+.PHONY : CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o.provides
+
+CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o.provides.build: CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o
+
+
 CMakeFiles/ProjectSE.dir/headers/Airport.cpp.o: CMakeFiles/ProjectSE.dir/flags.make
 CMakeFiles/ProjectSE.dir/headers/Airport.cpp.o: headers/Airport.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ProjectSE.dir/headers/Airport.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ProjectSE.dir/headers/Airport.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjectSE.dir/headers/Airport.cpp.o -c /home/niel/Projects/ProjectSE/ProjectSE/headers/Airport.cpp
 
 CMakeFiles/ProjectSE.dir/headers/Airport.cpp.i: cmake_force
@@ -251,7 +275,7 @@ CMakeFiles/ProjectSE.dir/headers/Airport.cpp.o.provides.build: CMakeFiles/Projec
 
 CMakeFiles/ProjectSE.dir/headers/Runway.cpp.o: CMakeFiles/ProjectSE.dir/flags.make
 CMakeFiles/ProjectSE.dir/headers/Runway.cpp.o: headers/Runway.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ProjectSE.dir/headers/Runway.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ProjectSE.dir/headers/Runway.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjectSE.dir/headers/Runway.cpp.o -c /home/niel/Projects/ProjectSE/ProjectSE/headers/Runway.cpp
 
 CMakeFiles/ProjectSE.dir/headers/Runway.cpp.i: cmake_force
@@ -275,7 +299,7 @@ CMakeFiles/ProjectSE.dir/headers/Runway.cpp.o.provides.build: CMakeFiles/Project
 
 CMakeFiles/ProjectSE.dir/main.cpp.o: CMakeFiles/ProjectSE.dir/flags.make
 CMakeFiles/ProjectSE.dir/main.cpp.o: main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ProjectSE.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ProjectSE.dir/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ProjectSE.dir/main.cpp.o -c /home/niel/Projects/ProjectSE/ProjectSE/main.cpp
 
 CMakeFiles/ProjectSE.dir/main.cpp.i: cmake_force
@@ -306,6 +330,7 @@ ProjectSE_OBJECTS = \
 "CMakeFiles/ProjectSE.dir/parsers/library/tinyxml.cpp.o" \
 "CMakeFiles/ProjectSE.dir/parsers/library/tinystr.cpp.o" \
 "CMakeFiles/ProjectSE.dir/headers/Airplane.cpp.o" \
+"CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o" \
 "CMakeFiles/ProjectSE.dir/headers/Airport.cpp.o" \
 "CMakeFiles/ProjectSE.dir/headers/Runway.cpp.o" \
 "CMakeFiles/ProjectSE.dir/main.cpp.o"
@@ -320,12 +345,13 @@ ProjectSE: CMakeFiles/ProjectSE.dir/parsers/library/tinyxmlerror.cpp.o
 ProjectSE: CMakeFiles/ProjectSE.dir/parsers/library/tinyxml.cpp.o
 ProjectSE: CMakeFiles/ProjectSE.dir/parsers/library/tinystr.cpp.o
 ProjectSE: CMakeFiles/ProjectSE.dir/headers/Airplane.cpp.o
+ProjectSE: CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o
 ProjectSE: CMakeFiles/ProjectSE.dir/headers/Airport.cpp.o
 ProjectSE: CMakeFiles/ProjectSE.dir/headers/Runway.cpp.o
 ProjectSE: CMakeFiles/ProjectSE.dir/main.cpp.o
 ProjectSE: CMakeFiles/ProjectSE.dir/build.make
 ProjectSE: CMakeFiles/ProjectSE.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable ProjectSE"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable ProjectSE"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ProjectSE.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -340,6 +366,7 @@ CMakeFiles/ProjectSE.dir/requires: CMakeFiles/ProjectSE.dir/parsers/library/tiny
 CMakeFiles/ProjectSE.dir/requires: CMakeFiles/ProjectSE.dir/parsers/library/tinyxml.cpp.o.requires
 CMakeFiles/ProjectSE.dir/requires: CMakeFiles/ProjectSE.dir/parsers/library/tinystr.cpp.o.requires
 CMakeFiles/ProjectSE.dir/requires: CMakeFiles/ProjectSE.dir/headers/Airplane.cpp.o.requires
+CMakeFiles/ProjectSE.dir/requires: CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o.requires
 CMakeFiles/ProjectSE.dir/requires: CMakeFiles/ProjectSE.dir/headers/Airport.cpp.o.requires
 CMakeFiles/ProjectSE.dir/requires: CMakeFiles/ProjectSE.dir/headers/Runway.cpp.o.requires
 CMakeFiles/ProjectSE.dir/requires: CMakeFiles/ProjectSE.dir/main.cpp.o.requires

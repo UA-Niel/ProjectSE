@@ -44,6 +44,12 @@ Runway.h
 Gate.h
 /home/niel/Projects/ProjectSE/ProjectSE/headers/Gate.h
 
+/home/niel/Projects/ProjectSE/ProjectSE/headers/Gate.cpp
+Gate.h
+/home/niel/Projects/ProjectSE/ProjectSE/headers/Gate.h
+../DesignByContract.h
+/home/niel/Projects/ProjectSE/ProjectSE/DesignByContract.h
+
 /home/niel/Projects/ProjectSE/ProjectSE/headers/Gate.h
 
 /home/niel/Projects/ProjectSE/ProjectSE/headers/Route.h
@@ -85,6 +91,8 @@ Reader.h
 /home/niel/Projects/ProjectSE/ProjectSE/parsers/Reader.h
 library/tinyxml.h
 /home/niel/Projects/ProjectSE/ProjectSE/parsers/library/tinyxml.h
+library/tinystr.h
+/home/niel/Projects/ProjectSE/ProjectSE/parsers/library/tinystr.h
 fstream
 -
 string

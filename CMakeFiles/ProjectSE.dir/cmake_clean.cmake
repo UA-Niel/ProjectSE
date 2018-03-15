@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ProjectSE.dir/parsers/library/tinyxml.cpp.o"
   "CMakeFiles/ProjectSE.dir/parsers/library/tinystr.cpp.o"
   "CMakeFiles/ProjectSE.dir/headers/Airplane.cpp.o"
+  "CMakeFiles/ProjectSE.dir/headers/Gate.cpp.o"
   "CMakeFiles/ProjectSE.dir/headers/Airport.cpp.o"
   "CMakeFiles/ProjectSE.dir/headers/Runway.cpp.o"
   "CMakeFiles/ProjectSE.dir/main.cpp.o"
