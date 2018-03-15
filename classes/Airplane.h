@@ -47,14 +47,14 @@ public:
     bool land(Runway* runway);
 
     /**
-     * \brief Lets the airplane taxi
-     * @param gate Gate to taxi to
-     * @return true if the airplane 
+     * \brief Lets the airplane taxi to the Runway
+     * @param gate GRunway to taxi to
+     * @return True if the airplane is taxiing to Runway
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
-    bool taxi(Gate* gate);
+    bool taxi(Runway* gate);
 
     /**
      * \brief Lets the airplane approach

@@ -1,3 +1,0 @@
-Airplane: abc123 (my callsign)
-	-> model: my model
-

@@ -23,7 +23,7 @@ bool Airplane::land(Runway* runway) {
     return true;
 }
 //Taxi
-bool Airplane::taxi(Gate* gate) {
+bool Airplane::taxi(Runway* gate) {
     return false;
 }
 //Approach

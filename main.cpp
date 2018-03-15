@@ -18,23 +18,28 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
     const char* str = "inputs/airport1.xml";
-    Airport* p = loadAirportFromFile(str);
-    
-    cout << "Hello world!" << endl;
-    cout << p->getName() << endl;
-    std::cout << "Runway Size: " << p->getRunways()->size() << std::endl;
+    Airport* nationalAirport = loadAirportFromFile(str);
+    ofstream outputFile("testOutput/outputTemplate4.txt");
+
+    Airport airport;
+
+    airport.setName("myAirport");
+    airport.setId(12);
+    airport.setIATA("MAP");
+    airport.setCallsign("this is my Airport");
+
+    AirportExporter toTxt(&airport, outputFile);
+    AirportExporter toCout(nationalAirport, cout);
+
+    toTxt.startOutput();
+    toCout.startOutput();
 
 
-//    Airport* ap = new Airport();
-//    Airplane* airp = new Airplane(3, "Mooi vliegtuigje", "Heel mooi", 7);
-//    airp->setNumber("Airbus27");
-//    ap->setName("Freeks vliegparadijs");
-//    ap->setCallsign("LOLOLOLO");
-//    ap->setIATA("FVP");
-//    ap->setId(7);
-//    ap->addAirplane(airp);
+    toTxt.outputAirportDetails();
 
-    ofstream file("testOutput/BasicOutputTestsTemplate3.txt");
+
+
+    /*ofstream file("testOutput/BasicOutputTestsTemplate3.txt");
     vector<Runway*>runways;
     vector<Gate*>gates;
     Airport ap(runways, gates, 0, "myAirport", "MAP", "this is my Airport");
@@ -52,8 +57,10 @@ int main(int argc, char* argv[]) {
     airportExporter.startOutput();
     airportExporter.outputPlaneDetails();
 
-    file.close();
+    file.close();*/
 
-
+    toCout.stopOutput();
+    toTxt.stopOutput();
+    outputFile.close();
     return 0;
 }

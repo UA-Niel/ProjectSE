@@ -177,9 +177,24 @@ unsigned int Airport::getNrOfRunways() const {
 }
 
 const vector<Airplane *> &Airport::getAirplanes() const {
+    REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
     return _airplanesOnAirport;
 }
 
 std::vector<Runway*>* Airport::getRunways() {
+    REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
     return &_runways;
+}
+
+void Airport::assignGateToPlaneForDeparture(Airplane *airplane) {
+    REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+    REQUIRE(!_runways.empty(), "There are no runways in the airport!");
+
+    for(unsigned int i = 0; i<_runways.size(); i++){
+        Runway* runway = _runways[i];
+        if(runway->getAirplanesOnRunway().empty()){
+            airplane->taxi(runway);
+        }
+    }
+
 }

@@ -51,6 +51,11 @@ void AirportExporter::outputPlaneDetails() {
     REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
     REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
 
+    if(_airport->getAirplanes().size() == 0){
+        _stream << "There are currently no airplanes" << endl;
+        return;
+    }
+
     for(unsigned int i = 0; i<_airport->getAirplanes().size(); i++){
         Airplane* airplane = _airport->getAirplanes()[i];
         _stream << "Airplane: " << airplane->getNumber() << " (" << airplane->getCallsign() << ")" << endl;
