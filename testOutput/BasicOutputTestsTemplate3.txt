@@ -1,0 +1,9 @@
+Airplane: abc123 (my callsign)
+	-> model: my model
+
+Airplane: abc123 2 (my callsign2)
+	-> model: my model2
+
+Airplane: abc123 3 (my callsign3)
+	-> model: my model3
+

@@ -102,13 +102,21 @@ TEST_F(AirportOutputTests, BasicOutputTest){
                                 "testOutput/BasicOutputTests3.txt"));
         EXPECT_TRUE(FileCompare("testOutput/BasicOutputTests3.txt",
                                 "testOutput/BasicOutputTestsTemplate2.txt"));
+        myFile.close();
 
-    
         //when there are 3 planes
+        myFile.open("testOutput/BasicOutputTests4.txt");
         Airplane plane2(2,"my callsign2", "my model2", 0);
-        plane.setNumber("abc123 2");
+        plane2.setNumber("abc123 2");
         Airplane plane3(3,"my callsign3", "my model3", 0);
-        plane.setNumber("abc123 3");
+        plane3.setNumber("abc123 3");
         airport.addAirplane(&plane2); airport.addAirplane(&plane3);
+        airportExporter.outputPlaneDetails();
+        EXPECT_TRUE(FileCompare("testOutput/BasicOutputTestsTemplate3.txt",
+                                "testOutput/BasicOutputTests4.txt"));
+        EXPECT_TRUE(FileCompare("testOutput/BasicOutputTests4.txt",
+                                "testOutput/BasicOutputTestsTemplate3.txt"));
+        airportExporter.stopOutput();
+        myFile.close();
 
 }
