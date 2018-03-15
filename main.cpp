@@ -42,12 +42,16 @@ int main(int argc, char* argv[]) {
     plane.setNumber("abc123");
     Airplane plane2(2,"my callsign2", "my model2", 0);
     plane2.setNumber("abc123 2");
+
     Airplane plane3(3,"my callsign3", "my model3", 0);
     plane3.setNumber("abc123 3");
+
     ap.addAirplane(&plane); ap.addAirplane(&plane2); ap.addAirplane(&plane3);
     AirportExporter airportExporter(&ap, file);
+
     airportExporter.startOutput();
     airportExporter.outputPlaneDetails();
+
     file.close();
 
 

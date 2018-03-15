@@ -3,6 +3,15 @@
 #include "utils.h"
 #include "classes/AirportExporter.h"
 
+
+void AirportOutputTests::setupAirport() {
+    airport.setName("myAirport");
+    airport.setId(12);
+    airport.setIATA("MAP");
+    airport.setCallsign("this is my Airport");
+}
+
+
 TEST_F(AirportOutputTests, FileCompare){
     ASSERT_TRUE(DirectoryExists("testOutput"));
 
@@ -51,12 +60,70 @@ TEST_F(AirportOutputTests, FileCompare){
     EXPECT_FALSE(FileCompare("testOutput/nonExisting.txt", "testOutput/fileCompare4.txt"));
 }
 
-TEST_F(AirportOutputTests, BasicOutputTest){
-    airport.setName("myAirport");
-    airport.setId(12);
-    airport.setIATA("MAP");
-    airport.setCallsign("this is my Airport");
+TEST_F(AirportOutputTests, OutputStartStopFunctions){
+    setupAirport();
     ofstream myFile;
+
+    AirportExporter airportExporter(myFile);
+    airportExporter.set_airport(&airport);
+
+    //Try stopping output before starting the output
+    EXPECT_DEATH(airportExporter.stopOutput(), "StartOutput has to be true before it can be stopped");
+
+    //Try outputting before start method
+    EXPECT_DEATH(airportExporter.outputAirportDetails(), "AirportExporter output is not started, "
+            "use the method startOutput first");
+}
+
+TEST_F(AirportOutputTests, AirplaneDetailsOutput){
+    setupAirport();
+    ofstream myFile;
+    myFile.open("testOutput/BasicOutputTest1.txt");
+    AirportExporter airportExporter(myFile);
+
+    airportExporter.set_airport(&airport);
+
+    //Test for Plane details
+    myFile.open("testOutput/BasicOutputTest2.txt");
+
+    //when there are no planes:
+    airportExporter.startOutput();
+    airportExporter.outputPlaneDetails();
+    EXPECT_TRUE(FileIsEmpty("testOutput/BasicOutputTest2.txt"));
+    airportExporter.stopOutput();
+
+    //when there is one plane
+    Airplane plane(1,"my callsign", "my model", 0); plane.setNumber("abc123");
+    airport.addAirplane(&plane);
+    myFile.open("testOutput/BasicOutputTests3.txt");
+
+    airportExporter.startOutput();
+    airportExporter.outputPlaneDetails();
+    EXPECT_TRUE(FileCompare("testOutput/BasicOutputTestsTemplate2.txt",
+                            "testOutput/BasicOutputTests3.txt"));
+    EXPECT_TRUE(FileCompare("testOutput/BasicOutputTests3.txt",
+                            "testOutput/BasicOutputTestsTemplate2.txt"));
+
+    //when there are 3 planes
+    myFile.open("testOutput/BasicOutputTests4.txt");
+    Airplane plane2(2,"my callsign2", "my model2", 0);
+    plane2.setNumber("abc123 2"); Airplane plane3(3,"my callsign3", "my model3", 0);
+    plane3.setNumber("abc123 3"); airport.addAirplane(&plane2); airport.addAirplane(&plane3);
+    airportExporter.outputPlaneDetails();
+
+    EXPECT_TRUE(FileCompare("testOutput/BasicOutputTestsTemplate3.txt",
+                            "testOutput/BasicOutputTests4.txt"));
+    EXPECT_TRUE(FileCompare("testOutput/BasicOutputTests4.txt",
+                            "testOutput/BasicOutputTestsTemplate3.txt"));
+    airportExporter.stopOutput();
+    myFile.close();
+
+}
+
+TEST_F(AirportOutputTests, AirportDetailsOutput){
+    setupAirport();
+    ofstream myFile;
+
     myFile.open("testOutput/BasicOutputTest1.txt");
     AirportExporter airportExporter(myFile);
 
@@ -66,11 +133,8 @@ TEST_F(AirportOutputTests, BasicOutputTest){
             "is it initalized correctly?");
     airportExporter.stopOutput();
 
+    //set airport
     airportExporter.set_airport(&airport);
-
-    //Try writing without enabling output
-    EXPECT_DEATH(airportExporter.outputAirportDetails(), "AirportExporter output is not started, "
-            "use the method startOutput first");
 
     //Test for Airport details
     airportExporter.startOutput();
@@ -80,43 +144,4 @@ TEST_F(AirportOutputTests, BasicOutputTest){
     EXPECT_FALSE(FileIsEmpty("testOutput/BasicOutputTest1.txt"));
     airportExporter.stopOutput();
     myFile.close();
-
-    //Test for Plane details
-    myFile.open("testOutput/BasicOutputTest2.txt");
-        //when there are no planes:
-        airportExporter.startOutput();
-        airportExporter.outputPlaneDetails();
-        EXPECT_TRUE(FileIsEmpty("testOutput/BasicOutputTest2.txt"));
-        airportExporter.stopOutput();
-        myFile.close();
-
-        Airplane plane(1,"my callsign", "my model", 0);
-        plane.setNumber("abc123");
-        airport.addAirplane(&plane);
-        myFile.open("testOutput/BasicOutputTests3.txt");
-
-        //when there is one plane
-        airportExporter.startOutput();
-        airportExporter.outputPlaneDetails();
-        EXPECT_TRUE(FileCompare("testOutput/BasicOutputTestsTemplate2.txt",
-                                "testOutput/BasicOutputTests3.txt"));
-        EXPECT_TRUE(FileCompare("testOutput/BasicOutputTests3.txt",
-                                "testOutput/BasicOutputTestsTemplate2.txt"));
-        myFile.close();
-
-        //when there are 3 planes
-        myFile.open("testOutput/BasicOutputTests4.txt");
-        Airplane plane2(2,"my callsign2", "my model2", 0);
-        plane2.setNumber("abc123 2");
-        Airplane plane3(3,"my callsign3", "my model3", 0);
-        plane3.setNumber("abc123 3");
-        airport.addAirplane(&plane2); airport.addAirplane(&plane3);
-        airportExporter.outputPlaneDetails();
-        EXPECT_TRUE(FileCompare("testOutput/BasicOutputTestsTemplate3.txt",
-                                "testOutput/BasicOutputTests4.txt"));
-        EXPECT_TRUE(FileCompare("testOutput/BasicOutputTests4.txt",
-                                "testOutput/BasicOutputTestsTemplate3.txt"));
-        airportExporter.stopOutput();
-        myFile.close();
-
 }
