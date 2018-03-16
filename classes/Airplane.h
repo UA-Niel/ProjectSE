@@ -29,7 +29,14 @@ public:
         STANDING,
         TAXING,
         LANDING,
+        DEPARTING,
         UNKNOWN
+    };
+    enum FuelState {
+        EMPTY,
+        WARNING,
+        OKAY,
+        FULL
     };
 
 
@@ -211,6 +218,46 @@ public:
     int getHeight();
 
     /**
+     * \brief Sets amount of passengers
+     *
+     * @param int amount
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    void setAmountOfPassengers(const int amount); 
+
+    /**
+     * \brief Returns the amount of passengers
+     *
+     * @return int amount
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    int getAmountOfPassengers();
+
+    /**
+     * \brief Sets the fuel state
+     *
+     * @param FuelState state
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    void setFuelState(const FuelState& state);
+    
+    /**
+     * \brief Returns the fuel state
+     *
+     * @return FuelState state
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    FuelState& getFuelState();
+
+    /**
      * \brief constructor of the airplane class
      *
      * This constructor takes an id, callsign, model and status
@@ -249,6 +296,9 @@ private:
    
    // AirportExporter* _exporter; /**<Holding the exporter>*/
     int _height; /**<Variable to hold current height of the airplane>*/
+
+    int _amountOfPassengers; /**<Variable to hold current amount of passengers on this plane*/
+    FuelState _fuelState; /**<Variable to hold the current fuel state*/
 };
 
 #endif

@@ -148,6 +148,20 @@ int Airplane::getHeight() {
     return this->_height;
 }
 
+void Airplane::setAmountOfPassengers(const int amount) {
+    this->_amountOfPassengers = amount;
+}
+int Airplane::getAmountOfPassengers() {
+    return this->_amountOfPassengers;
+}
+void Airplane::setFuelState(const Airplane::FuelState& state) {
+    this->_fuelState = state;
+}
+Airplane::FuelState& Airplane::getFuelState() {
+    return this->_fuelState;
+}
+
+
 bool Airplane::properlyInitialized() const {
     return _initCheck == this;
 }

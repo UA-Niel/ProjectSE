@@ -75,6 +75,9 @@ void makeAllLand(Airport* p) {
                                 //Check if plane is standing correctly
                                 if (plane->getStatus() == Airplane::Status::STANDING) {
                                     OUTPUT << plane->getCallsign() << " is standing at gate " << gate->getId();
+
+                                    //Plane just landed, do gate actions
+                                    doGateActions(gate, plane, p);
                                 }
                             }
                         }
@@ -93,3 +96,37 @@ void makeAllLand(Airport* p) {
 void makeAllTakeoff () {
     
 }
+
+//do technical control of plane
+bool technicalControl(Airplane* plane) {
+    return true;
+}
+
+bool doGateActions(Gate* gate, Airplane* plane, Airport* p) {
+    Airplane::Status status = plane->getStatus();
+
+    if (status == Airplane::Status::STANDING) {
+        //Let passengers exit
+        int amountOfPassengers = plane->getAmountOfPassengers();
+        plane->setAmountOfPassengers(0);
+        OUTPUT << amountOfPassengers << " exited " << plane->getCallsign() << " at gate " << gate->getId() << " of " << p->getCallsign();
+
+        //Do technical control
+        if (!technicalControl(plane)) {
+            //Handle plane error stuff
+        }
+        OUTPUT << plane->getCallsign() << " has been checked for techical malfunctions";
+    }
+    if (status == Airplane::Status::DEPARTING) {
+        //Refil fuel
+        plane->setFuelState(Airplane::FuelState::FULL);
+        OUTPUT << plane->getCallsign() << " has refueled";
+
+        //Let passengers board
+        int amountToBoard = 5;
+        plane->setAmountOfPassengers(amountToBoard);
+        OUTPUT << amountToBoard << " passengers boarded " << plane->getCallsign() << " at gate " << gate->getId() << " of " << p->getName();
+    }
+    
+} 
+

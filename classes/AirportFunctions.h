@@ -16,4 +16,10 @@ void makeAllLand(Airport* p);
 //Let all airplanes pullup
 void makeAllTakeoff(Airport* p);
 
+//Function to do gate functions,
+//Refilling fuel, letting passengers exit,
+//make ready to depart,...
+//Return true on success (techincal control okay, fuel okay,...)
+bool doGateActions(Gate* gate, Airplane* plane, Airport* p);
+
 #endif //AIRPORTFUNCTIONS_H
