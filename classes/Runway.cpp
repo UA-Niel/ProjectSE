@@ -13,6 +13,14 @@ bool Runway::addAirplane(Airplane* airplane) {
     return true;
 }
 
+//Clear runway
+bool Runway::clearRunway() {
+    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly")
+    _airplanesOnRunway.clear();
+    
+    return true;
+}
+
 //Return airplanes
 std::vector<Airplane*>& Runway::getAirplanesOnRunway() {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly")

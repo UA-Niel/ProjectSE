@@ -6,7 +6,9 @@
 #include "Gate.h"
 #include "../DesignByContract.h"
 
-Gate::Gate() {}
+Gate::Gate() {
+    _initCheck = this;
+}
 
 //Getters and setters
 void Gate::setId(const int id) {

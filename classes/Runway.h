@@ -37,6 +37,16 @@ public:
     bool addAirplane(Airplane* airplane);
 
     /**
+     * \brief Function to say the whole runway is clear
+     *
+     * @return True if cleared correctly
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+     */
+    bool clearRunway();
+
+    /**
      * \brief Returns the whole vector of all airplanes on runway
      * @return Airplanes
      *

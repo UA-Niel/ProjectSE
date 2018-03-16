@@ -63,9 +63,9 @@ Airport* loadAirportFromFile(const char* fileName) {
                         ss >> amountOfGates;
 
                         for (int i = 0; i < amountOfGates; i++) {
-                            Gate myGate;
-                            myGate.setId(i + 1);
-                            myAirport->addGate(&myGate);
+                            Gate* myGate = new Gate;
+                            myGate->setId(i + 1);
+                            myAirport->addGate(myGate);
                         }
                     }
                 }
@@ -73,7 +73,7 @@ Airport* loadAirportFromFile(const char* fileName) {
         
             //Adding runway
             if (elementType(elemType) == RUNWAY) {
-                static Runway myRunway;
+                Runway* myRunway = new Runway;
                 
                 for (TiXmlElement* e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
                    std::string eValue = e->Value();
@@ -82,18 +82,18 @@ Airport* loadAirportFromFile(const char* fileName) {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                        myRunway.setName(t);
+                        myRunway->setName(t);
                     }
                     if (eValue == "airport") {
-                        myRunway.setAirport(myAirport->getId());
+                        myRunway->setAirport(myAirport->getId());
                     }
                 }
 
-                myAirport->addRunway(&myRunway);
+                myAirport->addRunway(myRunway);
             }
             //Adding airplane
             if (elementType(elemType) == AIRPLANE) {
-                static Airplane myAirplane;
+                Airplane* myAirplane = new Airplane;
 
                 for (TiXmlElement* e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
                    std::string eValue = e->Value();
@@ -102,35 +102,35 @@ Airport* loadAirportFromFile(const char* fileName) {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                        myAirplane.setNumber(t);
+                        myAirplane->setNumber(t);
                     }
                     if (eValue == "callsign") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                        myAirplane.setCallsign(t);    
+                        myAirplane->setCallsign(t);    
                     }
                     if (eValue == "model") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                        myAirplane.setModel(t);    
+                        myAirplane->setModel(t);    
                     }
                     if (eValue == "status") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
                     
-                        if (t == "Standing") myAirplane.setStatus(Airplane::Status::STANDING);
-                        if (t == "Taxing") myAirplane.setStatus(Airplane::Status::TAXING);
-                        if (t == "Approaching") myAirplane.setStatus(Airplane::Status::APPROACHING);
-                        if (t == "Landing") myAirplane.setStatus(Airplane::Status::LANDING);
+                        if (t == "Standing") myAirplane->setStatus(Airplane::Status::STANDING);
+                        if (t == "Taxing") myAirplane->setStatus(Airplane::Status::TAXING);
+                        if (t == "Approaching") myAirplane->setStatus(Airplane::Status::APPROACHING);
+                        if (t == "Landing") myAirplane->setStatus(Airplane::Status::LANDING);
                         
                     }
                 }
 
                 //Add airplane
-                myAirport->addAirplane(&myAirplane);
+                myAirport->addAirplane(myAirplane);
             }
         }
 
