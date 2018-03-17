@@ -3,14 +3,10 @@
  * This file contains the implementation of Airplane
  */
 
+#include <string>
 #include "Airport.h"
-#include "Airplane.h"
-#include "Runway.h"
-#include "../DesignByContract.h"
-#include "AirportExporter.h"
+#include "../utils.h"
 
-#include "Log.hpp"
-#define OUTPUT Log()
 
 //Depart
 bool Airplane::depart() {
@@ -23,29 +19,37 @@ bool Airplane::land(Runway* runway) {
     
     //Plane land
     runway->getAirplanesOnRunway().push_back(this);
-    this->setStatus(Airplane::Status::LANDED);
+    this->setStatus(Airplane::LANDED);
+
+    ENSURE(this->getStatus() == LANDED, "Expected the status to be LANDED");
 
     return true;
 }
 //Taxi to gate
 bool Airplane::taxi(Gate* gate) {
-    this->setStatus(Airplane::Status::TAXING);
+    REQUIRE(this->properlyInitialized(), "Airplane is not initalized correctly");
+    REQUIRE(this->getStatus() == LANDED, "The status of the Airplane has to be LANDED before it can taxi");
+    this->setStatus(Airplane::TAXING);
 
     //Let plane go to gate
     gate->setPlaneAtGate(this);
    
-    this->setStatus(Airplane::Status::STANDING);
+    this->setStatus(Airplane::STANDING);
+
+    ENSURE(this->getStatus() == STANDING, "Expected the status to be STANDING");
 
     return true;
 }
 //Approach
-bool Airplane::approach(Airport* ap) {
+bool Airplane::approach(Airport* ap, AirportExporter* exporter) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
    
-    if (this->getStatus() != Airplane::Status::LANDING) {
-        this->setStatus(Airplane::Status::APPROACHING);
-        //Outputting
-        OUTPUT << this->getCallsign() << " is approaching" << ap->getCallsign() << " at " << _height << "ft";  
+    if (this->getStatus() != Airplane::LANDING) {
+        this->setStatus(Airplane::APPROACHING);
+
+        //Output
+        string message = getCallsign() + " is approaching " + ap->getCallsign() + " at " + ToString(_height) +"ft.";
+        exporter->outputString(message);
     }
     
 
@@ -54,10 +58,11 @@ bool Airplane::approach(Airport* ap) {
         //Airplane descends 1000ft
         this->setHeight(this->getHeight() - 1000);
 
-        //Outputting
-        OUTPUT << this->getCallsign() << " descended to " << _height << "ft.";
+        //Output
+        string message = getCallsign() + " descended to " + ToString(_height) + "ft.";
+        exporter->outputString(message);
     
-        this->setStatus(Airplane::Status::LANDING);
+        this->setStatus(Airplane::LANDING);
         
         return true;
     }
@@ -79,8 +84,9 @@ bool Airplane::approach(Airport* ap) {
 //Returns a free runway
 //:param Airport* ap: Our airport
 Runway* Airplane::checkFreeRunway(Airport* ap) {
-    for (unsigned int i = 0; i < ap->getRunways()->size(); i++) {
-        if (ap->getRunway(i)->getAirplanesOnRunway().size() == 0) {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initalized correctly");
+    for (unsigned int i = 0; i < ap->getRunways().size(); i++) {
+        if (ap->getRunway(i)->getAirplanesOnRunway().empty()) {
             return ap->getRunway(i);
         }
     }
@@ -90,6 +96,7 @@ Runway* Airplane::checkFreeRunway(Airport* ap) {
 //Returns a free gate
 //:param Airport* ap: Our airport
 Gate* Airplane::checkFreeGate(Airport* ap) {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initalized correctly")
     for (unsigned int i = 0; i < ap->getAllGates().size(); i++) {
         if (ap->getAllGates()[i]->getPlaneAtGate() == NULL) {
             return ap->getAllGates()[i];
@@ -142,22 +149,28 @@ Airplane::Status Airplane::getStatus() const{
 }
 
 void Airplane::setHeight(const int height) {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     this->_height = height;
 }
 int Airplane::getHeight() {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     return this->_height;
 }
 
 void Airplane::setAmountOfPassengers(const int amount) {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     this->_amountOfPassengers = amount;
 }
 int Airplane::getAmountOfPassengers() {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     return this->_amountOfPassengers;
 }
 void Airplane::setFuelState(const Airplane::FuelState& state) {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     this->_fuelState = state;
 }
 Airplane::FuelState& Airplane::getFuelState() {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     return this->_fuelState;
 }
 
@@ -167,14 +180,14 @@ bool Airplane::properlyInitialized() const {
 }
 
 //Constructors
-Airplane::Airplane(int airplaneId, const string &callsign, const string &_model, Airplane::Status& status, const std::string& number/*, AirportExporter* exporter*/)
-        : _airplaneId(airplaneId), _callsign(callsign), _model(_model), _status(status), _number(number) /*,_exporter(exporter)*/ {
+Airplane::Airplane(int airplaneId, const string &callsign, const string &_model, Airplane::Status& status, const std::string& number)
+        : _airplaneId(airplaneId), _callsign(callsign), _model(_model), _status(status), _number(number){
     _initCheck = this;
     ENSURE(this->properlyInitialized(), "Airplane is not initialized correctly");
 }
-Airplane::Airplane(/*AirportExporter* exporter*/) {
+Airplane::Airplane() {
     _airplaneId = -1;
-    _status = Airplane::Status::UNKNOWN; 
+    _status = Airplane::UNKNOWN;
     _initCheck = this;
     ENSURE(this->properlyInitialized(), "Airplane is not initialized correctly");
 }

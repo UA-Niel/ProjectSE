@@ -1,35 +1,35 @@
 //Implementation file for AirportFunctions
 
 #include "AirportFunctions.h"
+#include "../utils.h"
 
-void makeAllLand(Airport* p) {
-    Runway* freeRunway = nullptr;
- 
+void makeAllLand(Airport* p, AirportExporter* exporter) {
+    Runway* freeRunway = NULL;
     //Start simulation
     //1) Let airplane land
     bool airplaneAboveThousandFeet = false;
 
     //Airplane approaches at 10,000ft
     //Set starting height all planes
-    for (int i = 0; i < p->getAllAirplanes().size(); i++) {
-        p->getAllAirplanes()[i]->setHeight(10000);
+    for (unsigned int i = 0; i < p->getAirplanes().size(); i++) {
+        p->getAirplanes()[i]->setHeight(10000);
     }
     
     do {
         bool airplaneIsInLandingProcedure = true;
 
         //Let all airplanes descend one by one
-        for (int i = 0; i < p->getAllAirplanes().size(); i++) {
-            Airplane* plane = p->getAllAirplanes()[i];
+        for (unsigned int i = 0; i < p->getAirplanes().size(); i++) {
+            Airplane* plane = p->getAirplanes()[i];
             
 
             //Get this plane's status
             Airplane::Status status = plane->getStatus();
-            if (status == Airplane::Status::UNKNOWN || 
-            status == Airplane::Status::APPROACHING ||
-            status == Airplane::Status::LANDING ) {
+            if (status == Airplane::UNKNOWN ||
+            status == Airplane::APPROACHING ||
+            status == Airplane::LANDING ) {
                 //Let approach more
-                plane->approach(p);
+                plane->approach(p, exporter);
             } else airplaneIsInLandingProcedure = false;
             
         }
@@ -40,8 +40,8 @@ void makeAllLand(Airport* p) {
 
         airplaneAboveThousandFeet = false;
         //Check if there still is an airplane above thousand feet
-        for (int i = 0; i < p->getAllAirplanes().size(); i++) {
-            Airplane* plane = p->getAllAirplanes()[i];
+        for (unsigned int i = 0; i < p->getAirplanes().size(); i++) {
+            Airplane* plane = p->getAirplanes()[i];
             
             if (plane->getHeight() > 1000) {
                 airplaneAboveThousandFeet = true;
@@ -54,30 +54,39 @@ void makeAllLand(Airport* p) {
                 //Only start procedure when free runway available
                 if (freeRunway != NULL) {
                     //Landing procedure started
-                    plane->setStatus(Airplane::Status::LANDING);
-                    
-                    OUTPUT << plane->getCallsign() << " is landing at " << p->getName() << " on runway " << freeRunway->getName(); 
+                    plane->setStatus(Airplane::LANDING);
+
+                    //Output
+                    string message = plane->getCallsign() + " is landing at " + p->getName() + " on runway " +
+                            freeRunway->getName();
+                    exporter->outputString(message);
+
                     if (plane->land(freeRunway)) {
-                        OUTPUT << plane->getCallsign() << " has landed at " << p->getName() << " on runway " << freeRunway->getName(); 
+                        message =  plane->getCallsign() + " has landed at " + p->getName() + " on runway "
+                                   + freeRunway->getName();
+                        exporter->outputString(message);
                         
                         //Get free gate
                         Gate* gate = plane->checkFreeGate(p);
-                        
+
                         //Only taxi to gate, if there is free gate
                         if (gate != NULL) {
                             //Plane landed, let it taxi
                             if (plane->taxi(gate)) {
-                                //Plane taxid, so runway is back free
+                                //Plane taxied, so runway is back free
                                 freeRunway->clearRunway();
 
-                                OUTPUT << plane->getCallsign() << " is taxing to gate " << gate->getId();
+                                message = plane->getCallsign() + " is taxing to gate " + ToString(gate->getId());
+                                exporter->outputString(message);
                             
                                 //Check if plane is standing correctly
-                                if (plane->getStatus() == Airplane::Status::STANDING) {
-                                    OUTPUT << plane->getCallsign() << " is standing at gate " << gate->getId();
+                                if (plane->getStatus() == Airplane::STANDING) {
+
+                                    message = plane->getCallsign() + " is standing at gate " + ToString(gate->getId());
+                                    exporter->outputString(message);
 
                                     //Plane just landed, do gate actions
-                                    doGateActions(gate, plane, p);
+                                    doGateActions(gate, plane, p, exporter);
                                 }
                             }
                         }
@@ -102,31 +111,41 @@ bool technicalControl(Airplane* plane) {
     return true;
 }
 
-bool doGateActions(Gate* gate, Airplane* plane, Airport* p) {
+bool doGateActions(Gate* gate, Airplane* plane, Airport* p, AirportExporter* exporter) {
     Airplane::Status status = plane->getStatus();
 
-    if (status == Airplane::Status::STANDING) {
+    if (status == Airplane::STANDING) {
         //Let passengers exit
         int amountOfPassengers = plane->getAmountOfPassengers();
         plane->setAmountOfPassengers(0);
-        OUTPUT << amountOfPassengers << " exited " << plane->getCallsign() << " at gate " << gate->getId() << " of " << p->getCallsign();
+
+        string message = ToString(amountOfPassengers) + " exited " + plane->getCallsign() + " at gate "
+                                            + ToString(gate->getId()) + " of " + p->getCallsign();
+        exporter->outputString(message);
 
         //Do technical control
         if (!technicalControl(plane)) {
             //Handle plane error stuff
         }
-        OUTPUT << plane->getCallsign() << " has been checked for techical malfunctions";
+
+        message = plane->getCallsign() + " has been checked for techical malfunctions";
+        exporter->outputString(message);
+
     }
-    if (status == Airplane::Status::DEPARTING) {
+    if (status == Airplane::DEPARTING) {
         //Refil fuel
-        plane->setFuelState(Airplane::FuelState::FULL);
-        OUTPUT << plane->getCallsign() << " has refueled";
+        plane->setFuelState(Airplane::FULL);
+        string message = plane->getCallsign() + " has been refueled";
+        exporter->outputString(message);
 
         //Let passengers board
         int amountToBoard = 5;
         plane->setAmountOfPassengers(amountToBoard);
-        OUTPUT << amountToBoard << " passengers boarded " << plane->getCallsign() << " at gate " << gate->getId() << " of " << p->getName();
+
+        message = ToString(amountToBoard) + " passengers boarded " + plane->getCallsign()
+                + " at gate " + ToString(gate->getId()) + " of " + p->getName();
+        exporter->outputString(message);
     }
-    
+    return true;
 } 
 

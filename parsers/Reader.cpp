@@ -68,6 +68,12 @@ Airport* loadAirportFromFile(const char* fileName) {
                             myAirport->addGate(myGate);
                         }
                     }
+                    if (eValue == "callsign") {
+                        TiXmlNode* x = e->FirstChild();
+                        TiXmlText* text = x->ToText();
+                        std::string t = text->Value();
+                        myAirport->setCallsign(t);
+                    }
                 }
             }
         
@@ -121,10 +127,10 @@ Airport* loadAirportFromFile(const char* fileName) {
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
                     
-                        if (t == "Standing") myAirplane->setStatus(Airplane::Status::STANDING);
-                        if (t == "Taxing") myAirplane->setStatus(Airplane::Status::TAXING);
-                        if (t == "Approaching") myAirplane->setStatus(Airplane::Status::APPROACHING);
-                        if (t == "Landing") myAirplane->setStatus(Airplane::Status::LANDING);
+                        if (t == "Standing") myAirplane->setStatus(Airplane::STANDING);
+                        if (t == "Taxing") myAirplane->setStatus(Airplane::TAXING);
+                        if (t == "Approaching") myAirplane->setStatus(Airplane::APPROACHING);
+                        if (t == "Landing") myAirplane->setStatus(Airplane::LANDING);
                         
                     }
                 }

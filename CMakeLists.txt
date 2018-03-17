@@ -19,7 +19,8 @@ set(DEBUG_SOURCE_FILES
         classes/Runway.cpp
         classes/Airport.h
         classes/Airport.cpp
-        classes/Airplane.h
+        classes/AirportFunctions.cpp
+        classes/AirportFunctions.h        classes/Airplane.h
         classes/Airplane.cpp
         classes/AirportExporter.cpp
         classes/AirportExporter.h
@@ -54,6 +55,8 @@ set(RELEASE_SOURCE_FILES
         classes/Runway.cpp
         classes/Airport.h
         classes/Airport.cpp
+        classes/AirportFunctions.cpp
+        classes/AirportFunctions.h
         classes/Airplane.h
         classes/Airplane.cpp
         classes/AirportExporter.cpp

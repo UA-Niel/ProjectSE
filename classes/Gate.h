@@ -10,25 +10,65 @@
 
 class Airplane;
 
+/**
+ * \brief The Gate class, a gate has an ID and can contain an airplane
+ */
 class Gate {
     public:
-    //Constructors
+    /**
+     * \brief Default construcotr for Gate class
+     *
+     * **Postconditions:**
+     * - ENSURE(this->properlyInitialized(), "Gate not properly initialized.");
+     */
     Gate();
     
-    //Getters and setters
+    /**
+     * \brief Sets a new id for the Gate class
+     * @param id New id for the Gate class
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Gate not properly initialized.");
+     */
     void setId(const int id);
+
+    /**
+     * \brief Returns the ID of the Gate class
+     * @return ID of the gate class
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Gate not properly initialized.");
+     */
     int getId() const;
 
+    /**
+     * \brief Sets Airplane at Gate
+     * @param plane Pointer to airplane at Gate
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Gate not properly initialized.");
+     */
     void setPlaneAtGate(Airplane* plane);
+
+    /**
+     * \brief Returns Airplane at Gate
+     * @return Pointer to Airplane at Gate
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Gate not properly initialized.");
+     */
     Airplane* getPlaneAtGate();
 
-    //Initialized
+    /**
+     * \brief Checks if the Gate class is initialized correctly
+     * @return Returns true if the Gate class is correctly initialized
+     */
     bool properlyInitialized() const;
 
-    private:
-    int _id;
-    Gate* _initCheck; 
-    Airplane* _planeAtGate;
+private:
+    int _id; /**<Member containing ID of the Gate*/
+    Gate* _initCheck; /**<Member used for properlyInitalized functions*/
+    Airplane* _planeAtGate;/**<Member containing pointer to Airplane of runway*/
 };
 
 

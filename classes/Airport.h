@@ -23,6 +23,34 @@ class Airport {
 public:
 
     /**
+     * \brief Default constructor for airport
+     *
+     * **Preconditions:**
+     * - ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
+     */
+    Airport();
+
+    /**
+     * \brief Constructor for airport which takes all members
+     * @param _runways Vector of pointers to runways
+     * @param _gates Vector of pointers to Gates
+     * @param _airportId Integer ID of the airport
+     * @param _name Std::string name of the airport
+     * @param _IATA Std::string IATA of the airport
+     * @param _callsign Std::string callsign of the airport
+     *
+     * **Preconditions:**
+     * - ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
+     */
+    Airport(const vector<Runway*> _runways, const vector<Gate*> _gates, int _airportId, const string &_name,
+            const string &_IATA, const string &_callsign);
+
+    /**
+     * \brief Destructor for Airport class
+     */
+    virtual ~Airport();
+
+    /**
      * \brief Checks if the airport class is initialized correctly
      * @return Returns true if the airport is correctly initialized
      */
@@ -80,18 +108,6 @@ public:
      */
     bool removeAirplane(int id);
 
-    /**
-     * \brief Returns vector of all Airplanes on the airport
-     *
-     * Returns all the airplanes in a vector
-     *
-     * @return std::vector<Airplane*>
-     *
-     * **Preconditions:**
-     * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
-     */
-    std::vector<Airplane*> getAllAirplanes();
-    
      /**
      * \brief Returns vector of all gates on the airport
      *
@@ -234,33 +250,6 @@ public:
      */
     const string& getCallsign() const;
 
-    //Constructors
-    /**
-     * \brief Default constructor for airport
-     *
-     * **Preconditions:**
-     * - ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
-     */
-    
-    
-    
-    Airport();
-
-    /**
-     * \brief Constructor for airport which takes all members
-     * @param _runways Vector of pointers to runways
-     * @param _gates Vector of pointers to Gates
-     * @param _airportId Integer ID of the airport
-     * @param _name Std::string name of the airport
-     * @param _IATA Std::string IATA of the airport
-     * @param _callsign Std::string callsign of the airport
-     *
-     * **Preconditions:**
-     * - ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
-     */
-    Airport(const vector<Runway*> _runways, const vector<Gate*> _gates, int _airportId, const string &_name,
-            const string &_IATA, const string &_callsign);
-
     /**
      * \brief Check how many gates the Airport has
      * @return Unsigned integer for the number of gates
@@ -295,9 +284,9 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
      */
-    std::vector<Runway*> *getRunways();
+    std::vector<Runway*> &getRunways();
 
-    void assignGateToPlaneForDeparture(Airplane* airplane);
+
 
 
 private:

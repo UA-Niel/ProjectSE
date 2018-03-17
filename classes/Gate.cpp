@@ -5,9 +5,11 @@
 
 #include "Gate.h"
 #include "../DesignByContract.h"
+#include "Airplane.h"
 
 Gate::Gate() {
     _initCheck = this;
+    ENSURE(this->properlyInitialized(), "Gate not properly initialized.");
 }
 
 //Getters and setters
@@ -17,13 +19,17 @@ void Gate::setId(const int id) {
 }
 
 int Gate::getId() const {
+    REQUIRE(this->properlyInitialized(), "Gate not properly initialized.");
     return this->_id;
 }
 
 void Gate::setPlaneAtGate(Airplane* plane) {
-    this->_planeAtGate = plane; 
+    REQUIRE(this->properlyInitialized(), "Gate not properly initialized.");
+    REQUIRE(plane->getStatus() == Airplane::TAXING, "Airplane has to be taxiing before it can be assigned to a Gate")
+    this->_planeAtGate = plane;
 }
 Airplane* Gate::getPlaneAtGate() {
+    REQUIRE(this->properlyInitialized(), "Gate not properly initialized.");
     return this->_planeAtGate;
 }
 

@@ -41,23 +41,24 @@ bool Airport::removeAirplane(const int id) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
 
     int counter = 0;
+    bool found = false;
     for(unsigned int i = 0; i < this->_airplanesOnAirport.size(); i++) {
-        if (this->_airplanesOnAirport[i]->getId() == id) break;
+        if (this->_airplanesOnAirport[i]->getId() == id){
+            found = true;
+            break;
+        }
         counter++;
     }
+    if(!found) return false;
 
     this->_airplanesOnAirport.erase(this->_airplanesOnAirport.begin() + counter);
 
     return true;
 }
 
-//Get all airplanes 
-std::vector<Airplane*> Airport::getAllAirplanes() {
-    return this->_airplanesOnAirport;
-}
-
 //Get all gates
 std::vector<Gate*> Airport::getAllGates() {
+    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     return this->_gates;
 }
 
@@ -66,11 +67,16 @@ bool Airport::removeRunway(const int id) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     
     int counter = 0;
+    bool found = false;
     for(unsigned int i = 0; i < this->_runways.size(); i++) {
-        if (this->_runways[i]->getId() == id) break;
+        if (this->_runways[i]->getId() == id){
+            found = true;
+            break;
+        }
         counter++;
     }
-
+    if(!found)
+        return false;
     this->_runways.erase(this->_runways.begin() + counter);
     
     return true;
@@ -80,10 +86,17 @@ bool Airport::removeGate(const int id) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     
     int counter = 0;
+    bool found = false;
     for (unsigned int i = 0; i < this->_gates.size(); i++) {
-        if (this->_gates[i]->getId() == id) break;
+        if (this->_gates[i]->getId() == id){
+            found = true;
+            break;
+        }
         counter++;
     }
+
+    if(!found)
+        return false;
 
     this->_gates.erase(this->_gates.begin() + counter);
     
@@ -192,20 +205,14 @@ const vector<Airplane *> &Airport::getAirplanes() const {
     return _airplanesOnAirport;
 }
 
-std::vector<Runway*>* Airport::getRunways() {
+std::vector<Runway*>& Airport::getRunways() {
     REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
-    return &_runways;
+    return _runways;
 }
 
-void Airport::assignGateToPlaneForDeparture(Airplane *airplane) {
-    REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
-    REQUIRE(!_runways.empty(), "There are no runways in the airport!");
-
-    for(unsigned int i = 0; i<_runways.size(); i++){
-        Runway* runway = _runways[i];
-        if(runway->getAirplanesOnRunway().empty()){
-            //airplane->taxi(runway);
-        }
-    }
-
+Airport::~Airport() {
+    for(unsigned int i = 0; i<getAirplanes().size(); i++) delete getAirplanes()[i];
+    for(unsigned int i = 0; i<getAllGates().size(); i++) delete getAllGates()[i];
+    for(unsigned int i = 0; i<getNrOfRunways(); i++) delete getRunways()[i];
 }
+

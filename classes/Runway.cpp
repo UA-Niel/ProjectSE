@@ -8,14 +8,15 @@
 
 //Add airplane
 bool Runway::addAirplane(Airplane* airplane) {
-    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly")
+    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
     _airplanesOnRunway.push_back(airplane);
     return true;
 }
 
 //Clear runway
 bool Runway::clearRunway() {
-    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly")
+    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+    REQUIRE(!_airplanesOnRunway.empty(), "There are no Airplanes at the runway");
     _airplanesOnRunway.clear();
     
     return true;

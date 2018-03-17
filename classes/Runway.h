@@ -21,8 +21,8 @@ class Runway {
 public:
 
     /**
-     * \brief Checks if the airport class is initialized correctly
-     * @return Returns true if the airport is correctly initialized
+     * \brief Checks if the Runway class is initialized correctly
+     * @return Returns true if the Runway is correctly initialized
      */
     bool properlyInitialized() const;
 
@@ -43,6 +43,7 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+     * - REQUIRE(!_airplanesOnRunway.empty(), "There are no Airplanes at the runway");
      */
     bool clearRunway();
 

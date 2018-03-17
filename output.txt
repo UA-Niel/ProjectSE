@@ -1,7 +1,22 @@
-INIT... Antwerp International Airport
-
-Airport: Antwerp International Airport (ANR)
-	-> gates: 0
-	-> runways: 1
-
-There are currently no airplanes
+Cessna 842 is approaching Antwerp Tower at 10000ft.
+Cessna 842 descended to 9000ft.
+Cessna 899 is approaching Antwerp Tower at 10000ft.
+Cessna 899 descended to 9000ft.
+Cessna 842 descended to 8000ft.
+Cessna 899 descended to 8000ft.
+Cessna 842 descended to 7000ft.
+Cessna 899 descended to 7000ft.
+Cessna 842 descended to 6000ft.
+Cessna 899 descended to 6000ft.
+Cessna 842 descended to 5000ft.
+Cessna 899 descended to 5000ft.
+Cessna 842 descended to 4000ft.
+Cessna 899 descended to 4000ft.
+Cessna 842 descended to 3000ft.
+Cessna 899 descended to 3000ft.
+Cessna 842 descended to 2000ft.
+Cessna 899 descended to 2000ft.
+Cessna 842 descended to 1000ft.
+Cessna 899 descended to 1000ft.
+Cessna 842 is landing at Antwerp International Airport on runway 11R
+Cessna 842 has landed at Antwerp International Airport on runway 11R
