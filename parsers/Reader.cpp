@@ -18,7 +18,7 @@ Airport* loadAirportFromFile(const char* fileName) {
     
     //Loading file and check if it loaded correct
     if (!doc.LoadFile(fileName)) {
-        std::cout<< "Error: " << doc.ErrorDesc() << std::endl;
+        std::cerr<< "Error: " << doc.ErrorDesc() << std::endl;
     
     } else { 
 

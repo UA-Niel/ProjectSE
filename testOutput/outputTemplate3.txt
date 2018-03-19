@@ -1,9 +1,9 @@
-Airplane: my number 3 (my callsign 1)
+Airplane: my number 1 (my callsign 1)
 	-> model: my model 1
 
-Airplane:  (my callsign 2)
+Airplane: my number 2 (my callsign 2)
 	-> model: my model 2
 
-Airplane:  (my callsign 3)
+Airplane: my number 3 (my callsign 3)
 	-> model: my model 3
 

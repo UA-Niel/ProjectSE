@@ -213,9 +213,6 @@ std::vector<Runway*>& Airport::getRunways() {
 
 Airport::~Airport() {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
-    for(unsigned int i = 0; i<getAirplanes().size(); i++) delete getAirplanes()[i];
-    for(unsigned int i = 0; i<getAllGates().size(); i++) delete getAllGates()[i];
-    for(unsigned int i = 0; i<getNrOfRunways(); i++) delete getRunways()[i];
 }
 
 void Airport::doSimulation(AirportExporter *exporter) {

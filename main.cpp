@@ -27,6 +27,10 @@ int main(int argc, char* argv[]) {
     exporter.stopOutput();
     outputFile.close();
 
+
+    for(unsigned int i = 0; i<p->getAirplanes().size(); i++) delete p->getAirplanes()[i];
+    for(unsigned int i = 0; i<p->getAllGates().size(); i++) delete p->getAllGates()[i];
+    for(unsigned int i = 0; i<p->getNrOfRunways(); i++) delete p->getRunways()[i];
     delete p;
     cout << "DONE!";
     return 0;
