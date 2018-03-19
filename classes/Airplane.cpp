@@ -30,7 +30,7 @@ bool Airplane::land(Runway* runway) {
 bool Airplane::taxi(Gate* gate) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initalized correctly");
     REQUIRE(this->getStatus() == LANDED, "The status of the Airplane has to be LANDED before it can taxi");
-    this->setStatus(Airplane::TAXING);
+    this->setStatus(Airplane::TAXIING_TO_GATE);
 
     //Let plane go to gate
     gate->setPlaneAtGate(this);
@@ -42,44 +42,11 @@ bool Airplane::taxi(Gate* gate) {
     return true;
 }
 //Approach
-bool Airplane::approach(Airport* ap, AirportExporter* exporter) {
+void Airplane::approach(int amountOfFeet) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
-   
-    if (this->getStatus() != Airplane::LANDING) {
-        this->setStatus(Airplane::APPROACHING);
-
-        //Output
-        string message = getCallsign() + " is approaching " + ap->getCallsign() + " at " + ToString(_height) +"ft.";
-        exporter->outputString(message);
-    }
-    
-
-    //While airplane is higher than 10,000ft
-    if (this->getHeight() > 1000) {
-        //Airplane descends 1000ft
-        this->setHeight(this->getHeight() - 1000);
-
-        //Output
-        string message = getCallsign() + " descended to " + ToString(_height) + "ft.";
-        exporter->outputString(message);
-    
-        this->setStatus(Airplane::LANDING);
-        
-        return true;
-    }
-
-
-/*
-    //Airplane lands on free runway
-    //Check for free runway
-    Runway* freeRunway = checkFreeRunway(ap);
-
-    //Let plane land on the free runway
-    this->land(freeRunway);
-
-    this->setStatus(Airplane::Status::LANDED);
-*/
-    return true;
+    REQUIRE(this->getStatus() == LANDING, "Airplane must be in LANDING status before it can approach");
+    REQUIRE(amountOfFeet > 0, "You can only approach by a positive amount of feet");
+    _height -= amountOfFeet;
 }
 
 //Returns a free runway
@@ -166,7 +133,7 @@ int Airplane::getAmountOfPassengers() {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     return this->_amountOfPassengers;
 }
-void Airplane::setFuelState(const Airplane::FuelState& state) {
+void Airplane::setFuelState(const Airplane::FuelState state) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     this->_fuelState = state;
 }
@@ -181,8 +148,9 @@ bool Airplane::properlyInitialized() const {
 }
 
 //Constructors
-Airplane::Airplane(int airplaneId, const string &callsign, const string &_model, Airplane::Status& status, const std::string& number)
+Airplane::Airplane(int airplaneId, const string &callsign, const string &_model, Airplane::Status status, const std::string& number)
         : _airplaneId(airplaneId), _callsign(callsign), _model(_model), _status(status), _number(number){
+
     _initCheck = this;
     _height = 0;
     _amountOfPassengers = 0;

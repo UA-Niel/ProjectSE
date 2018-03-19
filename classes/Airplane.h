@@ -30,7 +30,7 @@ public:
         IN_AIR,
         AT_GATE,
         STANDING,
-        TAXING,
+        TAXIING_TO_GATE,
         LANDING,
         DEPARTING,
         UNKNOWN
@@ -101,15 +101,14 @@ public:
     bool taxi(Gate* gate);
 
     /**
-     * \brief Lets the airplane approach
-     * @param ap Pointer to airport to approach
-     * @param exporter Used to export information
-     * @return true if the airplane approached successfully
+     * \brief Lets the airplane approach by amountOfFeet (default = 1000)
+     * @param amountOfFeet Amount of feet the plane needs to approach
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     * - REQUIRE(this->getStatus() == LANDING, "Airplane must be in LANDING status before it can approach");
      */
-    bool approach(Airport* ap, AirportExporter* exporter);
+    void approach(int amountOfFeet = 1000);
     
 
     /**
@@ -271,7 +270,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
-    void setFuelState(const FuelState& state);
+    void setFuelState(const FuelState state);
     
     /**
      * \brief Returns the fuel state
@@ -298,7 +297,7 @@ public:
      * - ENSURE(this->properlyInitialized(), "Airplane is not initialized correctly");
      *
      */
-    Airplane(int _airplaneId, const string &callsign, const string &_model, Airplane::Status& status, const std::string& number);
+    Airplane(int _airplaneId, const string &callsign, const string &_model, Airplane::Status status, const std::string& number);
 
     /**
      * \brief constructor of the airplane class

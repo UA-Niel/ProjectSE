@@ -9,6 +9,8 @@
 
 Gate::Gate() {
     _initCheck = this;
+    _id = -1;
+    _planeAtGate = NULL;
     ENSURE(this->properlyInitialized(), "Gate not properly initialized.");
 }
 
@@ -25,7 +27,7 @@ int Gate::getId() const {
 
 void Gate::setPlaneAtGate(Airplane* plane) {
     REQUIRE(this->properlyInitialized(), "Gate not properly initialized.");
-    REQUIRE(plane->getStatus() == Airplane::TAXING, "Airplane has to be taxiing before it can be assigned to a Gate")
+    REQUIRE(plane->getStatus() == Airplane::TAXIING_TO_GATE, "Airplane has to be taxiing before it can be assigned to a Gate")
     this->_planeAtGate = plane;
 }
 Airplane* Gate::getPlaneAtGate() {
@@ -35,4 +37,8 @@ Airplane* Gate::getPlaneAtGate() {
 
 bool Gate::properlyInitialized() const {
     return _initCheck == this;
+}
+
+void Gate::clearGate() {
+    _planeAtGate = NULL;
 }

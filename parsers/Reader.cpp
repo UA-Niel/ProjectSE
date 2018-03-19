@@ -10,6 +10,8 @@
 #include <map>
 #include <sstream>
 
+unsigned int gAIRPLANE_ID = 0;
+
 //loadAirportFromFile
 Airport* loadAirportFromFile(const char* fileName) {
     TiXmlDocument doc;
@@ -130,12 +132,15 @@ Airport* loadAirportFromFile(const char* fileName) {
                         myAirplane->setFuelState(Airplane::FULL);
 
                         if (t == "Standing") myAirplane->setStatus(Airplane::STANDING);
-                        if (t == "Taxing") myAirplane->setStatus(Airplane::TAXING);
+                        if (t == "Taxing") myAirplane->setStatus(Airplane::TAXIING_TO_GATE);
                         if (t == "Approaching") myAirplane->setStatus(Airplane::APPROACHING);
                         if (t == "Landing") myAirplane->setStatus(Airplane::LANDING);
                         
                     }
                 }
+
+                myAirplane->setId(gAIRPLANE_ID);
+                gAIRPLANE_ID++;
 
                 //Add airplane
                 myAirport->addAirplane(myAirplane);

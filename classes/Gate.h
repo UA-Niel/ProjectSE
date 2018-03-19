@@ -65,6 +65,8 @@ class Gate {
      */
     bool properlyInitialized() const;
 
+    void clearGate();
+
 private:
     int _id; /**<Member containing ID of the Gate*/
     Gate* _initCheck; /**<Member used for properlyInitalized functions*/

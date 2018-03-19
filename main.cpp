@@ -8,7 +8,6 @@
 #include "classes/Airplane.h"
 #include "classes/Airport.h"
 #include "parsers/Reader.h"
-#include "classes/AirportFunctions.h"
 
 using namespace std;
 
@@ -19,11 +18,11 @@ int main(int argc, char* argv[]) {
     ofstream outputFile("output.txt");
     AirportExporter exporter(p, outputFile);
 
-    p->getAirplanes()[0]->setStatus(Airplane::DEPARTING);
-
     exporter.startOutput();
-    //Let all airplanes land
-    makeAllTakeoff(p, &exporter);
+
+    for(int i = 0; i<70; i++) {
+        p->doSimulation(&exporter);
+    }
 
     exporter.stopOutput();
     outputFile.close();

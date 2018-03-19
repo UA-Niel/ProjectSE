@@ -66,6 +66,7 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+     * - REQUIRE(airplane->properlyInitialized(), "Airplane 'airplane' is not initalized correctly");
      */
     bool addAirplane(Airplane* airplane);
 
@@ -79,6 +80,7 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+     * - REQUIRE(runway->properlyInitialized(), "Runway 'runway' is not initalized correctly");
      */
     bool addRunway(Runway* runway);
 
@@ -92,6 +94,7 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+     * - REQUIRE(gate->properlyInitialized(), "Gate 'gate' is not initalized correctly");
      */
     bool addGate(Gate* gate);
 
@@ -285,6 +288,133 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
      */
     std::vector<Runway*> &getRunways();
+
+    /**
+     * \brief Does one tick of the simulation of the airport
+     * @param exporter Output exporter
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+     * - REQUIRE(exporter != NULL, "Exporter not found, is it initalized correctly?");
+     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     */
+    void doSimulation(AirportExporter* exporter);
+
+    /**
+     * \brief Looks for the runway where Airplane plane is assigned to
+     * @param plane Pointer to airplane to get runway from
+     * @return Runway with airplane plane assigned to
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+     * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initalized correctly");
+     */
+    Runway* getRunwayWithPlane(Airplane* plane);
+
+    /**
+     * \brief Checks if gates are free and returns the first free gate
+     * @return Free Gate, NULL if no free gates are found
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+     */
+    Gate* getFreeGate();
+
+
+    /**
+     * \brief Looks for the Gate where Airplane plane is assigned to
+     * @param plane Pointer to airplane to search
+     * @return Gate containing the Airplane
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+     * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
+     */
+    Gate* getGateWithPlane(Airplane* plane);
+
+    /**
+     * \brief Does the simulation if an Airplane is approaching
+     * @param exporter Pointer to AirportExporter
+     * @param plane Pointer to Airplane
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+     * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
+     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     */
+    void doSimulationApproach(AirportExporter* exporter, Airplane* plane);
+
+    /**
+     * \brief Does the simulation if an Airplane is landing
+     * @param exporter Pointer to AirportExporter
+     * @param plane Pointer to Airplane
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+     * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
+     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     */
+    void doSimulationLanding(AirportExporter* exporter, Airplane* plane);
+
+    /**
+     * \brief Does the simulation if an Airplane is landed
+     * @param exporter Pointer to AirportExporter
+     * @param plane Pointer to Airplane
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+     * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
+     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     */
+    void doSimulationLanded(AirportExporter* exporter, Airplane* plane);
+
+    /**
+     * \brief Does the simulation if an Airplane is taxiing
+     * @param exporter Pointer to AirportExporter
+     * @param plane Pointer to Airplane
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+     * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
+     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     */
+    void doSimulationTaxiing(AirportExporter* exporter, Airplane* plane);
+
+    /**
+     * \brief Does the simulation if an Airplane is at at the Gate
+     * @param exporter Pointer to AirportExporter
+     * @param plane Pointer to Airplane
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+     * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
+     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     */
+    void doSimulationAtGate(AirportExporter* exporter, Airplane* plane);
+
+    /**
+     * \brief Does the simulation if the Airplane is standing
+     * @param exporter Pointer to AirportExporter
+     * @param plane Pointer to Airplane
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+     * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
+     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     */
+    void doSimulationStanding(AirportExporter* exporter, Airplane* plane);
+
+    /**
+     * \brief Does the simulation when the Airplane is departing
+     * @param exporter Pointer to AirportExporter
+     * @param plane Pointer to Airplane
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
+     * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
+     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     */
+    void doSimulationDeparting(AirportExporter* exporter, Airplane* plane);
 
 
 
