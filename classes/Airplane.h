@@ -55,12 +55,23 @@ public:
 
     /**
      * \brief Makes the airplane depart
-     * @return true if the airplanes departed successfully
      *
+     * @return true if the airplanes departed successfully
+     * @param maxHeight Maximum heigth for the plane, default = 10000
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     * - REQUIRE(maxHeight >= 0, "Can not ascend with height smaller than zero");
      */
-    bool depart();
+    bool departed(int maxHeight = 10000);
+
+    /**
+     * \brief Lets the plane ascend by amountOfFeet (default = 1000)
+     * @param amountOfFeet Amount of feet the plane has to ascend (default = 1000)
+     *
+     * TODO
+     */
+
+    void ascend(unsigned int amountOfFeet = 1000);
 
     /**
      * \brief Lets the airplane land

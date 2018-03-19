@@ -1,4 +1,7 @@
-//Implementation file for AirportFunctions
+/**
+ * \file
+ * This file contains declarations for airport functions
+ */
 
 #include "AirportFunctions.h"
 #include "../utils.h"
@@ -101,11 +104,6 @@ void makeAllLand(Airport* p, AirportExporter* exporter) {
     } while (airplaneAboveThousandFeet);
 }
 
-//Make all airplanes takeoff
-void makeAllTakeoff () {
-    
-}
-
 //do technical control of plane
 bool technicalControl(Airplane* plane) {
     return true;
@@ -147,5 +145,63 @@ bool doGateActions(Gate* gate, Airplane* plane, Airport* p, AirportExporter* exp
         exporter->outputString(message);
     }
     return true;
-} 
+}
 
+void makeAllTakeoff(Airport* p, AirportExporter* exporter){
+    REQUIRE(p != NULL, "Airport cannot be NULL");
+    REQUIRE(exporter != NULL, "Exporter cannot be NULL");
+    REQUIRE(p->properlyInitialized(), "Airport p is not initialized correctly");
+    REQUIRE(exporter->properlyInitalized(), "Exporter is not initialized correctly");
+
+    vector<Airplane*> departingPlanes;
+    for(unsigned int i = 0; i<p->getAirplanes().size(); i++){
+        Airplane* plane = p->getAirplanes()[i];
+        if(plane->getStatus() != Airplane::DEPARTING) continue;
+        if(plane->getFuelState() != Airplane::FULL) continue;
+        departingPlanes.push_back(plane);
+
+    }
+    if(departingPlanes.empty()) return;
+    bool allDeparted = false;
+
+    while(!allDeparted){
+        if(departingPlanes.empty()) allDeparted = true;
+        int size = departingPlanes.size();
+        for(int i = 0; i<size; i++){
+            Airplane* plane = departingPlanes[i];
+            //Runway* freeRunway = plane->checkFreeRunway(p);
+
+
+
+            plane->ascend();
+            string message = plane->getCallsign() + " ascended to " + ToString(plane->getHeight());
+            exporter->outputString(message);
+
+
+
+            if(plane->departed()){
+
+                //clearRunwayWithPlane(p, plane);
+
+                message = plane->getCallsign() + " left " + p->getCallsign();
+                exporter->outputString(message);
+                departingPlanes.erase(departingPlanes.begin() + i);
+                plane->setStatus(Airplane::IN_AIR);
+            }
+        }
+    }
+
+    ENSURE(departingPlanes.empty(), "There are still planes departing");
+}
+
+void clearRunwayWithPlane(Airport* p,  Airplane* plane){
+    REQUIRE(p->properlyInitialized(), "Airport p is not initialized correctly");
+    REQUIRE(plane->properlyInitialized(), "Airplane plane is not initialized correctly");
+    for(unsigned int i = 0; i<p->getRunways().size(); i++){
+        Runway* runway = p->getRunways()[i];
+        if(runway->getAirplanesOnRunway()[0]->getId() == plane->getId()){
+            runway->clearRunway();
+            return;
+        }
+    }
+}

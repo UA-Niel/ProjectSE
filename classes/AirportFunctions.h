@@ -21,13 +21,29 @@ void makeAllLand(Airport* p, AirportExporter* exporter);
  * \brief Lets all airplanes on the airport take off
  * @param p Pointer to airport
  * @param exporter Poitner to exporter
+ *
+ * **Preconditions:**
+ * - REQUIRE(p != NULL, "Airport cannot be NULL");
+ * - REQUIRE(exporter != NULL, "Exporter cannot be NULL");
+ * - REQUIRE(p->properlyInitialized(), "Airport p is not initialized correctly");
+ * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initialized correctly");
+ *
+ * **Postcondtions:**
+ * - ENSURE(departingPlanes.empty(), "There are still planes departing");
  */
 void makeAllTakeoff(Airport* p, AirportExporter* exporter);
 
-//Function to do gate functions,
-//Refilling fuel, letting passengers exit,
-//make ready to depart,...
-//Return true on success (techincal control okay, fuel okay,...)
+/**
+ * \brief Clears the runway containing plane
+ * @param p Pointer to the airport
+ * @param plane Pointer to the plane
+ *
+ * **Preconditions:**
+ * - REQUIRE(p->properlyInitialized(), "Airport p is not initialized correctly");
+ * - REQUIRE(plane->properlyInitialized(), "Airplane plane is not initialized correctly");
+ */
+void clearRunwayWithPlane(Airport* p,  Airplane* plane);
+
 /**
  * \brief Function to do gate functions
  *

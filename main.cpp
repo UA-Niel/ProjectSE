@@ -19,9 +19,11 @@ int main(int argc, char* argv[]) {
     ofstream outputFile("output.txt");
     AirportExporter exporter(p, outputFile);
 
+    p->getAirplanes()[0]->setStatus(Airplane::DEPARTING);
+
     exporter.startOutput();
     //Let all airplanes land
-    makeAllLand(p, &exporter);
+    makeAllTakeoff(p, &exporter);
 
     exporter.stopOutput();
     outputFile.close();

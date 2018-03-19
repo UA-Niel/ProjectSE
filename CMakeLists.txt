@@ -20,7 +20,8 @@ set(DEBUG_SOURCE_FILES
         classes/Airport.h
         classes/Airport.cpp
         classes/AirportFunctions.cpp
-        classes/AirportFunctions.h        classes/Airplane.h
+        classes/AirportFunctions.h
+        classes/Airplane.h
         classes/Airplane.cpp
         classes/AirportExporter.cpp
         classes/AirportExporter.h
@@ -41,8 +42,8 @@ set(DEBUG_SOURCE_FILES
         utils.cpp
         utils.h
 
-        AirportOutputTests.h
-        AirportOutputTests.cpp
+        testfiles/AirportOutputTests.h
+        testfiles/AirportOutputTests.cpp
         mainTests.cpp
         )
 

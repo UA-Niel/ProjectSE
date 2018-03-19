@@ -9,9 +9,10 @@
 
 
 //Depart
-bool Airplane::depart() {
+bool Airplane::departed(int maxHeight) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
-    return true;
+    REQUIRE(maxHeight >= 0, "Can not ascend with height smaller than zero");
+    return _height >= maxHeight;
 }
 //Land
 bool Airplane::land(Runway* runway) {
@@ -183,11 +184,22 @@ bool Airplane::properlyInitialized() const {
 Airplane::Airplane(int airplaneId, const string &callsign, const string &_model, Airplane::Status& status, const std::string& number)
         : _airplaneId(airplaneId), _callsign(callsign), _model(_model), _status(status), _number(number){
     _initCheck = this;
+    _height = 0;
+    _amountOfPassengers = 0;
+    _fuelState = FULL;
     ENSURE(this->properlyInitialized(), "Airplane is not initialized correctly");
 }
 Airplane::Airplane() {
     _airplaneId = -1;
     _status = Airplane::UNKNOWN;
     _initCheck = this;
+    _height = 0;
+    _amountOfPassengers = 0;
+    _fuelState = FULL;
     ENSURE(this->properlyInitialized(), "Airplane is not initialized correctly");
+}
+
+void Airplane::ascend(unsigned int amountOfFeet) {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initalized correctly");
+    _height += amountOfFeet;
 }

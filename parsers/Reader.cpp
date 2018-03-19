@@ -126,7 +126,9 @@ Airport* loadAirportFromFile(const char* fileName) {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                    
+
+                        myAirplane->setFuelState(Airplane::FULL);
+
                         if (t == "Standing") myAirplane->setStatus(Airplane::STANDING);
                         if (t == "Taxing") myAirplane->setStatus(Airplane::TAXING);
                         if (t == "Approaching") myAirplane->setStatus(Airplane::APPROACHING);

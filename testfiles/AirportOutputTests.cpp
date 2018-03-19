@@ -1,7 +1,7 @@
 #include <fstream>
 #include "AirportOutputTests.h"
-#include "utils.h"
-#include "classes/AirportExporter.h"
+#include "../utils.h"
+#include "../classes/AirportExporter.h"
 
 
 void AirportOutputTests::setupAirport() {
@@ -97,7 +97,7 @@ TEST_F(AirportOutputTests, AirplaneDetailsOutput){
     airportExporter.stopOutput();
 
     //when there is one plane
-    Airplane plane1(1, "my callsign 1", "my model 1", 0);
+    Airplane plane1(1, "my callsign 1", "my model 1", Airplane::STANDING, 0);
     plane1.setNumber("my number 1");
     airport.addAirplane(&plane1);
 
@@ -116,8 +116,8 @@ TEST_F(AirportOutputTests, AirplaneDetailsOutput){
 
     //when there are 3 planes
     myFile.open("testOutput/AirplaneDetailsOutput3.txt");
-    Airplane plane2(2, "my callsign 2", "my model 2", 0); plane1.setNumber("my number 2");
-    Airplane plane3(3, "my callsign 3", "my model 3", 0); plane1.setNumber("my number 3");
+    Airplane plane2(2, "my callsign 2", "my model 2", Airplane::STANDING, 0); plane1.setNumber("my number 2");
+    Airplane plane3(3, "my callsign 3", "my model 3", Airplane::STANDING,0); plane1.setNumber("my number 3");
     airport.addAirplane(&plane2); airport.addAirplane(&plane3);
 
     airportExporter.outputPlaneDetails();
