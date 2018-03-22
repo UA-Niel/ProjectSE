@@ -352,7 +352,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
      * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
-     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     * - REQUIRE(exporter->properlyInitialized(), "Exporter is not initalized correctly");
      */
     void doSimulationLanding(AirportExporter* exporter, Airplane* plane);
 
@@ -364,7 +364,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
      * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
-     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     * - REQUIRE(exporter->properlyInitialized(), "Exporter is not initalized correctly");
      */
     void doSimulationLanded(AirportExporter* exporter, Airplane* plane);
 
@@ -376,7 +376,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
      * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
-     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     * - REQUIRE(exporter->properlyInitialized(), "Exporter is not initalized correctly");
      */
     void doSimulationTaxiing(AirportExporter* exporter, Airplane* plane);
 
@@ -388,7 +388,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
      * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
-     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     * - REQUIRE(exporter->properlyInitialized(), "Exporter is not initalized correctly");
      */
     void doSimulationAtGate(AirportExporter* exporter, Airplane* plane);
 
@@ -400,7 +400,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
      * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
-     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     * - REQUIRE(exporter->properlyInitialized(), "Exporter is not initalized correctly");
      */
     void doSimulationStanding(AirportExporter* exporter, Airplane* plane);
 
@@ -412,7 +412,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airport is not initalized correctly");
      * - REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
-     * - REQUIRE(exporter->properlyInitalized(), "Exporter is not initalized correctly");
+     * - REQUIRE(exporter->properlyInitialized(), "Exporter is not initalized correctly");
      */
     void doSimulationDeparting(AirportExporter* exporter, Airplane* plane);
 
@@ -428,7 +428,7 @@ private:
     string _IATA; /**<Airport IATA string*/
     string _callsign; /**<Airport callsign string*/
     //Init check:
-    Airport* _initCheck; /**<member used in @see properlyInitalized to check if the airplane is initalized correctly*/
+    Airport* _initCheck; /**<member used in @see properlyInitialized to check if the airplane is initalized correctly*/
 };
 
 #endif //AIRPORT_H

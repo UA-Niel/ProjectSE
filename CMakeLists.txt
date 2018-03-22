@@ -44,6 +44,9 @@ set(DEBUG_SOURCE_FILES
 
         testfiles/AirportOutputTests.h
         testfiles/AirportOutputTests.cpp
+        testfiles/AirportTests.h
+        testfiles/AirportTests.cpp
+        testfiles/ReaderTest.cpp
         mainTests.cpp
         testfiles/RunwayTests.cpp
         testfiles/RunwayTests.h testfiles/GateTests.cpp testfiles/GateTests.h testfiles/AirplaneTests.cpp testfiles/AirplaneTests.h)
