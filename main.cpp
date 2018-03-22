@@ -8,11 +8,17 @@
 #include "classes/Airplane.h"
 #include "classes/Airport.h"
 #include "parsers/Reader.h"
+#include "classes/Log.hpp"
+#define OUTPUT Log()
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    const char* str = "inputs/airport1.xml";
+    if (argc <= 1) {
+        OUTPUT << "No argument for input file given";
+        return -1;
+    }
+    const char* str = argv[1]; 
     Airport* p = loadAirportFromFile(str);
 
     ofstream outputFile("output.txt");
