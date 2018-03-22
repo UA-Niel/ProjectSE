@@ -140,7 +140,7 @@ TEST_F(AirportOutputTests, AirportDetailsOutput){
     //Try writing while no airport is assigned to output
     airportExporter.startOutput();
     EXPECT_DEATH(airportExporter.outputAirportDetails(), "AirportExporter did not find the airport, "
-            "is it initalized correctly?");
+            "is it initialized correctly?");
     airportExporter.stopOutput();
 
     //set airport
