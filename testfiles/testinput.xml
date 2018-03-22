@@ -15,6 +15,7 @@
 <callsign>callsign</callsign>
 <model>model</model>
 <status>Approaching</status>
+    <passengers>20</passengers>
 </AIRPLANE>
 
 </file>

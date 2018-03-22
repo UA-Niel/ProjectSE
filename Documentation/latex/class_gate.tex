@@ -1,18 +1,136 @@
 \hypertarget{class_gate}{}\section{Gate Class Reference}
 \label{class_gate}\index{Gate@{Gate}}
+
+
+The \mbox{\hyperlink{class_gate}{Gate}} class, a gate has an ID and can contain an airplane.  
+
+
+
+
+{\ttfamily \#include $<$Gate.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_gate_aa770ce8dbc324b0c44c1345bb1e77672}\label{class_gate_aa770ce8dbc324b0c44c1345bb1e77672}} 
-void {\bfseries set\+Id} (const int id)
-\item 
-\mbox{\Hypertarget{class_gate_a9ba3d9aa4f60f5b97a1fb391b7490938}\label{class_gate_a9ba3d9aa4f60f5b97a1fb391b7490938}} 
-int {\bfseries get\+Id} () const
-\item 
-\mbox{\Hypertarget{class_gate_a51a6794e1e26f03c75f469a6ee8d3432}\label{class_gate_a51a6794e1e26f03c75f469a6ee8d3432}} 
-bool {\bfseries properly\+Initialized} () const
+\mbox{\hyperlink{class_gate_a4fc24ecebc0ca8252bf7ab96a705e58a}{Gate}} ()
+\begin{DoxyCompactList}\small\item\em Default construcotr for \mbox{\hyperlink{class_gate}{Gate}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gate_aa770ce8dbc324b0c44c1345bb1e77672}{set\+Id}} (const int id)
+\begin{DoxyCompactList}\small\item\em Sets a new id for the \mbox{\hyperlink{class_gate}{Gate}} class. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_gate_a9ba3d9aa4f60f5b97a1fb391b7490938}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns the ID of the \mbox{\hyperlink{class_gate}{Gate}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gate_ad0ff6bff604635299374ccb5b92169f9}{set\+Plane\+At\+Gate}} (\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$plane)
+\begin{DoxyCompactList}\small\item\em Sets \mbox{\hyperlink{class_airplane}{Airplane}} at \mbox{\hyperlink{class_gate}{Gate}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$ \mbox{\hyperlink{class_gate_ac27d4ca81274494a61abe0419428a204}{get\+Plane\+At\+Gate}} ()
+\begin{DoxyCompactList}\small\item\em Returns \mbox{\hyperlink{class_airplane}{Airplane}} at \mbox{\hyperlink{class_gate}{Gate}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_gate_a51a6794e1e26f03c75f469a6ee8d3432}{properly\+Initialized}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{class_gate}{Gate}} class is initialized correctly. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_gate_a655a2eabe79fccb8d42805060f7b48b1}\label{class_gate_a655a2eabe79fccb8d42805060f7b48b1}} 
+void {\bfseries clear\+Gate} ()
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+The \mbox{\hyperlink{class_gate}{Gate}} class, a gate has an ID and can contain an airplane. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_gate_a4fc24ecebc0ca8252bf7ab96a705e58a}\label{class_gate_a4fc24ecebc0ca8252bf7ab96a705e58a}} 
+\index{Gate@{Gate}!Gate@{Gate}}
+\index{Gate@{Gate}!Gate@{Gate}}
+\subsubsection{\texorpdfstring{Gate()}{Gate()}}
+{\footnotesize\ttfamily Gate\+::\+Gate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default construcotr for \mbox{\hyperlink{class_gate}{Gate}} class. 
+
+{\bfseries Postconditions\+:}
+\begin{DoxyItemize}
+\item E\+N\+S\+U\+RE(this-\/$>$\mbox{\hyperlink{class_gate_a51a6794e1e26f03c75f469a6ee8d3432}{properly\+Initialized()}}, \char`\"{}\+Gate not properly initialized.\char`\"{}); 
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_gate_a9ba3d9aa4f60f5b97a1fb391b7490938}\label{class_gate_a9ba3d9aa4f60f5b97a1fb391b7490938}} 
+\index{Gate@{Gate}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Gate@{Gate}}
+\subsubsection{\texorpdfstring{get\+Id()}{getId()}}
+{\footnotesize\ttfamily int Gate\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the ID of the \mbox{\hyperlink{class_gate}{Gate}} class. 
+
+\begin{DoxyReturn}{Returns}
+ID of the gate class
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_gate_a51a6794e1e26f03c75f469a6ee8d3432}{properly\+Initialized()}}, \char`\"{}\+Gate not properly initialized.\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_gate_ac27d4ca81274494a61abe0419428a204}\label{class_gate_ac27d4ca81274494a61abe0419428a204}} 
+\index{Gate@{Gate}!get\+Plane\+At\+Gate@{get\+Plane\+At\+Gate}}
+\index{get\+Plane\+At\+Gate@{get\+Plane\+At\+Gate}!Gate@{Gate}}
+\subsubsection{\texorpdfstring{get\+Plane\+At\+Gate()}{getPlaneAtGate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$ Gate\+::get\+Plane\+At\+Gate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns \mbox{\hyperlink{class_airplane}{Airplane}} at \mbox{\hyperlink{class_gate}{Gate}}. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to \mbox{\hyperlink{class_airplane}{Airplane}} at \mbox{\hyperlink{class_gate}{Gate}}
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_gate_a51a6794e1e26f03c75f469a6ee8d3432}{properly\+Initialized()}}, \char`\"{}\+Gate not properly initialized.\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_gate_a51a6794e1e26f03c75f469a6ee8d3432}\label{class_gate_a51a6794e1e26f03c75f469a6ee8d3432}} 
+\index{Gate@{Gate}!properly\+Initialized@{properly\+Initialized}}
+\index{properly\+Initialized@{properly\+Initialized}!Gate@{Gate}}
+\subsubsection{\texorpdfstring{properly\+Initialized()}{properlyInitialized()}}
+{\footnotesize\ttfamily bool Gate\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the \mbox{\hyperlink{class_gate}{Gate}} class is initialized correctly. 
+
+\begin{DoxyReturn}{Returns}
+Returns true if the \mbox{\hyperlink{class_gate}{Gate}} class is correctly initialized 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_gate_aa770ce8dbc324b0c44c1345bb1e77672}\label{class_gate_aa770ce8dbc324b0c44c1345bb1e77672}} 
+\index{Gate@{Gate}!set\+Id@{set\+Id}}
+\index{set\+Id@{set\+Id}!Gate@{Gate}}
+\subsubsection{\texorpdfstring{set\+Id()}{setId()}}
+{\footnotesize\ttfamily void Gate\+::set\+Id (\begin{DoxyParamCaption}\item[{const int}]{id }\end{DoxyParamCaption})}
+
+
+
+Sets a new id for the \mbox{\hyperlink{class_gate}{Gate}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & New id for the \mbox{\hyperlink{class_gate}{Gate}} class\\
+\hline
+\end{DoxyParams}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_gate_a51a6794e1e26f03c75f469a6ee8d3432}{properly\+Initialized()}}, \char`\"{}\+Gate not properly initialized.\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_gate_ad0ff6bff604635299374ccb5b92169f9}\label{class_gate_ad0ff6bff604635299374ccb5b92169f9}} 
+\index{Gate@{Gate}!set\+Plane\+At\+Gate@{set\+Plane\+At\+Gate}}
+\index{set\+Plane\+At\+Gate@{set\+Plane\+At\+Gate}!Gate@{Gate}}
+\subsubsection{\texorpdfstring{set\+Plane\+At\+Gate()}{setPlaneAtGate()}}
+{\footnotesize\ttfamily void Gate\+::set\+Plane\+At\+Gate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$}]{plane }\end{DoxyParamCaption})}
+
+
+
+Sets \mbox{\hyperlink{class_airplane}{Airplane}} at \mbox{\hyperlink{class_gate}{Gate}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plane} & Pointer to airplane at \mbox{\hyperlink{class_gate}{Gate}}\\
+\hline
+\end{DoxyParams}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_gate_a51a6794e1e26f03c75f469a6ee8d3432}{properly\+Initialized()}}, \char`\"{}\+Gate not properly initialized.\char`\"{}); 
+\end{DoxyItemize}
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

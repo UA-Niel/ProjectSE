@@ -137,6 +137,15 @@ Airport* loadAirportFromFile(const char* fileName) {
                         if (t == "Landing") myAirplane->setStatus(Airplane::LANDING);
                         
                     }
+                    if(eValue == "passengers"){
+                        TiXmlNode* x = e->FirstChild();
+                        TiXmlText* text = x->ToText();
+                        std::string t = text->Value();
+                        int amountOfPassengers;
+                        std::istringstream ss(t);
+                        ss >> amountOfPassengers;
+                        myAirplane->setAmountOfPassengers(amountOfPassengers);
+                    }
                 }
 
                 myAirplane->setId(gAIRPLANE_ID);

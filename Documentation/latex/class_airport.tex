@@ -12,6 +12,13 @@ Class that represents an airport.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_airport_a2fc0f2402c94225b9deaf76176bb887f}{Airport}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for airport. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_airport_a153cf00d5a0e7a547da06e3a77da4d8a}{Airport}} (const vector$<$ \mbox{\hyperlink{class_runway}{Runway}} $\ast$$>$ \+\_\+runways, const vector$<$ \mbox{\hyperlink{class_gate}{Gate}} $\ast$$>$ \+\_\+gates, int \+\_\+airport\+Id, const string \&\+\_\+name, const string \&\+\_\+\+I\+A\+TA, const string \&\+\_\+callsign)
+\begin{DoxyCompactList}\small\item\em Constructor for airport which takes all members. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_airport_a2c42073a186171586f3ac66d84af97ca}\label{class_airport_a2c42073a186171586f3ac66d84af97ca}} 
+virtual \mbox{\hyperlink{class_airport_a2c42073a186171586f3ac66d84af97ca}{$\sim$\+Airport}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_airport}{Airport}} class. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized}} () const
 \begin{DoxyCompactList}\small\item\em Checks if the airport class is initialized correctly. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_airport_a1862d996ae21c60e86f52a49628a27ff}{add\+Airplane}} (\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$airplane)
@@ -22,6 +29,8 @@ bool \mbox{\hyperlink{class_airport_a261e0c60f7e788de20ea902cb09b4569}{add\+Gate
 \begin{DoxyCompactList}\small\item\em Adds a runway to the airport. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_airport_a4e4929a17d410aac86d2d518648e4284}{remove\+Airplane}} (int id)
 \begin{DoxyCompactList}\small\item\em Removes an airplane from the airport. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_gate}{Gate}} $\ast$ $>$ \mbox{\hyperlink{class_airport_aebd46f12a6e13b077f788b8cc73d57fa}{get\+All\+Gates}} ()
+\begin{DoxyCompactList}\small\item\em Returns vector of all gates on the airport. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_airport_adb2735f0f7402bdf3946b17b10498b67}{remove\+Runway}} (int id)
 \begin{DoxyCompactList}\small\item\em Removes a runway from the airport. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_airport_ad0c61d46c5c811fb9a2d45be1826088c}{remove\+Gate}} (int id)
@@ -48,10 +57,36 @@ const string \& \mbox{\hyperlink{class_airport_aa127b88a8221fa23977c4fa6e37eee5b
 \begin{DoxyCompactList}\small\item\em Gets the I\+A\+TA of the airport. \end{DoxyCompactList}\item 
 const string \& \mbox{\hyperlink{class_airport_a7fd582a5f9554830247f724ddc031d84}{get\+Callsign}} () const
 \begin{DoxyCompactList}\small\item\em Gets the callsign of the airport. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_airport_a2fc0f2402c94225b9deaf76176bb887f}{Airport}} ()
-\begin{DoxyCompactList}\small\item\em Default constructor for airport. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_airport_a153cf00d5a0e7a547da06e3a77da4d8a}{Airport}} (const vector$<$ \mbox{\hyperlink{class_runway}{Runway}} $\ast$$>$ \+\_\+runways, const vector$<$ \mbox{\hyperlink{class_gate}{Gate}} $\ast$$>$ \+\_\+gates, int \+\_\+airport\+Id, const string \&\+\_\+name, const string \&\+\_\+\+I\+A\+TA, const string \&\+\_\+callsign)
-\begin{DoxyCompactList}\small\item\em Constructor for airport which takes all members. \end{DoxyCompactList}\end{DoxyCompactItemize}
+unsigned int \mbox{\hyperlink{class_airport_a14b74da2358af81c5b5df67aa52b14b6}{get\+Nr\+Of\+Gates}} () const
+\begin{DoxyCompactList}\small\item\em Check how many gates the \mbox{\hyperlink{class_airport}{Airport}} has. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_airport_ae65f2bbf4060d54a3c282f18928790a0}{get\+Nr\+Of\+Runways}} () const
+\begin{DoxyCompactList}\small\item\em Check how many runways the \mbox{\hyperlink{class_airport}{Airport}} has. \end{DoxyCompactList}\item 
+const vector$<$ \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$ $>$ \& \mbox{\hyperlink{class_airport_a1c2d6645864e47ff409ea9233add81d4}{get\+Airplanes}} () const
+\begin{DoxyCompactList}\small\item\em Returns the airplanes of the airport. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_runway}{Runway}} $\ast$ $>$ \& \mbox{\hyperlink{class_airport_a45ebc0d8a4e5b8efa6efb31b03955dbd}{get\+Runways}} ()
+\begin{DoxyCompactList}\small\item\em Returns the runways of the \mbox{\hyperlink{class_airport}{Airport}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_airport_a07b5744d0a5fc278437140b20bcd9b7f}{do\+Simulation}} (\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$exporter)
+\begin{DoxyCompactList}\small\item\em Does one tick of the simulation of the airport. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_runway}{Runway}} $\ast$ \mbox{\hyperlink{class_airport_acdf571dae312ffa3ac5bd0710aa1cb56}{get\+Runway\+With\+Plane}} (\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$plane)
+\begin{DoxyCompactList}\small\item\em Looks for the runway where \mbox{\hyperlink{class_airplane}{Airplane}} plane is assigned to. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_gate}{Gate}} $\ast$ \mbox{\hyperlink{class_airport_a6bcdea90491d54be7f41c624006dec2c}{get\+Free\+Gate}} ()
+\begin{DoxyCompactList}\small\item\em Checks if gates are free and returns the first free gate. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_gate}{Gate}} $\ast$ \mbox{\hyperlink{class_airport_a29b9bed08d03a28f16ad645bb6d6a24b}{get\+Gate\+With\+Plane}} (\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$plane)
+\begin{DoxyCompactList}\small\item\em Looks for the \mbox{\hyperlink{class_gate}{Gate}} where \mbox{\hyperlink{class_airplane}{Airplane}} plane is assigned to. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_airport_adb326706ff278a175efb9a55f31c4fa3}{do\+Simulation\+Approach}} (\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$exporter, \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$plane)
+\begin{DoxyCompactList}\small\item\em Does the simulation if an \mbox{\hyperlink{class_airplane}{Airplane}} is approaching. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_airport_a42d696dbd56340c324c385945045f402}{do\+Simulation\+Landing}} (\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$exporter, \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$plane)
+\begin{DoxyCompactList}\small\item\em Does the simulation if an \mbox{\hyperlink{class_airplane}{Airplane}} is landing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_airport_aaecef9cb812cbd5fb6aa64ee357190c9}{do\+Simulation\+Landed}} (\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$exporter, \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$plane)
+\begin{DoxyCompactList}\small\item\em Does the simulation if an \mbox{\hyperlink{class_airplane}{Airplane}} is landed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_airport_a473d89e33cae2358008a96652c2e68c2}{do\+Simulation\+Taxiing}} (\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$exporter, \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$plane)
+\begin{DoxyCompactList}\small\item\em Does the simulation if an \mbox{\hyperlink{class_airplane}{Airplane}} is taxiing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_airport_a28e88d341009ceb9e8b4287fb06db3c9}{do\+Simulation\+At\+Gate}} (\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$exporter, \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$plane)
+\begin{DoxyCompactList}\small\item\em Does the simulation if an \mbox{\hyperlink{class_airplane}{Airplane}} is at at the \mbox{\hyperlink{class_gate}{Gate}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_airport_aa27fbfad60f1e3ae54aa656d34b86ba2}{do\+Simulation\+Standing}} (\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$exporter, \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$plane)
+\begin{DoxyCompactList}\small\item\em Does the simulation if the \mbox{\hyperlink{class_airplane}{Airplane}} is standing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_airport_aa218b5ef42ae4d1d61b40377874bd4ca}{do\+Simulation\+Departing}} (\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$exporter, \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$plane)
+\begin{DoxyCompactList}\small\item\em Does the simulation when the \mbox{\hyperlink{class_airplane}{Airplane}} is departing. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -126,7 +161,8 @@ True if the airplane was added successfully
 \end{DoxyReturn}
 {\bfseries Preconditions\+:}
 \begin{DoxyItemize}
-\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{}); 
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(airplane-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airplane \textquotesingle{}airplane\textquotesingle{} is not initalized correctly\char`\"{}); 
 \end{DoxyItemize}\mbox{\Hypertarget{class_airport_a261e0c60f7e788de20ea902cb09b4569}\label{class_airport_a261e0c60f7e788de20ea902cb09b4569}} 
 \index{Airport@{Airport}!add\+Gate@{add\+Gate}}
 \index{add\+Gate@{add\+Gate}!Airport@{Airport}}
@@ -149,7 +185,8 @@ True if the gate was added successfully
 \end{DoxyReturn}
 {\bfseries Preconditions\+:}
 \begin{DoxyItemize}
-\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{}); 
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(gate-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Gate \textquotesingle{}gate\textquotesingle{} is not initalized correctly\char`\"{}); 
 \end{DoxyItemize}\mbox{\Hypertarget{class_airport_a8e8c8a80b3726c1dda7408e90469b9e7}\label{class_airport_a8e8c8a80b3726c1dda7408e90469b9e7}} 
 \index{Airport@{Airport}!add\+Runway@{add\+Runway}}
 \index{add\+Runway@{add\+Runway}!Airport@{Airport}}
@@ -172,7 +209,182 @@ True if the runway was added successfully
 \end{DoxyReturn}
 {\bfseries Preconditions\+:}
 \begin{DoxyItemize}
-\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{}); 
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(runway-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Runway \textquotesingle{}runway\textquotesingle{} is not initalized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_a07b5744d0a5fc278437140b20bcd9b7f}\label{class_airport_a07b5744d0a5fc278437140b20bcd9b7f}} 
+\index{Airport@{Airport}!do\+Simulation@{do\+Simulation}}
+\index{do\+Simulation@{do\+Simulation}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{do\+Simulation()}{doSimulation()}}
+{\footnotesize\ttfamily void Airport\+::do\+Simulation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$}]{exporter }\end{DoxyParamCaption})}
+
+
+
+Does one tick of the simulation of the airport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exporter} & Output exporter\\
+\hline
+\end{DoxyParams}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initalized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(exporter != N\+U\+LL, \char`\"{}\+Exporter not found, is it initalized correctly?\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(exporter-\/$>$properly\+Initalized(), \char`\"{}\+Exporter is not initalized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_adb326706ff278a175efb9a55f31c4fa3}\label{class_airport_adb326706ff278a175efb9a55f31c4fa3}} 
+\index{Airport@{Airport}!do\+Simulation\+Approach@{do\+Simulation\+Approach}}
+\index{do\+Simulation\+Approach@{do\+Simulation\+Approach}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{do\+Simulation\+Approach()}{doSimulationApproach()}}
+{\footnotesize\ttfamily void Airport\+::do\+Simulation\+Approach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$}]{exporter,  }\item[{\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$}]{plane }\end{DoxyParamCaption})}
+
+
+
+Does the simulation if an \mbox{\hyperlink{class_airplane}{Airplane}} is approaching. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exporter} & Pointer to \mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} \\
+\hline
+{\em plane} & Pointer to \mbox{\hyperlink{class_airplane}{Airplane}}\\
+\hline
+\end{DoxyParams}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initalized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(plane-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airplane \textquotesingle{}plane\textquotesingle{} is not initialized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(exporter-\/$>$properly\+Initalized(), \char`\"{}\+Exporter is not initalized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_a28e88d341009ceb9e8b4287fb06db3c9}\label{class_airport_a28e88d341009ceb9e8b4287fb06db3c9}} 
+\index{Airport@{Airport}!do\+Simulation\+At\+Gate@{do\+Simulation\+At\+Gate}}
+\index{do\+Simulation\+At\+Gate@{do\+Simulation\+At\+Gate}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{do\+Simulation\+At\+Gate()}{doSimulationAtGate()}}
+{\footnotesize\ttfamily void Airport\+::do\+Simulation\+At\+Gate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$}]{exporter,  }\item[{\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$}]{plane }\end{DoxyParamCaption})}
+
+
+
+Does the simulation if an \mbox{\hyperlink{class_airplane}{Airplane}} is at at the \mbox{\hyperlink{class_gate}{Gate}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exporter} & Pointer to \mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} \\
+\hline
+{\em plane} & Pointer to \mbox{\hyperlink{class_airplane}{Airplane}}\\
+\hline
+\end{DoxyParams}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initalized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(plane-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airplane \textquotesingle{}plane\textquotesingle{} is not initialized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(exporter-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Exporter is not initalized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_aa218b5ef42ae4d1d61b40377874bd4ca}\label{class_airport_aa218b5ef42ae4d1d61b40377874bd4ca}} 
+\index{Airport@{Airport}!do\+Simulation\+Departing@{do\+Simulation\+Departing}}
+\index{do\+Simulation\+Departing@{do\+Simulation\+Departing}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{do\+Simulation\+Departing()}{doSimulationDeparting()}}
+{\footnotesize\ttfamily void Airport\+::do\+Simulation\+Departing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$}]{exporter,  }\item[{\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$}]{plane }\end{DoxyParamCaption})}
+
+
+
+Does the simulation when the \mbox{\hyperlink{class_airplane}{Airplane}} is departing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exporter} & Pointer to \mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} \\
+\hline
+{\em plane} & Pointer to \mbox{\hyperlink{class_airplane}{Airplane}}\\
+\hline
+\end{DoxyParams}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initalized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(plane-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airplane \textquotesingle{}plane\textquotesingle{} is not initialized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(exporter-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Exporter is not initalized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_aaecef9cb812cbd5fb6aa64ee357190c9}\label{class_airport_aaecef9cb812cbd5fb6aa64ee357190c9}} 
+\index{Airport@{Airport}!do\+Simulation\+Landed@{do\+Simulation\+Landed}}
+\index{do\+Simulation\+Landed@{do\+Simulation\+Landed}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{do\+Simulation\+Landed()}{doSimulationLanded()}}
+{\footnotesize\ttfamily void Airport\+::do\+Simulation\+Landed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$}]{exporter,  }\item[{\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$}]{plane }\end{DoxyParamCaption})}
+
+
+
+Does the simulation if an \mbox{\hyperlink{class_airplane}{Airplane}} is landed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exporter} & Pointer to \mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} \\
+\hline
+{\em plane} & Pointer to \mbox{\hyperlink{class_airplane}{Airplane}}\\
+\hline
+\end{DoxyParams}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initalized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(plane-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airplane \textquotesingle{}plane\textquotesingle{} is not initialized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(exporter-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Exporter is not initalized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_a42d696dbd56340c324c385945045f402}\label{class_airport_a42d696dbd56340c324c385945045f402}} 
+\index{Airport@{Airport}!do\+Simulation\+Landing@{do\+Simulation\+Landing}}
+\index{do\+Simulation\+Landing@{do\+Simulation\+Landing}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{do\+Simulation\+Landing()}{doSimulationLanding()}}
+{\footnotesize\ttfamily void Airport\+::do\+Simulation\+Landing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$}]{exporter,  }\item[{\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$}]{plane }\end{DoxyParamCaption})}
+
+
+
+Does the simulation if an \mbox{\hyperlink{class_airplane}{Airplane}} is landing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exporter} & Pointer to \mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} \\
+\hline
+{\em plane} & Pointer to \mbox{\hyperlink{class_airplane}{Airplane}}\\
+\hline
+\end{DoxyParams}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initalized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(plane-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airplane \textquotesingle{}plane\textquotesingle{} is not initialized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(exporter-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Exporter is not initalized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_aa27fbfad60f1e3ae54aa656d34b86ba2}\label{class_airport_aa27fbfad60f1e3ae54aa656d34b86ba2}} 
+\index{Airport@{Airport}!do\+Simulation\+Standing@{do\+Simulation\+Standing}}
+\index{do\+Simulation\+Standing@{do\+Simulation\+Standing}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{do\+Simulation\+Standing()}{doSimulationStanding()}}
+{\footnotesize\ttfamily void Airport\+::do\+Simulation\+Standing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$}]{exporter,  }\item[{\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$}]{plane }\end{DoxyParamCaption})}
+
+
+
+Does the simulation if the \mbox{\hyperlink{class_airplane}{Airplane}} is standing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exporter} & Pointer to \mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} \\
+\hline
+{\em plane} & Pointer to \mbox{\hyperlink{class_airplane}{Airplane}}\\
+\hline
+\end{DoxyParams}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initalized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(plane-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airplane \textquotesingle{}plane\textquotesingle{} is not initialized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(exporter-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Exporter is not initalized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_a473d89e33cae2358008a96652c2e68c2}\label{class_airport_a473d89e33cae2358008a96652c2e68c2}} 
+\index{Airport@{Airport}!do\+Simulation\+Taxiing@{do\+Simulation\+Taxiing}}
+\index{do\+Simulation\+Taxiing@{do\+Simulation\+Taxiing}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{do\+Simulation\+Taxiing()}{doSimulationTaxiing()}}
+{\footnotesize\ttfamily void Airport\+::do\+Simulation\+Taxiing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} $\ast$}]{exporter,  }\item[{\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$}]{plane }\end{DoxyParamCaption})}
+
+
+
+Does the simulation if an \mbox{\hyperlink{class_airplane}{Airplane}} is taxiing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exporter} & Pointer to \mbox{\hyperlink{class_airport_exporter}{Airport\+Exporter}} \\
+\hline
+{\em plane} & Pointer to \mbox{\hyperlink{class_airplane}{Airplane}}\\
+\hline
+\end{DoxyParams}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initalized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(plane-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airplane \textquotesingle{}plane\textquotesingle{} is not initialized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(exporter-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Exporter is not initalized correctly\char`\"{}); 
 \end{DoxyItemize}\mbox{\Hypertarget{class_airport_a29db3fa31b450d90b9a81c9c55d4a320}\label{class_airport_a29db3fa31b450d90b9a81c9c55d4a320}} 
 \index{Airport@{Airport}!get\+Airplane@{get\+Airplane}}
 \index{get\+Airplane@{get\+Airplane}!Airport@{Airport}}
@@ -194,6 +406,40 @@ pointer to an airplane
 {\bfseries Preconditions\+:}
 \begin{DoxyItemize}
 \item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_a1c2d6645864e47ff409ea9233add81d4}\label{class_airport_a1c2d6645864e47ff409ea9233add81d4}} 
+\index{Airport@{Airport}!get\+Airplanes@{get\+Airplanes}}
+\index{get\+Airplanes@{get\+Airplanes}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{get\+Airplanes()}{getAirplanes()}}
+{\footnotesize\ttfamily const vector$<$ \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$ $>$ \& Airport\+::get\+Airplanes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the airplanes of the airport. 
+
+\begin{DoxyReturn}{Returns}
+Vector containing pointers of the Airplanes of the \mbox{\hyperlink{class_airport}{Airport}}
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initalized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_aebd46f12a6e13b077f788b8cc73d57fa}\label{class_airport_aebd46f12a6e13b077f788b8cc73d57fa}} 
+\index{Airport@{Airport}!get\+All\+Gates@{get\+All\+Gates}}
+\index{get\+All\+Gates@{get\+All\+Gates}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{get\+All\+Gates()}{getAllGates()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_gate}{Gate}} $\ast$ $>$ Airport\+::get\+All\+Gates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns vector of all gates on the airport. 
+
+Returns all the gates in a vector
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Gate$\ast$$>$
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{}); 
 \end{DoxyItemize}\mbox{\Hypertarget{class_airport_a7fd582a5f9554830247f724ddc031d84}\label{class_airport_a7fd582a5f9554830247f724ddc031d84}} 
 \index{Airport@{Airport}!get\+Callsign@{get\+Callsign}}
 \index{get\+Callsign@{get\+Callsign}!Airport@{Airport}}
@@ -210,6 +456,22 @@ Callsign of the airport
 {\bfseries Preconditions\+:}
 \begin{DoxyItemize}
 \item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_a6bcdea90491d54be7f41c624006dec2c}\label{class_airport_a6bcdea90491d54be7f41c624006dec2c}} 
+\index{Airport@{Airport}!get\+Free\+Gate@{get\+Free\+Gate}}
+\index{get\+Free\+Gate@{get\+Free\+Gate}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{get\+Free\+Gate()}{getFreeGate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_gate}{Gate}} $\ast$ Airport\+::get\+Free\+Gate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if gates are free and returns the first free gate. 
+
+\begin{DoxyReturn}{Returns}
+Free \mbox{\hyperlink{class_gate}{Gate}}, N\+U\+LL if no free gates are found
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initalized correctly\char`\"{}); 
 \end{DoxyItemize}\mbox{\Hypertarget{class_airport_a06570bd57b66959e22ec2fdbf24d3a36}\label{class_airport_a06570bd57b66959e22ec2fdbf24d3a36}} 
 \index{Airport@{Airport}!get\+Gate@{get\+Gate}}
 \index{get\+Gate@{get\+Gate}!Airport@{Airport}}
@@ -231,6 +493,28 @@ Pointer to a gate
 {\bfseries Preconditions\+:}
 \begin{DoxyItemize}
 \item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_a29b9bed08d03a28f16ad645bb6d6a24b}\label{class_airport_a29b9bed08d03a28f16ad645bb6d6a24b}} 
+\index{Airport@{Airport}!get\+Gate\+With\+Plane@{get\+Gate\+With\+Plane}}
+\index{get\+Gate\+With\+Plane@{get\+Gate\+With\+Plane}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{get\+Gate\+With\+Plane()}{getGateWithPlane()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_gate}{Gate}} $\ast$ Airport\+::get\+Gate\+With\+Plane (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$}]{plane }\end{DoxyParamCaption})}
+
+
+
+Looks for the \mbox{\hyperlink{class_gate}{Gate}} where \mbox{\hyperlink{class_airplane}{Airplane}} plane is assigned to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plane} & Pointer to airplane to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_gate}{Gate}} containing the \mbox{\hyperlink{class_airplane}{Airplane}}
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initalized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(plane-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airplane \textquotesingle{}plane\textquotesingle{} is not initialized correctly\char`\"{}); 
 \end{DoxyItemize}\mbox{\Hypertarget{class_airport_aa127b88a8221fa23977c4fa6e37eee5b}\label{class_airport_aa127b88a8221fa23977c4fa6e37eee5b}} 
 \index{Airport@{Airport}!get\+I\+A\+TA@{get\+I\+A\+TA}}
 \index{get\+I\+A\+TA@{get\+I\+A\+TA}!Airport@{Airport}}
@@ -279,6 +563,38 @@ Name of the airport
 {\bfseries Preconditions\+:}
 \begin{DoxyItemize}
 \item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_a14b74da2358af81c5b5df67aa52b14b6}\label{class_airport_a14b74da2358af81c5b5df67aa52b14b6}} 
+\index{Airport@{Airport}!get\+Nr\+Of\+Gates@{get\+Nr\+Of\+Gates}}
+\index{get\+Nr\+Of\+Gates@{get\+Nr\+Of\+Gates}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{get\+Nr\+Of\+Gates()}{getNrOfGates()}}
+{\footnotesize\ttfamily unsigned int Airport\+::get\+Nr\+Of\+Gates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Check how many gates the \mbox{\hyperlink{class_airport}{Airport}} has. 
+
+\begin{DoxyReturn}{Returns}
+Unsigned integer for the number of gates
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item E\+N\+S\+U\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_ae65f2bbf4060d54a3c282f18928790a0}\label{class_airport_ae65f2bbf4060d54a3c282f18928790a0}} 
+\index{Airport@{Airport}!get\+Nr\+Of\+Runways@{get\+Nr\+Of\+Runways}}
+\index{get\+Nr\+Of\+Runways@{get\+Nr\+Of\+Runways}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{get\+Nr\+Of\+Runways()}{getNrOfRunways()}}
+{\footnotesize\ttfamily unsigned int Airport\+::get\+Nr\+Of\+Runways (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Check how many runways the \mbox{\hyperlink{class_airport}{Airport}} has. 
+
+\begin{DoxyReturn}{Returns}
+Unsigned integer for the number of runways
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item E\+N\+S\+U\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{}); 
 \end{DoxyItemize}\mbox{\Hypertarget{class_airport_a1d7b9530df732ebee79ce0f1de7616e2}\label{class_airport_a1d7b9530df732ebee79ce0f1de7616e2}} 
 \index{Airport@{Airport}!get\+Runway@{get\+Runway}}
 \index{get\+Runway@{get\+Runway}!Airport@{Airport}}
@@ -300,6 +616,44 @@ Pointer to a runway
 {\bfseries Preconditions\+:}
 \begin{DoxyItemize}
 \item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_a45ebc0d8a4e5b8efa6efb31b03955dbd}\label{class_airport_a45ebc0d8a4e5b8efa6efb31b03955dbd}} 
+\index{Airport@{Airport}!get\+Runways@{get\+Runways}}
+\index{get\+Runways@{get\+Runways}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{get\+Runways()}{getRunways()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_runway}{Runway}} $\ast$ $>$ \& Airport\+::get\+Runways (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the runways of the \mbox{\hyperlink{class_airport}{Airport}}. 
+
+\begin{DoxyReturn}{Returns}
+Vector containing pointers to the Runways of the \mbox{\hyperlink{class_airport}{Airport}}
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initalized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_airport_acdf571dae312ffa3ac5bd0710aa1cb56}\label{class_airport_acdf571dae312ffa3ac5bd0710aa1cb56}} 
+\index{Airport@{Airport}!get\+Runway\+With\+Plane@{get\+Runway\+With\+Plane}}
+\index{get\+Runway\+With\+Plane@{get\+Runway\+With\+Plane}!Airport@{Airport}}
+\subsubsection{\texorpdfstring{get\+Runway\+With\+Plane()}{getRunwayWithPlane()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_runway}{Runway}} $\ast$ Airport\+::get\+Runway\+With\+Plane (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$}]{plane }\end{DoxyParamCaption})}
+
+
+
+Looks for the runway where \mbox{\hyperlink{class_airplane}{Airplane}} plane is assigned to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plane} & Pointer to airplane to get runway from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_runway}{Runway}} with airplane plane assigned to
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airport is not initalized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(plane-\/$>$\mbox{\hyperlink{class_airport_aa13e68ac58e8875837fbe888325cfff6}{properly\+Initialized()}}, \char`\"{}\+Airplane \textquotesingle{}plane\textquotesingle{} is not initalized correctly\char`\"{}); 
 \end{DoxyItemize}\mbox{\Hypertarget{class_airport_aa13e68ac58e8875837fbe888325cfff6}\label{class_airport_aa13e68ac58e8875837fbe888325cfff6}} 
 \index{Airport@{Airport}!properly\+Initialized@{properly\+Initialized}}
 \index{properly\+Initialized@{properly\+Initialized}!Airport@{Airport}}

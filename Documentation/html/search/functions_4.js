@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['properlyinitalized',['properlyInitalized',['../class_airport_exporter.html#a78116919b9958a820938eeeb7d060e52',1,'AirportExporter']]],
-  ['properlyinitialized',['properlyInitialized',['../class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e',1,'Airplane::properlyInitialized()'],['../class_airport.html#aa13e68ac58e8875837fbe888325cfff6',1,'Airport::properlyInitialized()'],['../class_runway.html#a360d98246cabf3aa929765f81a656348',1,'Runway::properlyInitialized()']]]
+  ['makeallland',['makeAllLand',['../_airport_functions_8h.html#a268acc4d9ba49cbb82b3d4942991d0cf',1,'AirportFunctions.h']]],
+  ['makealltakeoff',['makeAllTakeoff',['../_airport_functions_8h.html#a2c4c786a3d4d21be86308f7bef88094f',1,'AirportFunctions.h']]]
 ];

@@ -8,14 +8,13 @@
 #include "classes/Airplane.h"
 #include "classes/Airport.h"
 #include "parsers/Reader.h"
-#include "classes/Log.hpp"
-#define OUTPUT Log()
+
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
     if (argc <= 1) {
-        OUTPUT << "No argument for input file given";
+        cerr << "No argument for input file given";
         return -1;
     }
     const char* str = argv[1]; 

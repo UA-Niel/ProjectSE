@@ -63,6 +63,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_airplane-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -75,17 +76,43 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="_airplane_8h_source.html">Airplane.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a2fe18f372ef9acb9d557998a560ad66e"><td class="memItemLeft" align="right" valign="top"><a id="a2fe18f372ef9acb9d557998a560ad66e"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#a2fe18f372ef9acb9d557998a560ad66e">Status</a> { <br />
+&#160;&#160;<b>APPROACHING</b>, 
+<b>LANDED</b>, 
+<b>IN_AIR</b>, 
+<b>AT_GATE</b>, 
+<br />
+&#160;&#160;<b>STANDING</b>, 
+<b>TAXIING_TO_GATE</b>, 
+<b>LANDING</b>, 
+<b>DEPARTING</b>, 
+<br />
+&#160;&#160;<b>UNKNOWN</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:a2fe18f372ef9acb9d557998a560ad66e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum containing different states of the <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a>. <br /></td></tr>
+<tr class="separator:a2fe18f372ef9acb9d557998a560ad66e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad17ce69f4dd39704789158c726f5bf45"><td class="memItemLeft" align="right" valign="top"><a id="ad17ce69f4dd39704789158c726f5bf45"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#ad17ce69f4dd39704789158c726f5bf45">FuelState</a> { <b>EMPTY</b>, 
+<b>WARNING</b>, 
+<b>OKAY</b>, 
+<b>FULL</b>
+ }</td></tr>
+<tr class="memdesc:ad17ce69f4dd39704789158c726f5bf45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum containing the different fuel states of the <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a>. <br /></td></tr>
+<tr class="separator:ad17ce69f4dd39704789158c726f5bf45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6f80df8f692cc8d67d292c1e9f26d59e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e">properlyInitialized</a> () const</td></tr>
 <tr class="memdesc:a6f80df8f692cc8d67d292c1e9f26d59e"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if the <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> class is initialized correctly  <a href="#a6f80df8f692cc8d67d292c1e9f26d59e">More...</a><br /></td></tr>
 <tr class="separator:a6f80df8f692cc8d67d292c1e9f26d59e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a3e3bea7add6690d6908393ecdda3f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#a1a3e3bea7add6690d6908393ecdda3f4">depart</a> ()</td></tr>
-<tr class="memdesc:a1a3e3bea7add6690d6908393ecdda3f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the airplane depart.  <a href="#a1a3e3bea7add6690d6908393ecdda3f4">More...</a><br /></td></tr>
-<tr class="separator:a1a3e3bea7add6690d6908393ecdda3f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd9fe7c6dd10492f6a7995c3d2ddc8ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#acd9fe7c6dd10492f6a7995c3d2ddc8ac">land</a> ()</td></tr>
-<tr class="memdesc:acd9fe7c6dd10492f6a7995c3d2ddc8ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lets the airplane land.  <a href="#acd9fe7c6dd10492f6a7995c3d2ddc8ac">More...</a><br /></td></tr>
-<tr class="separator:acd9fe7c6dd10492f6a7995c3d2ddc8ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9bad7ac84b24f462f564a4c8f21bfe0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#af9bad7ac84b24f462f564a4c8f21bfe0">ascend</a> (unsigned int amountOfFeet=1000)</td></tr>
+<tr class="memdesc:af9bad7ac84b24f462f564a4c8f21bfe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lets the plane ascend by amountOfFeet (default = 1000)  <a href="#af9bad7ac84b24f462f564a4c8f21bfe0">More...</a><br /></td></tr>
+<tr class="separator:af9bad7ac84b24f462f564a4c8f21bfe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8741288ed67b0a8d966e5a7442e9302"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#ac8741288ed67b0a8d966e5a7442e9302">approach</a> (int amountOfFeet=1000)</td></tr>
+<tr class="memdesc:ac8741288ed67b0a8d966e5a7442e9302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lets the airplane approach by amountOfFeet (default = 1000)  <a href="#ac8741288ed67b0a8d966e5a7442e9302">More...</a><br /></td></tr>
+<tr class="separator:ac8741288ed67b0a8d966e5a7442e9302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac71484f422e952d4cfe94d89b302dbc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#ac71484f422e952d4cfe94d89b302dbc4">setId</a> (int id)</td></tr>
 <tr class="memdesc:ac71484f422e952d4cfe94d89b302dbc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the airplane a new ID.  <a href="#ac71484f422e952d4cfe94d89b302dbc4">More...</a><br /></td></tr>
 <tr class="separator:ac71484f422e952d4cfe94d89b302dbc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -100,9 +127,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaeb19ae361b046ce543ad687aea63123"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#aaeb19ae361b046ce543ad687aea63123">setModel</a> (const string &amp;model)</td></tr>
 <tr class="memdesc:aaeb19ae361b046ce543ad687aea63123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the airplane a new model.  <a href="#aaeb19ae361b046ce543ad687aea63123">More...</a><br /></td></tr>
 <tr class="separator:aaeb19ae361b046ce543ad687aea63123"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29e3db63862db02af13212800b89d602"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#a29e3db63862db02af13212800b89d602">setStatus</a> (int status)</td></tr>
-<tr class="memdesc:a29e3db63862db02af13212800b89d602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the airplane a new status.  <a href="#a29e3db63862db02af13212800b89d602">More...</a><br /></td></tr>
-<tr class="separator:a29e3db63862db02af13212800b89d602"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb44e51d140c297b5a05650f17d87125"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#adb44e51d140c297b5a05650f17d87125">setStatus</a> (<a class="el" href="class_airplane.html#a2fe18f372ef9acb9d557998a560ad66e">Status</a> status)</td></tr>
+<tr class="memdesc:adb44e51d140c297b5a05650f17d87125"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the airplane a new status.  <a href="#adb44e51d140c297b5a05650f17d87125">More...</a><br /></td></tr>
+<tr class="separator:adb44e51d140c297b5a05650f17d87125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedac81e80b724d61d1c9df7311067ba8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#aedac81e80b724d61d1c9df7311067ba8">getId</a> () const</td></tr>
 <tr class="memdesc:aedac81e80b724d61d1c9df7311067ba8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the ID of the airplane.  <a href="#aedac81e80b724d61d1c9df7311067ba8">More...</a><br /></td></tr>
 <tr class="separator:aedac81e80b724d61d1c9df7311067ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -112,15 +139,39 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1431ee85bdcb3238cf6f0aefc51d8828"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#a1431ee85bdcb3238cf6f0aefc51d8828">getModel</a> () const</td></tr>
 <tr class="memdesc:a1431ee85bdcb3238cf6f0aefc51d8828"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the model of the airplane.  <a href="#a1431ee85bdcb3238cf6f0aefc51d8828">More...</a><br /></td></tr>
 <tr class="separator:a1431ee85bdcb3238cf6f0aefc51d8828"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1247e4c17755c544a7fcd709ca44c14"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#ac1247e4c17755c544a7fcd709ca44c14">getStatus</a> () const</td></tr>
-<tr class="memdesc:ac1247e4c17755c544a7fcd709ca44c14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the status of the airplane.  <a href="#ac1247e4c17755c544a7fcd709ca44c14">More...</a><br /></td></tr>
-<tr class="separator:ac1247e4c17755c544a7fcd709ca44c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35967a392b7274dc6a874bf3b73b7965"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_airplane.html#a2fe18f372ef9acb9d557998a560ad66e">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#a35967a392b7274dc6a874bf3b73b7965">getStatus</a> () const</td></tr>
+<tr class="memdesc:a35967a392b7274dc6a874bf3b73b7965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the status of the airplane.  <a href="#a35967a392b7274dc6a874bf3b73b7965">More...</a><br /></td></tr>
+<tr class="separator:a35967a392b7274dc6a874bf3b73b7965"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29068c4308e9aef5f8d944840b4dba10"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#a29068c4308e9aef5f8d944840b4dba10">getNumber</a> () const</td></tr>
 <tr class="memdesc:a29068c4308e9aef5f8d944840b4dba10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of the airplane.  <a href="#a29068c4308e9aef5f8d944840b4dba10">More...</a><br /></td></tr>
 <tr class="separator:a29068c4308e9aef5f8d944840b4dba10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac93ed55d98af8ba9093ead82378da1dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#ac93ed55d98af8ba9093ead82378da1dd">Airplane</a> (int _airplaneId, const string &amp;callsign, const string &amp;_model, int _status)</td></tr>
-<tr class="memdesc:ac93ed55d98af8ba9093ead82378da1dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor of the airplane class  <a href="#ac93ed55d98af8ba9093ead82378da1dd">More...</a><br /></td></tr>
-<tr class="separator:ac93ed55d98af8ba9093ead82378da1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8147ddb6b797ef4d7d23c749b1d323f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_runway.html">Runway</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#a8147ddb6b797ef4d7d23c749b1d323f2">checkFreeRunway</a> (<a class="el" href="class_airport.html">Airport</a> *ap)</td></tr>
+<tr class="memdesc:a8147ddb6b797ef4d7d23c749b1d323f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the free runway.  <a href="#a8147ddb6b797ef4d7d23c749b1d323f2">More...</a><br /></td></tr>
+<tr class="separator:a8147ddb6b797ef4d7d23c749b1d323f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe2aa4a30f2ba93153ab31e9b7a6be21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_gate.html">Gate</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#abe2aa4a30f2ba93153ab31e9b7a6be21">checkFreeGate</a> (<a class="el" href="class_airport.html">Airport</a> *ap)</td></tr>
+<tr class="memdesc:abe2aa4a30f2ba93153ab31e9b7a6be21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the free gate.  <a href="#abe2aa4a30f2ba93153ab31e9b7a6be21">More...</a><br /></td></tr>
+<tr class="separator:abe2aa4a30f2ba93153ab31e9b7a6be21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6fe4a772e91b595cbadbc04851c7006"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#ac6fe4a772e91b595cbadbc04851c7006">setHeight</a> (const int height)</td></tr>
+<tr class="memdesc:ac6fe4a772e91b595cbadbc04851c7006"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seths the height.  <a href="#ac6fe4a772e91b595cbadbc04851c7006">More...</a><br /></td></tr>
+<tr class="separator:ac6fe4a772e91b595cbadbc04851c7006"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e4bec29526f4c1996aaf199c35484b3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#a2e4bec29526f4c1996aaf199c35484b3">getHeight</a> ()</td></tr>
+<tr class="memdesc:a2e4bec29526f4c1996aaf199c35484b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the height.  <a href="#a2e4bec29526f4c1996aaf199c35484b3">More...</a><br /></td></tr>
+<tr class="separator:a2e4bec29526f4c1996aaf199c35484b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef14274f9efcb774d48b1557f6fc6b70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#aef14274f9efcb774d48b1557f6fc6b70">setAmountOfPassengers</a> (const int amount)</td></tr>
+<tr class="memdesc:aef14274f9efcb774d48b1557f6fc6b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets amount of passengers.  <a href="#aef14274f9efcb774d48b1557f6fc6b70">More...</a><br /></td></tr>
+<tr class="separator:aef14274f9efcb774d48b1557f6fc6b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb38911857c36d345cf3c02462894b2b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#acb38911857c36d345cf3c02462894b2b">getAmountOfPassengers</a> ()</td></tr>
+<tr class="memdesc:acb38911857c36d345cf3c02462894b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of passengers.  <a href="#acb38911857c36d345cf3c02462894b2b">More...</a><br /></td></tr>
+<tr class="separator:acb38911857c36d345cf3c02462894b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29757f797880dacd6505bf072291740d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#a29757f797880dacd6505bf072291740d">setFuelState</a> (const <a class="el" href="class_airplane.html#ad17ce69f4dd39704789158c726f5bf45">FuelState</a> state)</td></tr>
+<tr class="memdesc:a29757f797880dacd6505bf072291740d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fuel state.  <a href="#a29757f797880dacd6505bf072291740d">More...</a><br /></td></tr>
+<tr class="separator:a29757f797880dacd6505bf072291740d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66070ab8430583b6abacec0bfe82a830"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_airplane.html#ad17ce69f4dd39704789158c726f5bf45">FuelState</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#a66070ab8430583b6abacec0bfe82a830">getFuelState</a> ()</td></tr>
+<tr class="memdesc:a66070ab8430583b6abacec0bfe82a830"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fuel state.  <a href="#a66070ab8430583b6abacec0bfe82a830">More...</a><br /></td></tr>
+<tr class="separator:a66070ab8430583b6abacec0bfe82a830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8ed968b4c3952fd8849414af207f45f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#ad8ed968b4c3952fd8849414af207f45f">Airplane</a> (int _airplaneId, const string &amp;callsign, const string &amp;_model, <a class="el" href="class_airplane.html#a2fe18f372ef9acb9d557998a560ad66e">Airplane::Status</a> status, const std::string &amp;number)</td></tr>
+<tr class="memdesc:ad8ed968b4c3952fd8849414af207f45f"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor of the airplane class  <a href="#ad8ed968b4c3952fd8849414af207f45f">More...</a><br /></td></tr>
+<tr class="separator:ad8ed968b4c3952fd8849414af207f45f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afccae36e3013e038d51504cea1a98219"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airplane.html#afccae36e3013e038d51504cea1a98219">Airplane</a> ()</td></tr>
 <tr class="memdesc:afccae36e3013e038d51504cea1a98219"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor of the airplane class  <a href="#afccae36e3013e038d51504cea1a98219">More...</a><br /></td></tr>
 <tr class="separator:afccae36e3013e038d51504cea1a98219"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,8 +180,8 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>class that represents an airplane </p>
 <p>An airplane has an id, a number, a callsign a model and a status </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac93ed55d98af8ba9093ead82378da1dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac93ed55d98af8ba9093ead82378da1dd">&#9670;&nbsp;</a></span>Airplane() <span class="overload">[1/2]</span></h2>
+<a id="ad8ed968b4c3952fd8849414af207f45f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8ed968b4c3952fd8849414af207f45f">&#9670;&nbsp;</a></span>Airplane() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,8 +207,14 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>_status</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_airplane.html#a2fe18f372ef9acb9d557998a560ad66e">Airplane::Status</a>&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>number</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -174,7 +231,8 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">_airplaneId</td><td>The id of the airplane </td></tr>
     <tr><td class="paramname">callsign</td><td>The callsign of the airplane </td></tr>
     <tr><td class="paramname">_model</td><td>The model of the airplane </td></tr>
-    <tr><td class="paramname">_status</td><td>The status of the airplane</td></tr>
+    <tr><td class="paramname">_status</td><td>The status of the airplane </td></tr>
+    <tr><td class="paramname">number</td><td>The number of the airplane</td></tr>
   </table>
   </dd>
 </dl>
@@ -208,14 +266,122 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1a3e3bea7add6690d6908393ecdda3f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a3e3bea7add6690d6908393ecdda3f4">&#9670;&nbsp;</a></span>depart()</h2>
+<a id="ac8741288ed67b0a8d966e5a7442e9302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8741288ed67b0a8d966e5a7442e9302">&#9670;&nbsp;</a></span>approach()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Airplane::depart </td>
+          <td class="memname">void Airplane::approach </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>amountOfFeet</em> = <code>1000</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lets the airplane approach by amountOfFeet (default = 1000) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amountOfFeet</td><td>Amount of feet the plane needs to approach</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e" title="checks if the Airplane class is initialized correctly ">properlyInitialized()</a>, "Airplane is not initialized correctly");</li>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a35967a392b7274dc6a874bf3b73b7965" title="Gets the status of the airplane. ">getStatus()</a> == LANDING, "Airplane must be in LANDING status before it can approach");</li>
+<li>REQUIRE(amountOfFeet &gt; 0, "You can only approach by a positive amount of feet"); </li>
+</ul>
+
+</div>
+</div>
+<a id="af9bad7ac84b24f462f564a4c8f21bfe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9bad7ac84b24f462f564a4c8f21bfe0">&#9670;&nbsp;</a></span>ascend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airplane::ascend </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>amountOfFeet</em> = <code>1000</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lets the plane ascend by amountOfFeet (default = 1000) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amountOfFeet</td><td>Amount of feet the plane has to ascend (default = 1000)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e" title="checks if the Airplane class is initialized correctly ">properlyInitialized()</a>, "Airplane is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="abe2aa4a30f2ba93153ab31e9b7a6be21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe2aa4a30f2ba93153ab31e9b7a6be21">&#9670;&nbsp;</a></span>checkFreeGate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_gate.html">Gate</a> * Airplane::checkFreeGate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_airport.html">Airport</a> *&#160;</td>
+          <td class="paramname"><em>ap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the free gate. </p>
+<dl class="section return"><dt>Returns</dt><dd>The free gate</dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e" title="checks if the Airplane class is initialized correctly ">properlyInitialized()</a>, "Airplane is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="a8147ddb6b797ef4d7d23c749b1d323f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8147ddb6b797ef4d7d23c749b1d323f2">&#9670;&nbsp;</a></span>checkFreeRunway()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_runway.html">Runway</a> * Airplane::checkFreeRunway </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_airport.html">Airport</a> *&#160;</td>
+          <td class="paramname"><em>ap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the free runway. </p>
+<dl class="section return"><dt>Returns</dt><dd>The free runway</dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e" title="checks if the Airplane class is initialized correctly ">properlyInitialized()</a>, "Airplane is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="acb38911857c36d345cf3c02462894b2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb38911857c36d345cf3c02462894b2b">&#9670;&nbsp;</a></span>getAmountOfPassengers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Airplane::getAmountOfPassengers </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -223,8 +389,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Makes the airplane depart. </p>
-<dl class="section return"><dt>Returns</dt><dd>true if the airplanes departed successfully</dd></dl>
+<p>Returns the amount of passengers. </p>
+<dl class="section return"><dt>Returns</dt><dd>int amount</dd></dl>
 <p><b>Preconditions:</b></p><ul>
 <li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e" title="checks if the Airplane class is initialized correctly ">properlyInitialized()</a>, "Airplane is not initialized correctly"); </li>
 </ul>
@@ -248,6 +414,52 @@ Public Member Functions</h2></td></tr>
 
 <p>Gets the callsign of the airplane. </p>
 <dl class="section return"><dt>Returns</dt><dd>The callsign of the airplane</dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e" title="checks if the Airplane class is initialized correctly ">properlyInitialized()</a>, "Airplane is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="a66070ab8430583b6abacec0bfe82a830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66070ab8430583b6abacec0bfe82a830">&#9670;&nbsp;</a></span>getFuelState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_airplane.html#ad17ce69f4dd39704789158c726f5bf45">Airplane::FuelState</a> &amp; Airplane::getFuelState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the fuel state. </p>
+<dl class="section return"><dt>Returns</dt><dd>FuelState state</dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e" title="checks if the Airplane class is initialized correctly ">properlyInitialized()</a>, "Airplane is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="a2e4bec29526f4c1996aaf199c35484b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e4bec29526f4c1996aaf199c35484b3">&#9670;&nbsp;</a></span>getHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Airplane::getHeight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the height. </p>
+<dl class="section return"><dt>Returns</dt><dd>int height</dd></dl>
 <p><b>Preconditions:</b></p><ul>
 <li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e" title="checks if the Airplane class is initialized correctly ">properlyInitialized()</a>, "Airplane is not initialized correctly"); </li>
 </ul>
@@ -323,14 +535,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac1247e4c17755c544a7fcd709ca44c14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1247e4c17755c544a7fcd709ca44c14">&#9670;&nbsp;</a></span>getStatus()</h2>
+<a id="a35967a392b7274dc6a874bf3b73b7965"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35967a392b7274dc6a874bf3b73b7965">&#9670;&nbsp;</a></span>getStatus()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Airplane::getStatus </td>
+          <td class="memname"><a class="el" href="class_airplane.html#a2fe18f372ef9acb9d557998a560ad66e">Airplane::Status</a> Airplane::getStatus </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -340,29 +552,6 @@ Public Member Functions</h2></td></tr>
 
 <p>Gets the status of the airplane. </p>
 <dl class="section return"><dt>Returns</dt><dd>The ID code of the airplane</dd></dl>
-<p><b>Preconditions:</b></p><ul>
-<li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e" title="checks if the Airplane class is initialized correctly ">properlyInitialized()</a>, "Airplane is not initialized correctly"); </li>
-</ul>
-
-</div>
-</div>
-<a id="acd9fe7c6dd10492f6a7995c3d2ddc8ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd9fe7c6dd10492f6a7995c3d2ddc8ac">&#9670;&nbsp;</a></span>land()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Airplane::land </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Lets the airplane land. </p>
-<dl class="section return"><dt>Returns</dt><dd>true if the airplane landed successfully</dd></dl>
 <p><b>Preconditions:</b></p><ul>
 <li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e" title="checks if the Airplane class is initialized correctly ">properlyInitialized()</a>, "Airplane is not initialized correctly"); </li>
 </ul>
@@ -389,6 +578,35 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aef14274f9efcb774d48b1557f6fc6b70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef14274f9efcb774d48b1557f6fc6b70">&#9670;&nbsp;</a></span>setAmountOfPassengers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airplane::setAmountOfPassengers </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>amount</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets amount of passengers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>amount</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e" title="checks if the Airplane class is initialized correctly ">properlyInitialized()</a>, "Airplane is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
 <a id="aed67dce16e3a4b1c1811e3344a039d90"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aed67dce16e3a4b1c1811e3344a039d90">&#9670;&nbsp;</a></span>setCallsign()</h2>
 
@@ -411,6 +629,64 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">callsign</td><td>The new callsign of the airplane</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e" title="checks if the Airplane class is initialized correctly ">properlyInitialized()</a>, "Airplane is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="a29757f797880dacd6505bf072291740d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29757f797880dacd6505bf072291740d">&#9670;&nbsp;</a></span>setFuelState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airplane::setFuelState </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_airplane.html#ad17ce69f4dd39704789158c726f5bf45">FuelState</a>&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the fuel state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">FuelState</td><td>state</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airplane.html#a6f80df8f692cc8d67d292c1e9f26d59e" title="checks if the Airplane class is initialized correctly ">properlyInitialized()</a>, "Airplane is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="ac6fe4a772e91b595cbadbc04851c7006"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6fe4a772e91b595cbadbc04851c7006">&#9670;&nbsp;</a></span>setHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airplane::setHeight </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>height</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Seths the height. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>height</td></tr>
   </table>
   </dd>
 </dl>
@@ -507,8 +783,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a29e3db63862db02af13212800b89d602"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29e3db63862db02af13212800b89d602">&#9670;&nbsp;</a></span>setStatus()</h2>
+<a id="adb44e51d140c297b5a05650f17d87125"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb44e51d140c297b5a05650f17d87125">&#9670;&nbsp;</a></span>setStatus()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -516,7 +792,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Airplane::setStatus </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_airplane.html#a2fe18f372ef9acb9d557998a560ad66e">Airplane::Status</a>&#160;</td>
           <td class="paramname"><em>status</em></td><td>)</td>
           <td></td>
         </tr>

@@ -78,11 +78,17 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a360d98246cabf3aa929765f81a656348"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348">properlyInitialized</a> () const</td></tr>
-<tr class="memdesc:a360d98246cabf3aa929765f81a656348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the airport class is initialized correctly.  <a href="#a360d98246cabf3aa929765f81a656348">More...</a><br /></td></tr>
+<tr class="memdesc:a360d98246cabf3aa929765f81a656348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <a class="el" href="class_runway.html" title="Class that represents a runway. ">Runway</a> class is initialized correctly.  <a href="#a360d98246cabf3aa929765f81a656348">More...</a><br /></td></tr>
 <tr class="separator:a360d98246cabf3aa929765f81a656348"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae07554e4e41faea8ef9654385449b25b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_runway.html#ae07554e4e41faea8ef9654385449b25b">addAirplane</a> (<a class="el" href="class_airplane.html">Airplane</a> *airplane)</td></tr>
 <tr class="memdesc:ae07554e4e41faea8ef9654385449b25b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an airplane to the runway.  <a href="#ae07554e4e41faea8ef9654385449b25b">More...</a><br /></td></tr>
 <tr class="separator:ae07554e4e41faea8ef9654385449b25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae339230720ad45aa3997e90c2acaf744"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_runway.html#ae339230720ad45aa3997e90c2acaf744">clearRunway</a> ()</td></tr>
+<tr class="memdesc:ae339230720ad45aa3997e90c2acaf744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to say the whole runway is clear.  <a href="#ae339230720ad45aa3997e90c2acaf744">More...</a><br /></td></tr>
+<tr class="separator:ae339230720ad45aa3997e90c2acaf744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e44b199b4e267f41b6e9710a519e720"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_airplane.html">Airplane</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_runway.html#a5e44b199b4e267f41b6e9710a519e720">getAirplanesOnRunway</a> ()</td></tr>
+<tr class="memdesc:a5e44b199b4e267f41b6e9710a519e720"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the whole vector of all airplanes on runway.  <a href="#a5e44b199b4e267f41b6e9710a519e720">More...</a><br /></td></tr>
+<tr class="separator:a5e44b199b4e267f41b6e9710a519e720"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af587fc8f841c10a99427cf7a0f442fce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_runway.html#af587fc8f841c10a99427cf7a0f442fce">setId</a> (int id)</td></tr>
 <tr class="memdesc:af587fc8f841c10a99427cf7a0f442fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the runway a new ID.  <a href="#af587fc8f841c10a99427cf7a0f442fce">More...</a><br /></td></tr>
 <tr class="separator:af587fc8f841c10a99427cf7a0f442fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,7 +160,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <p><b>Postconditions:</b></p><ul>
-<li>ENSURE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
+<li>ENSURE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the Runway class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
 </ul>
 
 </div>
@@ -176,7 +182,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Default constructor for runway. </p>
 <p><b>Postconditons:</b></p><ul>
-<li>ENSURE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
+<li>ENSURE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the Runway class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
 </ul>
 
 </div>
@@ -207,7 +213,54 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the airplane is added correctly</dd></dl>
 <p><b>Preconditions:</b></p><ul>
-<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
+<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the Runway class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="ae339230720ad45aa3997e90c2acaf744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae339230720ad45aa3997e90c2acaf744">&#9670;&nbsp;</a></span>clearRunway()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Runway::clearRunway </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to say the whole runway is clear. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if cleared correctly</dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the Runway class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly");</li>
+<li>REQUIRE(!_airplanesOnRunway.empty(), "There are no Airplanes at the runway"); </li>
+</ul>
+
+</div>
+</div>
+<a id="a5e44b199b4e267f41b6e9710a519e720"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e44b199b4e267f41b6e9710a519e720">&#9670;&nbsp;</a></span>getAirplanesOnRunway()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_airplane.html">Airplane</a> * &gt; &amp; Runway::getAirplanesOnRunway </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the whole vector of all airplanes on runway. </p>
+<dl class="section return"><dt>Returns</dt><dd>Airplanes</dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the Runway class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
 </ul>
 
 </div>
@@ -230,7 +283,7 @@ Public Member Functions</h2></td></tr>
 <p>Returns the ID of the airport. </p>
 <dl class="section return"><dt>Returns</dt><dd>ID of the airport</dd></dl>
 <p><b>Preconditions:</b></p><ul>
-<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
+<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the Runway class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
 </ul>
 
 </div>
@@ -253,7 +306,7 @@ Public Member Functions</h2></td></tr>
 <p>Returns the id of the runway. </p>
 <dl class="section return"><dt>Returns</dt><dd>Id of the runway</dd></dl>
 <p><b>Preconditions:</b></p><ul>
-<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
+<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the Runway class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
 </ul>
 
 </div>
@@ -276,7 +329,7 @@ Public Member Functions</h2></td></tr>
 <p>Returns the name of the runway. </p>
 <dl class="section return"><dt>Returns</dt><dd>Name of the runway</dd></dl>
 <p><b>Preconditions:</b></p><ul>
-<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
+<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the Runway class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
 </ul>
 
 </div>
@@ -296,8 +349,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Checks if the airport class is initialized correctly. </p>
-<dl class="section return"><dt>Returns</dt><dd>Returns true if the airport is correctly initialized </dd></dl>
+<p>Checks if the <a class="el" href="class_runway.html" title="Class that represents a runway. ">Runway</a> class is initialized correctly. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the <a class="el" href="class_runway.html" title="Class that represents a runway. ">Runway</a> is correctly initialized </dd></dl>
 
 </div>
 </div>
@@ -325,7 +378,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <p><b>Preconditions:</b></p><ul>
-<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
+<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the Runway class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
 </ul>
 
 </div>
@@ -354,7 +407,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <p><b>Preconditions:</b></p><ul>
-<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
+<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the Runway class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
 </ul>
 
 </div>
@@ -383,7 +436,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <p><b>Preconditions:</b></p><ul>
-<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
+<li>REQUIRE(this-&gt;<a class="el" href="class_runway.html#a360d98246cabf3aa929765f81a656348" title="Checks if the Runway class is initialized correctly. ">properlyInitialized()</a>, "Runway is not initialized correctly"); </li>
 </ul>
 
 </div>
