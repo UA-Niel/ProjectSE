@@ -1,0 +1,21 @@
+<file>
+
+<AIRPORT>
+<name>name</name>
+<iata>IATA</iata>
+<callsign>callsign</callsign>
+<gates>10</gates>
+</AIRPORT>
+<RUNWAY>
+<name>name</name>
+<airport>IATA</airport>
+</RUNWAY>
+<AIRPLANE>
+<number>number</number>
+<callsign>callsign</callsign>
+<model>model</model>
+<status>Approaching</status>
+    <passengers>20</passengers>
+</AIRPLANE>
+
+</file>

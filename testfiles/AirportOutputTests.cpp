@@ -72,6 +72,7 @@ TEST_F(AirportOutputTests, OutputStartStopFunctions){
     //Try outputting before start method
     EXPECT_DEATH(airportExporter.outputAirportDetails(), "AirportExporter output is not started, "
             "use the method startOutput first");
+    myFile.close();
 }
 
 TEST_F(AirportOutputTests, AirplaneDetailsOutput){
@@ -139,7 +140,7 @@ TEST_F(AirportOutputTests, AirportDetailsOutput){
     //Try writing while no airport is assigned to output
     airportExporter.startOutput();
     EXPECT_DEATH(airportExporter.outputAirportDetails(), "AirportExporter did not find the airport, "
-            "is it initalized correctly?");
+            "is it initialized correctly?");
     airportExporter.stopOutput();
 
     //set airport
@@ -164,13 +165,15 @@ TEST_F(AirportOutputTests, OutputStringTests){
     airportExporter.startOutput();
     airportExporter.outputString("Test, Test \n\t Test");
 
-    EXPECT_FALSE(FileIsEmpty("testOutput/testOutput/outputString1.txt"));
+    EXPECT_FALSE(FileIsEmpty("testOutput/outputString1.txt"));
     EXPECT_TRUE(FileCompare("testOutput/outputTemplate5.txt", "testOutput/outputString1.txt"));
     EXPECT_TRUE(FileCompare("testOutput/outputString1.txt", "testOutput/outputTemplate5.txt"));
 
+    myFile.close();
+
     myFile.open("testOutput/outputString2.txt");
     airportExporter.outputString("");
-    EXPECT_FALSE(FileIsEmpty("testOutput/testOutput/outputString2.txt"));
+    EXPECT_TRUE(FileIsEmpty("testOutput/testOutput/outputString2.txt"));
     EXPECT_TRUE(FileCompare("testOutput/outputTemplate6.txt", "testOutput/outputString2.txt"));
     EXPECT_TRUE(FileCompare("testOutput/outputString2.txt", "testOutput/outputTemplate6.txt"));
 

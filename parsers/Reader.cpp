@@ -18,7 +18,7 @@ Airport* loadAirportFromFile(const char* fileName) {
     
     //Loading file and check if it loaded correct
     if (!doc.LoadFile(fileName)) {
-        std::cout<< "Error: " << doc.ErrorDesc() << std::endl;
+        std::cerr<< "Error: " << doc.ErrorDesc() << std::endl;
     
     } else { 
 
@@ -136,6 +136,15 @@ Airport* loadAirportFromFile(const char* fileName) {
                         if (t == "Approaching") myAirplane->setStatus(Airplane::APPROACHING);
                         if (t == "Landing") myAirplane->setStatus(Airplane::LANDING);
                         
+                    }
+                    if(eValue == "passengers"){
+                        TiXmlNode* x = e->FirstChild();
+                        TiXmlText* text = x->ToText();
+                        std::string t = text->Value();
+                        int amountOfPassengers;
+                        std::istringstream ss(t);
+                        ss >> amountOfPassengers;
+                        myAirplane->setAmountOfPassengers(amountOfPassengers);
                     }
                 }
 

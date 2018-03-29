@@ -8,39 +8,6 @@
 #include "../utils.h"
 
 
-//Depart
-bool Airplane::departed(int maxHeight) {
-    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
-    REQUIRE(maxHeight >= 0, "Can not ascend with height smaller than zero");
-    return _height >= maxHeight;
-}
-//Land
-bool Airplane::land(Runway* runway) {
-    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
-    
-    //Plane land
-    runway->getAirplanesOnRunway().push_back(this);
-    this->setStatus(Airplane::LANDED);
-
-    ENSURE(this->getStatus() == LANDED, "Expected the status to be LANDED");
-
-    return true;
-}
-//Taxi to gate
-bool Airplane::taxi(Gate* gate) {
-    REQUIRE(this->properlyInitialized(), "Airplane is not initalized correctly");
-    REQUIRE(this->getStatus() == LANDED, "The status of the Airplane has to be LANDED before it can taxi");
-    this->setStatus(Airplane::TAXIING_TO_GATE);
-
-    //Let plane go to gate
-    gate->setPlaneAtGate(this);
-   
-    this->setStatus(Airplane::STANDING);
-
-    ENSURE(this->getStatus() == STANDING, "Expected the status to be STANDING");
-
-    return true;
-}
 //Approach
 void Airplane::approach(int amountOfFeet) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
@@ -164,6 +131,9 @@ Airplane::Airplane() {
     _height = 0;
     _amountOfPassengers = 0;
     _fuelState = FULL;
+    _callsign = "";
+    _model = "";
+    _number = "";
     ENSURE(this->properlyInitialized(), "Airplane is not initialized correctly");
 }
 

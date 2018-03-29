@@ -13,9 +13,13 @@ Class that represents a runway.
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized}} () const
-\begin{DoxyCompactList}\small\item\em Checks if the airport class is initialized correctly. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{class_runway}{Runway}} class is initialized correctly. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_runway_ae07554e4e41faea8ef9654385449b25b}{add\+Airplane}} (\mbox{\hyperlink{class_airplane}{Airplane}} $\ast$airplane)
 \begin{DoxyCompactList}\small\item\em Adds an airplane to the runway. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_runway_ae339230720ad45aa3997e90c2acaf744}{clear\+Runway}} ()
+\begin{DoxyCompactList}\small\item\em Function to say the whole runway is clear. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$ $>$ \& \mbox{\hyperlink{class_runway_a5e44b199b4e267f41b6e9710a519e720}{get\+Airplanes\+On\+Runway}} ()
+\begin{DoxyCompactList}\small\item\em Returns the whole vector of all airplanes on runway. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_runway_af587fc8f841c10a99427cf7a0f442fce}{set\+Id}} (int id)
 \begin{DoxyCompactList}\small\item\em Gives the runway a new ID. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_runway_ab601d0a69ecffc0042d69cf0eb0cdaba}{set\+Name}} (const string \&name)
@@ -99,6 +103,39 @@ True if the airplane is added correctly
 {\bfseries Preconditions\+:}
 \begin{DoxyItemize}
 \item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized()}}, \char`\"{}\+Runway is not initialized correctly\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_runway_ae339230720ad45aa3997e90c2acaf744}\label{class_runway_ae339230720ad45aa3997e90c2acaf744}} 
+\index{Runway@{Runway}!clear\+Runway@{clear\+Runway}}
+\index{clear\+Runway@{clear\+Runway}!Runway@{Runway}}
+\subsubsection{\texorpdfstring{clear\+Runway()}{clearRunway()}}
+{\footnotesize\ttfamily bool Runway\+::clear\+Runway (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to say the whole runway is clear. 
+
+\begin{DoxyReturn}{Returns}
+True if cleared correctly
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized()}}, \char`\"{}\+Runway is not initialized correctly\char`\"{});
+\item R\+E\+Q\+U\+I\+RE(!\+\_\+airplanes\+On\+Runway.empty(), \char`\"{}\+There are no Airplanes at the runway\char`\"{}); 
+\end{DoxyItemize}\mbox{\Hypertarget{class_runway_a5e44b199b4e267f41b6e9710a519e720}\label{class_runway_a5e44b199b4e267f41b6e9710a519e720}} 
+\index{Runway@{Runway}!get\+Airplanes\+On\+Runway@{get\+Airplanes\+On\+Runway}}
+\index{get\+Airplanes\+On\+Runway@{get\+Airplanes\+On\+Runway}!Runway@{Runway}}
+\subsubsection{\texorpdfstring{get\+Airplanes\+On\+Runway()}{getAirplanesOnRunway()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_airplane}{Airplane}} $\ast$ $>$ \& Runway\+::get\+Airplanes\+On\+Runway (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the whole vector of all airplanes on runway. 
+
+\begin{DoxyReturn}{Returns}
+Airplanes
+\end{DoxyReturn}
+{\bfseries Preconditions\+:}
+\begin{DoxyItemize}
+\item R\+E\+Q\+U\+I\+RE(this-\/$>$\mbox{\hyperlink{class_runway_a360d98246cabf3aa929765f81a656348}{properly\+Initialized()}}, \char`\"{}\+Runway is not initialized correctly\char`\"{}); 
 \end{DoxyItemize}\mbox{\Hypertarget{class_runway_ac6d84fd93863115c2b96912b4432d76e}\label{class_runway_ac6d84fd93863115c2b96912b4432d76e}} 
 \index{Runway@{Runway}!get\+Airport@{get\+Airport}}
 \index{get\+Airport@{get\+Airport}!Runway@{Runway}}
@@ -155,10 +192,10 @@ Name of the runway
 
 
 
-Checks if the airport class is initialized correctly. 
+Checks if the \mbox{\hyperlink{class_runway}{Runway}} class is initialized correctly. 
 
 \begin{DoxyReturn}{Returns}
-Returns true if the airport is correctly initialized 
+Returns true if the \mbox{\hyperlink{class_runway}{Runway}} is correctly initialized 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_runway_a6614626321a1f4c33f24800cbe78d330}\label{class_runway_a6614626321a1f4c33f24800cbe78d330}} 
 \index{Runway@{Runway}!set\+Airport@{set\+Airport}}

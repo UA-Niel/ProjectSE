@@ -16,27 +16,27 @@ class Airport;
  */
 class AirportExporterException: public std::exception{
     string _msg; /**<Message for the exception*/
-    AirportExporterException* _initCheck;/**<Member used to use properlyInitalized*/
+    AirportExporterException* _initCheck;/**<Member used to use properlyinitialized*/
 public:
     /**
      * \brief Constructor for AirportExporterException taking message as parameter
      * @param msg Error message for AirportExporterException
      *
      * **Postconditions:**
-     * - ENSURE(this->properlyInitalized(), "AirportExporterException class is not initalized correctly");
+     * - ENSURE(this->properlyinitialized(), "AirportExporterException class is not initialized correctly");
      */
     AirportExporterException(const string &msg) : _msg(msg){
         _msg = "Airport Exporter Exception:\n\t"
                 "what(): " + msg + "\n";
         _initCheck = this;
-        ENSURE(this->properlyInitalized(), "AirportExporterException class is not initalized correctly");
+        ENSURE(this->properlyInitialized(), "AirportExporterException class is not initialized correctly");
     }
 
     /**
-     * \brief Checks if AirportExporterException class is initalized properly
+     * \brief Checks if AirportExporterException class is initialized properly
      * @return True if the AirportExporterException class is initialized properly
      */
-    bool properlyInitalized() const{
+    bool properlyInitialized() const{
         return this == _initCheck;
     }
 
@@ -45,10 +45,10 @@ public:
      * @return Error message (c_string)
      *
      * **Preconditions:**
-     * - REQUIRE(this->properlyInitalized(), "AirportExporterException class is not initalized correctly");
+     * - REQUIRE(this->properlyinitialized(), "AirportExporterException class is not initialized correctly");
      */
     const char* what() const throw(){
-        REQUIRE(properlyInitalized(), "AirportExporterException class is not initalized correctly")
+        REQUIRE(properlyInitialized(), "AirportExporterException class is not initialized correctly")
         return _msg.c_str();
     }
 
@@ -66,7 +66,7 @@ public:
  */
 class AirportExporter {
 private:
-    AirportExporter* _initCheck; /**<Member used to check if the class is initalized correctly in properlyInitalized()*/
+    AirportExporter* _initCheck; /**<Member used to check if the class is initialized correctly in properlyinitialized()*/
     bool _startOutput; /**<Bool to check if the output is started*/
     Airport* _airport; /**<Pointer to airport, the source for the output*/
     std::ostream& _stream;
@@ -100,7 +100,7 @@ public:
      * \brief Checks if the AirportExporter class is initialized correctly
      * @return Returns true if the AirportExporter is correctly initialized
      */
-    bool properlyInitalized() const;
+    bool properlyInitialized() const;
 
 
     /**
@@ -144,7 +144,7 @@ public:
      *
      * **Preconditions**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
-     * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
+     * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initialized correctly?");
      * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
      */
     void outputAirportDetails();
@@ -154,7 +154,7 @@ public:
      *
      * **Preconditions**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
-     * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
+     * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initialized correctly?");
      * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
      */
     void outputPlaneDetails();
@@ -166,7 +166,7 @@ public:
      *
      * **Preconditions**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
-     * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initalized correctly?");
+     * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initialized correctly?");
      * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
      */
     void outputBasicInfo();
@@ -177,7 +177,7 @@ public:
      * @param outputString String to output to stream
      *
      * **Preconditions:**
-     * - REQUIRE(this->properlyInitalized(), "AirportExporter is not initalized correctly after constructor");
+     * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly after constructor");
      * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
      */
     void outputString(std::string outputString);

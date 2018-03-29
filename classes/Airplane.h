@@ -54,51 +54,14 @@ public:
     bool properlyInitialized() const;
 
     /**
-     * \brief Makes the airplane depart
-     *
-     * @return true if the airplanes departed successfully
-     * @param maxHeight Maximum heigth for the plane, default = 10000
-     * **Preconditions:**
-     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
-     * - REQUIRE(maxHeight >= 0, "Can not ascend with height smaller than zero");
-     */
-    bool departed(int maxHeight = 10000);
-
-    /**
      * \brief Lets the plane ascend by amountOfFeet (default = 1000)
      * @param amountOfFeet Amount of feet the plane has to ascend (default = 1000)
      *
-     * TODO
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
 
     void ascend(unsigned int amountOfFeet = 1000);
-
-    /**
-     * \brief Lets the airplane land
-     * @param runway Runway to land on
-     * @return true if the airplane landed successfully
-     *
-     * **Preconditions:**
-     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
-     *
-     * **Postconditions:**
-     * - ENSURE(this->getStatus() == LANDED, "Expected the status to be LANDED");
-     */
-    bool land(Runway* runway);
-
-    /**
-     * \brief Lets the airplane taxi to the Runway
-     * @param gate GRunway to taxi to
-     * @return True if the airplane is taxiing to Runway
-     *
-     * **Preconditions:**
-     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
-     * - REQUIRE(this->getStatus() == LANDED, "The status of the Airplane has to be LANDED before it can taxi");
-     *
-     * **Postconditions:**
-     * - ENSURE(this->getStatus() == STANDING, "Expected the status to be STANDING");
-     */
-    bool taxi(Gate* gate);
 
     /**
      * \brief Lets the airplane approach by amountOfFeet (default = 1000)
@@ -107,6 +70,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      * - REQUIRE(this->getStatus() == LANDING, "Airplane must be in LANDING status before it can approach");
+     * - REQUIRE(amountOfFeet > 0, "You can only approach by a positive amount of feet");
      */
     void approach(int amountOfFeet = 1000);
     

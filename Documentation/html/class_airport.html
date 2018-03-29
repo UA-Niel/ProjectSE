@@ -77,6 +77,16 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a2fc0f2402c94225b9deaf76176bb887f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a2fc0f2402c94225b9deaf76176bb887f">Airport</a> ()</td></tr>
+<tr class="memdesc:a2fc0f2402c94225b9deaf76176bb887f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for airport.  <a href="#a2fc0f2402c94225b9deaf76176bb887f">More...</a><br /></td></tr>
+<tr class="separator:a2fc0f2402c94225b9deaf76176bb887f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a153cf00d5a0e7a547da06e3a77da4d8a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a153cf00d5a0e7a547da06e3a77da4d8a">Airport</a> (const vector&lt; <a class="el" href="class_runway.html">Runway</a> *&gt; _runways, const vector&lt; <a class="el" href="class_gate.html">Gate</a> *&gt; _gates, int _airportId, const string &amp;_name, const string &amp;_IATA, const string &amp;_callsign)</td></tr>
+<tr class="memdesc:a153cf00d5a0e7a547da06e3a77da4d8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for airport which takes all members.  <a href="#a153cf00d5a0e7a547da06e3a77da4d8a">More...</a><br /></td></tr>
+<tr class="separator:a153cf00d5a0e7a547da06e3a77da4d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c42073a186171586f3ac66d84af97ca"><td class="memItemLeft" align="right" valign="top"><a id="a2c42073a186171586f3ac66d84af97ca"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a2c42073a186171586f3ac66d84af97ca">~Airport</a> ()</td></tr>
+<tr class="memdesc:a2c42073a186171586f3ac66d84af97ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="class_airport.html" title="Class that represents an airport. ">Airport</a> class. <br /></td></tr>
+<tr class="separator:a2c42073a186171586f3ac66d84af97ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa13e68ac58e8875837fbe888325cfff6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6">properlyInitialized</a> () const</td></tr>
 <tr class="memdesc:aa13e68ac58e8875837fbe888325cfff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the airport class is initialized correctly.  <a href="#aa13e68ac58e8875837fbe888325cfff6">More...</a><br /></td></tr>
 <tr class="separator:aa13e68ac58e8875837fbe888325cfff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -92,6 +102,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4e4929a17d410aac86d2d518648e4284"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a4e4929a17d410aac86d2d518648e4284">removeAirplane</a> (int id)</td></tr>
 <tr class="memdesc:a4e4929a17d410aac86d2d518648e4284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an airplane from the airport.  <a href="#a4e4929a17d410aac86d2d518648e4284">More...</a><br /></td></tr>
 <tr class="separator:a4e4929a17d410aac86d2d518648e4284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebd46f12a6e13b077f788b8cc73d57fa"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_gate.html">Gate</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#aebd46f12a6e13b077f788b8cc73d57fa">getAllGates</a> ()</td></tr>
+<tr class="memdesc:aebd46f12a6e13b077f788b8cc73d57fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns vector of all gates on the airport.  <a href="#aebd46f12a6e13b077f788b8cc73d57fa">More...</a><br /></td></tr>
+<tr class="separator:aebd46f12a6e13b077f788b8cc73d57fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb2735f0f7402bdf3946b17b10498b67"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#adb2735f0f7402bdf3946b17b10498b67">removeRunway</a> (int id)</td></tr>
 <tr class="memdesc:adb2735f0f7402bdf3946b17b10498b67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a runway from the airport.  <a href="#adb2735f0f7402bdf3946b17b10498b67">More...</a><br /></td></tr>
 <tr class="separator:adb2735f0f7402bdf3946b17b10498b67"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,12 +144,51 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7fd582a5f9554830247f724ddc031d84"><td class="memItemLeft" align="right" valign="top">const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a7fd582a5f9554830247f724ddc031d84">getCallsign</a> () const</td></tr>
 <tr class="memdesc:a7fd582a5f9554830247f724ddc031d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the callsign of the airport.  <a href="#a7fd582a5f9554830247f724ddc031d84">More...</a><br /></td></tr>
 <tr class="separator:a7fd582a5f9554830247f724ddc031d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fc0f2402c94225b9deaf76176bb887f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a2fc0f2402c94225b9deaf76176bb887f">Airport</a> ()</td></tr>
-<tr class="memdesc:a2fc0f2402c94225b9deaf76176bb887f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for airport.  <a href="#a2fc0f2402c94225b9deaf76176bb887f">More...</a><br /></td></tr>
-<tr class="separator:a2fc0f2402c94225b9deaf76176bb887f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a153cf00d5a0e7a547da06e3a77da4d8a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a153cf00d5a0e7a547da06e3a77da4d8a">Airport</a> (const vector&lt; <a class="el" href="class_runway.html">Runway</a> *&gt; _runways, const vector&lt; <a class="el" href="class_gate.html">Gate</a> *&gt; _gates, int _airportId, const string &amp;_name, const string &amp;_IATA, const string &amp;_callsign)</td></tr>
-<tr class="memdesc:a153cf00d5a0e7a547da06e3a77da4d8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for airport which takes all members.  <a href="#a153cf00d5a0e7a547da06e3a77da4d8a">More...</a><br /></td></tr>
-<tr class="separator:a153cf00d5a0e7a547da06e3a77da4d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14b74da2358af81c5b5df67aa52b14b6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a14b74da2358af81c5b5df67aa52b14b6">getNrOfGates</a> () const</td></tr>
+<tr class="memdesc:a14b74da2358af81c5b5df67aa52b14b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check how many gates the <a class="el" href="class_airport.html" title="Class that represents an airport. ">Airport</a> has.  <a href="#a14b74da2358af81c5b5df67aa52b14b6">More...</a><br /></td></tr>
+<tr class="separator:a14b74da2358af81c5b5df67aa52b14b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae65f2bbf4060d54a3c282f18928790a0"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#ae65f2bbf4060d54a3c282f18928790a0">getNrOfRunways</a> () const</td></tr>
+<tr class="memdesc:ae65f2bbf4060d54a3c282f18928790a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check how many runways the <a class="el" href="class_airport.html" title="Class that represents an airport. ">Airport</a> has.  <a href="#ae65f2bbf4060d54a3c282f18928790a0">More...</a><br /></td></tr>
+<tr class="separator:ae65f2bbf4060d54a3c282f18928790a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c2d6645864e47ff409ea9233add81d4"><td class="memItemLeft" align="right" valign="top">const vector&lt; <a class="el" href="class_airplane.html">Airplane</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a1c2d6645864e47ff409ea9233add81d4">getAirplanes</a> () const</td></tr>
+<tr class="memdesc:a1c2d6645864e47ff409ea9233add81d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the airplanes of the airport.  <a href="#a1c2d6645864e47ff409ea9233add81d4">More...</a><br /></td></tr>
+<tr class="separator:a1c2d6645864e47ff409ea9233add81d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45ebc0d8a4e5b8efa6efb31b03955dbd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_runway.html">Runway</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a45ebc0d8a4e5b8efa6efb31b03955dbd">getRunways</a> ()</td></tr>
+<tr class="memdesc:a45ebc0d8a4e5b8efa6efb31b03955dbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the runways of the <a class="el" href="class_airport.html" title="Class that represents an airport. ">Airport</a>.  <a href="#a45ebc0d8a4e5b8efa6efb31b03955dbd">More...</a><br /></td></tr>
+<tr class="separator:a45ebc0d8a4e5b8efa6efb31b03955dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07b5744d0a5fc278437140b20bcd9b7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a07b5744d0a5fc278437140b20bcd9b7f">doSimulation</a> (<a class="el" href="class_airport_exporter.html">AirportExporter</a> *exporter)</td></tr>
+<tr class="memdesc:a07b5744d0a5fc278437140b20bcd9b7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does one tick of the simulation of the airport.  <a href="#a07b5744d0a5fc278437140b20bcd9b7f">More...</a><br /></td></tr>
+<tr class="separator:a07b5744d0a5fc278437140b20bcd9b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdf571dae312ffa3ac5bd0710aa1cb56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_runway.html">Runway</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#acdf571dae312ffa3ac5bd0710aa1cb56">getRunwayWithPlane</a> (<a class="el" href="class_airplane.html">Airplane</a> *plane)</td></tr>
+<tr class="memdesc:acdf571dae312ffa3ac5bd0710aa1cb56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Looks for the runway where <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> plane is assigned to.  <a href="#acdf571dae312ffa3ac5bd0710aa1cb56">More...</a><br /></td></tr>
+<tr class="separator:acdf571dae312ffa3ac5bd0710aa1cb56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bcdea90491d54be7f41c624006dec2c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_gate.html">Gate</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a6bcdea90491d54be7f41c624006dec2c">getFreeGate</a> ()</td></tr>
+<tr class="memdesc:a6bcdea90491d54be7f41c624006dec2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if gates are free and returns the first free gate.  <a href="#a6bcdea90491d54be7f41c624006dec2c">More...</a><br /></td></tr>
+<tr class="separator:a6bcdea90491d54be7f41c624006dec2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29b9bed08d03a28f16ad645bb6d6a24b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_gate.html">Gate</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a29b9bed08d03a28f16ad645bb6d6a24b">getGateWithPlane</a> (<a class="el" href="class_airplane.html">Airplane</a> *plane)</td></tr>
+<tr class="memdesc:a29b9bed08d03a28f16ad645bb6d6a24b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Looks for the <a class="el" href="class_gate.html" title="The Gate class, a gate has an ID and can contain an airplane. ">Gate</a> where <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> plane is assigned to.  <a href="#a29b9bed08d03a28f16ad645bb6d6a24b">More...</a><br /></td></tr>
+<tr class="separator:a29b9bed08d03a28f16ad645bb6d6a24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb326706ff278a175efb9a55f31c4fa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#adb326706ff278a175efb9a55f31c4fa3">doSimulationApproach</a> (<a class="el" href="class_airport_exporter.html">AirportExporter</a> *exporter, <a class="el" href="class_airplane.html">Airplane</a> *plane)</td></tr>
+<tr class="memdesc:adb326706ff278a175efb9a55f31c4fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the simulation if an <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is approaching.  <a href="#adb326706ff278a175efb9a55f31c4fa3">More...</a><br /></td></tr>
+<tr class="separator:adb326706ff278a175efb9a55f31c4fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42d696dbd56340c324c385945045f402"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a42d696dbd56340c324c385945045f402">doSimulationLanding</a> (<a class="el" href="class_airport_exporter.html">AirportExporter</a> *exporter, <a class="el" href="class_airplane.html">Airplane</a> *plane)</td></tr>
+<tr class="memdesc:a42d696dbd56340c324c385945045f402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the simulation if an <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is landing.  <a href="#a42d696dbd56340c324c385945045f402">More...</a><br /></td></tr>
+<tr class="separator:a42d696dbd56340c324c385945045f402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaecef9cb812cbd5fb6aa64ee357190c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#aaecef9cb812cbd5fb6aa64ee357190c9">doSimulationLanded</a> (<a class="el" href="class_airport_exporter.html">AirportExporter</a> *exporter, <a class="el" href="class_airplane.html">Airplane</a> *plane)</td></tr>
+<tr class="memdesc:aaecef9cb812cbd5fb6aa64ee357190c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the simulation if an <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is landed.  <a href="#aaecef9cb812cbd5fb6aa64ee357190c9">More...</a><br /></td></tr>
+<tr class="separator:aaecef9cb812cbd5fb6aa64ee357190c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a473d89e33cae2358008a96652c2e68c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a473d89e33cae2358008a96652c2e68c2">doSimulationTaxiing</a> (<a class="el" href="class_airport_exporter.html">AirportExporter</a> *exporter, <a class="el" href="class_airplane.html">Airplane</a> *plane)</td></tr>
+<tr class="memdesc:a473d89e33cae2358008a96652c2e68c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the simulation if an <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is taxiing.  <a href="#a473d89e33cae2358008a96652c2e68c2">More...</a><br /></td></tr>
+<tr class="separator:a473d89e33cae2358008a96652c2e68c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28e88d341009ceb9e8b4287fb06db3c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#a28e88d341009ceb9e8b4287fb06db3c9">doSimulationAtGate</a> (<a class="el" href="class_airport_exporter.html">AirportExporter</a> *exporter, <a class="el" href="class_airplane.html">Airplane</a> *plane)</td></tr>
+<tr class="memdesc:a28e88d341009ceb9e8b4287fb06db3c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the simulation if an <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is at at the <a class="el" href="class_gate.html" title="The Gate class, a gate has an ID and can contain an airplane. ">Gate</a>.  <a href="#a28e88d341009ceb9e8b4287fb06db3c9">More...</a><br /></td></tr>
+<tr class="separator:a28e88d341009ceb9e8b4287fb06db3c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa27fbfad60f1e3ae54aa656d34b86ba2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#aa27fbfad60f1e3ae54aa656d34b86ba2">doSimulationStanding</a> (<a class="el" href="class_airport_exporter.html">AirportExporter</a> *exporter, <a class="el" href="class_airplane.html">Airplane</a> *plane)</td></tr>
+<tr class="memdesc:aa27fbfad60f1e3ae54aa656d34b86ba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the simulation if the <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is standing.  <a href="#aa27fbfad60f1e3ae54aa656d34b86ba2">More...</a><br /></td></tr>
+<tr class="separator:aa27fbfad60f1e3ae54aa656d34b86ba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa218b5ef42ae4d1d61b40377874bd4ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_airport.html#aa218b5ef42ae4d1d61b40377874bd4ca">doSimulationDeparting</a> (<a class="el" href="class_airport_exporter.html">AirportExporter</a> *exporter, <a class="el" href="class_airplane.html">Airplane</a> *plane)</td></tr>
+<tr class="memdesc:aa218b5ef42ae4d1d61b40377874bd4ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the simulation when the <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is departing.  <a href="#aa218b5ef42ae4d1d61b40377874bd4ca">More...</a><br /></td></tr>
+<tr class="separator:aa218b5ef42ae4d1d61b40377874bd4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class that represents an airport. </p>
@@ -259,7 +311,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the airplane was added successfully</dd></dl>
 <p><b>Preconditions:</b></p><ul>
-<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initialized correctly"); </li>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initialized correctly");</li>
+<li>REQUIRE(airplane-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airplane 'airplane' is not initalized correctly"); </li>
 </ul>
 
 </div>
@@ -290,7 +343,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the gate was added successfully</dd></dl>
 <p><b>Preconditions:</b></p><ul>
-<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initialized correctly"); </li>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initialized correctly");</li>
+<li>REQUIRE(gate-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Gate 'gate' is not initalized correctly"); </li>
 </ul>
 
 </div>
@@ -321,7 +375,333 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the runway was added successfully</dd></dl>
 <p><b>Preconditions:</b></p><ul>
-<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initialized correctly"); </li>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initialized correctly");</li>
+<li>REQUIRE(runway-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Runway 'runway' is not initalized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="a07b5744d0a5fc278437140b20bcd9b7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07b5744d0a5fc278437140b20bcd9b7f">&#9670;&nbsp;</a></span>doSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airport::doSimulation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_airport_exporter.html">AirportExporter</a> *&#160;</td>
+          <td class="paramname"><em>exporter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Does one tick of the simulation of the airport. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">exporter</td><td>Output exporter</td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initalized correctly");</li>
+<li>REQUIRE(exporter != NULL, "Exporter not found, is it initalized correctly?");</li>
+<li>REQUIRE(exporter-&gt;properlyInitalized(), "Exporter is not initalized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="adb326706ff278a175efb9a55f31c4fa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb326706ff278a175efb9a55f31c4fa3">&#9670;&nbsp;</a></span>doSimulationApproach()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airport::doSimulationApproach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_airport_exporter.html">AirportExporter</a> *&#160;</td>
+          <td class="paramname"><em>exporter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_airplane.html">Airplane</a> *&#160;</td>
+          <td class="paramname"><em>plane</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Does the simulation if an <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is approaching. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">exporter</td><td>Pointer to <a class="el" href="class_airport_exporter.html" title="this class is the base class for the Airport output ">AirportExporter</a> </td></tr>
+    <tr><td class="paramname">plane</td><td>Pointer to <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initalized correctly");</li>
+<li>REQUIRE(plane-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airplane 'plane' is not initialized correctly");</li>
+<li>REQUIRE(exporter-&gt;properlyInitalized(), "Exporter is not initalized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="a28e88d341009ceb9e8b4287fb06db3c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28e88d341009ceb9e8b4287fb06db3c9">&#9670;&nbsp;</a></span>doSimulationAtGate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airport::doSimulationAtGate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_airport_exporter.html">AirportExporter</a> *&#160;</td>
+          <td class="paramname"><em>exporter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_airplane.html">Airplane</a> *&#160;</td>
+          <td class="paramname"><em>plane</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Does the simulation if an <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is at at the <a class="el" href="class_gate.html" title="The Gate class, a gate has an ID and can contain an airplane. ">Gate</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">exporter</td><td>Pointer to <a class="el" href="class_airport_exporter.html" title="this class is the base class for the Airport output ">AirportExporter</a> </td></tr>
+    <tr><td class="paramname">plane</td><td>Pointer to <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initalized correctly");</li>
+<li>REQUIRE(plane-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airplane 'plane' is not initialized correctly");</li>
+<li>REQUIRE(exporter-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Exporter is not initalized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="aa218b5ef42ae4d1d61b40377874bd4ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa218b5ef42ae4d1d61b40377874bd4ca">&#9670;&nbsp;</a></span>doSimulationDeparting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airport::doSimulationDeparting </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_airport_exporter.html">AirportExporter</a> *&#160;</td>
+          <td class="paramname"><em>exporter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_airplane.html">Airplane</a> *&#160;</td>
+          <td class="paramname"><em>plane</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Does the simulation when the <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is departing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">exporter</td><td>Pointer to <a class="el" href="class_airport_exporter.html" title="this class is the base class for the Airport output ">AirportExporter</a> </td></tr>
+    <tr><td class="paramname">plane</td><td>Pointer to <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initalized correctly");</li>
+<li>REQUIRE(plane-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airplane 'plane' is not initialized correctly");</li>
+<li>REQUIRE(exporter-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Exporter is not initalized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="aaecef9cb812cbd5fb6aa64ee357190c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaecef9cb812cbd5fb6aa64ee357190c9">&#9670;&nbsp;</a></span>doSimulationLanded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airport::doSimulationLanded </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_airport_exporter.html">AirportExporter</a> *&#160;</td>
+          <td class="paramname"><em>exporter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_airplane.html">Airplane</a> *&#160;</td>
+          <td class="paramname"><em>plane</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Does the simulation if an <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is landed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">exporter</td><td>Pointer to <a class="el" href="class_airport_exporter.html" title="this class is the base class for the Airport output ">AirportExporter</a> </td></tr>
+    <tr><td class="paramname">plane</td><td>Pointer to <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initalized correctly");</li>
+<li>REQUIRE(plane-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airplane 'plane' is not initialized correctly");</li>
+<li>REQUIRE(exporter-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Exporter is not initalized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="a42d696dbd56340c324c385945045f402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42d696dbd56340c324c385945045f402">&#9670;&nbsp;</a></span>doSimulationLanding()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airport::doSimulationLanding </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_airport_exporter.html">AirportExporter</a> *&#160;</td>
+          <td class="paramname"><em>exporter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_airplane.html">Airplane</a> *&#160;</td>
+          <td class="paramname"><em>plane</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Does the simulation if an <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is landing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">exporter</td><td>Pointer to <a class="el" href="class_airport_exporter.html" title="this class is the base class for the Airport output ">AirportExporter</a> </td></tr>
+    <tr><td class="paramname">plane</td><td>Pointer to <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initalized correctly");</li>
+<li>REQUIRE(plane-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airplane 'plane' is not initialized correctly");</li>
+<li>REQUIRE(exporter-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Exporter is not initalized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="aa27fbfad60f1e3ae54aa656d34b86ba2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa27fbfad60f1e3ae54aa656d34b86ba2">&#9670;&nbsp;</a></span>doSimulationStanding()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airport::doSimulationStanding </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_airport_exporter.html">AirportExporter</a> *&#160;</td>
+          <td class="paramname"><em>exporter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_airplane.html">Airplane</a> *&#160;</td>
+          <td class="paramname"><em>plane</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Does the simulation if the <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is standing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">exporter</td><td>Pointer to <a class="el" href="class_airport_exporter.html" title="this class is the base class for the Airport output ">AirportExporter</a> </td></tr>
+    <tr><td class="paramname">plane</td><td>Pointer to <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initalized correctly");</li>
+<li>REQUIRE(plane-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airplane 'plane' is not initialized correctly");</li>
+<li>REQUIRE(exporter-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Exporter is not initalized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="a473d89e33cae2358008a96652c2e68c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a473d89e33cae2358008a96652c2e68c2">&#9670;&nbsp;</a></span>doSimulationTaxiing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Airport::doSimulationTaxiing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_airport_exporter.html">AirportExporter</a> *&#160;</td>
+          <td class="paramname"><em>exporter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_airplane.html">Airplane</a> *&#160;</td>
+          <td class="paramname"><em>plane</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Does the simulation if an <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> is taxiing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">exporter</td><td>Pointer to <a class="el" href="class_airport_exporter.html" title="this class is the base class for the Airport output ">AirportExporter</a> </td></tr>
+    <tr><td class="paramname">plane</td><td>Pointer to <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initalized correctly");</li>
+<li>REQUIRE(plane-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airplane 'plane' is not initialized correctly");</li>
+<li>REQUIRE(exporter-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Exporter is not initalized correctly"); </li>
 </ul>
 
 </div>
@@ -356,6 +736,53 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a1c2d6645864e47ff409ea9233add81d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c2d6645864e47ff409ea9233add81d4">&#9670;&nbsp;</a></span>getAirplanes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const vector&lt; <a class="el" href="class_airplane.html">Airplane</a> * &gt; &amp; Airport::getAirplanes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the airplanes of the airport. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector containing pointers of the Airplanes of the <a class="el" href="class_airport.html" title="Class that represents an airport. ">Airport</a></dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initalized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="aebd46f12a6e13b077f788b8cc73d57fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebd46f12a6e13b077f788b8cc73d57fa">&#9670;&nbsp;</a></span>getAllGates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_gate.html">Gate</a> * &gt; Airport::getAllGates </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns vector of all gates on the airport. </p>
+<p>Returns all the gates in a vector</p>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Gate*&gt;</dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
 <a id="a7fd582a5f9554830247f724ddc031d84"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7fd582a5f9554830247f724ddc031d84">&#9670;&nbsp;</a></span>getCallsign()</h2>
 
@@ -375,6 +802,29 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Callsign of the airport</dd></dl>
 <p><b>Preconditions:</b></p><ul>
 <li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="a6bcdea90491d54be7f41c624006dec2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bcdea90491d54be7f41c624006dec2c">&#9670;&nbsp;</a></span>getFreeGate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_gate.html">Gate</a> * Airport::getFreeGate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if gates are free and returns the first free gate. </p>
+<dl class="section return"><dt>Returns</dt><dd>Free <a class="el" href="class_gate.html" title="The Gate class, a gate has an ID and can contain an airplane. ">Gate</a>, NULL if no free gates are found</dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initalized correctly"); </li>
 </ul>
 
 </div>
@@ -405,6 +855,37 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to a gate</dd></dl>
 <p><b>Preconditions:</b></p><ul>
 <li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="a29b9bed08d03a28f16ad645bb6d6a24b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29b9bed08d03a28f16ad645bb6d6a24b">&#9670;&nbsp;</a></span>getGateWithPlane()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_gate.html">Gate</a> * Airport::getGateWithPlane </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_airplane.html">Airplane</a> *&#160;</td>
+          <td class="paramname"><em>plane</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Looks for the <a class="el" href="class_gate.html" title="The Gate class, a gate has an ID and can contain an airplane. ">Gate</a> where <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> plane is assigned to. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plane</td><td>Pointer to airplane to search </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_gate.html" title="The Gate class, a gate has an ID and can contain an airplane. ">Gate</a> containing the <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a></dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initalized correctly");</li>
+<li>REQUIRE(plane-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airplane 'plane' is not initialized correctly"); </li>
 </ul>
 
 </div>
@@ -478,6 +959,52 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a14b74da2358af81c5b5df67aa52b14b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14b74da2358af81c5b5df67aa52b14b6">&#9670;&nbsp;</a></span>getNrOfGates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Airport::getNrOfGates </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check how many gates the <a class="el" href="class_airport.html" title="Class that represents an airport. ">Airport</a> has. </p>
+<dl class="section return"><dt>Returns</dt><dd>Unsigned integer for the number of gates</dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>ENSURE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="ae65f2bbf4060d54a3c282f18928790a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae65f2bbf4060d54a3c282f18928790a0">&#9670;&nbsp;</a></span>getNrOfRunways()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Airport::getNrOfRunways </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check how many runways the <a class="el" href="class_airport.html" title="Class that represents an airport. ">Airport</a> has. </p>
+<dl class="section return"><dt>Returns</dt><dd>Unsigned integer for the number of runways</dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>ENSURE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
 <a id="a1d7b9530df732ebee79ce0f1de7616e2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d7b9530df732ebee79ce0f1de7616e2">&#9670;&nbsp;</a></span>getRunway()</h2>
 
@@ -504,6 +1031,60 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to a runway</dd></dl>
 <p><b>Preconditions:</b></p><ul>
 <li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initialized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="a45ebc0d8a4e5b8efa6efb31b03955dbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45ebc0d8a4e5b8efa6efb31b03955dbd">&#9670;&nbsp;</a></span>getRunways()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_runway.html">Runway</a> * &gt; &amp; Airport::getRunways </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the runways of the <a class="el" href="class_airport.html" title="Class that represents an airport. ">Airport</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector containing pointers to the Runways of the <a class="el" href="class_airport.html" title="Class that represents an airport. ">Airport</a></dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initalized correctly"); </li>
+</ul>
+
+</div>
+</div>
+<a id="acdf571dae312ffa3ac5bd0710aa1cb56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdf571dae312ffa3ac5bd0710aa1cb56">&#9670;&nbsp;</a></span>getRunwayWithPlane()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_runway.html">Runway</a> * Airport::getRunwayWithPlane </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_airplane.html">Airplane</a> *&#160;</td>
+          <td class="paramname"><em>plane</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Looks for the runway where <a class="el" href="class_airplane.html" title="class that represents an airplane ">Airplane</a> plane is assigned to. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plane</td><td>Pointer to airplane to get runway from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_runway.html" title="Class that represents a runway. ">Runway</a> with airplane plane assigned to</dd></dl>
+<p><b>Preconditions:</b></p><ul>
+<li>REQUIRE(this-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airport is not initalized correctly");</li>
+<li>REQUIRE(plane-&gt;<a class="el" href="class_airport.html#aa13e68ac58e8875837fbe888325cfff6" title="Checks if the airport class is initialized correctly. ">properlyInitialized()</a>, "Airplane 'plane' is not initalized correctly"); </li>
 </ul>
 
 </div>
