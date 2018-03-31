@@ -1,8 +1,8 @@
 //Implementation file for Read-parser
 
-#include "Reader.h"
-#include "library/tinyxml.h"
-#include "library/tinystr.h"
+#include "../headers/IO/Reader.h"
+#include "../headers/IO/library/tinyxml.h"
+#include "../headers/IO/library/tinystr.h"
 
 #include <fstream>
 #include <string>
@@ -179,3 +179,4 @@ ElementType elementType(const std::string& element) {
 
     return type;
 }
+ 

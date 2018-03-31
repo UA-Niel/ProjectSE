@@ -3,8 +3,8 @@
  * This file contains the implementation of Runway
  */
 
-#include "Runway.h"
-#include "../DesignByContract.h"
+#include "../headers/Runway.h"
+#include "../headers/DesignByContract.h"
 
 //Add airplane
 bool Runway::addAirplane(Airplane* airplane) {

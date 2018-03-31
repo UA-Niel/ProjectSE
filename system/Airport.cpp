@@ -4,12 +4,12 @@
  */
 
 #include <cstdlib>
-#include "Airport.h"
-#include "Airplane.h"
-#include "Gate.h"
-#include "Runway.h"
-#include "../DesignByContract.h"
-#include "../utils.h"
+#include "../headers/Airport.h"
+#include "../headers/Airplane.h"
+#include "../headers/Gate.h"
+#include "../headers/Runway.h"
+#include "../headers/DesignByContract.h"
+#include "../headers/utils.h"
 
 using namespace std;
 

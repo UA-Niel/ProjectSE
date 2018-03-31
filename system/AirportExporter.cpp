@@ -1,6 +1,6 @@
 #include <iostream>
-#include "AirportExporter.h"
-#include "Airport.h"
+#include "../headers/AirportExporter.h"
+#include "../headers/Airport.h"
 
 
 AirportExporter::~AirportExporter() {

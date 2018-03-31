@@ -5,9 +5,9 @@
 
 #include <iostream>
 #include <fstream>
-#include "classes/Airplane.h"
-#include "classes/Airport.h"
-#include "parsers/Reader.h"
+#include "headers/Airplane.h"
+#include "headers/Airport.h"
+#include "headers/IO/Reader.h"
 
 
 using namespace std;

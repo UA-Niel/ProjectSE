@@ -13,76 +13,76 @@ link_directories(gtest/lib)
 # Set source files for DEBUG target
 
 set(DEBUG_SOURCE_FILES
-        classes/Gate.cpp
-        classes/Gate.h
-        classes/Runway.h
-        classes/Runway.cpp
-        classes/Airport.h
-        classes/Airport.cpp
-        classes/AirportFunctions.cpp
-        classes/AirportFunctions.h
-        classes/Airplane.h
-        classes/Airplane.cpp
-        classes/AirportExporter.cpp
-        classes/AirportExporter.h
-        classes/Route.cpp
-        classes/Route.h
+        headers/Gate.h
+        headers/Runway.h
+        headers/Airport.h
+        headers/AirportFunctions.h
+        headers/Airplane.h
+        headers/IO/AirportExporter.h
+        headers/Route.h
+        system/Gate.cpp
+        system/Runway.cpp
+        system/Airport.cpp
+        system/AirportFunctions.cpp
+        system/Airplane.cpp
+        system/AirportExporter.cpp
+        system/Route.cpp
 
-        parsers/library/tinystr.cpp
-        parsers/library/tinystr.h
-        parsers/library/tinyxml.cpp
-        parsers/library/tinyxml.h
-        parsers/library/tinyxmlerror.cpp
-        parsers/library/tinyxmlparser.cpp
+        headers/IO/library/tinystr.cpp
+        headers/IO/library/tinystr.h
+        headers/IO/library/tinyxml.cpp
+        headers/IO/library/tinyxml.h
+        headers/IO/library/tinyxmlerror.cpp
+        headers/IO/library/tinyxmlparser.cpp
 
-        parsers/Reader.cpp
-        parsers/Reader.h
+        system/Reader.cpp
+        headers/IO/Reader.h
 
-        DesignByContract.h
-        utils.cpp
-        utils.h
+        headers/DesignByContract.h
+        system/utils.cpp
+        headers/utils.h
 
-        testfiles/AirportOutputTests.h
-        testfiles/AirportOutputTests.cpp
-        testfiles/AirportTests.h
-        testfiles/AirportTests.cpp
-        testfiles/ReaderTest.cpp
-        testfiles/ReaderTest.h
+        other/testfiles/AirportOutputTests.h
+        other/testfiles/AirportOutputTests.cpp
+        other/testfiles/AirportTests.h
+        other/testfiles/AirportTests.cpp
+        other/testfiles/ReaderTest.cpp
+        other/testfiles/ReaderTest.h
         mainTests.cpp
-        testfiles/RunwayTests.cpp
-        testfiles/RunwayTests.h testfiles/GateTests.cpp testfiles/GateTests.h testfiles/AirplaneTests.cpp testfiles/AirplaneTests.h)
+        other/testfiles/RunwayTests.cpp
+        other/testfiles/RunwayTests.h other/testfiles/GateTests.cpp other/testfiles/GateTests.h other/testfiles/AirplaneTests.cpp other/testfiles/AirplaneTests.h)
 
 # Set source files for RELEASE target
 
 set(RELEASE_SOURCE_FILES
-        classes/Gate.cpp
-        classes/Gate.h
-        classes/Runway.h
-        classes/Runway.cpp
-        classes/Airport.h
-        classes/Airport.cpp
-        classes/AirportFunctions.cpp
-        classes/AirportFunctions.h
-        classes/Airplane.h
-        classes/Airplane.cpp
-        classes/AirportExporter.cpp
-        classes/AirportExporter.h
-        classes/Route.cpp
-        classes/Route.h
+        headers/Gate.h
+        headers/Runway.h
+        headers/Airport.h
+        headers/AirportFunctions.h
+        headers/Airplane.h
+        headers/IO/AirportExporter.h
+        headers/Route.h
+        system/Gate.cpp
+        system/Runway.cpp
+        system/Airport.cpp
+        system/AirportFunctions.cpp
+        system/Airplane.cpp
+        system/AirportExporter.cpp
+        system/Route.cpp
 
-        parsers/library/tinystr.cpp
-        parsers/library/tinystr.h
-        parsers/library/tinyxml.cpp
-        parsers/library/tinyxml.h
-        parsers/library/tinyxmlerror.cpp
-        parsers/library/tinyxmlparser.cpp
+        headers/IO/library/tinystr.cpp
+        headers/IO/library/tinystr.h
+        headers/IO/library/tinyxml.cpp
+        headers/IO/library/tinyxml.h
+        headers/IO/library/tinyxmlerror.cpp
+        headers/IO/library/tinyxmlparser.cpp
 
-        parsers/Reader.cpp
-        parsers/Reader.h
+        system/Reader.cpp
+        headers/IO/Reader.h
 
-        DesignByContract.h
-        utils.cpp
-        utils.h
+        headers/DesignByContract.h
+        system/utils.cpp
+        headers/utils.h
 
         main.cpp
         )

@@ -3,10 +3,10 @@
 #include <sys/stat.h>
 #include <cstdio>
 #include <string>
+#include "../headers/utils.h"
 
 using namespace std;
 
-#include "utils.h"
 
 /**
 Auxiliary functions for file manipulation.

@@ -3,9 +3,9 @@
  * This file contains the implementation of Gate
  */
 
-#include "Gate.h"
-#include "../DesignByContract.h"
-#include "Airplane.h"
+#include "../headers/Gate.h"
+#include "../headers/DesignByContract.h"
+#include "../headers/Airplane.h"
 
 Gate::Gate() {
     _initCheck = this;

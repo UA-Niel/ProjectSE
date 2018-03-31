@@ -3,8 +3,8 @@
 // * This file contains declarations for airport functions
 // */
 //
-//#include "AirportFunctions.h"
-//#include "../utils.h"
+//#include "../headers/AirportFunctions.h"
+//#include "../headers/utils.h"
 //
 //void makeAllLand(Airport* p, AirportExporter* exporter) {
 //    Runway* freeRunway = NULL;
