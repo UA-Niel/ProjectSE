@@ -95,6 +95,12 @@ Airport* loadAirportFromFile(const char* fileName) {
                     if (eValue == "airport") {
                         myRunway->setAirport(myAirport->getId());
                     }
+                    if (eValue == "type") {
+                        TiXmlNode* x = e->FirstChild();
+                        TiXmlText* text = x->ToText();
+                        std::string t = text->Value();
+                        myRunway->setType(t);
+                    }
                 }
 
                 myAirport->addRunway(myRunway);

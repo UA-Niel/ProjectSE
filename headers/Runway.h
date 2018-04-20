@@ -17,8 +17,18 @@ using namespace std;
  *
  * A runway has an ID, id of the airport it is part of, a name and eventually airplanes
  */
+
+
 class Runway {
 public:
+    
+    enum RunwayType {
+        ASPHALT,
+        GRASS,
+        SAND,
+        WATER,
+        UNKNOWN
+    };
 
     /**
      * \brief Checks if the Runway class is initialized correctly
@@ -111,6 +121,25 @@ public:
      */
     int getAirport() const;
 
+    /**
+     * \brief Sets type of the runway
+     * @return Type of runway
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+     */
+    void setType(const Runway::RunwayType& type);
+    void setType(const std::string type);
+
+    /**
+     * \brief Returns the type of the runway
+     * @return Type of the aiport
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+     */
+    Runway::RunwayType& getType();
+
     //Constructor
     /**
      * \brief Constructor which initializes all members
@@ -136,7 +165,8 @@ private:
     int _myAirport; /**<ID of the airport*/
     string _name; /**<Name of the runway*/
     vector<Airplane*> _airplanesOnRunway; /**<Planes on the runway*/
-    Runway* _initCheck; /**<member used in @see properlyInitalized() to check if the airplane is initalized correctly*/
+    Runway* _initCheck; /**</member used in @see properlyInitalized() to check if the airplane is initalized correctly*/
+    RunwayType runwayType; /**<Type of the runway*/
 };
 
 #endif

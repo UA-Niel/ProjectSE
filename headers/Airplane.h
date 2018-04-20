@@ -7,7 +7,7 @@
 
 #include <string>
 #include "Gate.h"
-#include "AirportExporter.h"
+#include "IO/AirportExporter.h"
 
 class Runway;
 class Airport;

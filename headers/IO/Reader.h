@@ -5,8 +5,8 @@
 
 #include <string>
 #include <map>
-#include "../classes/Airport.h"
-#include "../classes/Route.h"
+#include "../Airport.h"
+#include "../Route.h"
 
 //Loading the airport from an input-file into memory
 //:param fileName => Filename to read from

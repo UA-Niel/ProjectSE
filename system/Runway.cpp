@@ -59,6 +59,25 @@ int Runway::getAirport() const{
     return _myAirport;
 }
 
+void Runway::setType(const Runway::RunwayType& type) {
+    this->runwayType = type;
+}
+void Runway::setType(const std::string type) {
+    std::string buffer = type;
+    for(int i=0;buffer[i]!=0;i++)
+        if(buffer[i]<='z' && buffer[i]>='a')
+            buffer[i]-=32;
+    
+    if (type == "GRASS") this->runwayType = Runway::GRASS;
+    if (type == "ASHPALT") this->runwayType = Runway::ASPHALT;
+    if (type == "SAND") this->runwayType = Runway::SAND;
+    if (type == "UNKNOWN") this->runwayType = Runway::UNKNOWN;
+}
+
+Runway::RunwayType& Runway::getType() {
+    return this->runwayType;
+}
+
 bool Runway::properlyInitialized() const {
     return _initCheck == this;
 }
