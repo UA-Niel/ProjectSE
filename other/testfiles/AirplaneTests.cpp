@@ -1,6 +1,6 @@
 #include "AirplaneTests.h"
-#include "../classes/Airplane.h"
-#include "../classes/Airport.h"
+#include "../../headers/Airplane.h"
+#include "../../headers/Airport.h"
 
 
 TEST_F(AirplaneTests, AirplaneGetterTests){

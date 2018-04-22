@@ -1,6 +1,6 @@
 #include "GateTests.h"
-#include "../classes/Gate.h"
-#include "../classes/Airplane.h"
+#include "../../headers/Gate.h"
+#include "../../headers/Airplane.h"
 
 TEST_F(GateTests, GateGetterTests){
 

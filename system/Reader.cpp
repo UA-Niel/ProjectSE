@@ -3,6 +3,7 @@
 #include "../headers/IO/Reader.h"
 #include "../headers/IO/library/tinyxml.h"
 #include "../headers/IO/library/tinystr.h"
+#include "../headers/utils.h"
 
 #include <fstream>
 #include <string>
@@ -101,6 +102,12 @@ Airport* loadAirportFromFile(const char* fileName) {
                         std::string t = text->Value();
                         myRunway->setType(t);
                     }
+                    if (eValue == "length") {
+                        TiXmlNode* x = e->FirstChild();
+                        TiXmlText* text = x->ToText();
+                        std::string t = text->Value();
+                        myRunway->setLength(fromStr<int>(t)); 
+                    }
                 }
 
                 myAirport->addRunway(myRunway);
@@ -151,6 +158,18 @@ Airport* loadAirportFromFile(const char* fileName) {
                         std::istringstream ss(t);
                         ss >> amountOfPassengers;
                         myAirplane->setAmountOfPassengers(amountOfPassengers);
+                    }
+                    if (eValue == "type") {
+                        TiXmlNode* x = e->FirstChild();
+                        TiXmlText* text = x->ToText();
+                        std::string t = text->Value();
+                        myAirplane->setType(t);    
+                    }
+                    if (eValue == "size") {
+                        TiXmlNode* x = e->FirstChild();
+                        TiXmlText* text = x->ToText();
+                        std::string t = text->Value();
+                        myAirplane->setSize(t);    
                     }
                 }
 

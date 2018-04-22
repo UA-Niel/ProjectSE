@@ -1,7 +1,7 @@
 #include "ReaderTest.h"
-#include "../classes/Airport.h"
-#include "../classes/Runway.h"
-#include "../classes/Gate.h"
+#include "../../headers/Airport.h"
+#include "../../headers/Runway.h"
+#include "../../headers/Gate.h"
 
 TEST_F(ReaderTests, testingInput) {
     Airport* testAirport = loadAirportFromFile("testfiles/testinput.xml");

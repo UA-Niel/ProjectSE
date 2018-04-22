@@ -133,12 +133,31 @@ public:
 
     /**
      * \brief Returns the type of the runway
-     * @return Type of the aiport
+     * @return Type of the runway
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
      */
     Runway::RunwayType& getType();
+
+    
+    /**
+     * \brief Gives the runway a new length
+     * @param id Length of the runway
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+     */
+    void setLength(const int length);
+    
+    /**
+     * \brief Returns the length of the runway
+     * @return Length of airport
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+     */
+    const int getLength();
 
     //Constructor
     /**
@@ -167,6 +186,7 @@ private:
     vector<Airplane*> _airplanesOnRunway; /**<Planes on the runway*/
     Runway* _initCheck; /**</member used in @see properlyInitalized() to check if the airplane is initalized correctly*/
     RunwayType runwayType; /**<Type of the runway*/
+    int length;
 };
 
 #endif

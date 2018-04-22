@@ -3,7 +3,7 @@
 
 
 #include <gtest/gtest.h>
-#include "../parsers/Reader.h"
+#include "../../headers/IO/Reader.h"
 
 class ReaderTests: public ::testing::Test {
 

@@ -46,6 +46,31 @@ public:
         FULL
     };
 
+    /**
+     * \brief Tyoe of the airplane
+     */
+    enum Type {
+        PRIVATE,
+        AIRLINE,
+        ALASKAN,
+        JET_FIGHTER
+    };
+
+    /**
+     * \brief Engine type of this plane
+     */
+    enum Engine {
+        JET,
+        PROPELLOR,
+        GLIDER
+    };
+
+    enum Size {
+        SMALL,
+        MEDIUM,
+        LARGE,
+        EXTRA_LARGE
+    };
 
     /**
      * \brief checks if the Airplane class is initialized correctly
@@ -247,6 +272,75 @@ public:
     FuelState& getFuelState();
 
     /**
+     * \brief Set type of Airplane
+     *
+     * @param Type, type of airplane
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    void setType(const Type& type);
+    void setType(std::string type);
+    
+    /**
+     * \brief Returns the type
+     *
+     * @return Type
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    const Type& getType();
+
+    /**
+     * \brief Returns the type of engine
+     *
+     * @return Engine
+     *
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    const Engine& getEngine();
+
+    /**
+     * \brief Sets the type of engine
+     *
+     * @param Engine
+     *
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    void setEngine(const Engine& engine);
+    void setEngine(std::string engine);
+
+    /**
+     * \brief Gets the size of airplane
+     *
+     * @return Size
+     *
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    const Size& getSize();
+
+
+    /**
+     * \brief Sets the size of airplane
+     *
+     * @param Engine
+     *
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+      void setSize(const Size& size);
+      void setSize(std::string size);
+
+
+    /**
      * \brief constructor of the airplane class
      *
      * This constructor takes an id, callsign, model and status
@@ -285,6 +379,9 @@ private:
 
     int _amountOfPassengers; /**<Variable to hold current amount of passengers on this plane*/
     FuelState _fuelState; /**<Variable to hold the current fuel state*/
+    Type type; /**<Variable to hold type of the airplane*/
+    Engine engine; /**<Variable to hold type of engine*/
+    Size size; /**<Variable to hold size of airplane*/
 };
 
 #endif

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <sys/stat.h>
 #include <cstdio>
 #include <string>
@@ -75,3 +76,13 @@ string ToString( int x ) {
 	delete[] buf;
 	return str;
 }
+
+/*
+template<typename T>
+T fromStr(std::string str) {
+    std::istringstream ss(str);
+    T ret;
+    ss >> ret;
+    return ret;
+}
+*/

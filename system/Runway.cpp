@@ -60,9 +60,11 @@ int Runway::getAirport() const{
 }
 
 void Runway::setType(const Runway::RunwayType& type) {
+    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
     this->runwayType = type;
 }
 void Runway::setType(const std::string type) {
+    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
     std::string buffer = type;
     for(int i=0;buffer[i]!=0;i++)
         if(buffer[i]<='z' && buffer[i]>='a')
@@ -74,11 +76,23 @@ void Runway::setType(const std::string type) {
     if (type == "UNKNOWN") this->runwayType = Runway::UNKNOWN;
 }
 
+void Runway::setLength(const int length) {
+    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+    this->length = length;
+}
+
+const int Runway::getLength() { 
+    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+    return this->length;
+}
+
 Runway::RunwayType& Runway::getType() {
+    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
     return this->runwayType;
 }
 
 bool Runway::properlyInitialized() const {
+    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
     return _initCheck == this;
 }
 

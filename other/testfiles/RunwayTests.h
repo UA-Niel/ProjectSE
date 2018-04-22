@@ -3,7 +3,7 @@
 
 
 #include <gtest/gtest.h>
-#include "../classes/Runway.h"
+#include "../../headers/Runway.h"
 
 class RunwayTests: public ::testing::Test {
 

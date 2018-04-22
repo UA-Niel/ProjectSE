@@ -1,9 +1,9 @@
 #include <fstream>
 #include "AirportTests.h"
-#include "../classes/Airport.h"
-#include "../classes/Runway.h"
-#include "../classes/Gate.h"
-#include "../utils.h"
+#include "../../headers/Airport.h"
+#include "../../headers/Runway.h"
+#include "../../headers/Gate.h"
+#include "../../headers/utils.h"
 
 TEST_F(AirportTests, AirportGetterTests) {
     Airport airport;

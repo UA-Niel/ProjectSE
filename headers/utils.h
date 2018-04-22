@@ -15,5 +15,13 @@ bool FileCompare(const std::string leftFileName, const std::string rightFileName
 
 std::string ToString(int i);
 
+template<typename T>
+T fromStr(std::string str) {
+    std::istringstream ss(str);
+    T ret;
+    ss >> ret;
+    return ret;
+}
+
 // Closing of the ``header guard''.
 #endif

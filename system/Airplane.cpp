@@ -109,6 +109,73 @@ Airplane::FuelState& Airplane::getFuelState() {
     return this->_fuelState;
 }
 
+void Airplane::setType(std::string type) {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    
+    for (unsigned int i = 0; i < type.length(); i++) {
+        char& c = type[i];
+        c = toupper(c);
+    }
+
+    if (type == "PRIVATE") this->type = Airplane::PRIVATE; 
+    if (type == "AIRLINE") this->type = Airplane::AIRLINE;
+    if (type == "ALASKAN") this->type = Airplane::ALASKAN;
+    if (type == "JET_FIGHTER") this->type = Airplane::JET_FIGHTER;
+}
+
+const Airplane::Engine& Airplane::getEngine() {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    return this->engine;
+}
+void Airplane::setEngine(const Airplane::Engine& engine) {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    this->engine = engine;
+}
+void Airplane::setEngine(std::string engine) {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    
+    for (unsigned int i = 0; i < engine.length(); i++) {
+        char& c = engine[i];
+        c = toupper(c);
+    }
+
+    if (engine == "JET") this->engine = Airplane::JET; 
+    if (engine == "PROPELLOR") this->engine = Airplane::PROPELLOR;
+    if (engine == "GLIDER") this->engine = Airplane::GLIDER;
+}
+    
+
+void Airplane::setType(const Airplane::Type& type) {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    this->type = type;
+}
+const Airplane::Type& Airplane::getType() {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    return this->type;
+}
+
+const Airplane::Size& Airplane::getSize() {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    return this->size;
+}
+
+void Airplane::setSize(const Airplane::Size& size) {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    this->size = size;
+}
+void Airplane::setSize(std::string size) {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    
+    for (unsigned int i = 0; i < size.length(); i++) {
+        char& c = size[i];
+        c = toupper(c);
+    }
+
+    if (size == "SMALL") this->size = Airplane::SMALL; 
+    if (size == "MEDIUM") this->size = Airplane::MEDIUM;
+    if (size == "LARGE") this->size = Airplane::LARGE;
+    if (size == "EXTRA_LARGE") this->size = Airplane::EXTRA_LARGE;
+}
 
 bool Airplane::properlyInitialized() const {
     return _initCheck == this;
