@@ -65,11 +65,24 @@ public:
         GLIDER
     };
 
+    /**
+     * \brief Size of this plane
+     */
     enum Size {
         SMALL,
         MEDIUM,
         LARGE,
         EXTRA_LARGE
+    };
+
+    /**
+     * \brief Flightplan of this plane
+     */
+    struct FlightPlan {
+        std::string destination;
+        int departure;
+        int arrival;
+        int interval;
     };
 
     /**
@@ -339,6 +352,20 @@ public:
       void setSize(const Size& size);
       void setSize(std::string size);
 
+    /**
+     * \brief Sets the flightplan of airplane
+     *
+     * @param destination (string)
+     * @param departure
+     * @param arrival
+     * @param interval
+     *
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+     void setFlightPlan(const std::string& destination, const int departure, const int arrival, const int interval);
+
 
     /**
      * \brief constructor of the airplane class
@@ -382,6 +409,7 @@ private:
     Type type; /**<Variable to hold type of the airplane*/
     Engine engine; /**<Variable to hold type of engine*/
     Size size; /**<Variable to hold size of airplane*/
+    FlightPlan* flightPlan; /**<Variable holding flightPlan of this plane*/
 };
 
 #endif

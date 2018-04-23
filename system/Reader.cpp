@@ -108,6 +108,21 @@ Airport* loadAirportFromFile(const char* fileName) {
                         std::string t = text->Value();
                         myRunway->setLength(fromStr<int>(t)); 
                     }
+
+                    //Adding taxiroute
+                    if (eValue == "TAXIROUTE") {
+                        for (TiXmlElement* x = e->FirstChildElement(); x != NULL; x = x->NextSiblingElement()) {
+                            std::string xValue = x->Value();
+                            if (xValue == "taxipoint" ||
+                                xValue == "crossing") {
+                                
+                                TiXmlNode* y = e->FirstChild();
+                                TiXmlText* text = y->ToText();
+                                std::string t = text->Value();
+                                myRunway->addToTaxiRoute(t);
+                            }
+                        }
+                    }
                 }
 
                 myAirport->addRunway(myRunway);
@@ -170,6 +185,44 @@ Airport* loadAirportFromFile(const char* fileName) {
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
                         myAirplane->setSize(t);    
+                    }
+                    
+                    //Adding Flightplan
+                    if (eValue == "FLIGHTPLAN") {
+                        std::string destination;
+                        int departure, 
+                            arrival, 
+                            interval;
+
+                        for (TiXmlElement* x = e->FirstChildElement(); x != NULL; x = x->NextSiblingElement()) {
+                            std::string xValue = x->Value();
+                            if (xValue == "destination") {
+                                TiXmlNode* y = e->FirstChild();
+                                TiXmlText* text = y->ToText();
+                                std::string t = text->Value();
+                                destination = t;
+                            }
+                            if (xValue == "departure") {
+                                TiXmlNode* y = e->FirstChild();
+                                TiXmlText* text = y->ToText();
+                                std::string t = text->Value();
+                                departure = fromStr<int>(t);
+                            }
+                            if (xValue == "arrival") {
+                                TiXmlNode* y = e->FirstChild();
+                                TiXmlText* text = y->ToText();
+                                std::string t = text->Value();
+                                arrival = fromStr<int>(t);
+                            }
+                            if (xValue == "interval") {
+                                TiXmlNode* y = e->FirstChild();
+                                TiXmlText* text = y->ToText();
+                                std::string t = text->Value();
+                                interval = fromStr<int>(t);
+                            }
+                        }
+
+                        myAirplane->setFlightPlan(destination, departure, arrival, interval);
                     }
                 }
 

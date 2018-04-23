@@ -177,9 +177,18 @@ void Airplane::setSize(std::string size) {
     if (size == "EXTRA_LARGE") this->size = Airplane::EXTRA_LARGE;
 }
 
+void Airplane::setFlightPlan(const std::string& destination, const int departure, const int arrival, const int interval) {
+    this->flightPlan->destination = destination;
+    this->flightPlan->departure = departure;
+    this->flightPlan->arrival = arrival;
+    this->flightPlan->interval = interval;
+}
+
 bool Airplane::properlyInitialized() const {
     return _initCheck == this;
 }
+
+
 
 //Constructors
 Airplane::Airplane(int airplaneId, const string &callsign, const string &_model, Airplane::Status status, const std::string& number)

@@ -86,6 +86,11 @@ const int Runway::getLength() {
     return this->length;
 }
 
+void Runway::addToTaxiRoute(const std::string& name) {
+    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+    this->taxiRoute.push_back(name);
+}
+
 Runway::RunwayType& Runway::getType() {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
     return this->runwayType;

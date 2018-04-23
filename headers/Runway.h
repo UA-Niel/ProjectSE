@@ -159,6 +159,16 @@ public:
      */
     const int getLength();
 
+    /**
+     * \brief Adds name of point to vector
+     *
+     * @param Name name of point to add to Taxirotue
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+     */
+    void addToTaxiRoute(const std::string& name);
+
     //Constructor
     /**
      * \brief Constructor which initializes all members
@@ -186,7 +196,8 @@ private:
     vector<Airplane*> _airplanesOnRunway; /**<Planes on the runway*/
     Runway* _initCheck; /**</member used in @see properlyInitalized() to check if the airplane is initalized correctly*/
     RunwayType runwayType; /**<Type of the runway*/
-    int length;
+    int length; /**<Length of the runway in meters*/
+    std::vector<std::string> taxiRoute; /**Vector holding name of points in taxiroute*/
 };
 
 #endif
