@@ -9,7 +9,9 @@
 //Add airplane
 bool Runway::addAirplane(Airplane* airplane) {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+    unsigned int oldSize = _airplanesOnRunway.size();
     _airplanesOnRunway.push_back(airplane);
+    ENSURE(oldSize == _airplanesOnRunway.size()-1, "Errror adding plane to Runway");
     return true;
 }
 
@@ -18,7 +20,7 @@ bool Runway::clearRunway() {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
     REQUIRE(!_airplanesOnRunway.empty(), "There are no Airplanes at the runway");
     _airplanesOnRunway.clear();
-    
+    REQUIRE(_airplanesOnRunway.empty(), "Error clearing Runway");
     return true;
 }
 
@@ -32,16 +34,19 @@ std::vector<Airplane*>& Runway::getAirplanesOnRunway() {
 void Runway::setId(const int id) {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly")
     _runwayId = id;
+    ENSURE(_runwayId == id, "Error setting new ID for the Runway");
 }
 
 void Runway::setName(const std::string& name) {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly")
     _name = name;
+    ENSURE(_name == name, "Error setting new name for the Runway");
 }
 
 void Runway::setAirport(const int id) {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly")
     _myAirport = id;
+    ENSURE(_myAirport == id, "Error setting new Airport ID for the Runway");
 }
 
 int Runway::getId() const{
@@ -62,6 +67,7 @@ int Runway::getAirport() const{
 void Runway::setType(const Runway::RunwayType& type) {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
     this->runwayType = type;
+    ENSURE(this->runwayType == type, "Error setting new type for the Runway");
 }
 void Runway::setType(const std::string type) {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
@@ -79,6 +85,7 @@ void Runway::setType(const std::string type) {
 void Runway::setLength(const int length) {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
     this->length = length;
+    ENSURE(this->length == length, "Error setting new length of the Runway");
 }
 
 const int Runway::getLength() { 
@@ -88,7 +95,9 @@ const int Runway::getLength() {
 
 void Runway::addToTaxiRoute(const std::string& name) {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+    unsigned int oldSize = taxiRoute.size();
     this->taxiRoute.push_back(name);
+    ENSURE(oldSize == taxiRoute.size()-1, "Error adding to Route");
 }
 
 Runway::RunwayType& Runway::getType() {
@@ -97,7 +106,6 @@ Runway::RunwayType& Runway::getType() {
 }
 
 bool Runway::properlyInitialized() const {
-    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
     return _initCheck == this;
 }
 

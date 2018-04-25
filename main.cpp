@@ -8,6 +8,7 @@
 #include "headers/Airplane.h"
 #include "headers/Airport.h"
 #include "headers/IO/Reader.h"
+#include "headers/Simulator.h"
 
 
 using namespace std;
@@ -20,13 +21,15 @@ int main(int argc, char* argv[]) {
     const char* str = argv[1]; 
     Airport* p = loadAirportFromFile(str);
 
-    ofstream outputFile("output.txt");
+    ofstream outputFile("output2.txt");
     AirportExporter exporter(p, outputFile);
 
     exporter.startOutput();
 
+    Simulator sim(exporter, *p);
+
     for(int i = 0; i<70; i++) {
-        p->doSimulation(&exporter);
+        sim.doSimulation();
     }
 
     exporter.stopOutput();

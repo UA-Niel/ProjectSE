@@ -13,7 +13,9 @@ void Airplane::approach(int amountOfFeet) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     REQUIRE(this->getStatus() == LANDING, "Airplane must be in LANDING status before it can approach");
     REQUIRE(amountOfFeet > 0, "You can only approach by a positive amount of feet");
+    int heightOld = _height;
     _height -= amountOfFeet;
+    ENSURE(heightOld == _height+amountOfFeet, "Airplane approached with wrong amount of feet");
 }
 
 //Returns a free runway
@@ -44,22 +46,27 @@ Gate* Airplane::checkFreeGate(Airport* ap) {
 void Airplane::setId(const int id) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     _airplaneId = id;
+    ENSURE(_airplaneId == id, "Error setting new ID for Airplane");
 }
 void Airplane::setNumber(const std::string& number) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     _number = number;
+    ENSURE(_number == number, "Error setting new number for Airplane");
 }
 void Airplane::setCallsign(const std::string& callsign) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     _callsign = callsign;
+    ENSURE(_callsign == callsign, "Error setting new callsign for Airplane");
 }
 void Airplane::setModel(const std::string& model) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     _model = model;
+    ENSURE(_model == model, "Error setting new model for Airplane");
 }
 void Airplane::setStatus(const Airplane::Status status) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     _status = status;
+    ENSURE(_status == status, "Error setting new status of Airplane");
 }
 
 int Airplane::getId() const{
@@ -86,6 +93,7 @@ Airplane::Status Airplane::getStatus() const{
 void Airplane::setHeight(const int height) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     this->_height = height;
+    ENSURE(_height == height, "Error setting height of Airplane");
 }
 int Airplane::getHeight() {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
@@ -95,6 +103,7 @@ int Airplane::getHeight() {
 void Airplane::setAmountOfPassengers(const int amount) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     this->_amountOfPassengers = amount;
+    ENSURE(_amountOfPassengers = amount, "Error setting new amount of passengers");
 }
 int Airplane::getAmountOfPassengers() {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
@@ -130,6 +139,7 @@ const Airplane::Engine& Airplane::getEngine() {
 void Airplane::setEngine(const Airplane::Engine& engine) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     this->engine = engine;
+    ENSURE(this->engine == engine, "Error setting new engine for airplane");
 }
 void Airplane::setEngine(std::string engine) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
@@ -148,6 +158,7 @@ void Airplane::setEngine(std::string engine) {
 void Airplane::setType(const Airplane::Type& type) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     this->type = type;
+    ENSURE(this->type == type, "Error setting new type for airplane");
 }
 const Airplane::Type& Airplane::getType() {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
@@ -162,6 +173,7 @@ const Airplane::Size& Airplane::getSize() {
 void Airplane::setSize(const Airplane::Size& size) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     this->size = size;
+    ENSURE(this->size == size, "Error setting new size for airplane");
 }
 void Airplane::setSize(std::string size) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
@@ -182,6 +194,10 @@ void Airplane::setFlightPlan(const std::string& destination, const int departure
     this->flightPlan->departure = departure;
     this->flightPlan->arrival = arrival;
     this->flightPlan->interval = interval;
+    ENSURE(this->flightPlan->destination == destination, "Error setting destination for FlightPlan of Airplane");
+    ENSURE(this->flightPlan->departure == departure, "Error setting departure for FlightPlan of Airplane");
+    ENSURE(this->flightPlan->arrival == arrival, "Errror setting arrival for FlightPlan of Airplane");
+    ENSURE(this->flightPlan->interval == interval, "Error setting interval for FlightPlan of Airplane");
 }
 
 bool Airplane::properlyInitialized() const {

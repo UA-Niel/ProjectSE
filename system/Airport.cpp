@@ -17,23 +17,27 @@ using namespace std;
 bool Airport::addAirplane(Airplane* airplane) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     REQUIRE(airplane->properlyInitialized(), "Airplane 'airplane' is not initialized correctly");
+    unsigned int amountOfPlanesOld = _airplanesOnAirport.size();
     this->_airplanesOnAirport.push_back(airplane);
+    ENSURE(amountOfPlanesOld == _airplanesOnAirport.size()-1, "Problem adding airplane to airport");
     return true;
 }
 //Add Runway
 bool Airport::addRunway(Runway* runway) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     REQUIRE(runway->properlyInitialized(), "Runway 'runway' is not initialized correctly");
+    unsigned int amountOfRunwaysOld = _runways.size();
     this->_runways.push_back(runway);
+    ENSURE(amountOfRunwaysOld == _runways.size()-1, "Problem adding runway");
     return true;
 }
 //Add Gate
 bool Airport::addGate(Gate* gate) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     REQUIRE(gate->properlyInitialized(), "Gate 'gate' is not initialized correctly");
-    
+    unsigned int amountOfGatesOld = _gates.size();
     this->_gates.push_back(gate);
-
+    ENSURE(amountOfGatesOld == _gates.size()-1, "Problem adding gate");
     return true;
 }
 
@@ -138,18 +142,22 @@ Gate* Airport::getGate(const int id)  {
 void Airport::setId(const int id) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     _airportId = id;
+    ENSURE(_airportId == id, "Failed to assign Airport ID");
 }
 void Airport::setName(const std::string name) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     _name = name;
+    ENSURE(_name == name, "Failed to assign Airport name");
 }
 void Airport::setIATA(const std::string IATA) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     _IATA = IATA;
+    ENSURE(_IATA == IATA, "Failed to assign IATA of the airport");
 }
 void Airport::setCallsign(const std::string callsign) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     _callsign = callsign;
+    ENSURE(_callsign == callsign, "Failed to assign callsign of the airport")
 }
 
 //Getters:
@@ -215,49 +223,6 @@ Airport::~Airport() {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
 }
 
-void Airport::doSimulation(AirportExporter *exporter) {
-    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
-    REQUIRE(exporter != NULL, "Exporter not found, is it initialized correctly?");
-    REQUIRE(exporter->properlyInitialized(), "Exporter is not initialized correctly");
-    for(unsigned int i = 0; i<_airplanesOnAirport.size(); i++){
-        Airplane* plane = _airplanesOnAirport[i];
-        Airplane::Status status = plane->getStatus();
-
-        string message;
-
-        if(status == Airplane::APPROACHING){
-            doSimulationApproach(exporter, plane);
-        }
-        else if(status == Airplane::LANDING){
-            doSimulationLanding(exporter, plane);
-        }
-        else if(status == Airplane::LANDED){
-            doSimulationLanded(exporter, plane);
-        }
-        else if(status == Airplane::TAXIING_TO_GATE){
-            doSimulationTaxiing(exporter, plane);
-        }
-        else if(status == Airplane::AT_GATE){
-           doSimulationAtGate(exporter, plane);
-        }
-        else if(status == Airplane::STANDING){
-            doSimulationStanding(exporter, plane);
-
-        }
-        else if(status == Airplane::DEPARTING){
-            doSimulationDeparting(exporter, plane);
-        }
-        else if(status == Airplane::IN_AIR){
-            continue;
-        }
-        else{
-            cerr << "Unexpected Status of airplane" << plane->getCallsign();
-            exit(-1);
-        }
-
-    }
-}
-
 Runway *Airport::getRunwayWithPlane(Airplane *plane) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
@@ -289,157 +254,3 @@ Gate *Airport::getGateWithPlane(Airplane *plane) {
     }
     return NULL;
 }
-
-void Airport::doSimulationApproach(AirportExporter *exporter, Airplane* plane) {
-    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
-    REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
-    REQUIRE(exporter->properlyInitialized(), "Exporter is not initialized correctly");
-    string message;
-    //First check for free runway in the airport
-    Runway* freeRunway = plane->checkFreeRunway(this);
-    if(freeRunway == NULL) return;
-
-    //If runway found, add plane to runway
-    freeRunway->addAirplane(plane);
-
-    //Planes are on the radar from within 10000ft.
-    plane->setHeight(10000);
-
-    //Output starting height
-    message = plane->getCallsign() + " is approaching " + this->getCallsign() + " at "
-              + ToString(plane->getHeight()) + "ft.";
-    exporter->outputString(message);
-
-    //Give plane new status LANDING
-    plane->setStatus(Airplane::LANDING);
-}
-
-void Airport::doSimulationLanding(AirportExporter *exporter, Airplane* plane) {
-    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
-    REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
-    REQUIRE(exporter->properlyInitialized(), "Exporter is not initialized correctly");
-    string message;
-    if(plane->getHeight() <= 0){
-        plane->setStatus(Airplane::LANDED);
-    }else{
-        //let plane approach more
-        plane->approach();
-        //give output feedback
-        message = plane->getCallsign() + " descended to " + ToString(plane->getHeight()) + "ft.";
-        exporter->outputString(message);
-    }
-}
-
-void Airport::doSimulationLanded(AirportExporter *exporter, Airplane* plane) {
-    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
-    REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
-    REQUIRE(exporter->properlyInitialized(), "Exporter is not initialized correctly");
-    string message;
-    //Search for runway with plane assigned to
-    Runway* currentRunway = getRunwayWithPlane(plane);
-
-    message = plane->getCallsign() + " landed at Runway " + currentRunway->getName();
-    exporter->outputString(message);
-
-    //Look for free gate, if none found continue
-    Gate* freeGate = getFreeGate();
-    if(freeGate == NULL) return;
-
-    //Clear the runway if the plane is moving to the gate
-    currentRunway->clearRunway();
-    plane->setStatus(Airplane::TAXIING_TO_GATE);
-    freeGate->setPlaneAtGate(plane);
-}
-
-void Airport::doSimulationTaxiing(AirportExporter *exporter, Airplane* plane) {
-    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
-    REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
-    REQUIRE(exporter->properlyInitialized(), "Exporter is not initialized correctly");
-    string message;
-    Gate* currentGate = getGateWithPlane(plane);
-    message = plane->getCallsign() + " is taxiing to Gate " + ToString(currentGate->getId())
-              + " of " + getName();
-    exporter->outputString(message);
-
-    plane->setStatus(Airplane::AT_GATE);
-}
-
-void Airport::doSimulationAtGate(AirportExporter *exporter, Airplane* plane) {
-    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
-    REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
-    REQUIRE(exporter->properlyInitialized(), "Exporter is not initialized correctly");
-    string message;
-    Gate* currentGate = getGateWithPlane(plane);
-    //exit
-    message = ToString(plane->getAmountOfPassengers()) + " passengers exited "
-              + plane->getCallsign() + " at Gate " + ToString(currentGate->getId())
-              + " of " + getName();
-    exporter->outputString(message);
-    //technical checkup
-    message = plane->getCallsign() + " has been checked for technical issues";
-    exporter->outputString(message);
-    //refueling
-    plane->setFuelState(Airplane::FULL);
-    message = plane->getCallsign() + " has been refueled";
-    exporter->outputString(message);
-    //boarding
-    message = ToString(plane->getAmountOfPassengers()) + " passengers have boarded " + plane->getCallsign()
-              + " at Gate " + ToString(currentGate->getId()) + " of " + getName();
-    exporter->outputString(message);
-    plane->setStatus(Airplane::STANDING);
-
-}
-
-void Airport::doSimulationStanding(AirportExporter *exporter, Airplane* plane) {
-    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
-    REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
-    REQUIRE(exporter->properlyInitialized(), "Exporter is not initialized correctly");
-    string message;
-    Gate* currentGate = getGateWithPlane(plane);
-
-    //Initially a plane can be standing at a gate, so when NULL is encountered assign first free gate
-    if(currentGate == NULL){
-        currentGate = getFreeGate();
-        if(currentGate == NULL) return;
-    }
-
-    message = plane->getCallsign() + " is standing at Gate " + ToString(currentGate->getId())
-              + " of " + getName();
-    exporter->outputString(message);
-
-    Runway* freeRunway = plane->checkFreeRunway(this);
-    if(freeRunway == NULL) return;
-
-    //clear current Gate and assign plane to runway
-    currentGate->clearGate();
-
-    freeRunway->addAirplane(plane);
-
-    message = plane->getCallsign() + " is taxiing to Runway " + freeRunway->getName() + " of " +getName();
-    exporter->outputString(message);
-
-    plane->setStatus(Airplane::DEPARTING);
-}
-
-void Airport::doSimulationDeparting(AirportExporter *exporter, Airplane* plane) {
-    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
-    REQUIRE(plane->properlyInitialized(), "Airplane 'plane' is not initialized correctly");
-    REQUIRE(exporter->properlyInitialized(), "Exporter is not initialized correctly");
-    string message;
-    Runway* currentRunway = getRunwayWithPlane(plane);
-
-    if(plane->getHeight() > 10000){
-
-        message = plane->getCallsign() + " left " + getName() + " at Runway " + currentRunway->getName();
-        exporter->outputString(message);
-
-        currentRunway->clearRunway();
-        plane->setStatus(Airplane::IN_AIR);
-
-    }else{
-        plane->ascend();
-        message = plane->getCallsign() + " ascended to " + ToString(plane->getHeight()) + "ft.";
-        exporter->outputString(message);
-    }
-}
-

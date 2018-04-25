@@ -47,7 +47,7 @@ public:
     };
 
     /**
-     * \brief Tyoe of the airplane
+     * \brief Type of the airplane
      */
     enum Type {
         PRIVATE,
@@ -76,7 +76,7 @@ public:
     };
 
     /**
-     * \brief Flightplan of this plane
+     * \brief FlightPlan of this plane
      */
     struct FlightPlan {
         std::string destination;
@@ -109,6 +109,9 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      * - REQUIRE(this->getStatus() == LANDING, "Airplane must be in LANDING status before it can approach");
      * - REQUIRE(amountOfFeet > 0, "You can only approach by a positive amount of feet");
+     *
+     * **Postconditions:**
+     * - ENSURE(heightOld == _height+amountOfFeet, "Airplane approached with wrong amount of feet");
      */
     void approach(int amountOfFeet = 1000);
     
@@ -119,6 +122,9 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(_airplaneId == id, "Error setting new ID for Airplane");
      */
     void setId(int id);
 
@@ -128,6 +134,9 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(_number == number, "Error setting new number for Airplane");
      */
     void setNumber(const std::string& number);
 
@@ -138,6 +147,9 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(_callsign == callsign, "Error setting new callsign for Airplane");
      */
     void setCallsign(const string& callsign);
 
@@ -147,6 +159,9 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(_model == model, "Error setting new model for Airplane");
      */
     void setModel(const string& model);
 
@@ -156,6 +171,9 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(_status == status, "Error setting new status of Airplane");
      */
     void setStatus(Status status);
 
@@ -231,6 +249,9 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(_height == height, "Error setting height of Airplane");
      */
     void setHeight(const int height);
 
@@ -251,6 +272,9 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     *
+     * **Postconditions:**
+     * -
      */
     void setAmountOfPassengers(const int amount); 
 
@@ -291,6 +315,9 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(this->type == type, "Error setting new type for airplane");
      */
     void setType(const Type& type);
     void setType(std::string type);
@@ -321,9 +348,11 @@ public:
      *
      * @param Engine
      *
-     *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(this->engine == engine, "Error setting new engine for airplane");
      */
     void setEngine(const Engine& engine);
     void setEngine(std::string engine);
@@ -348,6 +377,9 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(this->size == size, "Error setting new size for airplane");
      */
       void setSize(const Size& size);
       void setSize(std::string size);
@@ -363,6 +395,12 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(this->flightPlan->destination == destination, "Error setting destination for FlightPlan of Airplane");
+     * - ENSURE(this->flightPlan->departure == departure, "Error setting departure for FlightPlan of Airplane");
+     * - ENSURE(this->flightPlan->arrival == arrival, "Errror setting arrival for FlightPlan of Airplane");
+     * - ENSURE(this->flightPlan->interval == interval, "Error setting interval for FlightPlan of Airplane");
      */
      void setFlightPlan(const std::string& destination, const int departure, const int arrival, const int interval);
 

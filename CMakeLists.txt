@@ -16,17 +16,16 @@ set(DEBUG_SOURCE_FILES
         headers/Gate.h
         headers/Runway.h
         headers/Airport.h
-        headers/AirportFunctions.h
         headers/Airplane.h
         headers/IO/AirportExporter.h
-        headers/Route.h
+        headers/Simulator.h
+        headers/Exceptions.h
         system/Gate.cpp
         system/Runway.cpp
         system/Airport.cpp
-        system/AirportFunctions.cpp
         system/Airplane.cpp
         system/AirportExporter.cpp
-        system/Route.cpp
+        system/Simulator.cpp
 
         headers/IO/library/tinystr.cpp
         headers/IO/library/tinystr.h
@@ -58,17 +57,16 @@ set(RELEASE_SOURCE_FILES
         headers/Gate.h
         headers/Runway.h
         headers/Airport.h
-        headers/AirportFunctions.h
         headers/Airplane.h
         headers/IO/AirportExporter.h
-        headers/Route.h
+        headers/Simulator.h
+        headers/Exceptions.h
         system/Gate.cpp
         system/Runway.cpp
         system/Airport.cpp
-        system/AirportFunctions.cpp
         system/Airplane.cpp
         system/AirportExporter.cpp
-        system/Route.cpp
+        system/Simulator.cpp
 
         headers/IO/library/tinystr.cpp
         headers/IO/library/tinystr.h

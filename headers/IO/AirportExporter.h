@@ -9,56 +9,8 @@
 #include <string>
 
 using namespace std;
+
 class Airport;
-
-/**
- * \brief This class is used for Airport Exporter Exceptions
- */
-class AirportExporterException: public std::exception{
-    string _msg; /**<Message for the exception*/
-    AirportExporterException* _initCheck;/**<Member used to use properlyinitialized*/
-public:
-    /**
-     * \brief Constructor for AirportExporterException taking message as parameter
-     * @param msg Error message for AirportExporterException
-     *
-     * **Postconditions:**
-     * - ENSURE(this->properlyinitialized(), "AirportExporterException class is not initialized correctly");
-     */
-    AirportExporterException(const string &msg) : _msg(msg){
-        _msg = "Airport Exporter Exception:\n\t"
-                "what(): " + msg + "\n";
-        _initCheck = this;
-        ENSURE(this->properlyInitialized(), "AirportExporterException class is not initialized correctly");
-    }
-
-    /**
-     * \brief Checks if AirportExporterException class is initialized properly
-     * @return True if the AirportExporterException class is initialized properly
-     */
-    bool properlyInitialized() const{
-        return this == _initCheck;
-    }
-
-    /**
-     * \brief Throws the error message
-     * @return Error message (c_string)
-     *
-     * **Preconditions:**
-     * - REQUIRE(this->properlyinitialized(), "AirportExporterException class is not initialized correctly");
-     */
-    const char* what() const throw(){
-        REQUIRE(properlyInitialized(), "AirportExporterException class is not initialized correctly")
-        return _msg.c_str();
-    }
-
-    /**
-     * \brief Basic destructor for AirportExporterException class
-     */
-    virtual ~AirportExporterException() throw() {}
-
-};
-
 
 /**
  * \brief this class is the base class for the Airport output
@@ -181,6 +133,8 @@ public:
      * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
      */
     void outputString(std::string outputString);
+
+
 
 };
 
