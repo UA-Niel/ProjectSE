@@ -471,6 +471,33 @@ other/testfiles/RunwayTests.cpp.s:
 	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/other/testfiles/RunwayTests.cpp.s
 .PHONY : other/testfiles/RunwayTests.cpp.s
 
+system/ATC.obj: system/ATC.cpp.obj
+
+.PHONY : system/ATC.obj
+
+# target to build an object file
+system/ATC.cpp.obj:
+	$(MAKE) -f CMakeFiles\ProjectSE.dir\build.make CMakeFiles/ProjectSE.dir/system/ATC.cpp.obj
+.PHONY : system/ATC.cpp.obj
+
+system/ATC.i: system/ATC.cpp.i
+
+.PHONY : system/ATC.i
+
+# target to preprocess a source file
+system/ATC.cpp.i:
+	$(MAKE) -f CMakeFiles\ProjectSE.dir\build.make CMakeFiles/ProjectSE.dir/system/ATC.cpp.i
+.PHONY : system/ATC.cpp.i
+
+system/ATC.s: system/ATC.cpp.s
+
+.PHONY : system/ATC.s
+
+# target to generate assembly for a file
+system/ATC.cpp.s:
+	$(MAKE) -f CMakeFiles\ProjectSE.dir\build.make CMakeFiles/ProjectSE.dir/system/ATC.cpp.s
+.PHONY : system/ATC.cpp.s
+
 system/Airplane.obj: system/Airplane.cpp.obj
 
 .PHONY : system/Airplane.obj
@@ -560,6 +587,36 @@ system/AirportExporter.cpp.s:
 	$(MAKE) -f CMakeFiles\ProjectSE.dir\build.make CMakeFiles/ProjectSE.dir/system/AirportExporter.cpp.s
 	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/system/AirportExporter.cpp.s
 .PHONY : system/AirportExporter.cpp.s
+
+system/ApTime.obj: system/ApTime.cpp.obj
+
+.PHONY : system/ApTime.obj
+
+# target to build an object file
+system/ApTime.cpp.obj:
+	$(MAKE) -f CMakeFiles\ProjectSE.dir\build.make CMakeFiles/ProjectSE.dir/system/ApTime.cpp.obj
+	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/system/ApTime.cpp.obj
+.PHONY : system/ApTime.cpp.obj
+
+system/ApTime.i: system/ApTime.cpp.i
+
+.PHONY : system/ApTime.i
+
+# target to preprocess a source file
+system/ApTime.cpp.i:
+	$(MAKE) -f CMakeFiles\ProjectSE.dir\build.make CMakeFiles/ProjectSE.dir/system/ApTime.cpp.i
+	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/system/ApTime.cpp.i
+.PHONY : system/ApTime.cpp.i
+
+system/ApTime.s: system/ApTime.cpp.s
+
+.PHONY : system/ApTime.s
+
+# target to generate assembly for a file
+system/ApTime.cpp.s:
+	$(MAKE) -f CMakeFiles\ProjectSE.dir\build.make CMakeFiles/ProjectSE.dir/system/ApTime.cpp.s
+	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/system/ApTime.cpp.s
+.PHONY : system/ApTime.cpp.s
 
 system/Gate.obj: system/Gate.cpp.obj
 
@@ -757,6 +814,9 @@ help:
 	@echo ... other/testfiles/RunwayTests.obj
 	@echo ... other/testfiles/RunwayTests.i
 	@echo ... other/testfiles/RunwayTests.s
+	@echo ... system/ATC.obj
+	@echo ... system/ATC.i
+	@echo ... system/ATC.s
 	@echo ... system/Airplane.obj
 	@echo ... system/Airplane.i
 	@echo ... system/Airplane.s
@@ -766,6 +826,9 @@ help:
 	@echo ... system/AirportExporter.obj
 	@echo ... system/AirportExporter.i
 	@echo ... system/AirportExporter.s
+	@echo ... system/ApTime.obj
+	@echo ... system/ApTime.i
+	@echo ... system/ApTime.s
 	@echo ... system/Gate.obj
 	@echo ... system/Gate.i
 	@echo ... system/Gate.s

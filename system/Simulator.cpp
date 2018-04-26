@@ -1,8 +1,14 @@
+/**
+ * \file Contains the implementation of the Simulator class
+ */
+
+
 #include "../headers/Simulator.h"
 #include "../headers/Exceptions.h"
 #include "../headers/utils.h"
-#include <iostream>
+#include "../headers/ApTime.h"
 #include <cstdlib>
+#include <fstream>
 
 using namespace std;
 
@@ -23,19 +29,38 @@ void Simulator::setAirport(Airport &airport) {
     Simulator::_airport = airport;
 }
 
+ATC &Simulator::getAtc() const {
+    REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
+    return _atc;
+}
+
+void Simulator::setAtc(ATC &atc) {
+    REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
+    REQUIRE(atc.properlyInitialized(), "ATC is not initialized correctly");
+    Simulator::_atc = atc;
+    ENSURE(_atc.getCallsign() == atc.getCallsign(), "Error setting new ATC for Simulator");
+}
+
+
 bool Simulator::properlyInitalized() const {
     return this == _initCheck;
 }
 
-Simulator::Simulator(AirportExporter &exporter, Airport &airport) : _exporter(exporter), _airport(airport) {
+Simulator::Simulator(AirportExporter &exporter, Airport &airport, ApTime& time, ATC& atc) : _exporter(exporter), _airport(airport),
+                                                                                            _atc(atc), _time(time) {
     REQUIRE(airport.properlyInitialized(), "Airport is not initalized correctly");
     REQUIRE(exporter.properlyInitialized(), "AirportExporter is not initalized correctly");
     _initCheck = this;
+    _communicationOutput = false;
     ENSURE(this->properlyInitalized(), "Simulator is not initalized correctly");
 }
 
-void Simulator::doSimulation() {
+void Simulator::doSimulation(const string &communicationOutputFileName) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initalized correctly");
+
+    if(!communicationOutputFileName.empty()) _communicationOutput = true;
+    ofstream communicationOutput(communicationOutputFileName.c_str());
+
     for(unsigned int i = 0; i<_airport.getAirplanes().size(); i++){
         Airplane* plane = _airport.getAirplanes()[i];
         Airplane::Status status = plane->getStatus();
@@ -43,26 +68,26 @@ void Simulator::doSimulation() {
         string message;
 
         if(status == Airplane::APPROACHING){
-            doSimulationApproach(plane);
+            doSimulationApproach(plane, communicationOutput);
         }
         else if(status == Airplane::LANDING){
-            doSimulationLanding(plane);
+            doSimulationLanding(plane, communicationOutput);
         }
         else if(status == Airplane::LANDED){
-            doSimulationLanded(plane);
+            doSimulationLanded(plane, communicationOutput);
         }
         else if(status == Airplane::TAXIING_TO_GATE){
-            doSimulationTaxiing(plane);
+            doSimulationTaxiing(plane, communicationOutput);
         }
         else if(status == Airplane::AT_GATE){
-            doSimulationAtGate(plane);
+            doSimulationAtGate(plane, communicationOutput);
         }
         else if(status == Airplane::STANDING){
-            doSimulationStanding(plane);
+            doSimulationStanding(plane, communicationOutput);
 
         }
         else if(status == Airplane::DEPARTING){
-            doSimulationDeparting(plane);
+            doSimulationDeparting(plane, communicationOutput);
         }
         else if(status == Airplane::IN_AIR){
             continue;
@@ -74,20 +99,25 @@ void Simulator::doSimulation() {
 }
 
 
-void Simulator::doSimulationApproach(Airplane *plane) {
+void Simulator::doSimulationApproach(Airplane *plane, ofstream& comm) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initalized correctly");
     REQUIRE(plane->properlyInitialized(), "Airplane plane is not initalized correctly");
     REQUIRE(plane->getStatus() == Airplane::APPROACHING, "Airplane should be APPROACHING");
     string message;
-    //First check for free runway in the airport
-    Runway* freeRunway = plane->checkFreeRunway(&_airport);
-    if(freeRunway == NULL) return;
-
-    //If runway found, add plane to runway
-    freeRunway->addAirplane(plane);
 
     //Planes are on the radar from within 10000ft.
     plane->setHeight(10000);
+
+    //Communication output:
+    if(_communicationOutput){
+        string msg = _atc.getCallsign() + ", " + plane->getCallsign() + ", arriving at " + _airport.getName() + ".";
+        comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+        msg = plane->getCallsign() + ", radar contact, descend and maintain five thousand feet, squawk 0";
+        comm << _atc.atcMessage(_time, _atc.getCallsign(), msg);
+        msg = "Descend and maintain five thousand feet, squawking 0, " + plane->getCallsign();
+        comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+        _time.raiseTime(1);
+    }
 
     //Output starting height
     message = plane->getCallsign() + " is approaching " + _airport.getCallsign() + " at "
@@ -102,7 +132,7 @@ void Simulator::doSimulationApproach(Airplane *plane) {
 
 }
 
-void Simulator::doSimulationLanding(Airplane *plane) {
+void Simulator::doSimulationLanding(Airplane *plane, ofstream& comm) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initalized correctly");
     REQUIRE(plane->properlyInitialized(), "Airplane is not initalized correctly");
     REQUIRE(plane->getStatus() == Airplane::LANDING, "Airplane should be in LANDING status");
@@ -111,6 +141,42 @@ void Simulator::doSimulationLanding(Airplane *plane) {
     if(plane->getHeight() <= 0){
         plane->setStatus(Airplane::LANDED);
     }else{
+
+        if(plane->getHeight() == 5000){
+            if(_communicationOutput) {
+                string msg = plane->getCallsign() +
+                             ", hold south on the one eighty radial, expect further clearance at <time>";
+                comm << _atc.atcMessage(_time, _atc.getCallsign(), msg);
+                msg = "Holding south on the one eighty radial, " + plane->getCallsign();
+                comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+                _time.raiseTime(1);
+
+                msg = plane->getCallsign() + ", descend and maintain three thousand feet.";
+                comm << _atc.atcMessage(_time, _atc.getCallsign(), msg);
+                msg = "Descend and maintain three thousand feet, " + plane->getCallsign() + ".";
+                comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+                _time.raiseTime(1);
+            }
+        }
+
+        if(plane->getHeight() == 3000){
+            //First check for free runway in the airport
+            Runway* freeRunway = plane->checkFreeRunway(&_airport);
+            if(freeRunway == NULL) return;
+
+            //If runway found, add plane to runway
+            freeRunway->addAirplane(plane);
+
+            if(_communicationOutput) {
+                string msg = plane->getCallsign() + ", cleared ILS approach runway, " + freeRunway->getName() + ".";
+                comm << _atc.atcMessage(_time, _atc.getCallsign(), msg);
+                msg = "Cleared ILS approach runway " + freeRunway->getName() + ',' + plane->getCallsign();
+                comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+                _time.raiseTime(1);
+            }
+        }
+
+
         //let plane approach more
         plane->approach();
         //give output feedback
@@ -122,7 +188,7 @@ void Simulator::doSimulationLanding(Airplane *plane) {
 
 }
 
-void Simulator::doSimulationLanded(Airplane *plane) {
+void Simulator::doSimulationLanded(Airplane *plane, ofstream& comm) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
     REQUIRE(plane->properlyInitialized(), "Airplane is not initialized correctly")
     REQUIRE(plane->getStatus() == Airplane::LANDED, "Airplane must be in LANDED state");
@@ -133,6 +199,13 @@ void Simulator::doSimulationLanded(Airplane *plane) {
 
     message = plane->getCallsign() + " landed at Runway " + currentRunway->getName();
     _exporter.outputString(message);
+
+    if(_communicationOutput){
+        string msg = _atc.getCallsign() + ", " + plane->getCallsign() + ", runway " + currentRunway->getName() + " vacated.";
+        comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+        _time.raiseTime(1);
+    }
+
 
     //Look for free gate, if none found continue
     Gate* freeGate = _airport.getFreeGate();
@@ -148,7 +221,7 @@ void Simulator::doSimulationLanded(Airplane *plane) {
     ENSURE(plane->getStatus() == Airplane::TAXIING_TO_GATE, "Expected status to be TAXIING TO GATE");
 }
 
-void Simulator::doSimulationTaxiing(Airplane *plane) {
+void Simulator::doSimulationTaxiing(Airplane *plane, ofstream& comm) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
     REQUIRE(plane->properlyInitialized(), "Airplane is not initialized correctly");
     REQUIRE(plane->getStatus() == Airplane::TAXIING_TO_GATE, "Status of airplane has to be TAXIING TO GATE");
@@ -164,7 +237,7 @@ void Simulator::doSimulationTaxiing(Airplane *plane) {
     ENSURE(plane->getStatus() == Airplane::AT_GATE, "Status of airplane should be AT GATE");
 }
 
-void Simulator::doSimulationAtGate(Airplane *plane) {
+void Simulator::doSimulationAtGate(Airplane *plane, ofstream& comm) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
     REQUIRE(plane->properlyInitialized(), "Airplane is not initialized correctly");
     REQUIRE(plane->getStatus() == Airplane::AT_GATE, "Status of airplane should be AT GATE");
@@ -194,7 +267,7 @@ void Simulator::doSimulationAtGate(Airplane *plane) {
 
 }
 
-void Simulator::doSimulationStanding(Airplane *plane) {
+void Simulator::doSimulationStanding(Airplane *plane, ofstream& comm) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
     REQUIRE(plane->properlyInitialized(), "Airplane is not initialized correctly");
     REQUIRE(plane->getStatus() == Airplane::STANDING, "Status of airplane should be STANDING");
@@ -231,7 +304,7 @@ void Simulator::doSimulationStanding(Airplane *plane) {
 
 }
 
-void Simulator::doSimulationDeparting(Airplane *plane) {
+void Simulator::doSimulationDeparting(Airplane *plane, ofstream& comm) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
     REQUIRE(plane->properlyInitialized(), "Airplane is not initialized correctly");
     REQUIRE(plane->getStatus() == Airplane::DEPARTING, "Airplane status should be DEPARTING");

@@ -23,13 +23,15 @@ int main(int argc, char* argv[]) {
 
     ofstream outputFile("output2.txt");
     AirportExporter exporter(p, outputFile);
+    ApTime time(12,0);
+    ATC atc("TOWER");
 
     exporter.startOutput();
 
-    Simulator sim(exporter, *p);
+    Simulator sim(exporter, *p, time, atc);
 
     for(int i = 0; i<70; i++) {
-        sim.doSimulation();
+        sim.doSimulation("CommOutput.txt");
     }
 
     exporter.stopOutput();

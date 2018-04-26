@@ -134,6 +134,12 @@ public:
      */
     void outputString(std::string outputString);
 
+    /**
+     * \brief Allows the use of << for strings
+     * @param string1 String to stream
+     * @return
+     */
+    ostream& operator<<(string string1);
 
 
 };

@@ -20,12 +20,14 @@ set(DEBUG_SOURCE_FILES
         headers/IO/AirportExporter.h
         headers/Simulator.h
         headers/Exceptions.h
+        headers/ApTime.h
         system/Gate.cpp
         system/Runway.cpp
         system/Airport.cpp
         system/Airplane.cpp
         system/AirportExporter.cpp
         system/Simulator.cpp
+        system/ApTime.cpp
 
         headers/IO/library/tinystr.cpp
         headers/IO/library/tinystr.h
@@ -61,12 +63,16 @@ set(RELEASE_SOURCE_FILES
         headers/IO/AirportExporter.h
         headers/Simulator.h
         headers/Exceptions.h
+        headers/ApTime.h
+        headers/ATC.h
         system/Gate.cpp
         system/Runway.cpp
         system/Airport.cpp
         system/Airplane.cpp
         system/AirportExporter.cpp
         system/Simulator.cpp
+        system/ApTime.cpp
+        system/ATC.cpp
 
         headers/IO/library/tinystr.cpp
         headers/IO/library/tinystr.h

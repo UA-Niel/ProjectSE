@@ -83,6 +83,11 @@ void AirportExporter::outputString(std::string outputString) {
     _stream << outputString << endl;
 }
 
+ostream &AirportExporter::operator<<(string string1) {
+    REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
+    _stream << string1;
+    return _stream;
+}
 
 
 
