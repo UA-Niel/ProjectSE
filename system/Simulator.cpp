@@ -55,11 +55,11 @@ Simulator::Simulator(AirportExporter &exporter, Airport &airport, ApTime& time, 
     ENSURE(this->properlyInitalized(), "Simulator is not initalized correctly");
 }
 
-void Simulator::doSimulation(const string &communicationOutputFileName) {
+void Simulator::doSimulation(ofstream& output, bool communicationOut) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initalized correctly");
 
-    if(!communicationOutputFileName.empty()) _communicationOutput = true;
-    ofstream communicationOutput(communicationOutputFileName.c_str());
+    if(communicationOut) _communicationOutput = true;
+    else _communicationOutput = false;
 
     for(unsigned int i = 0; i<_airport.getAirplanes().size(); i++){
         Airplane* plane = _airport.getAirplanes()[i];
@@ -68,26 +68,26 @@ void Simulator::doSimulation(const string &communicationOutputFileName) {
         string message;
 
         if(status == Airplane::APPROACHING){
-            doSimulationApproach(plane, communicationOutput);
+            doSimulationApproach(plane, output);
         }
         else if(status == Airplane::LANDING){
-            doSimulationLanding(plane, communicationOutput);
+            doSimulationLanding(plane, output);
         }
         else if(status == Airplane::LANDED){
-            doSimulationLanded(plane, communicationOutput);
+            doSimulationLanded(plane, output);
         }
         else if(status == Airplane::TAXIING_TO_GATE){
-            doSimulationTaxiing(plane, communicationOutput);
+            doSimulationTaxiing(plane, output);
         }
         else if(status == Airplane::AT_GATE){
-            doSimulationAtGate(plane, communicationOutput);
+            doSimulationAtGate(plane, output);
         }
         else if(status == Airplane::STANDING){
-            doSimulationStanding(plane, communicationOutput);
+            doSimulationStanding(plane, output);
 
         }
         else if(status == Airplane::DEPARTING){
-            doSimulationDeparting(plane, communicationOutput);
+            doSimulationDeparting(plane, output);
         }
         else if(status == Airplane::IN_AIR){
             continue;

@@ -25,6 +25,6 @@ bool ATC::properlyInitialized() const {
 std::string ATC::atcMessage(ApTime &time, const std::string &source, const std::string &message) {
     REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
     std::string res = "[" + time.toString() + "] [" + source + "]\n"
-            "$ " + message;
+            "$ " + message + "\n";
     return res;
 }

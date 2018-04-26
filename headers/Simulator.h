@@ -98,13 +98,13 @@ public:
 
     /**
      * \brief Does one tick of the simulation
-     * @param communicationOutputFileName Name for the Communication output File
-     * If there is no filename specified, then there will be no communication output
-     *
+     * @param output Ofstream for communication
+     * @param communicationOut Boolean, if false there is no communication output
+     *todo
      * **Preconditions:**
      * - REQUIRE(this->properlyInitalized(), "Simulator is not initalized correctly");
      */
-    void doSimulation(const string& communicationOutputFileName = "");
+    void doSimulation(ofstream& output, bool communicationOut = true);
 
     /**
      * \brief Does the simulation if an Airplane is approaching

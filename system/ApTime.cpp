@@ -75,11 +75,11 @@ void ApTime::raiseTime(int minutes) {
 std::string ApTime::toString() const {
     REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
     std::string res;
-    if(_minutes < 10) res += '0' + ToString(_minutes);
-    else res += ToString(_minutes);
-    res += ':';
     if(_hour < 10) res+= '0' + ToString(_hour);
     else res += ToString(_hour);
+    res += ':';
+    if(_minutes < 10) res += '0' + ToString(_minutes);
+    else res += ToString(_minutes);
     ENSURE(res.size() == 5, "Incorrect format of ApTime String");
     return res;
 }

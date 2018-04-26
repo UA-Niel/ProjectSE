@@ -22,6 +22,7 @@ int main(int argc, char* argv[]) {
     Airport* p = loadAirportFromFile(str);
 
     ofstream outputFile("output2.txt");
+    ofstream commOut("CommOutput.txt");
     AirportExporter exporter(p, outputFile);
     ApTime time(12,0);
     ATC atc("TOWER");
@@ -31,7 +32,7 @@ int main(int argc, char* argv[]) {
     Simulator sim(exporter, *p, time, atc);
 
     for(int i = 0; i<70; i++) {
-        sim.doSimulation("CommOutput.txt");
+        sim.doSimulation(commOut);
     }
 
     exporter.stopOutput();
