@@ -37,6 +37,7 @@ int main(int argc, char* argv[]) {
 
     exporter.stopOutput();
     outputFile.close();
+    commOut.close();
 
 
     for(unsigned int i = 0; i<p->getAirplanes().size(); i++) delete p->getAirplanes()[i];

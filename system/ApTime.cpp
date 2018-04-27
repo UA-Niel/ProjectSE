@@ -83,3 +83,39 @@ std::string ApTime::toString() const {
     ENSURE(res.size() == 5, "Incorrect format of ApTime String");
     return res;
 }
+
+const ApTime ApTime::operator++(int) {
+    REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
+    ApTime temp = *this;
+    this->raiseTime(1);
+    return temp;
+}
+
+ApTime &ApTime::operator+=(int minutes) {
+    REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
+    REQUIRE(minutes >= 0, "Amount of minutes has to be positive, can't go back in time");
+    this->raiseTime(minutes);
+    return *this;
+}
+
+bool ApTime::operator==(ApTime &time) {
+    REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
+    REQUIRE(time.properlyInitialized(), "ApTime is not initialized correctly");
+    return _hour == time.getHour() && _minutes == time.getMinutes();
+}
+
+ApTime &ApTime::operator=(const ApTime &time) {
+    REQUIRE(time.properlyInitialized(), "ApTime is not initialized correctly");
+    _initCheck = this;
+    _minutes = time.getMinutes();
+    _hour = time.getHour();
+    ENSURE(this->properlyInitialized(), "ApTime is not initialized correctly");
+    return *this;
+}
+
+bool ApTime::operator!=(ApTime &time) {
+    REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
+    REQUIRE(time.properlyInitialized(), "ApTime is not initialized correctly");
+    return _hour != time.getHour() || _minutes != time.getMinutes();
+}
+

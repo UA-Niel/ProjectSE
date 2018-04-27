@@ -104,6 +104,61 @@ public:
      */
     std::string toString() const;
 
+    /**
+     * \brief Overload for the ++ operation
+     * @return Reference to ApTime where ApTime++ is operated on
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
+     */
+    const ApTime operator++(int);
+
+    /**
+     * \brief Overload for the += operation
+     * @param minutes Minutes to add to time
+     * @return Reference to new time
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
+     * - REQUIRE(minutes >= 0, "Amount of minutes has to be positive, can't go back in time");
+     */
+    ApTime& operator+=(int minutes);
+
+    /**
+     * \brief Overload for the == operation
+     * @param time ApTime to compare "this" with
+     * @return True if objects are the same
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
+     * - REQUIRE(time.properlyInitialized(), "ApTime is not initialized correctly");
+     */
+    bool operator==(ApTime& time);
+
+    /**
+     * \brief Overload for the = operator
+     * @param time Values of the time we want
+     * @return Time containing values of time parameter
+     *
+     * **Preconditions:**
+     * - REQUIRE(time.properlyInitialized(), "ApTime is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(this->properlyInitialized(), "ApTime is not initialized correctly");
+     */
+    ApTime& operator=(const ApTime& time);
+
+    /**
+     * \brief Overload for the != operator
+     * @param time Time to compare to
+     * @return True if objects are different
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
+     * - REQUIRE(time.properlyInitialized(), "ApTime is not initialized correctly");
+     */
+    bool operator!=(ApTime& time);
+
 
 };
 

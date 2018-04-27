@@ -58,8 +58,7 @@ Simulator::Simulator(AirportExporter &exporter, Airport &airport, ApTime& time, 
 void Simulator::doSimulation(ofstream& output, bool communicationOut) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initalized correctly");
 
-    if(communicationOut) _communicationOutput = true;
-    else _communicationOutput = false;
+    _communicationOutput = communicationOut;
 
     for(unsigned int i = 0; i<_airport.getAirplanes().size(); i++){
         Airplane* plane = _airport.getAirplanes()[i];
@@ -112,11 +111,13 @@ void Simulator::doSimulationApproach(Airplane *plane, ofstream& comm) {
     if(_communicationOutput){
         string msg = _atc.getCallsign() + ", " + plane->getCallsign() + ", arriving at " + _airport.getName() + ".";
         comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+        _time++;
         msg = plane->getCallsign() + ", radar contact, descend and maintain five thousand feet, squawk 0";
         comm << _atc.atcMessage(_time, _atc.getCallsign(), msg);
+        _time++;
         msg = "Descend and maintain five thousand feet, squawking 0, " + plane->getCallsign();
         comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
-        _time.raiseTime(1);
+        _time++;
     }
 
     //Output starting height
@@ -149,13 +150,14 @@ void Simulator::doSimulationLanding(Airplane *plane, ofstream& comm) {
                 comm << _atc.atcMessage(_time, _atc.getCallsign(), msg);
                 msg = "Holding south on the one eighty radial, " + plane->getCallsign();
                 comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
-                _time.raiseTime(1);
+                _time++;
 
                 msg = plane->getCallsign() + ", descend and maintain three thousand feet.";
                 comm << _atc.atcMessage(_time, _atc.getCallsign(), msg);
+                _time++;
                 msg = "Descend and maintain three thousand feet, " + plane->getCallsign() + ".";
                 comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
-                _time.raiseTime(1);
+                _time++;
             }
         }
 
@@ -170,9 +172,10 @@ void Simulator::doSimulationLanding(Airplane *plane, ofstream& comm) {
             if(_communicationOutput) {
                 string msg = plane->getCallsign() + ", cleared ILS approach runway, " + freeRunway->getName() + ".";
                 comm << _atc.atcMessage(_time, _atc.getCallsign(), msg);
+                _time++;
                 msg = "Cleared ILS approach runway " + freeRunway->getName() + ',' + plane->getCallsign();
                 comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
-                _time.raiseTime(1);
+                _time++;
             }
         }
 
@@ -203,7 +206,7 @@ void Simulator::doSimulationLanded(Airplane *plane, ofstream& comm) {
     if(_communicationOutput){
         string msg = _atc.getCallsign() + ", " + plane->getCallsign() + ", runway " + currentRunway->getName() + " vacated.";
         comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
-        _time.raiseTime(1);
+        _time++;
     }
 
 
@@ -262,6 +265,23 @@ void Simulator::doSimulationAtGate(Airplane *plane, ofstream& comm) {
     _exporter.outputString(message);
     plane->setStatus(Airplane::STANDING);
 
+    if(_communicationOutput){
+        string msg = _atc.getCallsign() + ", " + plane->getCallsign() + ", " +
+                     " requesting IFR clearancy to destination, <destination>.";
+        comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+        _time++;
+        msg = plane->getCallsign() + ", " + _atc.getCallsign() + ", cleared to <destination>, maintain"
+                                                                 "five thousand, expect flight level"
+                                                                 "one one zero - ten minutes after departure"
+                                                                 ", squawk <squawk code>";
+        comm << _atc.atcMessage(_time, _atc.getCallsign(), msg);
+        _time++;
+        msg = "Cleared to <destination>, initial altitude five thousand, expecting"
+              "one zero zero in ten, squawking 0, " + plane->getCallsign();
+        comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+        _time++;
+    }
+
     ENSURE(plane->getFuelState() == Airplane::FULL, "Fuel state has to be FULL");
     ENSURE(plane->getStatus() == Airplane::STANDING, "Airplane state has to be STANDING");
 
@@ -274,6 +294,17 @@ void Simulator::doSimulationStanding(Airplane *plane, ofstream& comm) {
 
     string message;
     Gate* currentGate = _airport.getGateWithPlane(plane);
+
+
+    if(_communicationOutput){
+        string msg = plane->getCallsign() + " is ready to taxi";
+        comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+        _time++;
+        msg = "<taxi instructions>";
+        comm << _atc.atcMessage(_time, _atc.getCallsign(), msg);
+        _time++;
+    }
+
 
     //Initially a plane can be standing at a gate, so when NULL is encountered assign first free gate
     if(currentGate == NULL){
@@ -295,6 +326,40 @@ void Simulator::doSimulationStanding(Airplane *plane, ofstream& comm) {
 
     message = plane->getCallsign() + " is taxiing to Runway " + freeRunway->getName() + " of " + _airport.getName();
     _exporter.outputString(message);
+
+    if(_communicationOutput){
+        string msg = _atc.getCallsign() + ", " + plane->getCallsign() + ", holding short at " + freeRunway->getName()
+                + ".";
+        comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+        _time++;
+        msg = plane->getCallsign() + ", hold position.";
+        comm << _atc.atcMessage(_time, _atc.getCallsign(), msg);
+        _time++;
+        msg = "Holding position, " + plane->getCallsign() + ".";
+        comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+        _time++;
+
+        msg = _atc.getCallsign() + ", " + plane->getCallsign() + ", holding short at " + freeRunway->getName()
+                + ".";
+        comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+        _time++;
+        msg = plane->getCallsign() + ", runway " + freeRunway->getName() + " cleared for take-off.";
+        comm << _atc.atcMessage(_time, _atc.getCallsign(), msg);
+        _time++;
+        msg = "Runway " + freeRunway->getName() + " cleared for take-off.";
+        comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+        _time++;
+
+        msg = plane->getCallsign() + ", runway " + freeRunway->getName() + " cleared for take-off.";
+        comm << _atc.atcMessage(_time, _atc.getCallsign(), msg);
+        _time++;
+        msg = "Runway " + freeRunway->getName() + " cleared for take-off.";
+        comm << _atc.atcMessage(_time, plane->getCallsign(), msg);
+        _time++;
+
+    }
+
+
 
     plane->setStatus(Airplane::DEPARTING);
 
