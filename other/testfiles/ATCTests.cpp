@@ -27,8 +27,8 @@ TEST_F(ATCTests, ATC_AtcMessageTest){
     ATC atc("my callsign");
     ApTime time(12,0);
 
-    EXPECT_FALSE(atc.atcMessage(time, "source", "message").empty());
-    EXPECT_TRUE(atc.atcMessage(time, "source", "message") == "[12:00] [source]\n\t$ message\n");
+    EXPECT_FALSE(atc.atcMessage(&time, "source", "message").empty());
+    EXPECT_TRUE(atc.atcMessage(&time, "source", "message") == "[12:00] [source]\n\t$ message\n");
 }
 
 TEST_F(ATCTests, ATC_ComparisonTest){

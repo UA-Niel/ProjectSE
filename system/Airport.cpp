@@ -220,7 +220,6 @@ std::vector<Runway*>& Airport::getRunways() {
 }
 
 Airport::~Airport() {
-    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
 }
 
 Runway *Airport::getRunwayWithPlane(Airplane *plane) {

@@ -12,7 +12,7 @@ void AirportOutputTests::setupAirport() {
 
 
 TEST_F(AirportOutputTests, FileCompare){
-    ASSERT_TRUE(DirectoryExists("testOutput"));
+    ASSERT_TRUE(DirectoryExists("other/testOutput"));
 
     ofstream myFile;
     myFile.open("other/testOutput/fileCompare1.txt");

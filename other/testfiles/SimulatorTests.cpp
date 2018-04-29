@@ -13,12 +13,12 @@ TEST_F(SimulatorTests, SimulatorGetterTests){
     AirportExporter exporter(&airport, file1);
     ApTime time(12,00);
     ATC atc("atc");
-    Simulator sim(exporter, airport, time, atc);
+    Simulator sim(exporter, &airport, &time, &atc);
 
-    EXPECT_TRUE(sim.getAirport() == airport);
-    EXPECT_TRUE(sim.getAtc() == atc);
+    EXPECT_TRUE(sim.getAirport() == &airport);
+    EXPECT_TRUE(sim.getAtc() == &atc);
     EXPECT_TRUE(sim.getExporter() == exporter);
-    EXPECT_TRUE(sim.getTime() == time);
+    EXPECT_TRUE(sim.getTime() == &time);
 
 }
 
@@ -36,20 +36,22 @@ TEST_F(SimulatorTests, SimulatorSetterTests){
     ATC atc("atc");
     ATC atc1("atc1");
 
-    Simulator simulator(exporter, airport, time, atc);
-    simulator.setAirport(airport1);
-    //simulator.setAtc(atc1);
-    //simulator.setTime(time1);
+    Simulator simulator(exporter, &airport, &time, &atc);
+    simulator.setAirport(&airport1);
+    simulator.setAtc(&atc1);
+    simulator.setTime(&time1);
 
-    /*EXPECT_FALSE(simulator.getAtc() == atc);
-    EXPECT_FALSE(simulator.getAirport() == airport);
-    EXPECT_FALSE(simulator.getTime() == time);
-    EXPECT_TRUE(simulator.getAtc() == atc1);
-    EXPECT_TRUE(simulator.getAirport() == airport1);
-    EXPECT_TRUE(simulator.getTime() == time1);*/
+    EXPECT_FALSE(simulator.getAtc() == &atc);
+    EXPECT_FALSE(simulator.getAirport() == &airport);
+    EXPECT_FALSE(simulator.getTime() == &time);
+    EXPECT_TRUE(simulator.getAtc() == &atc1);
+    EXPECT_TRUE(simulator.getAirport() == &airport1);
+    EXPECT_TRUE(simulator.getTime() == &time1);
 }
 
 TEST_F(SimulatorTests, SimulatorApproachTest){
+    ASSERT_TRUE(DirectoryExists("other/testOutput"));
+
     ofstream myFile("other/testOutput/SimulatorApproach1.txt");
     ofstream commFile("other/testOutput/SimulatorApproachCommunication1.txt");
     Airplane plane;
