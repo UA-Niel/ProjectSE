@@ -6,6 +6,7 @@
 #include "../headers/Simulator.h"
 #include "../headers/Exceptions.h"
 #include "../headers/utils.h"
+#include "../headers/ATC.h"
 #include "../headers/ApTime.h"
 #include <cstdlib>
 #include <fstream>

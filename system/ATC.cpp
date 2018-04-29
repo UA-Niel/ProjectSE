@@ -31,6 +31,5 @@ std::string ATC::atcMessage(ApTime &time, const std::string &source, const std::
 
 bool ATC::operator==(ATC &atc) {
     REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
-    REQUIRE(atc.properlyInitialized(), "ATC is not initialized correctly");
     return atc.getCallsign() == _callsign;
 }

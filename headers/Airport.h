@@ -346,6 +346,9 @@ public:
      * \brief Allows the use of the == operator
      * @param airport Airport to compare to
      * @return True if both airports are the same
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
     bool operator==(Airport& airport);
 

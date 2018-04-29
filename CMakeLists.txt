@@ -21,6 +21,7 @@ set(DEBUG_SOURCE_FILES
         headers/Simulator.h
         headers/Exceptions.h
         headers/ApTime.h
+        headers/ATC.h
         system/Gate.cpp
         system/Runway.cpp
         system/Airport.cpp
@@ -28,6 +29,7 @@ set(DEBUG_SOURCE_FILES
         system/AirportExporter.cpp
         system/Simulator.cpp
         system/ApTime.cpp
+        system/ATC.cpp
 
         headers/IO/library/tinystr.cpp
         headers/IO/library/tinystr.h
@@ -49,6 +51,12 @@ set(DEBUG_SOURCE_FILES
         other/testfiles/AirportTests.cpp
         other/testfiles/ReaderTest.cpp
         other/testfiles/ReaderTest.h
+        other/testfiles/ATCTests.h
+        other/testfiles/ATCTests.cpp
+        other/testfiles/ApTimeTests.h
+        other/testfiles/ApTimeTests.cpp
+        other/testfiles/SimulatorTests.h
+        other/testfiles/SimulatorTests.cpp
         mainTests.cpp
         other/testfiles/RunwayTests.cpp
         other/testfiles/RunwayTests.h other/testfiles/GateTests.cpp other/testfiles/GateTests.h other/testfiles/AirplaneTests.cpp other/testfiles/AirplaneTests.h other/testfiles/SimulatorTests.cpp other/testfiles/SimulatorTests.h other/testfiles/ApTimeTests.cpp other/testfiles/ApTimeTests.h other/testfiles/ATCTests.cpp other/testfiles/ATCTests.h)

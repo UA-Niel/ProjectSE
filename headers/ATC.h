@@ -66,7 +66,6 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
-     * - REQUIRE(atc.properlyInitialized(), "ATC is not initialized correctly");
      */
     bool operator==(ATC& atc);
 };

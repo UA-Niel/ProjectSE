@@ -4,7 +4,7 @@
 #include "../../headers/Gate.h"
 
 TEST_F(ReaderTests, testingInput) {
-    Airport* testAirport = loadAirportFromFile("testfiles/testinput.xml");
+    Airport* testAirport = loadAirportFromFile("other/testfiles/testinput.xml");
 
     EXPECT_TRUE(testAirport->getName() == "name");
     

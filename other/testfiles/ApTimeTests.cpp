@@ -186,11 +186,7 @@ TEST_F(ApTimeTests, ApTimeOperatorTests){
     EXPECT_FALSE(time == time3);
 
     //ApTime1 != ApTime2 operation
-    EXPECT_TRUE(time != time2);
-    EXPECT_FALSE(time != time3);
+    EXPECT_FALSE(time != time2);
+    EXPECT_TRUE(time != time3);
 
-    //= operator
-    ApTime time4 = time;
-    EXPECT_TRUE(time4.getHour() == time.getHour());
-    EXPECT_TRUE(time4.getMinutes() == time.getMinutes());
 }

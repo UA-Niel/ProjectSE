@@ -256,6 +256,7 @@ Gate *Airport::getGateWithPlane(Airplane *plane) {
 }
 
 bool Airport::operator==(Airport &airport) {
+    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     return airport.getCallsign() == _callsign &&
             airport.getNrOfRunways() == this->getNrOfRunways() &&
             airport.getName() == _name &&
