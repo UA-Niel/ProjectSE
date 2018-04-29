@@ -254,3 +254,11 @@ Gate *Airport::getGateWithPlane(Airplane *plane) {
     }
     return NULL;
 }
+
+bool Airport::operator==(Airport &airport) {
+    return airport.getCallsign() == _callsign &&
+            airport.getNrOfRunways() == this->getNrOfRunways() &&
+            airport.getName() == _name &&
+            airport.getId() == _airportId &&
+            airport.getIATA() == _IATA;
+}

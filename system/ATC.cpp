@@ -2,7 +2,7 @@
 #include "../headers/DesignByContract.h"
 #include "../headers/ApTime.h"
 
-ATC::ATC(const std::string &_callsign) : _callsign(_callsign) {
+ATC::ATC(const std::string &callsign) : _callsign(callsign) {
     _initCheck = this;
     ENSURE(properlyInitialized(), "ATC is not initialized correctly");
 }
@@ -27,4 +27,10 @@ std::string ATC::atcMessage(ApTime &time, const std::string &source, const std::
     std::string res = "[" + time.toString() + "] [" + source + "]\n"
             "\t$ " + message + "\n";
     return res;
+}
+
+bool ATC::operator==(ATC &atc) {
+    REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+    REQUIRE(atc.properlyInitialized(), "ATC is not initialized correctly");
+    return atc.getCallsign() == _callsign;
 }

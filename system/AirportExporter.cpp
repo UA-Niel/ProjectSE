@@ -89,5 +89,9 @@ ostream &AirportExporter::operator<<(string string1) {
     return _stream;
 }
 
+bool AirportExporter::operator==(AirportExporter &exporter) {
+    return exporter.get_airport() == this->get_airport() && _stream == exporter._stream;
+}
+
 
 

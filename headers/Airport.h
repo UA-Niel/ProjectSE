@@ -342,7 +342,12 @@ public:
      */
     Gate* getGateWithPlane(Airplane* plane);
 
-
+    /**
+     * \brief Allows the use of the == operator
+     * @param airport Airport to compare to
+     * @return True if both airports are the same
+     */
+    bool operator==(Airport& airport);
 
 
 private:

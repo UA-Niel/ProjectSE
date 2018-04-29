@@ -51,7 +51,7 @@ set(DEBUG_SOURCE_FILES
         other/testfiles/ReaderTest.h
         mainTests.cpp
         other/testfiles/RunwayTests.cpp
-        other/testfiles/RunwayTests.h other/testfiles/GateTests.cpp other/testfiles/GateTests.h other/testfiles/AirplaneTests.cpp other/testfiles/AirplaneTests.h)
+        other/testfiles/RunwayTests.h other/testfiles/GateTests.cpp other/testfiles/GateTests.h other/testfiles/AirplaneTests.cpp other/testfiles/AirplaneTests.h other/testfiles/SimulatorTests.cpp other/testfiles/SimulatorTests.h other/testfiles/ApTimeTests.cpp other/testfiles/ApTimeTests.h other/testfiles/ATCTests.cpp other/testfiles/ATCTests.h)
 
 # Set source files for RELEASE target
 

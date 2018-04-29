@@ -1,0 +1,6 @@
+[12:00] [plane]
+	$ atc, plane, arriving at airport.
+[12:01] [atc]
+	$ plane, radar contact, descend and maintain five thousand feet, squawk 0
+[12:02] [plane]
+	$ Descend and maintain five thousand feet, squawking 0, plane

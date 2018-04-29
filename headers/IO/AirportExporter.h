@@ -141,6 +141,12 @@ public:
      */
     ostream& operator<<(string string1);
 
+    /**
+     * \brief Allows the use of the == operator
+     * @param exporter Exporter to compare to
+     * @return True if both exporters are the same
+     */
+    bool operator==(AirportExporter& exporter);
 
 };
 

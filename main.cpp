@@ -10,11 +10,10 @@
 #include "headers/IO/Reader.h"
 #include "headers/Simulator.h"
 
-
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    if (argc <= 1) {
+    /*if (argc <= 1) {
         cerr << "No argument for input file given";
         return -1;
     }
@@ -24,8 +23,8 @@ int main(int argc, char* argv[]) {
     ofstream outputFile("output2.txt");
     ofstream commOut("CommOutput.txt");
     AirportExporter exporter(p, outputFile);
-    ApTime time(12,0);
-    ATC atc("TOWER");
+    ApTime time(23, 55);
+    ATC atc("Antwerp Tower");
 
     exporter.startOutput();
 
@@ -34,7 +33,6 @@ int main(int argc, char* argv[]) {
     for(int i = 0; i<70; i++) {
         sim.doSimulation(commOut);
     }
-
     exporter.stopOutput();
     outputFile.close();
     commOut.close();
@@ -43,7 +41,29 @@ int main(int argc, char* argv[]) {
     for(unsigned int i = 0; i<p->getAirplanes().size(); i++) delete p->getAirplanes()[i];
     for(unsigned int i = 0; i<p->getAllGates().size(); i++) delete p->getAllGates()[i];
     for(unsigned int i = 0; i<p->getNrOfRunways(); i++) delete p->getRunways()[i];
-    delete p;
+    delete p;*/
+
+
+    ofstream myFile("SimulatorApproachTemplate1.txt");
+    ofstream commFile("SimulatorApproachCommunicationTemplate1.txt");
+    Airplane plane;
+    plane.setCallsign("plane");
+    plane.setStatus(Airplane::APPROACHING);
+    Airport ap;
+    ap.setName("airport");
+    ApTime time(12,00);
+    ATC atc("atc");
+
+    AirportExporter exporter(myFile);
+    exporter.startOutput();
+
+    Simulator sim(exporter, ap, time, atc);
+    sim.set_communicationOutput(true);
+    sim.doSimulationApproach(&plane, commFile);
+
+    myFile.close();
+    commFile.close();
+
     cout << "DONE!";
     return 0;
 }

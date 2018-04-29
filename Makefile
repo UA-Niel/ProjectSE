@@ -309,6 +309,33 @@ mainTests.cpp.s:
 	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/mainTests.cpp.s
 .PHONY : mainTests.cpp.s
 
+other/testfiles/ATCTests.obj: other/testfiles/ATCTests.cpp.obj
+
+.PHONY : other/testfiles/ATCTests.obj
+
+# target to build an object file
+other/testfiles/ATCTests.cpp.obj:
+	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/other/testfiles/ATCTests.cpp.obj
+.PHONY : other/testfiles/ATCTests.cpp.obj
+
+other/testfiles/ATCTests.i: other/testfiles/ATCTests.cpp.i
+
+.PHONY : other/testfiles/ATCTests.i
+
+# target to preprocess a source file
+other/testfiles/ATCTests.cpp.i:
+	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/other/testfiles/ATCTests.cpp.i
+.PHONY : other/testfiles/ATCTests.cpp.i
+
+other/testfiles/ATCTests.s: other/testfiles/ATCTests.cpp.s
+
+.PHONY : other/testfiles/ATCTests.s
+
+# target to generate assembly for a file
+other/testfiles/ATCTests.cpp.s:
+	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/other/testfiles/ATCTests.cpp.s
+.PHONY : other/testfiles/ATCTests.cpp.s
+
 other/testfiles/AirplaneTests.obj: other/testfiles/AirplaneTests.cpp.obj
 
 .PHONY : other/testfiles/AirplaneTests.obj
@@ -390,6 +417,33 @@ other/testfiles/AirportTests.cpp.s:
 	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/other/testfiles/AirportTests.cpp.s
 .PHONY : other/testfiles/AirportTests.cpp.s
 
+other/testfiles/ApTimeTests.obj: other/testfiles/ApTimeTests.cpp.obj
+
+.PHONY : other/testfiles/ApTimeTests.obj
+
+# target to build an object file
+other/testfiles/ApTimeTests.cpp.obj:
+	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/other/testfiles/ApTimeTests.cpp.obj
+.PHONY : other/testfiles/ApTimeTests.cpp.obj
+
+other/testfiles/ApTimeTests.i: other/testfiles/ApTimeTests.cpp.i
+
+.PHONY : other/testfiles/ApTimeTests.i
+
+# target to preprocess a source file
+other/testfiles/ApTimeTests.cpp.i:
+	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/other/testfiles/ApTimeTests.cpp.i
+.PHONY : other/testfiles/ApTimeTests.cpp.i
+
+other/testfiles/ApTimeTests.s: other/testfiles/ApTimeTests.cpp.s
+
+.PHONY : other/testfiles/ApTimeTests.s
+
+# target to generate assembly for a file
+other/testfiles/ApTimeTests.cpp.s:
+	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/other/testfiles/ApTimeTests.cpp.s
+.PHONY : other/testfiles/ApTimeTests.cpp.s
+
 other/testfiles/GateTests.obj: other/testfiles/GateTests.cpp.obj
 
 .PHONY : other/testfiles/GateTests.obj
@@ -470,6 +524,33 @@ other/testfiles/RunwayTests.s: other/testfiles/RunwayTests.cpp.s
 other/testfiles/RunwayTests.cpp.s:
 	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/other/testfiles/RunwayTests.cpp.s
 .PHONY : other/testfiles/RunwayTests.cpp.s
+
+other/testfiles/SimulatorTests.obj: other/testfiles/SimulatorTests.cpp.obj
+
+.PHONY : other/testfiles/SimulatorTests.obj
+
+# target to build an object file
+other/testfiles/SimulatorTests.cpp.obj:
+	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/other/testfiles/SimulatorTests.cpp.obj
+.PHONY : other/testfiles/SimulatorTests.cpp.obj
+
+other/testfiles/SimulatorTests.i: other/testfiles/SimulatorTests.cpp.i
+
+.PHONY : other/testfiles/SimulatorTests.i
+
+# target to preprocess a source file
+other/testfiles/SimulatorTests.cpp.i:
+	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/other/testfiles/SimulatorTests.cpp.i
+.PHONY : other/testfiles/SimulatorTests.cpp.i
+
+other/testfiles/SimulatorTests.s: other/testfiles/SimulatorTests.cpp.s
+
+.PHONY : other/testfiles/SimulatorTests.s
+
+# target to generate assembly for a file
+other/testfiles/SimulatorTests.cpp.s:
+	$(MAKE) -f CMakeFiles\ProjectSE_debug.dir\build.make CMakeFiles/ProjectSE_debug.dir/other/testfiles/SimulatorTests.cpp.s
+.PHONY : other/testfiles/SimulatorTests.cpp.s
 
 system/ATC.obj: system/ATC.cpp.obj
 
@@ -796,6 +877,9 @@ help:
 	@echo ... mainTests.obj
 	@echo ... mainTests.i
 	@echo ... mainTests.s
+	@echo ... other/testfiles/ATCTests.obj
+	@echo ... other/testfiles/ATCTests.i
+	@echo ... other/testfiles/ATCTests.s
 	@echo ... other/testfiles/AirplaneTests.obj
 	@echo ... other/testfiles/AirplaneTests.i
 	@echo ... other/testfiles/AirplaneTests.s
@@ -805,6 +889,9 @@ help:
 	@echo ... other/testfiles/AirportTests.obj
 	@echo ... other/testfiles/AirportTests.i
 	@echo ... other/testfiles/AirportTests.s
+	@echo ... other/testfiles/ApTimeTests.obj
+	@echo ... other/testfiles/ApTimeTests.i
+	@echo ... other/testfiles/ApTimeTests.s
 	@echo ... other/testfiles/GateTests.obj
 	@echo ... other/testfiles/GateTests.i
 	@echo ... other/testfiles/GateTests.s
@@ -814,6 +901,9 @@ help:
 	@echo ... other/testfiles/RunwayTests.obj
 	@echo ... other/testfiles/RunwayTests.i
 	@echo ... other/testfiles/RunwayTests.s
+	@echo ... other/testfiles/SimulatorTests.obj
+	@echo ... other/testfiles/SimulatorTests.i
+	@echo ... other/testfiles/SimulatorTests.s
 	@echo ... system/ATC.obj
 	@echo ... system/ATC.i
 	@echo ... system/ATC.s

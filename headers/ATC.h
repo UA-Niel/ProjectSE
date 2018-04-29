@@ -4,19 +4,48 @@
 #include <iostream>
 #include "ApTime.h"
 
+
 class ATC {
 private:
-    std::string _callsign;
-    ATC* _initCheck;
+    std::string _callsign; /**<Member to hold the callsign of the ATC*/
+    ATC* _initCheck; /**<Member used for properlyInitialized function*/
 public:
 
+    /**
+     * \brief Checks if the ATC class is initialized correctly
+     * @return Returns true if the ATC class is correctly initialized
+     */
     bool properlyInitialized() const;
 
-    ATC(const std::string &_callsign);
+    /**
+     * \brief Constructor for ATC
+     * @param callsign Callsign for the ATC
+     *
+     * **Postconditions:**
+     * - ENSURE(properlyInitialized(), "ATC is not initialized correctly");
+     */
+    ATC(const std::string &callsign);
 
+    /**
+     * \brief Getter for Callsign
+     * @return Callsign of the ATC
+     *
+     * **Preconditions:**
+     * - REQUIRE(properlyInitialized(), "ATC is not initialized correctly");
+     */
     const std::string &getCallsign() const;
 
-    void setCallsign(const std::string &_callsign);
+    /**
+     * \brief Setter for Callsign
+     * @param callsign New callsign for ATC
+     *
+     * **Preconditions:**
+     * - REQUIRE(properlyInitialized(), "ATC is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(_callsign == callsign, "Error setting new callsign");
+     */
+    void setCallsign(const std::string &callsign);
 
     /**
      * \brief Generates a message of the air traffic commander
@@ -30,6 +59,16 @@ public:
     */
     std::string atcMessage(ApTime& time, const std::string& source, const std::string& message);
 
+    /**
+     * \brief Operator == for ATC
+     * @param atc ATC to compare this atc with
+     * @return True if both are the same
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+     * - REQUIRE(atc.properlyInitialized(), "ATC is not initialized correctly");
+     */
+    bool operator==(ATC& atc);
 };
 
 

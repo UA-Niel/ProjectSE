@@ -179,7 +179,6 @@ void Simulator::doSimulationLanding(Airplane *plane, ofstream& comm) {
             }
         }
 
-
         //let plane approach more
         plane->approach();
         //give output feedback
@@ -359,8 +358,6 @@ void Simulator::doSimulationStanding(Airplane *plane, ofstream& comm) {
 
     }
 
-
-
     plane->setStatus(Airplane::DEPARTING);
 
     ENSURE(plane->getStatus() == Airplane::DEPARTING, "Airplane status should be DEPARTING");
@@ -394,4 +391,19 @@ void Simulator::doSimulationDeparting(Airplane *plane, ofstream& comm) {
     }
 }
 
+ApTime &Simulator::getTime() const {
+    REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
+    return _time;
+}
 
+void Simulator::setTime(ApTime &time) {
+    REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
+    _time = time;
+    ENSURE(_time == time, "Error setting new time for the Simulator");
+}
+
+void Simulator::set_communicationOutput(bool _communicationOutput) {
+    REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
+    Simulator::_communicationOutput = _communicationOutput;
+    ENSURE(this->_communicationOutput == _communicationOutput, "Error setting communication output boolean");
+}

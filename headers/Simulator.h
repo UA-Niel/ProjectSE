@@ -34,6 +34,27 @@ public:
      */
     AirportExporter &getExporter() const;
 
+    /**
+     * \brief Getter for time
+     * @return Reference to time of Simulator
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
+     */
+     ApTime& getTime() const;
+
+     /**
+      * \brief Sets new time for the Simulator
+      * @param time New time for the simulator
+      *
+      * **Preconditons:**
+      * - REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
+      *
+      * **Postconditions:**
+      * - ENSURE(_time == time, "Error setting new time for the Simulator");
+      */
+     void setTime(ApTime& time);
+
 
     /**
      * \brief Returns the Airport of the Simulator
@@ -100,7 +121,7 @@ public:
      * \brief Does one tick of the simulation
      * @param output Ofstream for communication
      * @param communicationOut Boolean, if false there is no communication output
-     *todo
+     *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitalized(), "Simulator is not initalized correctly");
      */
@@ -216,6 +237,18 @@ public:
      * - ENSURE(plane->getStatus() == Airplane::DEPARTING, "Status should be Departing if plane has not left yet");
      */
     void doSimulationDeparting(Airplane* plane, ofstream& comm);
+
+    /**
+     * \brief Setter for Communication Output boolean
+     * @param _communicationOutput Communication output boolean
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(this->_communicationOutput == _communicationOutput, "Error setting communication output boolean");
+     */
+    void set_communicationOutput(bool _communicationOutput);
 
 };
 
