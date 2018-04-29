@@ -159,6 +159,15 @@ public:
      */
     bool operator!=(ApTime& time);
 
+    /**
+     * \brief Infix Operation ++ overload
+     * @return Increased time
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
+     */
+    ApTime& operator++();
+
 
 };
 

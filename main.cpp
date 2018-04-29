@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
     AirportExporter exporter(myFile);
     exporter.startOutput();
 
-    Simulator sim(exporter, ap, time, atc);
+    Simulator sim(exporter, &ap, &time, &atc);
     sim.set_communicationOutput(true);
     sim.doSimulationApproach(&plane, commFile);
 

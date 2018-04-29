@@ -63,7 +63,7 @@ TEST_F(SimulatorTests, SimulatorApproachTest){
     AirportExporter exporter(myFile);
     exporter.startOutput();
 
-    Simulator sim(exporter, ap, time, atc);
+    Simulator sim(exporter, &ap, &time, &atc);
     sim.set_communicationOutput(true);
     sim.doSimulationApproach(&plane, commFile);
     myFile.close();

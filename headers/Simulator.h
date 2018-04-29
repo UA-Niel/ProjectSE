@@ -19,11 +19,11 @@
 class Simulator {
 private:
     AirportExporter& _exporter; /**<Member containing the exporter for the Simulator*/
-    Airport& _airport; /**<Member containing the airport which needs to be simulated*/
+    Airport* _airport; /**<Member containing the airport which needs to be simulated*/
     Simulator* _initCheck; /**<Member used for properlyInitialized function*/
     bool _communicationOutput; /**<Member bool which is true if communication needs to be printed*/
-    ATC& _atc;/**<Member containing the AirTraffic Commander*/
-    ApTime& _time; /**<Member containing current time*/
+    ATC* _atc;/**<Member containing the AirTraffic Commander*/
+    ApTime* _time; /**<Member containing current time*/
 public:
     /**
      * \brief Returns the Exporter of the Simulator
@@ -32,7 +32,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitalized(), "Simulator is not initalized correctly");
      */
-    AirportExporter &getExporter() const;
+    AirportExporter& getExporter() const;
 
     /**
      * \brief Getter for time
@@ -41,7 +41,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
      */
-     ApTime& getTime() const;
+     ApTime* getTime() const;
 
      /**
       * \brief Sets new time for the Simulator
@@ -53,7 +53,7 @@ public:
       * **Postconditions:**
       * - ENSURE(_time == time, "Error setting new time for the Simulator");
       */
-     void setTime(ApTime& time);
+     void setTime(ApTime* time);
 
 
     /**
@@ -63,7 +63,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitalized(), "Simulator is not initalized correctly");
      */
-    Airport &getAirport() const;
+    Airport* getAirport() const;
 
     /**
      * \brief Sets a new Airport for the Simulator
@@ -73,7 +73,7 @@ public:
      * - REQUIRE(this->properlyInitalized(), "Simulator is not initalized correctly");
      * - REQUIRE(airport.properlyInitialized(), "Airport is not initalized correctly");
      */
-    void setAirport(Airport &airport);
+    void setAirport(Airport* airport);
 
     /**
      * \brief Returns ATC of the Simulator
@@ -82,7 +82,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
      */
-    ATC& getAtc() const;
+    ATC* getAtc() const;
 
     /**
      * \brief Sets new ATC for the Simulator
@@ -95,7 +95,7 @@ public:
      * **Postconditions:**
      * - ENSURE(_atc.getCallsign() == atc.getCallsign(), "Error setting new ATC for Simulator");
      */
-    void setAtc(ATC& atc);
+    void setAtc(ATC* atc);
 
     /**
      * \brief Checks if the Simulator class is initialized correctly
@@ -111,11 +111,13 @@ public:
      * **Preconditions:**
      * - REQUIRE(airport.properlyInitialized(), "Airport is not initalized correctly");
      * - REQUIRE(exporter.properlyInitialized(), "AirportExporter is not initalized correctly");
+     * - REQUIRE(time->properlyInitialized(), "ApTime is not initialized correctly");
+     * - REQUIRE(atc->properlyInitialized(), "ATC is not initialized correctly");
      *
      * **Postconditions:**
      * - ENSURE(this->properlyInitalized(), "Simulator is not initalized correctly");
      */
-    Simulator(AirportExporter &exporter, Airport &airport, ApTime& time, ATC& atc);
+    Simulator(AirportExporter &exporter, Airport* airport, ApTime* time, ATC* atc);
 
     /**
      * \brief Does one tick of the simulation

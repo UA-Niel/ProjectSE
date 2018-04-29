@@ -57,7 +57,7 @@ public:
     * **Preconditions:**
     * - REQUIRE(this->properlyInitalized(), "ATC is not initialized correctly");
     */
-    std::string atcMessage(ApTime& time, const std::string& source, const std::string& message);
+    std::string atcMessage(ApTime* time, const std::string& source, const std::string& message);
 
     /**
      * \brief Operator == for ATC

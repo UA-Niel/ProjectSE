@@ -86,9 +86,9 @@ std::string ApTime::toString() const {
 
 const ApTime ApTime::operator++(int) {
     REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
-    ApTime temp = *this;
-    this->raiseTime(1);
-    return temp;
+    ApTime result(*this);
+    ++(*this);
+    return result;
 }
 
 ApTime &ApTime::operator+=(int minutes) {
@@ -117,5 +117,11 @@ bool ApTime::operator!=(ApTime &time) {
     REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
     REQUIRE(time.properlyInitialized(), "ApTime is not initialized correctly");
     return _hour != time.getHour() || _minutes != time.getMinutes();
+}
+
+ApTime &ApTime::operator++() {
+    REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
+    raiseTime(1);
+    return *this;
 }
 
