@@ -50,8 +50,8 @@ TEST_F(SimulatorTests, SimulatorSetterTests){
 }
 
 TEST_F(SimulatorTests, SimulatorApproachTest){
-    ofstream myFile("other/testfiles/testOutput/SimulatorApproach1.txt");
-    ofstream commFile("other/testfiles/testOutput/SimulatorApproachCommunication1.txt");
+    ofstream myFile("other/testOutput/SimulatorApproach1.txt");
+    ofstream commFile("other/testOutput/SimulatorApproachCommunication1.txt");
     Airplane plane;
     plane.setCallsign("plane");
     plane.setStatus(Airplane::APPROACHING);
@@ -69,11 +69,11 @@ TEST_F(SimulatorTests, SimulatorApproachTest){
     myFile.close();
     commFile.close();
 
-    EXPECT_FALSE(FileIsEmpty("other/testfiles/testOutput/SimulatorApproach1.txt"));
-    EXPECT_FALSE(FileIsEmpty("other/testfiles/testOutput/SimulatorApproachCommunication1.txt"));
+    EXPECT_FALSE(FileIsEmpty("other/testOutput/SimulatorApproach1.txt"));
+    EXPECT_FALSE(FileIsEmpty("other/testOutput/SimulatorApproachCommunication1.txt"));
 
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/SimulatorApproach1.txt",
-                            "other/testfiles/testOutput/SimulatorApproachTemplate1.txt"));
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/SimulatorApproachCommunication1.txt",
-                            "other/testfiles/testOutput/SimulatorApproachCommunicationTemplate1.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/SimulatorApproach1.txt",
+                            "other/testOutput/SimulatorApproachTemplate1.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/SimulatorApproachCommunication1.txt",
+                            "other/testOutput/SimulatorApproachCommunicationTemplate1.txt"));
 }

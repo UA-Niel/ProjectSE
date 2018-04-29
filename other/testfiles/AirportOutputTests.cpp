@@ -15,48 +15,48 @@ TEST_F(AirportOutputTests, FileCompare){
     ASSERT_TRUE(DirectoryExists("testOutput"));
 
     ofstream myFile;
-    myFile.open("other/testfiles/testOutput/fileCompare1.txt");
+    myFile.open("other/testOutput/fileCompare1.txt");
     myFile.close();
-    myFile.open("other/testfiles/testOutput/fileCompare2.txt");
+    myFile.open("other/testOutput/fileCompare2.txt");
     myFile.close();
 
-    EXPECT_TRUE(FileExists("other/testfiles/testOutput/fileCompare1.txt"));
-    EXPECT_TRUE(FileExists("other/testfiles/testOutput/fileCompare2.txt"));
-    EXPECT_TRUE(FileIsEmpty("other/testfiles/testOutput/fileCompare1.txt"));
-    EXPECT_TRUE(FileIsEmpty("other/testfiles/testOutput/fileCompare2.txt"));
+    EXPECT_TRUE(FileExists("other/testOutput/fileCompare1.txt"));
+    EXPECT_TRUE(FileExists("other/testOutput/fileCompare2.txt"));
+    EXPECT_TRUE(FileIsEmpty("other/testOutput/fileCompare1.txt"));
+    EXPECT_TRUE(FileIsEmpty("other/testOutput/fileCompare2.txt"));
 
     //Comparison of two empty files
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/fileCompare1.txt", "other/testfiles/testOutput/fileCompare2.txt"));
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/fileCompare2.txt", "other/testfiles/testOutput/fileCompare1.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/fileCompare1.txt", "other/testOutput/fileCompare2.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/fileCompare2.txt", "other/testOutput/fileCompare1.txt"));
 
     //Comparison of empty with non empty file
-    myFile.open("other/testfiles/testOutput/fileCompare3.txt");
+    myFile.open("other/testOutput/fileCompare3.txt");
     myFile << "123456";
     myFile.close();
-    EXPECT_TRUE(FileExists("other/testfiles/testOutput/fileCompare3.txt"));
-    EXPECT_FALSE(FileIsEmpty("other/testfiles/testOutput/fileCompare3.txt"));
-    EXPECT_FALSE(FileCompare("other/testfiles/testOutput/fileCompare1.txt", "other/testfiles/testOutput/fileCompare3.txt"));
-    EXPECT_FALSE(FileCompare("other/testfiles/testOutput/fileCompare3.txt", "other/testfiles/testOutput/fileCompare1.txt"));
+    EXPECT_TRUE(FileExists("other/testOutput/fileCompare3.txt"));
+    EXPECT_FALSE(FileIsEmpty("other/testOutput/fileCompare3.txt"));
+    EXPECT_FALSE(FileCompare("other/testOutput/fileCompare1.txt", "other/testOutput/fileCompare3.txt"));
+    EXPECT_FALSE(FileCompare("other/testOutput/fileCompare3.txt", "other/testOutput/fileCompare1.txt"));
 
     //Comparison of two equal files
-    myFile.open("other/testfiles/testOutput/fileCompare4.txt");
+    myFile.open("other/testOutput/fileCompare4.txt");
     myFile << "123456";
     myFile.close();
-    EXPECT_TRUE(FileExists("other/testfiles/testOutput/fileCompare4.txt"));
-    EXPECT_FALSE(FileIsEmpty("other/testfiles/testOutput/fileCompare3.txt"));
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/fileCompare3.txt", "other/testfiles/testOutput/fileCompare4.txt"));
+    EXPECT_TRUE(FileExists("other/testOutput/fileCompare4.txt"));
+    EXPECT_FALSE(FileIsEmpty("other/testOutput/fileCompare3.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/fileCompare3.txt", "other/testOutput/fileCompare4.txt"));
 
     //Comparison of two non-equal files with content
-    myFile.open("other/testfiles/testOutput/fileCompare5.txt");
+    myFile.open("other/testOutput/fileCompare5.txt");
     myFile << "123456" << endl << "abcdfg" << endl;
     myFile.close();
-    EXPECT_TRUE(FileExists("other/testfiles/testOutput/fileCompare5.txt"));
-    EXPECT_FALSE(FileIsEmpty("other/testfiles/testOutput/fileCompare5.txt"));
-    EXPECT_FALSE(FileCompare("other/testfiles/testOutput/fileCompare4.txt", "other/testfiles/testOutput/fileCompare5.txt"));
+    EXPECT_TRUE(FileExists("other/testOutput/fileCompare5.txt"));
+    EXPECT_FALSE(FileIsEmpty("other/testOutput/fileCompare5.txt"));
+    EXPECT_FALSE(FileCompare("other/testOutput/fileCompare4.txt", "other/testOutput/fileCompare5.txt"));
 
     //Comparison of an existing and non-existing file
-    EXPECT_FALSE(FileCompare("other/testfiles/testOutput/fileCompare4.txt", "other/testfiles/testOutput/nonExisting.txt"));
-    EXPECT_FALSE(FileCompare("other/testfiles/testOutput/nonExisting.txt", "other/testfiles/testOutput/fileCompare4.txt"));
+    EXPECT_FALSE(FileCompare("other/testOutput/fileCompare4.txt", "other/testOutput/nonExisting.txt"));
+    EXPECT_FALSE(FileCompare("other/testOutput/nonExisting.txt", "other/testOutput/fileCompare4.txt"));
 }
 
 TEST_F(AirportOutputTests, OutputStartStopFunctions){
@@ -86,14 +86,14 @@ TEST_F(AirportOutputTests, AirplaneDetailsOutput){
 
     airportExporter.set_airport(&airport);
 
-    myFile.open("other/testfiles/testOutput/AirplaneDetailsOutput1.txt");
+    myFile.open("other/testOutput/AirplaneDetailsOutput1.txt");
 
     //when there are no planes:
     airportExporter.startOutput();
     airportExporter.outputPlaneDetails();
-    EXPECT_FALSE(FileIsEmpty("other/testfiles/testOutput/AirplaneDetailsOutput1.txt"));
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/AirplaneDetailsOutput1.txt", "other/testfiles/testOutput/outputTemplate1.txt"));
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/outputTemplate1.txt", "other/testfiles/testOutput/AirplaneDetailsOutput1.txt"));
+    EXPECT_FALSE(FileIsEmpty("other/testOutput/AirplaneDetailsOutput1.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/AirplaneDetailsOutput1.txt", "other/testOutput/outputTemplate1.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/outputTemplate1.txt", "other/testOutput/AirplaneDetailsOutput1.txt"));
     airportExporter.stopOutput();
 
     //when there is one plane
@@ -102,29 +102,29 @@ TEST_F(AirportOutputTests, AirplaneDetailsOutput){
 
     myFile.close();
 
-    myFile.open("other/testfiles/testOutput/AirplaneDetailsOutput2.txt");
+    myFile.open("other/testOutput/AirplaneDetailsOutput2.txt");
 
     airportExporter.startOutput();
     airportExporter.outputPlaneDetails();
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/outputTemplate2.txt",
-                            "other/testfiles/testOutput/AirplaneDetailsOutput2.txt"));
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/AirplaneDetailsOutput2.txt",
-                            "other/testfiles/testOutput/outputTemplate2.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/outputTemplate2.txt",
+                            "other/testOutput/AirplaneDetailsOutput2.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/AirplaneDetailsOutput2.txt",
+                            "other/testOutput/outputTemplate2.txt"));
 
     myFile.close();
 
     //when there are 3 planes
-    myFile.open("other/testfiles/testOutput/AirplaneDetailsOutput3.txt");
+    myFile.open("other/testOutput/AirplaneDetailsOutput3.txt");
     Airplane plane2(2, "my callsign 2", "my model 2", Airplane::STANDING, "my number 2");
     Airplane plane3(3, "my callsign 3", "my model 3", Airplane::STANDING, "my number 3");
     airport.addAirplane(&plane2); airport.addAirplane(&plane3);
 
     airportExporter.outputPlaneDetails();
 
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/outputTemplate3.txt",
-                            "other/testfiles/testOutput/AirplaneDetailsOutput3.txt"));
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/AirplaneDetailsOutput3.txt",
-                            "other/testfiles/testOutput/outputTemplate3.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/outputTemplate3.txt",
+                            "other/testOutput/AirplaneDetailsOutput3.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/AirplaneDetailsOutput3.txt",
+                            "other/testOutput/outputTemplate3.txt"));
     airportExporter.stopOutput();
     myFile.close();
 
@@ -134,7 +134,7 @@ TEST_F(AirportOutputTests, AirportDetailsOutput){
     setupAirport();
     ofstream myFile;
 
-    myFile.open("other/testfiles/testOutput/AirportDetailsOutput1.txt");
+    myFile.open("other/testOutput/AirportDetailsOutput1.txt");
     AirportExporter airportExporter(myFile);
 
     //Try writing while no airport is assigned to output
@@ -149,9 +149,9 @@ TEST_F(AirportOutputTests, AirportDetailsOutput){
     //Test for Airport details
     airportExporter.startOutput();
     airportExporter.outputAirportDetails();
-    EXPECT_FALSE(FileIsEmpty("other/testfiles/testOutput/AirportDetailsOutput1.txt"));
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/outputTemplate4.txt", "other/testfiles/testOutput/AirportDetailsOutput1.txt"));
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/AirportDetailsOutput1.txt", "other/testfiles/testOutput/outputTemplate4.txt"));
+    EXPECT_FALSE(FileIsEmpty("other/testOutput/AirportDetailsOutput1.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/outputTemplate4.txt", "other/testOutput/AirportDetailsOutput1.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/AirportDetailsOutput1.txt", "other/testOutput/outputTemplate4.txt"));
 
     airportExporter.stopOutput();
     myFile.close();
@@ -159,23 +159,23 @@ TEST_F(AirportOutputTests, AirportDetailsOutput){
 
 TEST_F(AirportOutputTests, OutputStringTests){
     ofstream myFile;
-    myFile.open("other/testfiles/testOutput/outputString1.txt");
+    myFile.open("other/testOutput/outputString1.txt");
     AirportExporter airportExporter(myFile);
 
     airportExporter.startOutput();
     airportExporter.outputString("Test, Test \n\t Test");
 
-    EXPECT_FALSE(FileIsEmpty("other/testfiles/testOutput/outputString1.txt"));
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/outputTemplate5.txt", "other/testfiles/testOutput/outputString1.txt"));
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/outputString1.txt", "other/testfiles/testOutput/outputTemplate5.txt"));
+    EXPECT_FALSE(FileIsEmpty("other/testOutput/outputString1.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/outputTemplate5.txt", "other/testOutput/outputString1.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/outputString1.txt", "other/testOutput/outputTemplate5.txt"));
 
     myFile.close();
 
     myFile.open("testOutput/outputString2.txt");
     airportExporter.outputString("");
-    EXPECT_TRUE(FileIsEmpty("other/testfiles/testOutput/testOutput/outputString2.txt"));
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/outputTemplate6.txt", "other/testfiles/testOutput/outputString2.txt"));
-    EXPECT_TRUE(FileCompare("other/testfiles/testOutput/outputString2.txt", "other/testfiles/testOutput/outputTemplate6.txt"));
+    EXPECT_TRUE(FileIsEmpty("other/testOutput/testOutput/outputString2.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/outputTemplate6.txt", "other/testOutput/outputString2.txt"));
+    EXPECT_TRUE(FileCompare("other/testOutput/outputString2.txt", "other/testOutput/outputTemplate6.txt"));
 
     airportExporter.stopOutput();
     myFile.close();
