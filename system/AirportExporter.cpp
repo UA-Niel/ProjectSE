@@ -78,7 +78,7 @@ void AirportExporter::outputPlaneDetails() {
         if(size == Airplane::SMALL) s = "small";
         if(size == Airplane::LARGE) s = "large";
         if(size == Airplane::EXTRA_LARGE) s = "extra large";
-        if(size == Airplane::MEDIUM) s = "medum";
+        if(size == Airplane::MEDIUM) s = "medium";
         _stream << "\t-> size: " << s << endl << endl;
     }
 }

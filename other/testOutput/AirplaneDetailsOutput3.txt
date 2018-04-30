@@ -1,9 +1,18 @@
 Airplane: my number 1 (my callsign 1)
 	-> model: my model 1
+	-> type: jet fighter
+	-> engine: propellor
+	-> size: medium
 
 Airplane: my number 2 (my callsign 2)
 	-> model: my model 2
+	-> type: alaskan
+	-> engine: glider
+	-> size: small
 
 Airplane: my number 3 (my callsign 3)
 	-> model: my model 3
+	-> type: private
+	-> engine: jet
+	-> size: large
 
