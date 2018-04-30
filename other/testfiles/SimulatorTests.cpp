@@ -466,9 +466,9 @@ TEST_F(SimulatorTests, SimulatorLandingContractViolations){
     plane.setStatus(Airplane::TAXIING_TO_GATE);
     EXPECT_DEATH(sim.doSimulationLanding(&plane, myFile), "Airplane should be in LANDING status");
     plane.setStatus(Airplane::DEPARTING);
-    EXPECT_DEATH(sim.doSimulationLanding(&plane, myFile), "Airplane should be APPROACHING");
+    EXPECT_DEATH(sim.doSimulationLanding(&plane, myFile), "Airplane should be in LANDING status");
     plane.setStatus(Airplane::UNKNOWN);
-    EXPECT_DEATH(sim.doSimulationLanding(&plane, myFile), "Airplane should be APPROACHING");
+    EXPECT_DEATH(sim.doSimulationLanding(&plane, myFile), "Airplane should be in LANDING status");
     myFile.close();
 }
 
@@ -615,7 +615,7 @@ TEST_F(SimulatorTests, SimulatorDepartingContractViolations){
     EXPECT_DEATH(sim.doSimulationDeparting(&plane, myFile), "Airplane status should be DEPARTING");
     plane.setStatus(Airplane::LANDED);
     EXPECT_DEATH(sim.doSimulationDeparting(&plane, myFile), "Airplane status should be DEPARTING");
-    plane.setStatus(Airplane::DEPARTING);
+    plane.setStatus(Airplane::STANDING);
     EXPECT_DEATH(sim.doSimulationDeparting(&plane, myFile), "Airplane status should be DEPARTING");
     plane.setStatus(Airplane::UNKNOWN);
     EXPECT_DEATH(sim.doSimulationDeparting(&plane, myFile), "Airplane status should be DEPARTING");
