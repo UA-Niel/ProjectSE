@@ -172,9 +172,7 @@ Airport* loadAirportFromFile(const char* fileName) {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                        int amountOfPassengers;
-                        std::istringstream ss(t);
-                        ss >> amountOfPassengers;
+                        int amountOfPassengers = fromStr(t);
                         myAirplane->setAmountOfPassengers(amountOfPassengers);
                     }
                     if (eValue == "type") {

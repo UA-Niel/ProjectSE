@@ -98,6 +98,9 @@ TEST_F(AirportOutputTests, AirplaneDetailsOutput){
 
     //when there is one plane
     Airplane plane1(1, "my callsign 1", "my model 1", Airplane::STANDING, "my number 1");
+    plane1.setEngine(Airplane::PROPELLOR);
+    plane1.setSize(Airplane::MEDIUM);
+    plane1.setType(Airplane::JET_FIGHTER);
     airport.addAirplane(&plane1);
 
     myFile.close();
@@ -106,27 +109,39 @@ TEST_F(AirportOutputTests, AirplaneDetailsOutput){
 
     airportExporter.startOutput();
     airportExporter.outputPlaneDetails();
+    myFile.close();
     EXPECT_TRUE(FileCompare("other/testOutput/outputTemplate2.txt",
                             "other/testOutput/AirplaneDetailsOutput2.txt"));
     EXPECT_TRUE(FileCompare("other/testOutput/AirplaneDetailsOutput2.txt",
                             "other/testOutput/outputTemplate2.txt"));
 
-    myFile.close();
+
 
     //when there are 3 planes
     myFile.open("other/testOutput/AirplaneDetailsOutput3.txt");
     Airplane plane2(2, "my callsign 2", "my model 2", Airplane::STANDING, "my number 2");
     Airplane plane3(3, "my callsign 3", "my model 3", Airplane::STANDING, "my number 3");
+
+    plane2.setEngine(Airplane::GLIDER);
+    plane2.setSize(Airplane::SMALL);
+    plane2.setType(Airplane::ALASKAN);
+    plane3.setEngine(Airplane::JET);
+    plane3.setSize(Airplane::LARGE);
+    plane3.setType(Airplane::PRIVATE);
+
     airport.addAirplane(&plane2); airport.addAirplane(&plane3);
 
     airportExporter.outputPlaneDetails();
+    myFile.close();
 
     EXPECT_TRUE(FileCompare("other/testOutput/outputTemplate3.txt",
                             "other/testOutput/AirplaneDetailsOutput3.txt"));
     EXPECT_TRUE(FileCompare("other/testOutput/AirplaneDetailsOutput3.txt",
                             "other/testOutput/outputTemplate3.txt"));
+
+
     airportExporter.stopOutput();
-    myFile.close();
+
 
 }
 

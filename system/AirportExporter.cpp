@@ -59,7 +59,27 @@ void AirportExporter::outputPlaneDetails() {
     for(unsigned int i = 0; i<_airport->getAirplanes().size(); i++){
         Airplane* airplane = _airport->getAirplanes()[i];
         _stream << "Airplane: " << airplane->getNumber() << " (" << airplane->getCallsign() << ")" << endl;
-        _stream << "\t-> model: " << airplane->getModel() << endl << endl;
+        _stream << "\t-> model: " << airplane->getModel() << endl;
+        Airplane::Type type = airplane->getType();
+        string t;
+        if(type == Airplane::PRIVATE) t = "private";
+        if(type == Airplane::AIRLINE) t = "airline";
+        if(type == Airplane::ALASKAN) t = "alaskan";
+        if(type == Airplane::JET_FIGHTER) t = "jet fighter";
+        _stream << "\t-> type: " << t << endl;
+        Airplane::Engine engine = airplane->getEngine();
+        string e;
+        if(engine == Airplane::PROPELLOR) e = "propellor";
+        if(engine == Airplane::JET) e = "jet";
+        if(engine == Airplane::GLIDER) e = "glider";
+        _stream << "\t-> engine: " << e << endl;
+        Airplane::Size size = airplane->getSize();
+        string s;
+        if(size == Airplane::SMALL) s = "small";
+        if(size == Airplane::LARGE) s = "large";
+        if(size == Airplane::EXTRA_LARGE) s = "extra large";
+        if(size == Airplane::MEDIUM) s = "medum";
+        _stream << "\t-> size: " << s << endl << endl;
     }
 }
 
