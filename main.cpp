@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
 
     exporter.startOutput();
 
-    Simulator sim(exporter, *p, time, atc);
+    Simulator sim(exporter, p, &time, &atc);
 
     for(int i = 0; i<70; i++) {
         sim.doSimulation(commOut);
