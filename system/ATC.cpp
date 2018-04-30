@@ -1,3 +1,7 @@
+/**
+ * \file This file contains the implementation of ATC
+ */
+
 #include "../headers/ATC.h"
 #include "../headers/DesignByContract.h"
 #include "../headers/ApTime.h"
@@ -24,6 +28,7 @@ bool ATC::properlyInitialized() const {
 
 std::string ATC::atcMessage(ApTime* time, const std::string &source, const std::string &message) {
     REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+    REQUIRE(time->properlyInitialized(), "ApTime is not initialized correctly");
     std::string res = "[" + time->toString() + "] [" + source + "]\n"
             "$ " + message + "\n";
     return res;

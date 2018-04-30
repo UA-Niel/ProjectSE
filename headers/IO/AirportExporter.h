@@ -27,7 +27,7 @@ public:
      * \brief default destructor for AirportExporter
      *
      * **Preconditions:**
-     * - ENSURE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
+     * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
      */
     virtual ~AirportExporter();
 
@@ -137,7 +137,10 @@ public:
     /**
      * \brief Allows the use of << for strings
      * @param string1 String to stream
-     * @return
+     * @return Stream with string1 streamed
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
      */
     ostream& operator<<(string string1);
 
@@ -145,6 +148,10 @@ public:
      * \brief Allows the use of the == operator
      * @param exporter Exporter to compare to
      * @return True if both exporters are the same
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
+     * - REQUIRE(exporter.properlyInitialized(), "AirportExporter is not initialized correctly");
      */
     bool operator==(AirportExporter& exporter);
 

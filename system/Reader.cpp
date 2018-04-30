@@ -1,4 +1,7 @@
-//Implementation file for Read-parser
+/**
+ * \file This file contains the implementation for input parser
+ */
+
 
 #include "../headers/IO/Reader.h"
 #include "../headers/IO/library/tinyxml.h"

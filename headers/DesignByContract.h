@@ -1,4 +1,6 @@
-
+/**
+ * \file This file contains the implementation of the REQUIRE and ENSURE macro's used in all functions
+ */
 #ifndef PROJECTSE_DESIGNBYCONTRACT_H
 #define PROJECTSE_DESIGNBYCONTRACT_H
 

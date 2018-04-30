@@ -1,3 +1,6 @@
+/**
+ * \file This file contains the declaration and implementation of some Exception classes
+ */
 #ifndef PROJECTSE_EXCEPTIONS_H
 #define PROJECTSE_EXCEPTIONS_H
 

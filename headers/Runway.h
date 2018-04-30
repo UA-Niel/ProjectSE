@@ -17,8 +17,6 @@ using namespace std;
  *
  * A runway has an ID, id of the airport it is part of, a name and eventually airplanes
  */
-
-
 class Runway {
 public:
     

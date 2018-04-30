@@ -33,7 +33,7 @@ class Gate {
      * **Postconditions:**
      * - ENSURE(this->_id == id, "Error setting new ID for Gate");
      */
-    void setId(const int id);
+    void setId(int id);
 
     /**
      * \brief Returns the ID of the Gate class

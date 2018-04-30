@@ -39,7 +39,7 @@ public:
      * @param _IATA Std::string IATA of the airport
      * @param _callsign Std::string callsign of the airport
      *
-     * **Preconditions:**
+     * **Postconditions:**
      * - ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
     Airport(const vector<Runway*> _runways, const vector<Gate*> _gates, int _airportId, const string &_name,
@@ -279,7 +279,7 @@ public:
      * @return Unsigned integer for the number of gates
      *
      * **Preconditions:**
-     * - ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
     unsigned int getNrOfGates() const;
 
@@ -288,7 +288,7 @@ public:
      * @return Unsigned integer for the number of runways
      *
      * **Preconditions:**
-     * - ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      */
     unsigned int getNrOfRunways() const;
 

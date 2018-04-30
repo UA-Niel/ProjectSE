@@ -90,6 +90,8 @@ ostream &AirportExporter::operator<<(string string1) {
 }
 
 bool AirportExporter::operator==(AirportExporter &exporter) {
+    REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
+    REQUIRE(exporter.properlyInitialized(), "AirportExporter is not initialized correctly");
     return exporter.get_airport() == this->get_airport() && _stream == exporter._stream;
 }
 

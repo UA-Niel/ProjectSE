@@ -1,3 +1,7 @@
+/**
+ * \file This file contains the implementation of some util functions
+ */
+
 #include <iostream>
 #include <fstream>
 #include <sstream>

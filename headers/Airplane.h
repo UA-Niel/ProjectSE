@@ -274,7 +274,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      *
      * **Postconditions:**
-     * -
+     * - ENSURE(_amountOfPassengers = amount, "Error setting new amount of passengers");
      */
     void setAmountOfPassengers(const int amount); 
 

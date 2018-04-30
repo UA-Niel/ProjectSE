@@ -197,8 +197,6 @@ void Simulator::doSimulationLanded(Airplane *plane, ofstream& comm) {
     REQUIRE(plane->properlyInitialized(), "Airplane is not initialized correctly")
     REQUIRE(plane->getStatus() == Airplane::LANDED, "Airplane must be in LANDED state");
 
-    cout << "entry" << endl;
-
     string message;
     //Search for runway with plane assigned to
     Runway* currentRunway = _airport->getRunwayWithPlane(plane);

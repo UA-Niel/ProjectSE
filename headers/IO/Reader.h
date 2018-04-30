@@ -1,4 +1,6 @@
-//Header file for Read-parser
+/**
+ * \file This file contains the declaration of the methods for the input parser
+ */
 
 #ifndef READPARSER_H
 #define READPARSER_H
@@ -8,13 +10,17 @@
 #include "../Airport.h"
 
 
-//Loading the airport from an input-file into memory
-//:param fileName => Filename to read from
-//:return bool => True on success
+/**
+ * \brief Loads the Airport form an input-file into memory
+ * @param fileName Filename tor ead rom
+ * @return Pointer to the Airport read from the file
+ */
 Airport* loadAirportFromFile(const char* fileName);
 
-//Describing the possible elements
-//(RUNWAY, AIRPLANE, AIRPORT)
+
+/**
+ * \brief Enum describing the possible elements of the Airport
+ */
 enum ElementType {
     RUNWAY,
     AIRPLANE,
@@ -22,17 +28,13 @@ enum ElementType {
     INVALID
 };
 
-//Recognizing element type from <Element> string
-//:param element => string in format <Element>
-//:return ElementType => RUNWAY, AIRPLANE, AIRPORT
+/**
+ * \brief Function to recognize an element type from string
+ * @param element Element of airport in string format
+ * @return ElemenType (RUNWAY, AIRPLANE, AIRPORT)
+ */
 ElementType elementType(const std::string& element);
 
-//Adds element to airport
-//:param toAdd => Element to add
-//:return bool => True if succesfull
-bool addToAirport(ElementType& toAdd);
 
-//Makes an Airport
-Airport& createAirport();
 
 #endif //READPARSER_H
