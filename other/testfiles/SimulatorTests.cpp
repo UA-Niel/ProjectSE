@@ -411,3 +411,213 @@ TEST_F(SimulatorTests, SimulatorDepartingTest){
     EXPECT_TRUE(plane.getStatus() == Airplane::IN_AIR);
 
 }
+
+TEST_F(SimulatorTests, SimulatorApproachContractViolations){
+    ofstream myFile("");
+    Airplane plane;
+    plane.setHeight(0);
+    Airport ap;
+    ap.setName("airport");
+    ApTime time(12,00);
+    ATC atc("atc");
+    AirportExporter exporter(myFile);
+    exporter.startOutput();
+    Simulator sim(exporter, &ap, &time, &atc);
+    plane.setStatus(Airplane::LANDING);
+    EXPECT_DEATH(sim.doSimulationApproach(&plane, myFile), "Airplane should be APPROACHING");
+    plane.setStatus(Airplane::LANDED);
+    EXPECT_DEATH(sim.doSimulationApproach(&plane, myFile), "Airplane should be APPROACHING");
+    plane.setStatus(Airplane::IN_AIR);
+    EXPECT_DEATH(sim.doSimulationApproach(&plane, myFile), "Airplane should be APPROACHING");
+    plane.setStatus(Airplane::AT_GATE);
+    EXPECT_DEATH(sim.doSimulationApproach(&plane, myFile), "Airplane should be APPROACHING");
+    plane.setStatus(Airplane::STANDING);
+    EXPECT_DEATH(sim.doSimulationApproach(&plane, myFile), "Airplane should be APPROACHING");
+    plane.setStatus(Airplane::TAXIING_TO_GATE);
+    EXPECT_DEATH(sim.doSimulationApproach(&plane, myFile), "Airplane should be APPROACHING");
+    plane.setStatus(Airplane::DEPARTING);
+    EXPECT_DEATH(sim.doSimulationApproach(&plane, myFile), "Airplane should be APPROACHING");
+    plane.setStatus(Airplane::UNKNOWN);
+    EXPECT_DEATH(sim.doSimulationApproach(&plane, myFile), "Airplane should be APPROACHING");
+    myFile.close();
+}
+
+TEST_F(SimulatorTests, SimulatorLandingContractViolations){
+    ofstream myFile("");
+    Airplane plane;
+    plane.setHeight(0);
+    Airport ap;
+    ap.setName("airport");
+    ApTime time(12,00);
+    ATC atc("atc");
+    AirportExporter exporter(myFile);
+    exporter.startOutput();
+    Simulator sim(exporter, &ap, &time, &atc);
+    plane.setStatus(Airplane::APPROACHING);
+    EXPECT_DEATH(sim.doSimulationLanding(&plane, myFile), "Airplane should be in LANDING status");
+    plane.setStatus(Airplane::LANDED);
+    EXPECT_DEATH(sim.doSimulationLanding(&plane, myFile), "Airplane should be in LANDING status");
+    plane.setStatus(Airplane::IN_AIR);
+    EXPECT_DEATH(sim.doSimulationLanding(&plane, myFile), "Airplane should be in LANDING status");
+    plane.setStatus(Airplane::AT_GATE);
+    EXPECT_DEATH(sim.doSimulationLanding(&plane, myFile), "Airplane should be in LANDING status");
+    plane.setStatus(Airplane::STANDING);
+    EXPECT_DEATH(sim.doSimulationLanding(&plane, myFile), "Airplane should be in LANDING status");
+    plane.setStatus(Airplane::TAXIING_TO_GATE);
+    EXPECT_DEATH(sim.doSimulationLanding(&plane, myFile), "Airplane should be in LANDING status");
+    plane.setStatus(Airplane::DEPARTING);
+    EXPECT_DEATH(sim.doSimulationLanding(&plane, myFile), "Airplane should be APPROACHING");
+    plane.setStatus(Airplane::UNKNOWN);
+    EXPECT_DEATH(sim.doSimulationLanding(&plane, myFile), "Airplane should be APPROACHING");
+    myFile.close();
+}
+
+TEST_F(SimulatorTests, SimulatorLandedContractViolations){
+    ofstream myFile("");
+    Airplane plane;
+    plane.setHeight(0);
+    Airport ap;
+    ap.setName("airport");
+    ApTime time(12,00);
+    ATC atc("atc");
+    AirportExporter exporter(myFile);
+    exporter.startOutput();
+    Simulator sim(exporter, &ap, &time, &atc);
+    plane.setStatus(Airplane::APPROACHING);
+    EXPECT_DEATH(sim.doSimulationLanded(&plane, myFile), "Airplane must be in LANDED state");
+    plane.setStatus(Airplane::LANDING);
+    EXPECT_DEATH(sim.doSimulationLanded(&plane, myFile), "Airplane must be in LANDED state");
+    plane.setStatus(Airplane::IN_AIR);
+    EXPECT_DEATH(sim.doSimulationLanded(&plane, myFile), "Airplane must be in LANDED state");
+    plane.setStatus(Airplane::AT_GATE);
+    EXPECT_DEATH(sim.doSimulationLanded(&plane, myFile), "Airplane must be in LANDED state");
+    plane.setStatus(Airplane::STANDING);
+    EXPECT_DEATH(sim.doSimulationLanded(&plane, myFile), "Airplane must be in LANDED state");
+    plane.setStatus(Airplane::TAXIING_TO_GATE);
+    EXPECT_DEATH(sim.doSimulationLanded(&plane, myFile), "Airplane must be in LANDED state");
+    plane.setStatus(Airplane::DEPARTING);
+    EXPECT_DEATH(sim.doSimulationLanded(&plane, myFile), "Airplane must be in LANDED state");
+    plane.setStatus(Airplane::UNKNOWN);
+    EXPECT_DEATH(sim.doSimulationLanded(&plane, myFile), "Airplane must be in LANDED state");
+    myFile.close();
+}
+
+TEST_F(SimulatorTests, SimulatorTaxiingContractViolations){
+    ofstream myFile("");
+    Airplane plane;
+    plane.setHeight(0);
+    Airport ap;
+    ap.setName("airport");
+    ApTime time(12,00);
+    ATC atc("atc");
+    AirportExporter exporter(myFile);
+    exporter.startOutput();
+    Simulator sim(exporter, &ap, &time, &atc);
+    plane.setStatus(Airplane::APPROACHING);
+    EXPECT_DEATH(sim.doSimulationTaxiing(&plane, myFile), "Status of airplane has to be TAXIING TO GATE");
+    plane.setStatus(Airplane::LANDING);
+    EXPECT_DEATH(sim.doSimulationTaxiing(&plane, myFile), "Status of airplane has to be TAXIING TO GATE");
+    plane.setStatus(Airplane::IN_AIR);
+    EXPECT_DEATH(sim.doSimulationTaxiing(&plane, myFile), "Status of airplane has to be TAXIING TO GATE");
+    plane.setStatus(Airplane::AT_GATE);
+    EXPECT_DEATH(sim.doSimulationTaxiing(&plane, myFile), "Status of airplane has to be TAXIING TO GATE");
+    plane.setStatus(Airplane::STANDING);
+    EXPECT_DEATH(sim.doSimulationTaxiing(&plane, myFile), "Status of airplane has to be TAXIING TO GATE");
+    plane.setStatus(Airplane::LANDED);
+    EXPECT_DEATH(sim.doSimulationTaxiing(&plane, myFile), "Status of airplane has to be TAXIING TO GATE");
+    plane.setStatus(Airplane::DEPARTING);
+    EXPECT_DEATH(sim.doSimulationTaxiing(&plane, myFile), "Status of airplane has to be TAXIING TO GATE");
+    plane.setStatus(Airplane::UNKNOWN);
+    EXPECT_DEATH(sim.doSimulationTaxiing(&plane, myFile), "Status of airplane has to be TAXIING TO GATE");
+    myFile.close();
+}
+
+TEST_F(SimulatorTests, SimulatorAtGateContractViolations){
+    ofstream myFile("");
+    Airplane plane;
+    plane.setHeight(0);
+    Airport ap;
+    ap.setName("airport");
+    ApTime time(12,00);
+    ATC atc("atc");
+    AirportExporter exporter(myFile);
+    exporter.startOutput();
+    Simulator sim(exporter, &ap, &time, &atc);
+    plane.setStatus(Airplane::APPROACHING);
+    EXPECT_DEATH(sim.doSimulationAtGate(&plane, myFile), "Status of airplane should be AT GATE");
+    plane.setStatus(Airplane::LANDING);
+    EXPECT_DEATH(sim.doSimulationAtGate(&plane, myFile), "Status of airplane should be AT GATE");
+    plane.setStatus(Airplane::IN_AIR);
+    EXPECT_DEATH(sim.doSimulationAtGate(&plane, myFile), "Status of airplane should be AT GATE");
+    plane.setStatus(Airplane::TAXIING_TO_GATE);
+    EXPECT_DEATH(sim.doSimulationAtGate(&plane, myFile), "Status of airplane should be AT GATE");
+    plane.setStatus(Airplane::STANDING);
+    EXPECT_DEATH(sim.doSimulationAtGate(&plane, myFile), "Status of airplane should be AT GATE");
+    plane.setStatus(Airplane::LANDED);
+    EXPECT_DEATH(sim.doSimulationAtGate(&plane, myFile), "Status of airplane should be AT GATE");
+    plane.setStatus(Airplane::DEPARTING);
+    EXPECT_DEATH(sim.doSimulationAtGate(&plane, myFile), "Status of airplane should be AT GATE");
+    plane.setStatus(Airplane::UNKNOWN);
+    EXPECT_DEATH(sim.doSimulationAtGate(&plane, myFile), "Status of airplane should be AT GATE");
+    myFile.close();
+}
+
+TEST_F(SimulatorTests, SimulatorStandingContractViolations){
+    ofstream myFile("");
+    Airplane plane;
+    plane.setHeight(0);
+    Airport ap;
+    ap.setName("airport");
+    ApTime time(12,00);
+    ATC atc("atc");
+    AirportExporter exporter(myFile);
+    exporter.startOutput();
+    Simulator sim(exporter, &ap, &time, &atc);
+    plane.setStatus(Airplane::APPROACHING);
+    EXPECT_DEATH(sim.doSimulationStanding(&plane, myFile), "Status of airplane should be STANDING");
+    plane.setStatus(Airplane::LANDING);
+    EXPECT_DEATH(sim.doSimulationStanding(&plane, myFile), "Status of airplane should be STANDING");
+    plane.setStatus(Airplane::IN_AIR);
+    EXPECT_DEATH(sim.doSimulationStanding(&plane, myFile), "Status of airplane should be STANDING");
+    plane.setStatus(Airplane::TAXIING_TO_GATE);
+    EXPECT_DEATH(sim.doSimulationStanding(&plane, myFile), "Status of airplane should be STANDING");
+    plane.setStatus(Airplane::AT_GATE);
+    EXPECT_DEATH(sim.doSimulationStanding(&plane, myFile), "Status of airplane should be STANDING");
+    plane.setStatus(Airplane::LANDED);
+    EXPECT_DEATH(sim.doSimulationStanding(&plane, myFile), "Status of airplane should be STANDING");
+    plane.setStatus(Airplane::DEPARTING);
+    EXPECT_DEATH(sim.doSimulationStanding(&plane, myFile), "Status of airplane should be STANDING");
+    plane.setStatus(Airplane::UNKNOWN);
+    EXPECT_DEATH(sim.doSimulationStanding(&plane, myFile), "Status of airplane should be STANDING");
+    myFile.close();
+}
+
+TEST_F(SimulatorTests, SimulatorDepartingContractViolations){
+    ofstream myFile("");
+    Airplane plane;
+    plane.setHeight(0);
+    Airport ap;
+    ap.setName("airport");
+    ApTime time(12,00);
+    ATC atc("atc");
+    AirportExporter exporter(myFile);
+    exporter.startOutput();
+    Simulator sim(exporter, &ap, &time, &atc);
+    plane.setStatus(Airplane::APPROACHING);
+    EXPECT_DEATH(sim.doSimulationDeparting(&plane, myFile), "Airplane status should be DEPARTING");
+    plane.setStatus(Airplane::LANDING);
+    EXPECT_DEATH(sim.doSimulationDeparting(&plane, myFile), "Airplane status should be DEPARTING");
+    plane.setStatus(Airplane::IN_AIR);
+    EXPECT_DEATH(sim.doSimulationDeparting(&plane, myFile), "Airplane status should be DEPARTING");
+    plane.setStatus(Airplane::TAXIING_TO_GATE);
+    EXPECT_DEATH(sim.doSimulationDeparting(&plane, myFile), "Airplane status should be DEPARTING");
+    plane.setStatus(Airplane::AT_GATE);
+    EXPECT_DEATH(sim.doSimulationDeparting(&plane, myFile), "Airplane status should be DEPARTING");
+    plane.setStatus(Airplane::LANDED);
+    EXPECT_DEATH(sim.doSimulationDeparting(&plane, myFile), "Airplane status should be DEPARTING");
+    plane.setStatus(Airplane::DEPARTING);
+    EXPECT_DEATH(sim.doSimulationDeparting(&plane, myFile), "Airplane status should be DEPARTING");
+    plane.setStatus(Airplane::UNKNOWN);
+    EXPECT_DEATH(sim.doSimulationDeparting(&plane, myFile), "Airplane status should be DEPARTING");
+    myFile.close();
+}
