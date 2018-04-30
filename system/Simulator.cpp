@@ -175,7 +175,7 @@ void Simulator::doSimulationLanding(Airplane *plane, ofstream& comm) {
                 string msg = plane->getCallsign() + ", cleared ILS approach runway, " + freeRunway->getName() + ".";
                 comm << _atc->atcMessage(_time, _atc->getCallsign(), msg);
                 _time->raiseTime(1);
-                msg = "Cleared ILS approach runway " + freeRunway->getName() + ',' + plane->getCallsign();
+                msg = "Cleared ILS approach runway " + freeRunway->getName() + ", " + plane->getCallsign();
                 comm << _atc->atcMessage(_time, plane->getCallsign(), msg);
                 _time->raiseTime(1);
             }
@@ -196,6 +196,8 @@ void Simulator::doSimulationLanded(Airplane *plane, ofstream& comm) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
     REQUIRE(plane->properlyInitialized(), "Airplane is not initialized correctly")
     REQUIRE(plane->getStatus() == Airplane::LANDED, "Airplane must be in LANDED state");
+
+    cout << "entry" << endl;
 
     string message;
     //Search for runway with plane assigned to
@@ -271,13 +273,13 @@ void Simulator::doSimulationAtGate(Airplane *plane, ofstream& comm) {
                      " requesting IFR clearancy to destination, <destination>.";
         comm << _atc->atcMessage(_time, plane->getCallsign(), msg);
         _time->raiseTime(1);
-        msg = plane->getCallsign() + ", " + _atc->getCallsign() + ", cleared to <destination>, maintain"
-                                                                 "five thousand, expect flight level"
+        msg = plane->getCallsign() + ", " + _atc->getCallsign() + ", cleared to <destination>, maintain "
+                                                                 "five thousand, expect flight level "
                                                                  "one one zero - ten minutes after departure"
                                                                  ", squawk <squawk code>";
         comm << _atc->atcMessage(_time, _atc->getCallsign(), msg);
         _time->raiseTime(1);
-        msg = "Cleared to <destination>, initial altitude five thousand, expecting"
+        msg = "Cleared to <destination>, initial altitude five thousand, expecting "
               "one zero zero in ten, squawking 0, " + plane->getCallsign();
         comm << _atc->atcMessage(_time, plane->getCallsign(), msg);
         _time->raiseTime(1);

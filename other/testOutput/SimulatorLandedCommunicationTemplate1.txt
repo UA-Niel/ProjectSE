@@ -1,0 +1,2 @@
+[12:00] [plane]
+	$ atc, plane, runway runway vacated.

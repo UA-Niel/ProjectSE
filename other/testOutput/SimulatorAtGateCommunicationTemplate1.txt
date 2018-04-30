@@ -1,0 +1,6 @@
+[12:00] [plane]
+	$ atc, plane,  requesting IFR clearancy to destination, <destination>.
+[12:01] [atc]
+	$ plane, atc, cleared to <destination>, maintain five thousand, expect flight level one one zero - ten minutes after departure, squawk <squawk code>
+[12:02] [plane]
+	$ Cleared to <destination>, initial altitude five thousand, expecting one zero zero in ten, squawking 0, plane

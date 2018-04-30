@@ -1,0 +1,4 @@
+[12:00] [atc]
+	$ plane, cleared ILS approach runway, runway.
+[12:01] [plane]
+	$ Cleared ILS approach runway runway, plane

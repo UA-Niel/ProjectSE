@@ -1,0 +1,20 @@
+[12:00] [plane]
+	$ plane is ready to taxi
+[12:01] [atc]
+	$ <taxi instructions>
+[12:02] [plane]
+	$ atc, plane, holding short at runway.
+[12:03] [atc]
+	$ plane, hold position.
+[12:04] [plane]
+	$ Holding position, plane.
+[12:05] [plane]
+	$ atc, plane, holding short at runway.
+[12:06] [atc]
+	$ plane, runway runway cleared for take-off.
+[12:07] [plane]
+	$ Runway runway cleared for take-off.
+[12:08] [atc]
+	$ plane, runway runway cleared for take-off.
+[12:09] [plane]
+	$ Runway runway cleared for take-off.
