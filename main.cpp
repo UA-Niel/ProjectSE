@@ -13,7 +13,7 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    /*if (argc <= 1) {
+    if (argc <= 1) {
         cerr << "No argument for input file given";
         return -1;
     }
@@ -41,37 +41,7 @@ int main(int argc, char* argv[]) {
     for(unsigned int i = 0; i<p->getAirplanes().size(); i++) delete p->getAirplanes()[i];
     for(unsigned int i = 0; i<p->getAllGates().size(); i++) delete p->getAllGates()[i];
     for(unsigned int i = 0; i<p->getNrOfRunways(); i++) delete p->getRunways()[i];
-    delete p;*/
-
-
-    ofstream myFile("");
-    ofstream commFile("SimulatorStandingCommunicationTemplate2.txt");
-    Airplane plane;
-    plane.setAmountOfPassengers(21);
-    plane.setCallsign("plane");
-    plane.setStatus(Airplane::TAXIING_TO_GATE);
-    Airport ap;
-    Gate g;
-    g.setPlaneAtGate(&plane);
-    plane.setStatus(Airplane::STANDING);
-    g.setId(21);
-    ap.addGate(&g);
-    ap.setName("airport");
-    ApTime time(12,00);
-    ATC atc("atc");
-    Runway r;
-    r.setName("runway");
-    ap.addRunway(&r);
-
-    AirportExporter exporter(myFile);
-    exporter.startOutput();
-
-    Simulator sim(exporter, &ap, &time, &atc);
-    sim.set_communicationOutput(true);
-    sim.doSimulationStanding(&plane, commFile);
-
-    myFile.close();
-    commFile.close();
+    delete p;
 
     cout << "DONE!";
     return 0;
