@@ -106,6 +106,7 @@ TEST_F(SimulatorTests, SimulatorLandingTest){
 
     //Approach 10000-5000
     sim.doSimulationLanding(&plane, commFile);
+    myFile.close();
     EXPECT_TRUE(plane.getHeight() == 9000);
     EXPECT_TRUE(FileCompare("other/testOutput/SimulatorLanding1.txt",
                             "other/testOutput/SimulatorLandingTemplate1.txt"));
@@ -118,6 +119,8 @@ TEST_F(SimulatorTests, SimulatorLandingTest){
     myFile.open("other/testOutput/SimulatorLanding2.txt");
     plane.setHeight(5000);
     sim.doSimulationLanding(&plane, commFile);
+    myFile.close();
+    commFile.close();
     EXPECT_TRUE(plane.getHeight() == 4000);
     EXPECT_TRUE(FileCompare("other/testOutput/SimulatorLanding2.txt",
                             "other/testOutput/SimulatorLandingTemplate2.txt"));
@@ -146,6 +149,8 @@ TEST_F(SimulatorTests, SimulatorLandingTest){
     plane.setHeight(3000);
 
     sim.doSimulationLanding(&plane, commFile);
+    myFile.close();
+    commFile.close();
     EXPECT_TRUE(plane.getHeight() == 2000);
     EXPECT_TRUE(FileCompare("other/testOutput/SimulatorLanding3.txt",
                             "other/testOutput/SimulatorLandingTemplate3.txt"));
@@ -155,8 +160,7 @@ TEST_F(SimulatorTests, SimulatorLandingTest){
                             "other/testOutput/SimulatorLandingCommunicationTemplate2.txt"));
     EXPECT_TRUE(FileCompare("other/testOutput/SimulatorLandingCommunicationTemplate2.txt",
                             "other/testOutput/SimulatorLandingCommunication2.txt"));
-    myFile.close();
-    commFile.close();
+
     exporter.stopOutput();
 }
 
@@ -181,6 +185,11 @@ TEST_F(SimulatorTests, SimulatorLandedTest){
     Simulator sim(exporter, &ap, &time, &atc);
     sim.set_communicationOutput(true);
     sim.doSimulationLanded(&plane, commFile);
+    myFile.close();
+    commFile.close();
+
+    EXPECT_FALSE(FileIsEmpty("other/testOutput/SimulatorLandedCommunication1.txt"));
+    EXPECT_FALSE(FileIsEmpty("other/testOutput/SimulatorLandedCommunicationTemplate1.txt"));
 
     EXPECT_TRUE(FileCompare("other/testOutput/SimulatorLanded1.txt",
                             "other/testOutput/SimulatorLandedTemplate1.txt"));
@@ -191,11 +200,9 @@ TEST_F(SimulatorTests, SimulatorLandedTest){
     EXPECT_TRUE(FileCompare("other/testOutput/SimulatorLandedCommunicationTemplate1.txt",
                             "other/testOutput/SimulatorLandedCommunication1.txt"));
 
-    myFile.close();
-    commFile.close();
+
     exporter.stopOutput();
 
-    EXPECT_TRUE(plane.getStatus() == Airplane::TAXIING_TO_GATE);
 }
 
 TEST_F(SimulatorTests, SimulatorTaxiingTest){
@@ -307,6 +314,8 @@ TEST_F(SimulatorTests, SimulatorStandingTest){
     Simulator sim(exporter, &ap, &time, &atc);
     sim.set_communicationOutput(true);
     sim.doSimulationStanding(&plane, commFile);
+    commFile.close();
+    myFile.close();
 
     EXPECT_TRUE(FileCompare("other/testOutput/SimulatorStanding1.txt",
                             "other/testOutput/SimulatorStandingTemplate1.txt"));
@@ -319,15 +328,19 @@ TEST_F(SimulatorTests, SimulatorStandingTest){
                             "other/testOutput/SimulatorStandingCommunication1.txt"));
 
     //When there is a free runway:
-    commFile.open("other/testOutput/SimulatorStandingCommunication1.txt");
+
+    time.setHour(12);
+    time.setMinutes(0);
+    commFile.open("other/testOutput/SimulatorStandingCommunication2.txt");
     myFile.open("other/testOutput/SimulatorStanding2.txt");
     Runway r;
     r.setName("runway");
     ap.addRunway(&r);
-    ap.setName("airport");
 
     sim.set_communicationOutput(true);
     sim.doSimulationStanding(&plane, commFile);
+    myFile.close();
+    commFile.close();
 
     EXPECT_TRUE(FileCompare("other/testOutput/SimulatorStanding2.txt",
                             "other/testOutput/SimulatorStandingTemplate2.txt"));
@@ -339,8 +352,7 @@ TEST_F(SimulatorTests, SimulatorStandingTest){
     EXPECT_TRUE(FileCompare("other/testOutput/SimulatorStandingCommunicationTemplate2.txt",
                             "other/testOutput/SimulatorStandingCommunication2.txt"));
 
-    myFile.close();
-    commFile.close();
+
     exporter.stopOutput();
     EXPECT_TRUE(plane.getStatus() == Airplane::DEPARTING);
 
@@ -381,6 +393,7 @@ TEST_F(SimulatorTests, SimulatorDepartingTest){
 
 
     //Plane height >= 5000
+    myFile.close();
     myFile.open("other/testOutput/SimulatorDeparting2.txt");
     plane.setHeight(5000);
     sim.doSimulationDeparting(&plane, commFile);

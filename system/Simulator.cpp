@@ -101,8 +101,8 @@ void Simulator::doSimulation(ofstream& output, bool communicationOut) {
 
 
 void Simulator::doSimulationApproach(Airplane *plane, ofstream& comm) {
-    REQUIRE(this->properlyInitalized(), "Simulator is not initalized correctly");
-    REQUIRE(plane->properlyInitialized(), "Airplane plane is not initalized correctly");
+    REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
+    REQUIRE(plane->properlyInitialized(), "Airplane plane is not initialized correctly");
     REQUIRE(plane->getStatus() == Airplane::APPROACHING, "Airplane should be APPROACHING");
     string message;
 

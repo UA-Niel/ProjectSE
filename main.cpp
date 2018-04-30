@@ -44,26 +44,31 @@ int main(int argc, char* argv[]) {
     delete p;*/
 
 
-    ofstream myFile("SimulatorDepartingTemplate2.txt");
-    ofstream commFile("");
+    ofstream myFile("");
+    ofstream commFile("SimulatorStandingCommunicationTemplate2.txt");
     Airplane plane;
-    plane.setHeight(5000);
+    plane.setAmountOfPassengers(21);
     plane.setCallsign("plane");
-    plane.setStatus(Airplane::DEPARTING);
+    plane.setStatus(Airplane::TAXIING_TO_GATE);
     Airport ap;
-    Runway r;
-    r.setName("runway");
-    r.addAirplane(&plane);
-    ap.addRunway(&r);
+    Gate g;
+    g.setPlaneAtGate(&plane);
+    plane.setStatus(Airplane::STANDING);
+    g.setId(21);
+    ap.addGate(&g);
     ap.setName("airport");
     ApTime time(12,00);
     ATC atc("atc");
+    Runway r;
+    r.setName("runway");
+    ap.addRunway(&r);
 
     AirportExporter exporter(myFile);
     exporter.startOutput();
 
     Simulator sim(exporter, &ap, &time, &atc);
-    sim.doSimulationDeparting(&plane, commFile);
+    sim.set_communicationOutput(true);
+    sim.doSimulationStanding(&plane, commFile);
 
     myFile.close();
     commFile.close();

@@ -28,7 +28,7 @@ TEST_F(ATCTests, ATC_AtcMessageTest){
     ApTime time(12,0);
 
     EXPECT_FALSE(atc.atcMessage(&time, "source", "message").empty());
-    EXPECT_TRUE(atc.atcMessage(&time, "source", "message") == "[12:00] [source]\n\t$ message\n");
+    EXPECT_TRUE(atc.atcMessage(&time, "source", "message") == "[12:00] [source]\n$ message\n");
 }
 
 TEST_F(ATCTests, ATC_ComparisonTest){
