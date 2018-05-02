@@ -22,14 +22,14 @@ set(DEBUG_SOURCE_FILES
         headers/Exceptions.h
         headers/ApTime.h
         headers/ATC.h
-        system/Gate.cpp
-        system/Runway.cpp
-        system/Airport.cpp
-        system/Airplane.cpp
-        system/AirportExporter.cpp
-        system/Simulator.cpp
-        system/ApTime.cpp
-        system/ATC.cpp
+        source/Gate.cpp
+        source/Runway.cpp
+        source/Airport.cpp
+        source/Airplane.cpp
+        source/AirportExporter.cpp
+        source/Simulator.cpp
+        source/ApTime.cpp
+        source/ATC.cpp
 
         headers/IO/library/tinystr.cpp
         headers/IO/library/tinystr.h
@@ -38,11 +38,11 @@ set(DEBUG_SOURCE_FILES
         headers/IO/library/tinyxmlerror.cpp
         headers/IO/library/tinyxmlparser.cpp
 
-        system/Reader.cpp
+        source/Reader.cpp
         headers/IO/Reader.h
 
         headers/DesignByContract.h
-        system/utils.cpp
+        source/utils.cpp
         headers/utils.h
 
         other/testfiles/AirportOutputTests.h
@@ -73,14 +73,14 @@ set(RELEASE_SOURCE_FILES
         headers/Exceptions.h
         headers/ApTime.h
         headers/ATC.h
-        system/Gate.cpp
-        system/Runway.cpp
-        system/Airport.cpp
-        system/Airplane.cpp
-        system/AirportExporter.cpp
-        system/Simulator.cpp
-        system/ApTime.cpp
-        system/ATC.cpp
+        source/Gate.cpp
+        source/Runway.cpp
+        source/Airport.cpp
+        source/Airplane.cpp
+        source/AirportExporter.cpp
+        source/Simulator.cpp
+        source/ApTime.cpp
+        source/ATC.cpp
 
         headers/IO/library/tinystr.cpp
         headers/IO/library/tinystr.h
@@ -89,11 +89,11 @@ set(RELEASE_SOURCE_FILES
         headers/IO/library/tinyxmlerror.cpp
         headers/IO/library/tinyxmlparser.cpp
 
-        system/Reader.cpp
+        source/Reader.cpp
         headers/IO/Reader.h
 
         headers/DesignByContract.h
-        system/utils.cpp
+        source/utils.cpp
         headers/utils.h
 
         main.cpp

@@ -553,305 +553,305 @@ other/testfiles/SimulatorTests.cpp.s:
 	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/other/testfiles/SimulatorTests.cpp.s
 .PHONY : other/testfiles/SimulatorTests.cpp.s
 
-system/ATC.o: system/ATC.cpp.o
+source/ATC.o: source/ATC.cpp.o
 
-.PHONY : system/ATC.o
-
-# target to build an object file
-system/ATC.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/ATC.cpp.o
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ATC.cpp.o
-.PHONY : system/ATC.cpp.o
-
-system/ATC.i: system/ATC.cpp.i
-
-.PHONY : system/ATC.i
-
-# target to preprocess a source file
-system/ATC.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/ATC.cpp.i
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ATC.cpp.i
-.PHONY : system/ATC.cpp.i
-
-system/ATC.s: system/ATC.cpp.s
-
-.PHONY : system/ATC.s
-
-# target to generate assembly for a file
-system/ATC.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/ATC.cpp.s
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ATC.cpp.s
-.PHONY : system/ATC.cpp.s
-
-system/Airplane.o: system/Airplane.cpp.o
-
-.PHONY : system/Airplane.o
+.PHONY : source/ATC.o
 
 # target to build an object file
-system/Airplane.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Airplane.cpp.o
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airplane.cpp.o
-.PHONY : system/Airplane.cpp.o
+source/ATC.cpp.o:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/ATC.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/ATC.cpp.o
+.PHONY : source/ATC.cpp.o
 
-system/Airplane.i: system/Airplane.cpp.i
+source/ATC.i: source/ATC.cpp.i
 
-.PHONY : system/Airplane.i
+.PHONY : source/ATC.i
 
 # target to preprocess a source file
-system/Airplane.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Airplane.cpp.i
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airplane.cpp.i
-.PHONY : system/Airplane.cpp.i
+source/ATC.cpp.i:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/ATC.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/ATC.cpp.i
+.PHONY : source/ATC.cpp.i
 
-system/Airplane.s: system/Airplane.cpp.s
+source/ATC.s: source/ATC.cpp.s
 
-.PHONY : system/Airplane.s
+.PHONY : source/ATC.s
 
 # target to generate assembly for a file
-system/Airplane.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Airplane.cpp.s
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airplane.cpp.s
-.PHONY : system/Airplane.cpp.s
+source/ATC.cpp.s:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/ATC.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/ATC.cpp.s
+.PHONY : source/ATC.cpp.s
 
-system/Airport.o: system/Airport.cpp.o
+source/Airplane.o: source/Airplane.cpp.o
 
-.PHONY : system/Airport.o
+.PHONY : source/Airplane.o
 
 # target to build an object file
-system/Airport.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Airport.cpp.o
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airport.cpp.o
-.PHONY : system/Airport.cpp.o
+source/Airplane.cpp.o:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Airplane.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Airplane.cpp.o
+.PHONY : source/Airplane.cpp.o
 
-system/Airport.i: system/Airport.cpp.i
+source/Airplane.i: source/Airplane.cpp.i
 
-.PHONY : system/Airport.i
+.PHONY : source/Airplane.i
 
 # target to preprocess a source file
-system/Airport.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Airport.cpp.i
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airport.cpp.i
-.PHONY : system/Airport.cpp.i
+source/Airplane.cpp.i:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Airplane.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Airplane.cpp.i
+.PHONY : source/Airplane.cpp.i
 
-system/Airport.s: system/Airport.cpp.s
+source/Airplane.s: source/Airplane.cpp.s
 
-.PHONY : system/Airport.s
+.PHONY : source/Airplane.s
 
 # target to generate assembly for a file
-system/Airport.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Airport.cpp.s
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airport.cpp.s
-.PHONY : system/Airport.cpp.s
+source/Airplane.cpp.s:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Airplane.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Airplane.cpp.s
+.PHONY : source/Airplane.cpp.s
 
-system/AirportExporter.o: system/AirportExporter.cpp.o
+source/Airport.o: source/Airport.cpp.o
 
-.PHONY : system/AirportExporter.o
+.PHONY : source/Airport.o
 
 # target to build an object file
-system/AirportExporter.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/AirportExporter.cpp.o
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/AirportExporter.cpp.o
-.PHONY : system/AirportExporter.cpp.o
+source/Airport.cpp.o:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Airport.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Airport.cpp.o
+.PHONY : source/Airport.cpp.o
 
-system/AirportExporter.i: system/AirportExporter.cpp.i
+source/Airport.i: source/Airport.cpp.i
 
-.PHONY : system/AirportExporter.i
+.PHONY : source/Airport.i
 
 # target to preprocess a source file
-system/AirportExporter.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/AirportExporter.cpp.i
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/AirportExporter.cpp.i
-.PHONY : system/AirportExporter.cpp.i
+source/Airport.cpp.i:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Airport.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Airport.cpp.i
+.PHONY : source/Airport.cpp.i
 
-system/AirportExporter.s: system/AirportExporter.cpp.s
+source/Airport.s: source/Airport.cpp.s
 
-.PHONY : system/AirportExporter.s
+.PHONY : source/Airport.s
 
 # target to generate assembly for a file
-system/AirportExporter.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/AirportExporter.cpp.s
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/AirportExporter.cpp.s
-.PHONY : system/AirportExporter.cpp.s
+source/Airport.cpp.s:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Airport.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Airport.cpp.s
+.PHONY : source/Airport.cpp.s
 
-system/ApTime.o: system/ApTime.cpp.o
+source/AirportExporter.o: source/AirportExporter.cpp.o
 
-.PHONY : system/ApTime.o
+.PHONY : source/AirportExporter.o
 
 # target to build an object file
-system/ApTime.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/ApTime.cpp.o
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ApTime.cpp.o
-.PHONY : system/ApTime.cpp.o
+source/AirportExporter.cpp.o:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/AirportExporter.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/AirportExporter.cpp.o
+.PHONY : source/AirportExporter.cpp.o
 
-system/ApTime.i: system/ApTime.cpp.i
+source/AirportExporter.i: source/AirportExporter.cpp.i
 
-.PHONY : system/ApTime.i
+.PHONY : source/AirportExporter.i
 
 # target to preprocess a source file
-system/ApTime.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/ApTime.cpp.i
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ApTime.cpp.i
-.PHONY : system/ApTime.cpp.i
+source/AirportExporter.cpp.i:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/AirportExporter.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/AirportExporter.cpp.i
+.PHONY : source/AirportExporter.cpp.i
 
-system/ApTime.s: system/ApTime.cpp.s
+source/AirportExporter.s: source/AirportExporter.cpp.s
 
-.PHONY : system/ApTime.s
+.PHONY : source/AirportExporter.s
 
 # target to generate assembly for a file
-system/ApTime.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/ApTime.cpp.s
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ApTime.cpp.s
-.PHONY : system/ApTime.cpp.s
+source/AirportExporter.cpp.s:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/AirportExporter.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/AirportExporter.cpp.s
+.PHONY : source/AirportExporter.cpp.s
 
-system/Gate.o: system/Gate.cpp.o
+source/ApTime.o: source/ApTime.cpp.o
 
-.PHONY : system/Gate.o
+.PHONY : source/ApTime.o
 
 # target to build an object file
-system/Gate.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Gate.cpp.o
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Gate.cpp.o
-.PHONY : system/Gate.cpp.o
+source/ApTime.cpp.o:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/ApTime.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/ApTime.cpp.o
+.PHONY : source/ApTime.cpp.o
 
-system/Gate.i: system/Gate.cpp.i
+source/ApTime.i: source/ApTime.cpp.i
 
-.PHONY : system/Gate.i
+.PHONY : source/ApTime.i
 
 # target to preprocess a source file
-system/Gate.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Gate.cpp.i
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Gate.cpp.i
-.PHONY : system/Gate.cpp.i
+source/ApTime.cpp.i:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/ApTime.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/ApTime.cpp.i
+.PHONY : source/ApTime.cpp.i
 
-system/Gate.s: system/Gate.cpp.s
+source/ApTime.s: source/ApTime.cpp.s
 
-.PHONY : system/Gate.s
+.PHONY : source/ApTime.s
 
 # target to generate assembly for a file
-system/Gate.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Gate.cpp.s
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Gate.cpp.s
-.PHONY : system/Gate.cpp.s
+source/ApTime.cpp.s:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/ApTime.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/ApTime.cpp.s
+.PHONY : source/ApTime.cpp.s
 
-system/Reader.o: system/Reader.cpp.o
+source/Gate.o: source/Gate.cpp.o
 
-.PHONY : system/Reader.o
+.PHONY : source/Gate.o
 
 # target to build an object file
-system/Reader.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Reader.cpp.o
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Reader.cpp.o
-.PHONY : system/Reader.cpp.o
+source/Gate.cpp.o:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Gate.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Gate.cpp.o
+.PHONY : source/Gate.cpp.o
 
-system/Reader.i: system/Reader.cpp.i
+source/Gate.i: source/Gate.cpp.i
 
-.PHONY : system/Reader.i
+.PHONY : source/Gate.i
 
 # target to preprocess a source file
-system/Reader.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Reader.cpp.i
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Reader.cpp.i
-.PHONY : system/Reader.cpp.i
+source/Gate.cpp.i:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Gate.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Gate.cpp.i
+.PHONY : source/Gate.cpp.i
 
-system/Reader.s: system/Reader.cpp.s
+source/Gate.s: source/Gate.cpp.s
 
-.PHONY : system/Reader.s
+.PHONY : source/Gate.s
 
 # target to generate assembly for a file
-system/Reader.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Reader.cpp.s
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Reader.cpp.s
-.PHONY : system/Reader.cpp.s
+source/Gate.cpp.s:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Gate.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Gate.cpp.s
+.PHONY : source/Gate.cpp.s
 
-system/Runway.o: system/Runway.cpp.o
+source/Reader.o: source/Reader.cpp.o
 
-.PHONY : system/Runway.o
+.PHONY : source/Reader.o
 
 # target to build an object file
-system/Runway.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Runway.cpp.o
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Runway.cpp.o
-.PHONY : system/Runway.cpp.o
+source/Reader.cpp.o:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Reader.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Reader.cpp.o
+.PHONY : source/Reader.cpp.o
 
-system/Runway.i: system/Runway.cpp.i
+source/Reader.i: source/Reader.cpp.i
 
-.PHONY : system/Runway.i
+.PHONY : source/Reader.i
 
 # target to preprocess a source file
-system/Runway.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Runway.cpp.i
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Runway.cpp.i
-.PHONY : system/Runway.cpp.i
+source/Reader.cpp.i:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Reader.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Reader.cpp.i
+.PHONY : source/Reader.cpp.i
 
-system/Runway.s: system/Runway.cpp.s
+source/Reader.s: source/Reader.cpp.s
 
-.PHONY : system/Runway.s
+.PHONY : source/Reader.s
 
 # target to generate assembly for a file
-system/Runway.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Runway.cpp.s
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Runway.cpp.s
-.PHONY : system/Runway.cpp.s
+source/Reader.cpp.s:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Reader.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Reader.cpp.s
+.PHONY : source/Reader.cpp.s
 
-system/Simulator.o: system/Simulator.cpp.o
+source/Runway.o: source/Runway.cpp.o
 
-.PHONY : system/Simulator.o
+.PHONY : source/Runway.o
 
 # target to build an object file
-system/Simulator.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Simulator.cpp.o
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Simulator.cpp.o
-.PHONY : system/Simulator.cpp.o
+source/Runway.cpp.o:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Runway.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Runway.cpp.o
+.PHONY : source/Runway.cpp.o
 
-system/Simulator.i: system/Simulator.cpp.i
+source/Runway.i: source/Runway.cpp.i
 
-.PHONY : system/Simulator.i
+.PHONY : source/Runway.i
 
 # target to preprocess a source file
-system/Simulator.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Simulator.cpp.i
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Simulator.cpp.i
-.PHONY : system/Simulator.cpp.i
+source/Runway.cpp.i:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Runway.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Runway.cpp.i
+.PHONY : source/Runway.cpp.i
 
-system/Simulator.s: system/Simulator.cpp.s
+source/Runway.s: source/Runway.cpp.s
 
-.PHONY : system/Simulator.s
+.PHONY : source/Runway.s
 
 # target to generate assembly for a file
-system/Simulator.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Simulator.cpp.s
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Simulator.cpp.s
-.PHONY : system/Simulator.cpp.s
+source/Runway.cpp.s:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Runway.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Runway.cpp.s
+.PHONY : source/Runway.cpp.s
 
-system/utils.o: system/utils.cpp.o
+source/Simulator.o: source/Simulator.cpp.o
 
-.PHONY : system/utils.o
+.PHONY : source/Simulator.o
 
 # target to build an object file
-system/utils.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/utils.cpp.o
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/utils.cpp.o
-.PHONY : system/utils.cpp.o
+source/Simulator.cpp.o:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Simulator.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Simulator.cpp.o
+.PHONY : source/Simulator.cpp.o
 
-system/utils.i: system/utils.cpp.i
+source/Simulator.i: source/Simulator.cpp.i
 
-.PHONY : system/utils.i
+.PHONY : source/Simulator.i
 
 # target to preprocess a source file
-system/utils.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/utils.cpp.i
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/utils.cpp.i
-.PHONY : system/utils.cpp.i
+source/Simulator.cpp.i:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Simulator.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Simulator.cpp.i
+.PHONY : source/Simulator.cpp.i
 
-system/utils.s: system/utils.cpp.s
+source/Simulator.s: source/Simulator.cpp.s
 
-.PHONY : system/utils.s
+.PHONY : source/Simulator.s
 
 # target to generate assembly for a file
-system/utils.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/utils.cpp.s
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/utils.cpp.s
-.PHONY : system/utils.cpp.s
+source/Simulator.cpp.s:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/Simulator.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/Simulator.cpp.s
+.PHONY : source/Simulator.cpp.s
+
+source/utils.o: source/utils.cpp.o
+
+.PHONY : source/utils.o
+
+# target to build an object file
+source/utils.cpp.o:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/utils.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/utils.cpp.o
+.PHONY : source/utils.cpp.o
+
+source/utils.i: source/utils.cpp.i
+
+.PHONY : source/utils.i
+
+# target to preprocess a source file
+source/utils.cpp.i:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/utils.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/utils.cpp.i
+.PHONY : source/utils.cpp.i
+
+source/utils.s: source/utils.cpp.s
+
+.PHONY : source/utils.s
+
+# target to generate assembly for a file
+source/utils.cpp.s:
+	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/source/utils.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/source/utils.cpp.s
+.PHONY : source/utils.cpp.s
 
 # Help Target
 help:
@@ -908,36 +908,36 @@ help:
 	@echo "... other/testfiles/SimulatorTests.o"
 	@echo "... other/testfiles/SimulatorTests.i"
 	@echo "... other/testfiles/SimulatorTests.s"
-	@echo "... system/ATC.o"
-	@echo "... system/ATC.i"
-	@echo "... system/ATC.s"
-	@echo "... system/Airplane.o"
-	@echo "... system/Airplane.i"
-	@echo "... system/Airplane.s"
-	@echo "... system/Airport.o"
-	@echo "... system/Airport.i"
-	@echo "... system/Airport.s"
-	@echo "... system/AirportExporter.o"
-	@echo "... system/AirportExporter.i"
-	@echo "... system/AirportExporter.s"
-	@echo "... system/ApTime.o"
-	@echo "... system/ApTime.i"
-	@echo "... system/ApTime.s"
-	@echo "... system/Gate.o"
-	@echo "... system/Gate.i"
-	@echo "... system/Gate.s"
-	@echo "... system/Reader.o"
-	@echo "... system/Reader.i"
-	@echo "... system/Reader.s"
-	@echo "... system/Runway.o"
-	@echo "... system/Runway.i"
-	@echo "... system/Runway.s"
-	@echo "... system/Simulator.o"
-	@echo "... system/Simulator.i"
-	@echo "... system/Simulator.s"
-	@echo "... system/utils.o"
-	@echo "... system/utils.i"
-	@echo "... system/utils.s"
+	@echo "... source/ATC.o"
+	@echo "... source/ATC.i"
+	@echo "... source/ATC.s"
+	@echo "... source/Airplane.o"
+	@echo "... source/Airplane.i"
+	@echo "... source/Airplane.s"
+	@echo "... source/Airport.o"
+	@echo "... source/Airport.i"
+	@echo "... source/Airport.s"
+	@echo "... source/AirportExporter.o"
+	@echo "... source/AirportExporter.i"
+	@echo "... source/AirportExporter.s"
+	@echo "... source/ApTime.o"
+	@echo "... source/ApTime.i"
+	@echo "... source/ApTime.s"
+	@echo "... source/Gate.o"
+	@echo "... source/Gate.i"
+	@echo "... source/Gate.s"
+	@echo "... source/Reader.o"
+	@echo "... source/Reader.i"
+	@echo "... source/Reader.s"
+	@echo "... source/Runway.o"
+	@echo "... source/Runway.i"
+	@echo "... source/Runway.s"
+	@echo "... source/Simulator.o"
+	@echo "... source/Simulator.i"
+	@echo "... source/Simulator.s"
+	@echo "... source/utils.o"
+	@echo "... source/utils.i"
+	@echo "... source/utils.s"
 .PHONY : help
 
 
