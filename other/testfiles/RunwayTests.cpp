@@ -13,12 +13,22 @@ TEST_F(RunwayTests, RunwayGetterTests){
     EXPECT_TRUE(runway.getAirplanesOnRunway().empty());
     EXPECT_TRUE(runway.getAirport() == 0);
     EXPECT_FALSE(runway.getAirport() == -7);
+    EXPECT_TRUE(runway.getType() == Runway::UNKNOWN);
+    EXPECT_FALSE(runway.getType() == Runway::ASPHALT);
+    EXPECT_TRUE(runway.getLength() == 0);
+    EXPECT_FALSE(runway.getLength() == -1);
+    EXPECT_TRUE(runway.getTaxiRoute().size() == 0);
+    EXPECT_FALSE(runway.getTaxiRoute().size() == 1);
+    
 
     //Runway constructed with other constructor
     Airplane* testPlane = new Airplane();
     vector<Airplane*>planes;
     planes.push_back(testPlane);
     Runway runway2(5, "My very first runway!", planes);
+    runway2.setType(Runway::GRASS);
+    runway2.setLength(500);
+    runway2.addToTaxiRoute("Alpha");
 
     EXPECT_TRUE(runway2.getId() == 5);
     EXPECT_FALSE(runway2.getId() == 158);
@@ -32,6 +42,19 @@ TEST_F(RunwayTests, RunwayGetterTests){
     EXPECT_FALSE(runway2.getAirplanesOnRunway().empty());
     EXPECT_FALSE(runway2.getAirplanesOnRunway().size() == 8);
     EXPECT_TRUE(runway2.getAirplanesOnRunway().size() == 1);
+
+    EXPECT_TRUE(runway2.getType() == Runway::GRASS);
+    EXPECT_FALSE(runway2.getType() == Runway::ASPHALT);
+    EXPECT_FALSE(runway2.getType() == Runway::UNKNOWN);
+
+    EXPECT_TRUE(runway2.getLength() == 500);
+    EXPECT_FALSE(runway2.getLength() == 0);
+    
+    EXPECT_TRUE(runway2.getTaxiRoute().size() == 1);
+    EXPECT_FALSE(runway2.getTaxiRoute().size() == 0);
+
+    EXPECT_TRUE(runway2.getTaxiRoute(0) == "Alpha");
+    EXPECT_FALSE(runway2.getTaxiRoute(0) == "");
 
     //vs memory leaks
     delete testPlane;
@@ -57,6 +80,28 @@ TEST_F(RunwayTests, RunwaySetterTests){
     runway.setAirport(5);
     EXPECT_TRUE(runway.getAirport() == 5);
     EXPECT_FALSE(runway.getAirport() == 0);
+
+    runway.setLength(750);
+    EXPECT_TRUE(runway.getLength() == 750);
+    EXPECT_FALSE(runway.getLength() == 0);
+    
+    runway.setType("asphalt");
+    EXPECT_TRUE(runway.getType() == Runway::ASPHALT);
+    EXPECT_FALSE(runway.getLength() == Runway::GRASS);
+
+    runway.setType(Runway::GRASS);
+    EXPECT_FALSE(runway.getType() == Runway::ASPHALT);
+    EXPECT_TRUE(runway.getType() == Runway::GRASS);
+
+    runway.addToTaxiRoute("Alpha");
+    runway.addToTaxiRoute("Beta");
+    EXPECT_TRUE(runway.getTaxiRoute(0) == "Alpha");
+    EXPECT_TRUE(runway.getTaxiRoute(1) == "Beta");
+    EXPECT_FALSE(runway.getTaxiRoute(1) == "Alpha");
+    EXPECT_FALSE(runway.getTaxiRoute(0) == "Beta");
+    EXPECT_TRUE(runway.getTaxiRoute().size() == 2);
+    EXPECT_FALSE(runway.getTaxiRoute().size() == 0);
+    EXPECT_FALSE(runway.getTaxiRoute().size() == 1);
 
     //Tests with other constructor
     vector<Airplane*>testVec;

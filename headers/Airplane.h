@@ -402,8 +402,19 @@ public:
      * - ENSURE(this->flightPlan->arrival == arrival, "Errror setting arrival for FlightPlan of Airplane");
      * - ENSURE(this->flightPlan->interval == interval, "Error setting interval for FlightPlan of Airplane");
      */
-     void setFlightPlan(const std::string& destination, const int departure, const int arrival, const int interval);
+     void setFlightPlan(const std::string destination, const int departure, const int arrival, const int interval);
 
+
+    /**
+     * \brief Gets the flightplan of airplane
+     *
+     * @return Flightplan
+     *
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     */
+    FlightPlan* getFlightPlan();
 
     /**
      * \brief constructor of the airplane class
@@ -447,7 +458,7 @@ private:
     Type type; /**<Variable to hold type of the airplane*/
     Engine engine; /**<Variable to hold type of engine*/
     Size size; /**<Variable to hold size of airplane*/
-    FlightPlan* flightPlan; /**<Variable holding flightPlan of this plane*/
+    FlightPlan flightPlan; /**<Variable holding flightPlan of this plane*/
 };
 
 #endif

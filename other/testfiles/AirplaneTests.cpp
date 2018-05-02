@@ -44,7 +44,15 @@ TEST_F(AirplaneTests, AirplaneGetterTests){
     EXPECT_FALSE(airplane.getNumber() == "number");
     EXPECT_TRUE(airplane.getNumber().empty());
 
+    EXPECT_TRUE(airplane.getType() == Airplane::AIRLINE);
+    EXPECT_FALSE(airplane.getType() == Airplane::PRIVATE);
+
+    EXPECT_TRUE(airplane.getEngine() == Airplane::JET);
+    EXPECT_FALSE(airplane.getEngine() == Airplane::PROPELLOR);
+
     Airplane airplane2(3, "callsign", "model", Airplane::IN_AIR, "number");
+    airplane2.setEngine("PROPELLOR");
+    airplane2.setType("PRIVATE");
 
     EXPECT_FALSE(airplane2.getId() == -1);
     EXPECT_FALSE(airplane2.getId() == 0);
@@ -71,6 +79,11 @@ TEST_F(AirplaneTests, AirplaneGetterTests){
     EXPECT_TRUE(airplane2.getNumber() == "number");
     EXPECT_FALSE(airplane2.getNumber().empty());
 
+    EXPECT_TRUE(airplane2.getEngine() == Airplane::PROPELLOR);
+    EXPECT_FALSE(airplane2.getEngine() == Airplane::JET);
+
+    EXPECT_TRUE(airplane2.getType() == Airplane::PRIVATE);
+    EXPECT_FALSE(airplane2.getType() == Airplane::AIRLINE);
 }
 
 TEST_F(AirplaneTests, AirplaneSetterTests){
@@ -116,6 +129,32 @@ TEST_F(AirplaneTests, AirplaneSetterTests){
     EXPECT_FALSE(airplane.getNumber().empty());
     EXPECT_FALSE(airplane.getNumber() == "number");
     EXPECT_TRUE(airplane.getNumber() == "num");
+
+    airplane.setEngine("jet");
+    EXPECT_TRUE(airplane.getEngine() == Airplane::JET);
+    EXPECT_FALSE(airplane.getEngine() == Airplane::PROPELLOR);
+
+    airplane.setEngine(Airplane::PROPELLOR);
+    EXPECT_FALSE(airplane.getEngine() == Airplane::JET);
+    EXPECT_TRUE(airplane.getEngine() == Airplane::PROPELLOR);
+
+    airplane.setType("private");
+    EXPECT_TRUE(airplane.getType() == Airplane::PRIVATE);
+    EXPECT_FALSE(airplane.getType() == Airplane::AIRLINE);
+
+    airplane.setType(Airplane::AIRLINE);
+    EXPECT_FALSE(airplane.getType() == Airplane::PRIVATE);
+    EXPECT_TRUE(airplane.getType() == Airplane::AIRLINE);
+
+    airplane.setFlightPlan("DEST", 1, 2, 3);
+    EXPECT_TRUE(airplane.getFlightPlan()->destination == "DEST");
+    EXPECT_FALSE(airplane.getFlightPlan()->destination == "");
+    EXPECT_TRUE(airplane.getFlightPlan()->departure == 1);
+    EXPECT_TRUE(airplane.getFlightPlan()->arrival == 2);
+    EXPECT_TRUE(airplane.getFlightPlan()->interval == 3);
+    EXPECT_FALSE(airplane.getFlightPlan()->departure == 0);
+    EXPECT_FALSE(airplane.getFlightPlan()->arrival == 0);
+    EXPECT_FALSE(airplane.getFlightPlan()->interval == 0);
 }
 
 TEST_F(AirplaneTests, AirportChecks){

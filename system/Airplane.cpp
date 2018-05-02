@@ -6,7 +6,7 @@
 #include <string>
 #include "../headers/Airport.h"
 #include "../headers/utils.h"
-
+#include <iostream>
 
 //Approach
 void Airplane::approach(int amountOfFeet) {
@@ -148,7 +148,7 @@ void Airplane::setEngine(std::string engine) {
         char& c = engine[i];
         c = toupper(c);
     }
-
+    
     if (engine == "JET") this->engine = Airplane::JET; 
     if (engine == "PROPELLOR") this->engine = Airplane::PROPELLOR;
     if (engine == "GLIDER") this->engine = Airplane::GLIDER;
@@ -189,15 +189,19 @@ void Airplane::setSize(std::string size) {
     if (size == "EXTRA_LARGE") this->size = Airplane::EXTRA_LARGE;
 }
 
-void Airplane::setFlightPlan(const std::string& destination, const int departure, const int arrival, const int interval) {
-    this->flightPlan->destination = destination;
-    this->flightPlan->departure = departure;
-    this->flightPlan->arrival = arrival;
-    this->flightPlan->interval = interval;
-    ENSURE(this->flightPlan->destination == destination, "Error setting destination for FlightPlan of Airplane");
-    ENSURE(this->flightPlan->departure == departure, "Error setting departure for FlightPlan of Airplane");
-    ENSURE(this->flightPlan->arrival == arrival, "Errror setting arrival for FlightPlan of Airplane");
-    ENSURE(this->flightPlan->interval == interval, "Error setting interval for FlightPlan of Airplane");
+void Airplane::setFlightPlan(const std::string destination, const int departure, const int arrival, const int interval) {
+    this->flightPlan.destination = destination;
+    this->flightPlan.departure = departure;
+    this->flightPlan.arrival = arrival;
+    this->flightPlan.interval = interval;
+    ENSURE(this->flightPlan.destination == destination, "Error setting destination for FlightPlan of Airplane");
+    ENSURE(this->flightPlan.departure == departure, "Error setting departure for FlightPlan of Airplane");
+    ENSURE(this->flightPlan.arrival == arrival, "Errror setting arrival for FlightPlan of Airplane");
+    ENSURE(this->flightPlan.interval == interval, "Error setting interval for FlightPlan of Airplane");
+}
+
+Airplane::FlightPlan* Airplane::getFlightPlan() {
+    return &this->flightPlan;
 }
 
 bool Airplane::properlyInitialized() const {
@@ -226,6 +230,8 @@ Airplane::Airplane() {
     _callsign = "";
     _model = "";
     _number = "";
+    this->type = Airplane::AIRLINE;
+    this->engine = Airplane::JET;
     ENSURE(this->properlyInitialized(), "Airplane is not initialized correctly");
 }
 

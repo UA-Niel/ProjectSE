@@ -5,6 +5,7 @@
 
 #include "../headers/Runway.h"
 #include "../headers/DesignByContract.h"
+    #include <iostream> 
 
 //Add airplane
 bool Runway::addAirplane(Airplane* airplane) {
@@ -69,15 +70,21 @@ void Runway::setType(const Runway::RunwayType& type) {
     this->runwayType = type;
     ENSURE(this->runwayType == type, "Error setting new type for the Runway");
 }
-void Runway::setType(const std::string type) {
+void Runway::setType(std::string type) {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
-    std::string buffer = type;
+/*    std::string buffer = type;
     for(int i=0;buffer[i]!=0;i++)
         if(buffer[i]<='z' && buffer[i]>='a')
             buffer[i]-=32;
-    
+*/
+
+
+    for (unsigned int i = 0; i < type.length(); i++) {
+        char& c = type[i];
+        c = toupper(c);
+    }
     if (type == "GRASS") this->runwayType = Runway::GRASS;
-    if (type == "ASHPALT") this->runwayType = Runway::ASPHALT;
+    if (type == "ASPHALT") this->runwayType = Runway::ASPHALT;
     if (type == "SAND") this->runwayType = Runway::SAND;
     if (type == "UNKNOWN") this->runwayType = Runway::UNKNOWN;
 }
@@ -93,11 +100,19 @@ const int Runway::getLength() {
     return this->length;
 }
 
-void Runway::addToTaxiRoute(const std::string& name) {
+void Runway::addToTaxiRoute(const std::string name) {
     REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
     unsigned int oldSize = taxiRoute.size();
     this->taxiRoute.push_back(name);
     ENSURE(oldSize == taxiRoute.size()-1, "Error adding to Route");
+}
+
+const std::string& Runway::getTaxiRoute(const int index) {
+    REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+    return this->taxiRoute[index];
+}
+const std::vector<std::string>& Runway::getTaxiRoute() {
+    return this->taxiRoute;
 }
 
 Runway::RunwayType& Runway::getType() {
@@ -121,5 +136,7 @@ Runway::Runway() {
     _runwayId = 0;
     _initCheck = this;
     _myAirport = 0;
+    this->runwayType = Runway::UNKNOWN;
+    this->length = 0;
     ENSURE(this->properlyInitialized(), "Runway is not initialized correctly");
 }

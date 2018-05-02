@@ -145,7 +145,7 @@ public:
      * - ENSURE(this->runwayType == type, "Error setting new type for the Runway");
      */
     void setType(const Runway::RunwayType& type);
-    void setType(const std::string type);
+    void setType(std::string type);
 
     /**
      * \brief Returns the type of the runway
@@ -189,7 +189,19 @@ public:
      * **Postconditions:**
      * - ENSURE(oldSize == taxiRoute.size()-1, "Error adding to Route");
      */
-    void addToTaxiRoute(const std::string& name);
+     void addToTaxiRoute(const std::string name);
+
+    /**
+     * \brief Returns routepoint at index
+     *
+     * @return Name name of point at index
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+     *
+     */
+     const std::string& getTaxiRoute(const int index);
+     const std::vector<std::string>& getTaxiRoute();
 
     //Constructor
     /**

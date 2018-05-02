@@ -4,7 +4,8 @@
 #include "../../headers/Gate.h"
 
 TEST_F(ReaderTests, testingInput) {
-    Airport* testAirport = loadAirportFromFile("other/testfiles/testinput.xml");
+    ////////////////////////////////////////////
+    Airport* testAirport = loadAirportFromFile("other/testfiles/testinput2.xml");
 
     EXPECT_TRUE(testAirport->getName() == "name");
     
@@ -17,6 +18,7 @@ TEST_F(ReaderTests, testingInput) {
     EXPECT_TRUE(testAirport->getCallsign() == "callsign");
     EXPECT_FALSE(testAirport->getCallsign() == "");
 
+    ////////////////////////////////////////////
     Runway* r = testAirport->getRunway(0);
 
     EXPECT_TRUE(r->getName() == "name");
@@ -26,7 +28,16 @@ TEST_F(ReaderTests, testingInput) {
     EXPECT_FALSE(r->getAirport() == 0);
     EXPECT_FALSE(r->getAirport() == -1);
 
+    EXPECT_TRUE(r->getType() == Runway::ASPHALT);
+    EXPECT_FALSE(r->getType() == Runway::UNKNOWN);
+    
+    EXPECT_TRUE(r->getLength() == 1000);
+    EXPECT_FALSE(r->getLength() == 0);
 
+    EXPECT_TRUE(r->getTaxiRoute(0) == "Alpha");
+    EXPECT_FALSE(r->getTaxiRoute(0) == "");
+
+    ////////////////////////////////////////////
     Airplane* a = testAirport->getAirplane(0);
 
     EXPECT_TRUE(a->getNumber() == "number");
@@ -41,7 +52,28 @@ TEST_F(ReaderTests, testingInput) {
     EXPECT_TRUE(a->getModel() == "model");
     EXPECT_FALSE(a->getModel() == "");
 
+    EXPECT_TRUE(a->getType() == Airplane::AIRLINE);
+    EXPECT_FALSE(a->getType() == Airplane::PRIVATE);
+
+    EXPECT_TRUE(a->getSize() == Airplane::LARGE);
+    EXPECT_FALSE(a->getSize() == Airplane::SMALL);
+ 
+    EXPECT_TRUE(a->getEngine() == Airplane::JET);
+    EXPECT_FALSE(a->getEngine() == Airplane::PROPELLOR);
+
     EXPECT_TRUE(a->getStatus() == Airplane::APPROACHING);
     EXPECT_FALSE(a->getStatus() == Airplane::UNKNOWN);
+
+    EXPECT_TRUE(a->getFlightPlan()->destination == "LCY");    
+    EXPECT_FALSE(a->getFlightPlan()->destination == "");
+ 
+    EXPECT_TRUE(a->getFlightPlan()->departure == 15);    
+    EXPECT_FALSE(a->getFlightPlan()->departure == 0);
+
+    EXPECT_TRUE(a->getFlightPlan()->arrival == 45);    
+    EXPECT_FALSE(a->getFlightPlan()->arrival == 0);
+    
+    EXPECT_TRUE(a->getFlightPlan()->interval == 1);    
+    EXPECT_FALSE(a->getFlightPlan()->interval == 0);
 }
 

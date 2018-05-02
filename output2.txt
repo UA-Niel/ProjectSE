@@ -1,0 +1,25 @@
+callsign is approaching callsign at 10000ft.
+callsign descended to 9000ft.
+callsign descended to 8000ft.
+callsign descended to 7000ft.
+callsign descended to 6000ft.
+callsign descended to 5000ft.
+callsign descended to 4000ft.
+callsign descended to 3000ft.
+callsign descended to 2000ft.
+callsign descended to 1000ft.
+callsign descended to 0ft.
+callsign landed at Runway name
+callsign is taxiing to Gate 1 of name
+20 passengers exited callsign at Gate 1 of name
+callsign has been checked for technical issues
+callsign has been refueled
+20 passengers have boarded callsign at Gate 1 of name
+callsign is standing at Gate 1 of name
+callsign is taxiing to Runway name of name
+callsign ascended to 1000ft.
+callsign ascended to 2000ft.
+callsign ascended to 3000ft.
+callsign ascended to 4000ft.
+callsign ascended to 5000ft.
+callsign left name at Runway name

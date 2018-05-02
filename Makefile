@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/freek/Documents/Programs/clion-2018.1.2/bin/cmake/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /home/freek/Documents/Programs/clion-2018.1.2/bin/cmake/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/freek/Documents/School/ProjectSE
+CMAKE_SOURCE_DIR = /home/niel/Projects/ProjectSE/ProjectSE
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/freek/Documents/School/ProjectSE
+CMAKE_BINARY_DIR = /home/niel/Projects/ProjectSE/ProjectSE
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/freek/Documents/School/ProjectSE
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/freek/Documents/Programs/clion-2018.1.2/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/freek/Documents/Programs/clion-2018.1.2/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/freek/Documents/School/ProjectSE/CMakeFiles /home/freek/Documents/School/ProjectSE/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles /home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/freek/Documents/School/ProjectSE/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/niel/Projects/ProjectSE/ProjectSE/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ProjectSE_debug
-
-# Build rule for target.
-ProjectSE_debug: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ProjectSE_debug
-.PHONY : ProjectSE_debug
-
-# fast build rule for target.
-ProjectSE_debug/fast:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/build
-.PHONY : ProjectSE_debug/fast
-
-#=============================================================================
 # Target rules for targets named ProjectSE
 
 # Build rule for target.
@@ -136,14 +123,27 @@ ProjectSE/fast:
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/build
 .PHONY : ProjectSE/fast
 
+#=============================================================================
+# Target rules for targets named ProjectSE_debug
+
+# Build rule for target.
+ProjectSE_debug: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ProjectSE_debug
+.PHONY : ProjectSE_debug
+
+# fast build rule for target.
+ProjectSE_debug/fast:
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/build
+.PHONY : ProjectSE_debug/fast
+
 headers/IO/library/tinystr.o: headers/IO/library/tinystr.cpp.o
 
 .PHONY : headers/IO/library/tinystr.o
 
 # target to build an object file
 headers/IO/library/tinystr.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinystr.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/headers/IO/library/tinystr.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinystr.cpp.o
 .PHONY : headers/IO/library/tinystr.cpp.o
 
 headers/IO/library/tinystr.i: headers/IO/library/tinystr.cpp.i
@@ -152,8 +152,8 @@ headers/IO/library/tinystr.i: headers/IO/library/tinystr.cpp.i
 
 # target to preprocess a source file
 headers/IO/library/tinystr.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinystr.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/headers/IO/library/tinystr.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinystr.cpp.i
 .PHONY : headers/IO/library/tinystr.cpp.i
 
 headers/IO/library/tinystr.s: headers/IO/library/tinystr.cpp.s
@@ -162,8 +162,8 @@ headers/IO/library/tinystr.s: headers/IO/library/tinystr.cpp.s
 
 # target to generate assembly for a file
 headers/IO/library/tinystr.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinystr.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/headers/IO/library/tinystr.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinystr.cpp.s
 .PHONY : headers/IO/library/tinystr.cpp.s
 
 headers/IO/library/tinyxml.o: headers/IO/library/tinyxml.cpp.o
@@ -172,8 +172,8 @@ headers/IO/library/tinyxml.o: headers/IO/library/tinyxml.cpp.o
 
 # target to build an object file
 headers/IO/library/tinyxml.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxml.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/headers/IO/library/tinyxml.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxml.cpp.o
 .PHONY : headers/IO/library/tinyxml.cpp.o
 
 headers/IO/library/tinyxml.i: headers/IO/library/tinyxml.cpp.i
@@ -182,8 +182,8 @@ headers/IO/library/tinyxml.i: headers/IO/library/tinyxml.cpp.i
 
 # target to preprocess a source file
 headers/IO/library/tinyxml.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxml.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/headers/IO/library/tinyxml.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxml.cpp.i
 .PHONY : headers/IO/library/tinyxml.cpp.i
 
 headers/IO/library/tinyxml.s: headers/IO/library/tinyxml.cpp.s
@@ -192,8 +192,8 @@ headers/IO/library/tinyxml.s: headers/IO/library/tinyxml.cpp.s
 
 # target to generate assembly for a file
 headers/IO/library/tinyxml.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxml.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/headers/IO/library/tinyxml.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxml.cpp.s
 .PHONY : headers/IO/library/tinyxml.cpp.s
 
 headers/IO/library/tinyxmlerror.o: headers/IO/library/tinyxmlerror.cpp.o
@@ -202,8 +202,8 @@ headers/IO/library/tinyxmlerror.o: headers/IO/library/tinyxmlerror.cpp.o
 
 # target to build an object file
 headers/IO/library/tinyxmlerror.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxmlerror.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/headers/IO/library/tinyxmlerror.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxmlerror.cpp.o
 .PHONY : headers/IO/library/tinyxmlerror.cpp.o
 
 headers/IO/library/tinyxmlerror.i: headers/IO/library/tinyxmlerror.cpp.i
@@ -212,8 +212,8 @@ headers/IO/library/tinyxmlerror.i: headers/IO/library/tinyxmlerror.cpp.i
 
 # target to preprocess a source file
 headers/IO/library/tinyxmlerror.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxmlerror.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/headers/IO/library/tinyxmlerror.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxmlerror.cpp.i
 .PHONY : headers/IO/library/tinyxmlerror.cpp.i
 
 headers/IO/library/tinyxmlerror.s: headers/IO/library/tinyxmlerror.cpp.s
@@ -222,8 +222,8 @@ headers/IO/library/tinyxmlerror.s: headers/IO/library/tinyxmlerror.cpp.s
 
 # target to generate assembly for a file
 headers/IO/library/tinyxmlerror.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxmlerror.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/headers/IO/library/tinyxmlerror.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxmlerror.cpp.s
 .PHONY : headers/IO/library/tinyxmlerror.cpp.s
 
 headers/IO/library/tinyxmlparser.o: headers/IO/library/tinyxmlparser.cpp.o
@@ -232,8 +232,8 @@ headers/IO/library/tinyxmlparser.o: headers/IO/library/tinyxmlparser.cpp.o
 
 # target to build an object file
 headers/IO/library/tinyxmlparser.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxmlparser.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/headers/IO/library/tinyxmlparser.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxmlparser.cpp.o
 .PHONY : headers/IO/library/tinyxmlparser.cpp.o
 
 headers/IO/library/tinyxmlparser.i: headers/IO/library/tinyxmlparser.cpp.i
@@ -242,8 +242,8 @@ headers/IO/library/tinyxmlparser.i: headers/IO/library/tinyxmlparser.cpp.i
 
 # target to preprocess a source file
 headers/IO/library/tinyxmlparser.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxmlparser.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/headers/IO/library/tinyxmlparser.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxmlparser.cpp.i
 .PHONY : headers/IO/library/tinyxmlparser.cpp.i
 
 headers/IO/library/tinyxmlparser.s: headers/IO/library/tinyxmlparser.cpp.s
@@ -252,8 +252,8 @@ headers/IO/library/tinyxmlparser.s: headers/IO/library/tinyxmlparser.cpp.s
 
 # target to generate assembly for a file
 headers/IO/library/tinyxmlparser.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxmlparser.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/headers/IO/library/tinyxmlparser.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/headers/IO/library/tinyxmlparser.cpp.s
 .PHONY : headers/IO/library/tinyxmlparser.cpp.s
 
 main.o: main.cpp.o
@@ -559,8 +559,8 @@ system/ATC.o: system/ATC.cpp.o
 
 # target to build an object file
 system/ATC.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ATC.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/ATC.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ATC.cpp.o
 .PHONY : system/ATC.cpp.o
 
 system/ATC.i: system/ATC.cpp.i
@@ -569,8 +569,8 @@ system/ATC.i: system/ATC.cpp.i
 
 # target to preprocess a source file
 system/ATC.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ATC.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/ATC.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ATC.cpp.i
 .PHONY : system/ATC.cpp.i
 
 system/ATC.s: system/ATC.cpp.s
@@ -579,8 +579,8 @@ system/ATC.s: system/ATC.cpp.s
 
 # target to generate assembly for a file
 system/ATC.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ATC.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/ATC.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ATC.cpp.s
 .PHONY : system/ATC.cpp.s
 
 system/Airplane.o: system/Airplane.cpp.o
@@ -589,8 +589,8 @@ system/Airplane.o: system/Airplane.cpp.o
 
 # target to build an object file
 system/Airplane.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airplane.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Airplane.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airplane.cpp.o
 .PHONY : system/Airplane.cpp.o
 
 system/Airplane.i: system/Airplane.cpp.i
@@ -599,8 +599,8 @@ system/Airplane.i: system/Airplane.cpp.i
 
 # target to preprocess a source file
 system/Airplane.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airplane.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Airplane.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airplane.cpp.i
 .PHONY : system/Airplane.cpp.i
 
 system/Airplane.s: system/Airplane.cpp.s
@@ -609,8 +609,8 @@ system/Airplane.s: system/Airplane.cpp.s
 
 # target to generate assembly for a file
 system/Airplane.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airplane.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Airplane.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airplane.cpp.s
 .PHONY : system/Airplane.cpp.s
 
 system/Airport.o: system/Airport.cpp.o
@@ -619,8 +619,8 @@ system/Airport.o: system/Airport.cpp.o
 
 # target to build an object file
 system/Airport.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airport.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Airport.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airport.cpp.o
 .PHONY : system/Airport.cpp.o
 
 system/Airport.i: system/Airport.cpp.i
@@ -629,8 +629,8 @@ system/Airport.i: system/Airport.cpp.i
 
 # target to preprocess a source file
 system/Airport.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airport.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Airport.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airport.cpp.i
 .PHONY : system/Airport.cpp.i
 
 system/Airport.s: system/Airport.cpp.s
@@ -639,8 +639,8 @@ system/Airport.s: system/Airport.cpp.s
 
 # target to generate assembly for a file
 system/Airport.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airport.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Airport.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Airport.cpp.s
 .PHONY : system/Airport.cpp.s
 
 system/AirportExporter.o: system/AirportExporter.cpp.o
@@ -649,8 +649,8 @@ system/AirportExporter.o: system/AirportExporter.cpp.o
 
 # target to build an object file
 system/AirportExporter.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/AirportExporter.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/AirportExporter.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/AirportExporter.cpp.o
 .PHONY : system/AirportExporter.cpp.o
 
 system/AirportExporter.i: system/AirportExporter.cpp.i
@@ -659,8 +659,8 @@ system/AirportExporter.i: system/AirportExporter.cpp.i
 
 # target to preprocess a source file
 system/AirportExporter.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/AirportExporter.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/AirportExporter.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/AirportExporter.cpp.i
 .PHONY : system/AirportExporter.cpp.i
 
 system/AirportExporter.s: system/AirportExporter.cpp.s
@@ -669,8 +669,8 @@ system/AirportExporter.s: system/AirportExporter.cpp.s
 
 # target to generate assembly for a file
 system/AirportExporter.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/AirportExporter.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/AirportExporter.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/AirportExporter.cpp.s
 .PHONY : system/AirportExporter.cpp.s
 
 system/ApTime.o: system/ApTime.cpp.o
@@ -679,8 +679,8 @@ system/ApTime.o: system/ApTime.cpp.o
 
 # target to build an object file
 system/ApTime.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ApTime.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/ApTime.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ApTime.cpp.o
 .PHONY : system/ApTime.cpp.o
 
 system/ApTime.i: system/ApTime.cpp.i
@@ -689,8 +689,8 @@ system/ApTime.i: system/ApTime.cpp.i
 
 # target to preprocess a source file
 system/ApTime.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ApTime.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/ApTime.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ApTime.cpp.i
 .PHONY : system/ApTime.cpp.i
 
 system/ApTime.s: system/ApTime.cpp.s
@@ -699,8 +699,8 @@ system/ApTime.s: system/ApTime.cpp.s
 
 # target to generate assembly for a file
 system/ApTime.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ApTime.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/ApTime.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/ApTime.cpp.s
 .PHONY : system/ApTime.cpp.s
 
 system/Gate.o: system/Gate.cpp.o
@@ -709,8 +709,8 @@ system/Gate.o: system/Gate.cpp.o
 
 # target to build an object file
 system/Gate.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Gate.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Gate.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Gate.cpp.o
 .PHONY : system/Gate.cpp.o
 
 system/Gate.i: system/Gate.cpp.i
@@ -719,8 +719,8 @@ system/Gate.i: system/Gate.cpp.i
 
 # target to preprocess a source file
 system/Gate.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Gate.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Gate.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Gate.cpp.i
 .PHONY : system/Gate.cpp.i
 
 system/Gate.s: system/Gate.cpp.s
@@ -729,8 +729,8 @@ system/Gate.s: system/Gate.cpp.s
 
 # target to generate assembly for a file
 system/Gate.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Gate.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Gate.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Gate.cpp.s
 .PHONY : system/Gate.cpp.s
 
 system/Reader.o: system/Reader.cpp.o
@@ -739,8 +739,8 @@ system/Reader.o: system/Reader.cpp.o
 
 # target to build an object file
 system/Reader.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Reader.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Reader.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Reader.cpp.o
 .PHONY : system/Reader.cpp.o
 
 system/Reader.i: system/Reader.cpp.i
@@ -749,8 +749,8 @@ system/Reader.i: system/Reader.cpp.i
 
 # target to preprocess a source file
 system/Reader.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Reader.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Reader.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Reader.cpp.i
 .PHONY : system/Reader.cpp.i
 
 system/Reader.s: system/Reader.cpp.s
@@ -759,8 +759,8 @@ system/Reader.s: system/Reader.cpp.s
 
 # target to generate assembly for a file
 system/Reader.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Reader.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Reader.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Reader.cpp.s
 .PHONY : system/Reader.cpp.s
 
 system/Runway.o: system/Runway.cpp.o
@@ -769,8 +769,8 @@ system/Runway.o: system/Runway.cpp.o
 
 # target to build an object file
 system/Runway.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Runway.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Runway.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Runway.cpp.o
 .PHONY : system/Runway.cpp.o
 
 system/Runway.i: system/Runway.cpp.i
@@ -779,8 +779,8 @@ system/Runway.i: system/Runway.cpp.i
 
 # target to preprocess a source file
 system/Runway.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Runway.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Runway.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Runway.cpp.i
 .PHONY : system/Runway.cpp.i
 
 system/Runway.s: system/Runway.cpp.s
@@ -789,8 +789,8 @@ system/Runway.s: system/Runway.cpp.s
 
 # target to generate assembly for a file
 system/Runway.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Runway.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Runway.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Runway.cpp.s
 .PHONY : system/Runway.cpp.s
 
 system/Simulator.o: system/Simulator.cpp.o
@@ -799,8 +799,8 @@ system/Simulator.o: system/Simulator.cpp.o
 
 # target to build an object file
 system/Simulator.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Simulator.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Simulator.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Simulator.cpp.o
 .PHONY : system/Simulator.cpp.o
 
 system/Simulator.i: system/Simulator.cpp.i
@@ -809,8 +809,8 @@ system/Simulator.i: system/Simulator.cpp.i
 
 # target to preprocess a source file
 system/Simulator.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Simulator.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Simulator.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Simulator.cpp.i
 .PHONY : system/Simulator.cpp.i
 
 system/Simulator.s: system/Simulator.cpp.s
@@ -819,8 +819,8 @@ system/Simulator.s: system/Simulator.cpp.s
 
 # target to generate assembly for a file
 system/Simulator.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Simulator.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/Simulator.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/Simulator.cpp.s
 .PHONY : system/Simulator.cpp.s
 
 system/utils.o: system/utils.cpp.o
@@ -829,8 +829,8 @@ system/utils.o: system/utils.cpp.o
 
 # target to build an object file
 system/utils.cpp.o:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/utils.cpp.o
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/utils.cpp.o
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/utils.cpp.o
 .PHONY : system/utils.cpp.o
 
 system/utils.i: system/utils.cpp.i
@@ -839,8 +839,8 @@ system/utils.i: system/utils.cpp.i
 
 # target to preprocess a source file
 system/utils.cpp.i:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/utils.cpp.i
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/utils.cpp.i
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/utils.cpp.i
 .PHONY : system/utils.cpp.i
 
 system/utils.s: system/utils.cpp.s
@@ -849,8 +849,8 @@ system/utils.s: system/utils.cpp.s
 
 # target to generate assembly for a file
 system/utils.cpp.s:
-	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/utils.cpp.s
 	$(MAKE) -f CMakeFiles/ProjectSE.dir/build.make CMakeFiles/ProjectSE.dir/system/utils.cpp.s
+	$(MAKE) -f CMakeFiles/ProjectSE_debug.dir/build.make CMakeFiles/ProjectSE_debug.dir/system/utils.cpp.s
 .PHONY : system/utils.cpp.s
 
 # Help Target
@@ -861,8 +861,8 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... ProjectSE_debug"
 	@echo "... ProjectSE"
+	@echo "... ProjectSE_debug"
 	@echo "... headers/IO/library/tinystr.o"
 	@echo "... headers/IO/library/tinystr.i"
 	@echo "... headers/IO/library/tinystr.s"
