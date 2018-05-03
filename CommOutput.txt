@@ -1,46 +1,66 @@
-[23:55] [callsign]
-$ Antwerp Tower, callsign, arriving at name.
+[23:55] [Cessna 842]
+$ Antwerp Tower, Cessna 842, arriving at Antwerp International Airport.
 [23:56] [Antwerp Tower]
-$ callsign, radar contact, descend and maintain five thousand feet, squawk 0
-[23:57] [callsign]
-$ Descend and maintain five thousand feet, squawking 0, callsign
-[23:58] [Antwerp Tower]
-$ callsign, hold south on the one eighty radial, expect further clearance at <time>
-[23:58] [callsign]
-$ Holding south on the one eighty radial, callsign
+$ Cessna 842, radar contact, descend and maintain five thousand feet, squawk 0
+[23:57] [Cessna 842]
+$ Descend and maintain five thousand feet, squawking 0, Cessna 842
+[23:58] [Boeing 747]
+$ Boeing 747 is ready to taxi
 [23:59] [Antwerp Tower]
-$ callsign, descend and maintain three thousand feet.
-[00:00] [callsign]
-$ Descend and maintain three thousand feet, callsign.
-[00:01] [Antwerp Tower]
-$ callsign, cleared ILS approach runway, name.
-[00:02] [callsign]
-$ Cleared ILS approach runway name, callsign
-[00:03] [callsign]
-$ Antwerp Tower, callsign, runway name vacated.
-[00:04] [callsign]
-$ Antwerp Tower, callsign,  requesting IFR clearancy to destination, <destination>.
-[00:05] [Antwerp Tower]
-$ callsign, Antwerp Tower, cleared to <destination>, maintain five thousand, expect flight level one one zero - ten minutes after departure, squawk <squawk code>
-[00:06] [callsign]
-$ Cleared to <destination>, initial altitude five thousand, expecting one zero zero in ten, squawking 0, callsign
-[00:07] [callsign]
-$ callsign is ready to taxi
-[00:08] [Antwerp Tower]
 $ <taxi instructions>
-[00:09] [callsign]
-$ Antwerp Tower, callsign, holding short at name.
-[00:10] [Antwerp Tower]
-$ callsign, hold position.
-[00:11] [callsign]
-$ Holding position, callsign.
-[00:12] [callsign]
-$ Antwerp Tower, callsign, holding short at name.
-[00:13] [Antwerp Tower]
-$ callsign, runway name cleared for take-off.
-[00:14] [callsign]
-$ Runway name cleared for take-off.
+[00:00] [Boeing 747]
+$ Antwerp Tower, Boeing 747, holding short at 11R.
+[00:01] [Antwerp Tower]
+$ Boeing 747, hold position.
+[00:02] [Boeing 747]
+$ Holding position, Boeing 747.
+[00:03] [Boeing 747]
+$ Antwerp Tower, Boeing 747, holding short at 11R.
+[00:04] [Antwerp Tower]
+$ Boeing 747, runway 11R cleared for take-off.
+[00:05] [Boeing 747]
+$ Runway 11R cleared for take-off.
+[00:06] [Antwerp Tower]
+$ Boeing 747, runway 11R cleared for take-off.
+[00:07] [Boeing 747]
+$ Runway 11R cleared for take-off.
+[00:08] [Antwerp Tower]
+$ Cessna 842, hold south on the one eighty radial, expect further clearance at <time>
+[00:08] [Cessna 842]
+$ Holding south on the one eighty radial, Cessna 842
+[00:09] [Antwerp Tower]
+$ Cessna 842, descend and maintain three thousand feet.
+[00:10] [Cessna 842]
+$ Descend and maintain three thousand feet, Cessna 842.
+[00:11] [Antwerp Tower]
+$ Cessna 842, cleared ILS approach runway, 11R.
+[00:12] [Cessna 842]
+$ Cleared ILS approach runway 11R, Cessna 842
+[00:13] [Cessna 842]
+$ Antwerp Tower, Cessna 842, runway 11R vacated.
+[00:14] [Cessna 842]
+$ Antwerp Tower, Cessna 842,  requesting IFR clearancy to destination, <destination>.
 [00:15] [Antwerp Tower]
-$ callsign, runway name cleared for take-off.
-[00:16] [callsign]
-$ Runway name cleared for take-off.
+$ Cessna 842, Antwerp Tower, cleared to <destination>, maintain five thousand, expect flight level one one zero - ten minutes after departure, squawk <squawk code>
+[00:16] [Cessna 842]
+$ Cleared to <destination>, initial altitude five thousand, expecting one zero zero in ten, squawking 0, Cessna 842
+[00:17] [Cessna 842]
+$ Cessna 842 is ready to taxi
+[00:18] [Antwerp Tower]
+$ <taxi instructions>
+[00:19] [Cessna 842]
+$ Antwerp Tower, Cessna 842, holding short at 11R.
+[00:20] [Antwerp Tower]
+$ Cessna 842, hold position.
+[00:21] [Cessna 842]
+$ Holding position, Cessna 842.
+[00:22] [Cessna 842]
+$ Antwerp Tower, Cessna 842, holding short at 11R.
+[00:23] [Antwerp Tower]
+$ Cessna 842, runway 11R cleared for take-off.
+[00:24] [Cessna 842]
+$ Runway 11R cleared for take-off.
+[00:25] [Antwerp Tower]
+$ Cessna 842, runway 11R cleared for take-off.
+[00:26] [Cessna 842]
+$ Runway 11R cleared for take-off.
