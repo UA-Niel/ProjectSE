@@ -43,6 +43,6 @@ int main(int argc, char* argv[]) {
     for(unsigned int i = 0; i<p->getNrOfRunways(); i++) delete p->getRunways()[i];
     delete p;
 
-    cout << "DONE!";
+    cout << "DONE!" << endl;
     return 0;
 }
