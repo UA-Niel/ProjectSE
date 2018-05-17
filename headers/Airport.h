@@ -69,7 +69,7 @@ public:
      * - REQUIRE(airplane->properlyInitialized(), "Airplane 'airplane' is not initalized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(amountOfPlanesOld == _airplanesOnAirport.size()+1, "Problem adding airplane to airport");
+     * - ENSURE(amountOfPlanesOld == getAirplanes().size()-1, "Problem adding airplane to airport");
      */
     bool addAirplane(Airplane* airplane);
 
@@ -86,7 +86,7 @@ public:
      * - REQUIRE(runway->properlyInitialized(), "Runway 'runway' is not initalized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(amountOfRunwaysOld == _runways.size()-1, "Problem adding runway");
+     * - ENSURE(amountOfRunwaysOld == getRunways().size()-1, "Problem adding runway");
      */
     bool addRunway(Runway* runway);
 
@@ -103,7 +103,7 @@ public:
      * - REQUIRE(gate->properlyInitialized(), "Gate 'gate' is not initalized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(amountOfGatesOld == _gates.size()-1, "Problem adding gate");
+     * - ENSURE(amountOfGatesOld == getAllGates().size()-1, "Problem adding gate");
      */
     bool addGate(Gate* gate);
 
@@ -210,7 +210,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_name == name, "Failed to assign airport name");
+     * - ENSURE(getName() == name, "Failed to assign Airport name");
      */
     void setName(string name);
 
@@ -222,7 +222,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_IATA == IATA, "Failed to assign IATA of the airport");
+     * - ENSURE(getIATA() == IATA, "Failed to assign IATA of the airport");
      */
     void setIATA(string IATA);
 
@@ -234,7 +234,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_callsign == callsign, "Failed to assign callsign of the airport");
+     * - ENSURE(getCallsign() == callsign, "Failed to assign callsign of the airport")
      */
     void setCallsign(string callsign);
 

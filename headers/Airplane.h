@@ -97,6 +97,9 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(getHeight() == oldHeight + amountOfFeet, "Error increasing height");
      */
 
     void ascend(unsigned int amountOfFeet = 1000);
@@ -111,7 +114,7 @@ public:
      * - REQUIRE(amountOfFeet > 0, "You can only approach by a positive amount of feet");
      *
      * **Postconditions:**
-     * - ENSURE(heightOld == _height+amountOfFeet, "Airplane approached with wrong amount of feet");
+     * - ENSURE(heightOld == getHeight()+amountOfFeet, "Airplane approached with wrong amount of feet");
      */
     void approach(int amountOfFeet = 1000);
     
@@ -124,7 +127,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_airplaneId == id, "Error setting new ID for Airplane");
+     * - ENSURE(getId() == id, "Error setting new ID for Airplane");
      */
     void setId(int id);
 
@@ -136,7 +139,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_number == number, "Error setting new number for Airplane");
+     * - ENSURE(getNumber() == number, "Error setting new number for Airplane");
      */
     void setNumber(const std::string& number);
 
@@ -149,7 +152,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_callsign == callsign, "Error setting new callsign for Airplane");
+     * - ENSURE(getCallsign() == callsign, "Error setting new callsign for Airplane");
      */
     void setCallsign(const string& callsign);
 
@@ -161,7 +164,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_model == model, "Error setting new model for Airplane");
+     * - ENSURE(getModel() == model, "Error setting new model for Airplane");
      */
     void setModel(const string& model);
 
@@ -173,7 +176,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_status == status, "Error setting new status of Airplane");
+     * - ENSURE(getStatus() == status, "Error setting new status of Airplane");
      */
     void setStatus(Status status);
 
@@ -274,7 +277,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_amountOfPassengers = amount, "Error setting new amount of passengers");
+     * - ENSURE(getAmountOfPassengers() == amount, "Error setting new amount of passengers");
      */
     void setAmountOfPassengers(const int amount); 
 
@@ -317,7 +320,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(this->type == type, "Error setting new type for airplane");
+     * - ENSURE(this->getType() == type, "Error setting new type for airplane");
      */
     void setType(const Type& type);
     void setType(std::string type);
@@ -352,7 +355,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(this->engine == engine, "Error setting new engine for airplane");
+     * - ENSURE(getEngine() == engine, "Error setting new engine for airplane");
      */
     void setEngine(const Engine& engine);
     void setEngine(std::string engine);
@@ -379,7 +382,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(this->size == size, "Error setting new size for airplane");
+     * - ENSURE(getSize() == size, "Error setting new size for airplane");
      */
       void setSize(const Size& size);
       void setSize(std::string size);

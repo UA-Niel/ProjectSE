@@ -11,6 +11,8 @@
 #include <cstdlib>
 #include <fstream>
 
+#include <windows.h>
+
 using namespace std;
 
 
@@ -39,7 +41,7 @@ void Simulator::setAtc(ATC* atc) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
     REQUIRE(atc->properlyInitialized(), "ATC is not initialized correctly");
     Simulator::_atc = atc;
-    ENSURE(_atc->getCallsign() == atc->getCallsign(), "Error setting new ATC for Simulator");
+    ENSURE(getAtc()->getCallsign() == atc->getCallsign(), "Error setting new ATC for Simulator");
 }
 
 
@@ -401,11 +403,17 @@ ApTime* Simulator::getTime() const {
 void Simulator::setTime(ApTime* time) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
     _time = time;
-    ENSURE(_time == time, "Error setting new time for the Simulator");
+    ENSURE(getTime() == time, "Error setting new time for the Simulator");
 }
 
 void Simulator::set_communicationOutput(bool _communicationOutput) {
     REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
     Simulator::_communicationOutput = _communicationOutput;
-    ENSURE(this->_communicationOutput == _communicationOutput, "Error setting communication output boolean");
+    ENSURE(isCommunicationOutput() == _communicationOutput, "Error setting communication output boolean");
+}
+
+
+bool Simulator::isCommunicationOutput() const {
+    REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
+    return _communicationOutput;
 }

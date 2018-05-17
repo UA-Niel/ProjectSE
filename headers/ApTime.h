@@ -37,8 +37,8 @@ public:
      * - REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_hour < 24 && _hour >= 0, "Range of hours has to be [0, 24[");
-     * - ENSURE(_hour == 0 || _hour == hour, "Error setting Hour of ApTime");
+     * - ENSURE(getHour() < 24 && getHour() >= 0, "Range of hours has to be [0, 24[");
+     * - ENSURE(getHour() == 0 || getHour() == hour, "Error setting Hour of ApTime");
      */
     void setHour(int hour);
 
@@ -59,8 +59,8 @@ public:
      * - REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_minutes < 60 && _minutes >= 0, "Range of minutes has to be [0, 60[");
-     * - ENSURE(_minutes == 0 || _minutes == minutes, "Error setting Minutes of ApTime");
+     * - ENSURE(getMinutes() < 60 && getMinutes() >= 0, "Range of minutes has to be [0, 60[");
+     * - ENSURE(getMinutes() == 0 || getMinutes() == minutes, "Error setting Minutes of ApTime");
      */
     void setMinutes(int minutes);
 
@@ -71,10 +71,10 @@ public:
      *
      * **Postconditions:**
      * - ENSURE(this->properlyInitialized(), "ApTime is not initialized correctly");
-     * - ENSURE(_minutes < 60 && _minutes >= 0, "Range of minutes has to be [0, 60[");
-     * - ENSURE(_hour < 24 && _hour >= 0, "Range of hours has to be [0, 24[");
-     * - ENSURE(_minutes == 0 || _minutes == minutes, "Error setting Minutes of ApTime");
-     * - ENSURE(_hour == 0 || _hour == hour, "Error setting Hour of ApTime");
+     * - ENSURE(getMinutes() < 60 && getMinutes() >= 0, "Range of minutes has to be [0, 60[");
+     * - ENSURE(getHour() < 24 && getHour() >= 0, "Range of hours has to be [0, 24[");
+     * - ENSURE(getMinutes() == 0 || getMinutes() == minutes, "Error setting Minutes of ApTime");
+     * - ENSURE(getHour() == 0 || getHour() == hour, "Error setting Hour of ApTime");
      */
     ApTime(int _hour, int _minutes);
 
@@ -87,8 +87,8 @@ public:
      * - REQUIRE(minutes > 0, "Can't go back in time");
      *
      * **Postconditions:**
-     * - ENSURE(_minutes < 60 && _minutes >= 0, "Range of minutes has to be [0, 60[");
-     * - ENSURE(_hour < 24 && _hour >= 0, "Range of hours has to be [0, 24[");
+     * - ENSURE(getMinutes() < 60 && getMinutes() >= 0, "Range of minutes has to be [0, 60[");
+     * - ENSURE(getHour() < 24 && getHour() >= 0, "Range of hours has to be [0, 24[");
      */
     void raiseTime(int minutes);
 

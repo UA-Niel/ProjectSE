@@ -47,7 +47,7 @@ public:
      * - REQUIRE(properlyInitialized(), "ATC is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_callsign == callsign, "Error setting new callsign");
+     * - ENSURE(getCallsign() == callsign, "Error setting new callsign");
      */
     void setCallsign(const std::string &callsign);
 

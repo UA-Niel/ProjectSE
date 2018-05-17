@@ -51,7 +51,7 @@ public:
       * - REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
       *
       * **Postconditions:**
-      * - ENSURE(_time == time, "Error setting new time for the Simulator");
+      * - ENSURE(getTime() == time, "Error setting new time for the Simulator");
       */
      void setTime(ApTime* time);
 
@@ -93,7 +93,7 @@ public:
      * - REQUIRE(atc.properlyInitialized(), "ATC is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_atc.getCallsign() == atc.getCallsign(), "Error setting new ATC for Simulator");
+     * - ENSURE(getAtc()->getCallsign() == atc->getCallsign(), "Error setting new ATC for Simulator");
      */
     void setAtc(ATC* atc);
 
@@ -248,9 +248,18 @@ public:
      * - REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(this->_communicationOutput == _communicationOutput, "Error setting communication output boolean");
+     * - ENSURE(isCommunicationOutput() == _communicationOutput, "Error setting communication output boolean");
      */
     void set_communicationOutput(bool _communicationOutput);
+
+    /**
+     * \brief Getter for Communication output
+     * @return True if communication output is true
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
+     */
+    bool isCommunicationOutput() const;
 
 };
 

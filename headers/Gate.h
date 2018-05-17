@@ -31,7 +31,7 @@ class Gate {
      * - REQUIRE(this->properlyInitialized(), "Gate not properly initialized.");
      *
      * **Postconditions:**
-     * - ENSURE(this->_id == id, "Error setting new ID for Gate");
+     * - ENSURE(getId() == id, "Error setting new ID for Gate");
      */
     void setId(int id);
 
@@ -52,7 +52,7 @@ class Gate {
      * - REQUIRE(this->properlyInitialized(), "Gate not properly initialized.");
      *
      * **Postconditions:**
-     * - ENSURE(this->_planeAtGate == plane, "Error setting new plane at the Gate");
+     * - ENSURE(getPlaneAtGate() == plane, "Error setting new plane at the Gate");
      */
     void setPlaneAtGate(Airplane* plane);
 
@@ -78,7 +78,7 @@ class Gate {
      * - REQUIRE(this->properlyInitialized(), "Gate is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_planeAtGate == NULL, "Error clearing gate");
+     * - ENSURE(getPlaneAtGate() == NULL, "Error clearing gate");
      */
     void clearGate();
 

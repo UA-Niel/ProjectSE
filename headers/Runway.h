@@ -43,7 +43,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(oldSize == _airplanesOnRunway.size()-1, "Errror adding plane to Runway");
+     * - ENSURE(oldSize == getAirplanesOnRunway().size()-1, "Errror adding plane to Runway");
      */
     bool addAirplane(Airplane* airplane);
 
@@ -57,7 +57,7 @@ public:
      * - REQUIRE(!_airplanesOnRunway.empty(), "There are no Airplanes at the runway");
      *
      * **Postconditions:**
-     * - REQUIRE(_airplanesOnRunway.empty(), "Error clearing Runway");
+     * - REQUIRE(getAirplanesOnRunway().empty(), "Error clearing Runway");
      */
     bool clearRunway();
 
@@ -79,7 +79,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_runwayId == id, "Error setting new ID for the Runway");
+     * - ENSURE(getId() == id, "Error setting new ID for the Runway");
      */
     void setId(int id);
 
@@ -91,7 +91,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_name == name, "Error setting new name for the Runway");
+     * - ENSURE(getName() == name, "Error setting new name for the Runway");
      */
     void setName(const string& name);
 
@@ -103,7 +103,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(_myAirport == id, "Error setting new Airport ID for the Runway");
+     * - ENSURE(getAirport() == id, "Error setting new Airport ID for the Runway");
      */
     void setAirport(int airportId);
 
@@ -142,7 +142,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(this->runwayType == type, "Error setting new type for the Runway");
+     * - ENSURE(getType() == type, "Error setting new type for the Runway");
      */
     void setType(const Runway::RunwayType& type);
     void setType(std::string type);
@@ -165,7 +165,7 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
      *
      * **Postconditions:**
-     * - ENSURE(this->length == length, "Error setting new length of the Runway");
+     * - ENSURE(getLength() == length, "Error setting new length of the Runway");
      */
     void setLength(const int length);
     
@@ -197,7 +197,7 @@ public:
      * @return Name name of point at index
      *
      * **Preconditions:**
-     * - REQUIRE(this->properlyInitialized(), "Runway is not initialized correctly");
+     * - ENSURE(oldSize == getTaxiRoute().size()-1, "Error adding to Route");
      *
      */
      const std::string& getTaxiRoute(const int index);
