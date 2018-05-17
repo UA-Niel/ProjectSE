@@ -86,7 +86,7 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
-     * - REQUIRE(_startOutput, "StartOutput has to be true before it can be stopped");
+     * - REQUIRE(isStarted(), "StartOutput has to be true before it can be stopped");
      */
     void stopOutput();
 
@@ -96,8 +96,8 @@ public:
      *
      * **Preconditions**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
-     * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initialized correctly?");
-     * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
+     * - REQUIRE(get_airport() != NULL, "AirportExporter did not find the airport, is it initialized correctly?");
+     * - REQUIRE(isStarted(), "AirportExporter output is not started, use the method startOutput first");
      */
     void outputAirportDetails();
 
@@ -106,8 +106,8 @@ public:
      *
      * **Preconditions**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
-     * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initialized correctly?");
-     * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
+     * - REQUIRE(get_airport() != NULL, "AirportExporter did not find the airport, is it initialized correctly?");
+     * - REQUIRE(isStarted(), "AirportExporter output is not started, use the method startOutput first");
      */
     void outputPlaneDetails();
 
@@ -118,8 +118,8 @@ public:
      *
      * **Preconditions**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
-     * - REQUIRE(_airport != NULL, "AirportExporter did not find the airport, is it initialized correctly?");
-     * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
+     * - REQUIRE(get_airport() != NULL, "AirportExporter did not find the airport, is it initialized correctly?");
+     * - REQUIRE(isStarted(), "AirportExporter output is not started, use the method startOutput() first");
      */
     void outputBasicInfo();
 
@@ -130,7 +130,7 @@ public:
      *
      * **Preconditions:**
      * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly after constructor");
-     * - REQUIRE(_startOutput, "AirportExporter output is not started, use the method startOutput first");
+     * - REQUIRE(isStarted(), "AirportExporter output is not started, use the method startOutput() first");
      */
     void outputString(std::string outputString);
 
@@ -154,6 +154,15 @@ public:
      * - REQUIRE(exporter.properlyInitialized(), "AirportExporter is not initialized correctly");
      */
     bool operator==(AirportExporter& exporter);
+
+    /**
+     * \brief Determines if the output is started
+     * @return True if the output is started
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "AirportExporter is not initialized correctly");
+     */
+    bool isStarted() const;
 
 };
 

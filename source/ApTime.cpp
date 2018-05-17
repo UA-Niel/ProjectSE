@@ -18,8 +18,8 @@ void ApTime::setHour(int hour) {
     ApTime::_hour = hour;
     if(hour < 0 || hour > 23) _hour = 0;
     else _hour = hour;
-    ENSURE(_hour < 24 && _hour >= 0, "Range of hours has to be [0, 24[");
-    ENSURE(_hour == 0 || _hour == hour, "Error setting Hour of ApTime");
+    ENSURE(getHour() < 24 && getHour() >= 0, "Range of hours has to be [0, 24[");
+    ENSURE(getHour() == 0 || getHour() == hour, "Error setting Hour of ApTime");
 }
 
 int ApTime::getMinutes() const {
@@ -31,8 +31,8 @@ void ApTime::setMinutes(int minutes) {
     REQUIRE(this->properlyInitialized(), "ApTime is not initialized correctly");
     if(minutes < 0 || minutes > 59) _minutes = 0;
     else ApTime::_minutes = minutes;
-    ENSURE(_minutes < 60 && _minutes >= 0, "Range of minutes has to be [0, 60[");
-    ENSURE(_minutes == 0 || _minutes == minutes, "Error setting Minutes of ApTime");
+    ENSURE(getMinutes() < 60 && getMinutes() >= 0, "Range of minutes has to be [0, 60[");
+    ENSURE(getMinutes() == 0 || getMinutes() == minutes, "Error setting Minutes of ApTime");
 }
 
 ApTime::ApTime(int hour, int minutes){
@@ -41,10 +41,10 @@ ApTime::ApTime(int hour, int minutes){
     else _hour = hour;
     if(minutes < 0 || minutes > 59) _minutes = 0;
     else _minutes = minutes;
-    ENSURE(_minutes < 60 && _minutes >= 0, "Range of minutes has to be [0, 60[");
-    ENSURE(_hour < 24 && _hour >= 0, "Range of hours has to be [0, 24[");
-    ENSURE(_minutes == 0 || _minutes == minutes, "Error setting Minutes of ApTime");
-    ENSURE(_hour == 0 || _hour == hour, "Error setting Hour of ApTime");
+    ENSURE(getMinutes() < 60 && getMinutes() >= 0, "Range of minutes has to be [0, 60[");
+    ENSURE(getHour() < 24 && getHour() >= 0, "Range of hours has to be [0, 24[");
+    ENSURE(getMinutes() == 0 || getMinutes() == minutes, "Error setting Minutes of ApTime");
+    ENSURE(getHour() == 0 || getHour() == hour, "Error setting Hour of ApTime");
     ENSURE(this->properlyInitialized(), "ApTime is not initialized correctly");
 }
 
@@ -67,8 +67,8 @@ void ApTime::raiseTime(int minutes) {
         if(_hour > 23) _hour = 0;
         _minutes = _minutes - 60;
     }
-    ENSURE(_minutes < 60 && _minutes >= 0, "Range of minutes has to be [0, 60[");
-    ENSURE(_hour < 24 && _hour >= 0, "Range of hours has to be [0, 24[");
+    ENSURE(getMinutes() < 60 && getMinutes() >= 0, "Range of minutes has to be [0, 60[");
+    ENSURE(getHour() < 24 && getHour() >= 0, "Range of hours has to be [0, 24[");
 }
 
 

@@ -19,7 +19,7 @@ const std::string &ATC::getCallsign() const {
 void ATC::setCallsign(const std::string &callsign) {
     REQUIRE(properlyInitialized(), "ATC is not initialized correctly");
     ATC::_callsign = callsign;
-    ENSURE(_callsign == callsign, "Error setting new callsign");
+    ENSURE(getCallsign() == callsign, "Error setting new callsign");
 }
 
 bool ATC::properlyInitialized() const {

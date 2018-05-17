@@ -19,7 +19,7 @@ bool Airport::addAirplane(Airplane* airplane) {
     REQUIRE(airplane->properlyInitialized(), "Airplane 'airplane' is not initialized correctly");
     unsigned int amountOfPlanesOld = _airplanesOnAirport.size();
     this->_airplanesOnAirport.push_back(airplane);
-    ENSURE(amountOfPlanesOld == _airplanesOnAirport.size()-1, "Problem adding airplane to airport");
+    ENSURE(amountOfPlanesOld == getAirplanes().size()-1, "Problem adding airplane to airport");
     return true;
 }
 //Add Runway
@@ -28,7 +28,7 @@ bool Airport::addRunway(Runway* runway) {
     REQUIRE(runway->properlyInitialized(), "Runway 'runway' is not initialized correctly");
     unsigned int amountOfRunwaysOld = _runways.size();
     this->_runways.push_back(runway);
-    ENSURE(amountOfRunwaysOld == _runways.size()-1, "Problem adding runway");
+    ENSURE(amountOfRunwaysOld == getRunways().size()-1, "Problem adding runway");
     return true;
 }
 //Add Gate
@@ -37,7 +37,7 @@ bool Airport::addGate(Gate* gate) {
     REQUIRE(gate->properlyInitialized(), "Gate 'gate' is not initialized correctly");
     unsigned int amountOfGatesOld = _gates.size();
     this->_gates.push_back(gate);
-    ENSURE(amountOfGatesOld == _gates.size()-1, "Problem adding gate");
+    ENSURE(amountOfGatesOld == getAllGates().size()-1, "Problem adding gate");
     return true;
 }
 
@@ -147,17 +147,17 @@ void Airport::setId(const int id) {
 void Airport::setName(const std::string name) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     _name = name;
-    ENSURE(_name == name, "Failed to assign Airport name");
+    ENSURE(getName() == name, "Failed to assign Airport name");
 }
 void Airport::setIATA(const std::string IATA) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     _IATA = IATA;
-    ENSURE(_IATA == IATA, "Failed to assign IATA of the airport");
+    ENSURE(getIATA() == IATA, "Failed to assign IATA of the airport");
 }
 void Airport::setCallsign(const std::string callsign) {
     REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
     _callsign = callsign;
-    ENSURE(_callsign == callsign, "Failed to assign callsign of the airport")
+    ENSURE(getCallsign() == callsign, "Failed to assign callsign of the airport")
 }
 
 //Getters:
