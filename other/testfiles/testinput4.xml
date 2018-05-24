@@ -4,7 +4,7 @@
         <iata>IATA</iata>
         <callsign>callsign</callsign>
         <gates>10</gates>
-    </AIRPORT>
+    </AIRPORD>
     <RUNWAY>
         <name>name</name>
         <airport>IATA</airport>

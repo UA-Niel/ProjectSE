@@ -1,5 +1,5 @@
 <file>
-    <AIRPORD>
+    <AIRPORT>
         <name>name</name>
         <iata>IATA</iata>
         <callsign>callsign</callsign>
@@ -11,7 +11,7 @@
         <type>asphalt</type>
         <length>1000</length>
         <TAXIROUTE>
-            <taxipoint>Alpha</taxipoint>
+            <taxxxipoint>Alpha</taxxxipoint>
         </TAXIROUTE>
     </RUNWAY>
     <AIRPLANE>

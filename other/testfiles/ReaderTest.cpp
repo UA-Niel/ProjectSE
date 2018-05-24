@@ -85,4 +85,18 @@ TEST_F(ReaderTests, what) {
     } catch(ReaderException& e) {
         EXPECT_STREQ(e.what(), "Reader Exception:\n\twhat(): Error reading end tag.\n");
     }
+
+    try {
+        loadAirportFromFile("other/testfiles/testinput4.xml");
+    } catch(ReaderException& e) {
+        EXPECT_STREQ(e.what(), "Reader Exception:\n\twhat(): Invalid tagname found. Program terminated...\n");
+    }
+    
+    try {
+        loadAirportFromFile("other/testfiles/testinput5.xml");
+    } catch(ReaderException& e) {
+        EXPECT_STREQ(e.what(), "Reader Exception:\n\twhat(): Invalid tagname found. Program terminated...\n");
+    }
+
+
 }

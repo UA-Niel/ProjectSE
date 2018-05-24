@@ -64,20 +64,18 @@ void AirportExporter::outputPlaneDetails() {
         string t;
         if(type == Airplane::PRIVATE) t = "private";
         if(type == Airplane::AIRLINE) t = "airline";
-        if(type == Airplane::ALASKAN) t = "alaskan";
-        if(type == Airplane::JET_FIGHTER) t = "jet fighter";
+        if(type == Airplane::MILITARY) t = "military";
+        if(type == Airplane::EMERGENCY) t = "emergency";
         _stream << "\t-> type: " << t << endl;
         Airplane::Engine engine = airplane->getEngine();
         string e;
         if(engine == Airplane::PROPELLOR) e = "propellor";
         if(engine == Airplane::JET) e = "jet";
-        if(engine == Airplane::GLIDER) e = "glider";
         _stream << "\t-> engine: " << e << endl;
         Airplane::Size size = airplane->getSize();
         string s;
         if(size == Airplane::SMALL) s = "small";
         if(size == Airplane::LARGE) s = "large";
-        if(size == Airplane::EXTRA_LARGE) s = "extra large";
         if(size == Airplane::MEDIUM) s = "medium";
         _stream << "\t-> size: " << s << endl << endl;
     }

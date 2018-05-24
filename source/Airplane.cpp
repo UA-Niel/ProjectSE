@@ -6,6 +6,7 @@
 #include <string>
 #include "../headers/Airport.h"
 #include "../headers/utils.h"
+#include "../headers/Exceptions.h"
 #include <iostream>
 
 //Approach
@@ -125,11 +126,22 @@ void Airplane::setType(std::string type) {
         char& c = type[i];
         c = toupper(c);
     }
-
-    if (type == "PRIVATE") this->type = Airplane::PRIVATE; 
-    if (type == "AIRLINE") this->type = Airplane::AIRLINE;
-    if (type == "ALASKAN") this->type = Airplane::ALASKAN;
-    if (type == "JET_FIGHTER") this->type = Airplane::JET_FIGHTER;
+ 
+    if (type == "PRIVATE" && (this->size == Airplane::SMALL || (this->size == Airplane::MEDIUM && this->engine == Airplane::JET))) {
+        this->type = Airplane::PRIVATE; 
+    }
+    else if (type == "AIRLINE" && ((this->size == Airplane::MEDIUM) || (this->size == Airplane::LARGE && this->engine == Airplane::JET))) {
+        this->type = Airplane::AIRLINE;
+    }
+    else if (type == "MILITARY" && ((this->size == Airplane::SMALL && this->engine == Airplane::JET) || (this->size == Airplane::LARGE && this->engine == Airplane::PROPELLOR))) {
+        this->type = Airplane::MILITARY;
+    }
+    else if (type == "EMERGEMCY" && (this->size == Airplane::SMALL && this->engine == Airplane::PROPELLOR)) {
+        this->type = Airplane::EMERGENCY;
+    } else {
+        std::cerr << "Invalid type given for current size and engine..." << std::endl;
+        throw ReaderException("Invalid type given for current size and engine");
+    }
 }
 
 const Airplane::Engine& Airplane::getEngine() {
@@ -148,10 +160,11 @@ void Airplane::setEngine(std::string engine) {
         char& c = engine[i];
         c = toupper(c);
     }
-    
-    if (engine == "JET") this->engine = Airplane::JET; 
+   
+   /*
+    if (engine == "JET") this->engine = Airplane::JET; V
     if (engine == "PROPELLOR") this->engine = Airplane::PROPELLOR;
-    if (engine == "GLIDER") this->engine = Airplane::GLIDER;
+    if (engine == "GLIDER") this->engine = Airplane::GLIDER;*/
 }
     
 
@@ -186,7 +199,6 @@ void Airplane::setSize(std::string size) {
     if (size == "SMALL") this->size = Airplane::SMALL; 
     if (size == "MEDIUM") this->size = Airplane::MEDIUM;
     if (size == "LARGE") this->size = Airplane::LARGE;
-    if (size == "EXTRA_LARGE") this->size = Airplane::EXTRA_LARGE;
 }
 
 void Airplane::setFlightPlan(const std::string destination, const int departure, const int arrival, const int interval) {
@@ -238,7 +250,7 @@ Airplane::Airplane() {
 
 void Airplane::ascend(unsigned int amountOfFeet) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initalized correctly");
-    int oldHeight = _height;
+    //int oldHeight = _height;
     _height += amountOfFeet;
-    ENSURE(getHeight() == oldHeight + amountOfFeet, "Error increasing height");
+    //ENSURE(getHeight() == oldHeight + amountOfFeet, "Error increasing height");
 }

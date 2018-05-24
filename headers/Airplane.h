@@ -52,8 +52,8 @@ public:
     enum Type {
         PRIVATE,
         AIRLINE,
-        ALASKAN,
-        JET_FIGHTER
+        MILITARY,
+        EMERGENCY
     };
 
     /**
@@ -61,8 +61,7 @@ public:
      */
     enum Engine {
         JET,
-        PROPELLOR,
-        GLIDER
+        PROPELLOR
     };
 
     /**
@@ -71,8 +70,7 @@ public:
     enum Size {
         SMALL,
         MEDIUM,
-        LARGE,
-        EXTRA_LARGE
+        LARGE
     };
 
     /**

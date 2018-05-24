@@ -100,7 +100,7 @@ TEST_F(AirportOutputTests, AirplaneDetailsOutput){
     Airplane plane1(1, "my callsign 1", "my model 1", Airplane::STANDING, "my number 1");
     plane1.setEngine(Airplane::PROPELLOR);
     plane1.setSize(Airplane::MEDIUM);
-    plane1.setType(Airplane::JET_FIGHTER);
+    plane1.setType(Airplane::AIRLINE);
     airport.addAirplane(&plane1);
 
     myFile.close();

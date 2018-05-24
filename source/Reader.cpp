@@ -54,14 +54,14 @@ Airport* loadAirportFromFile(const char* fileName) {
                         std::string t = text->Value();
                         myAirport->setName(t);
                     }
-                    if (eValue == "iata") {
+                    else if (eValue == "iata") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
                         myAirport->setIATA(t);
                      
                     }
-                    if (eValue == "gates") {
+                    else if (eValue == "gates") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
@@ -76,11 +76,14 @@ Airport* loadAirportFromFile(const char* fileName) {
                             myAirport->addGate(myGate);
                         }
                     }
-                    if (eValue == "callsign") {
+                    else if (eValue == "callsign") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
                         myAirport->setCallsign(t);
+                    } else {
+                        std::string errorStr = "Invalid tagname found. Program terminated...";
+                        throw ReaderException(errorStr);
                     }
                 }
             }
@@ -98,16 +101,16 @@ Airport* loadAirportFromFile(const char* fileName) {
                         std::string t = text->Value();
                         myRunway->setName(t);
                     }
-                    if (eValue == "airport") {
+                    else if (eValue == "airport") {
                         myRunway->setAirport(myAirport->getId());
                     }
-                    if (eValue == "type") {
+                    else if (eValue == "type") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
                         myRunway->setType(t);
                     }
-                    if (eValue == "length") {
+                    else if (eValue == "length") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
@@ -115,7 +118,7 @@ Airport* loadAirportFromFile(const char* fileName) {
                     }
 
                     //Adding taxiroute
-                    if (eValue == "TAXIROUTE") {
+                    else if (eValue == "TAXIROUTE") {
                         for (TiXmlElement* x = e->FirstChildElement(); x != NULL; x = x->NextSiblingElement()) {
                             std::string xValue = x->Value();
                             if (xValue == "taxipoint" ||
@@ -125,8 +128,16 @@ Airport* loadAirportFromFile(const char* fileName) {
                                 TiXmlText* text = y->ToText();
                                 std::string t = text->Value();
                                 myRunway->addToTaxiRoute(t);
+                            } else {
+                                std::string errorStr = "Invalid tagname found. Program terminated...";
+                                std::cerr << errorStr << std::endl;
+                                throw ReaderException(errorStr);
                             }
                         }
+                    } else {
+                        std::string errorStr = "Invalid tagname found. Program terminated...";
+                        std::cerr << errorStr << std::endl;
+                        throw ReaderException(errorStr);
                     }
                 }
 
@@ -135,6 +146,7 @@ Airport* loadAirportFromFile(const char* fileName) {
             //Adding airplane
             if (elementType(elemType) == AIRPLANE) {
                 Airplane* myAirplane = new Airplane;
+                std::string type, size, engine;
 
                 for (TiXmlElement* e = elem->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
                    std::string eValue = e->Value();
@@ -145,19 +157,19 @@ Airport* loadAirportFromFile(const char* fileName) {
                         std::string t = text->Value();
                         myAirplane->setNumber(t);
                     }
-                    if (eValue == "callsign") {
+                    else if (eValue == "callsign") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
                         myAirplane->setCallsign(t);    
                     }
-                    if (eValue == "model") {
+                    else if (eValue == "model") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
                         myAirplane->setModel(t);    
                     }
-                    if (eValue == "status") {
+                    else if (eValue == "status") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
@@ -170,7 +182,7 @@ Airport* loadAirportFromFile(const char* fileName) {
                         if (t == "Landing") myAirplane->setStatus(Airplane::LANDING);
                         
                     }
-                    if(eValue == "passengers"){
+                    else if(eValue == "passengers"){
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
@@ -179,27 +191,31 @@ Airport* loadAirportFromFile(const char* fileName) {
                         ss >> amountOfPassengers;
                         myAirplane->setAmountOfPassengers(amountOfPassengers);
                     }
-                    if (eValue == "type") {
+
+                    else if (eValue == "type") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                        myAirplane->setType(t);    
+                        //myAirplane->setType(t);    
+                        type = t;
                     }
-                    if (eValue == "size") {
+                    else if (eValue == "size") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                        myAirplane->setSize(t);    
+                        //myAirplane->setSize(t);    
+                        size = t;
                     }
-                    if (eValue == "engine") {
+                    else if (eValue == "engine") {
                         TiXmlNode* x = e->FirstChild();
                         TiXmlText* text = x->ToText();
                         std::string t = text->Value();
-                        myAirplane->setEngine(t);     
+                        //myAirplane->setEngine(t);
+                        engine = t;
                     }
                     
                     //Adding Flightplan
-                    if (eValue == "FLIGHTPLAN") {
+                    else if (eValue == "FLIGHTPLAN") {
                         std::string destination;
                         int departure, 
                             arrival, 
@@ -213,30 +229,41 @@ Airport* loadAirportFromFile(const char* fileName) {
                                 std::string t = text->Value();
                                 destination = t;
                             }
-                            if (xValue == "departure") {
+                            else if (xValue == "departure") {
                                 TiXmlNode* y = x->FirstChild();
                                 TiXmlText* text = y->ToText();
                                 std::string t = text->Value();
                                 departure = fromStr<int>(t);
                             }
-                            if (xValue == "arrival") {
+                            else if (xValue == "arrival") {
                                 TiXmlNode* y = x->FirstChild();
                                 TiXmlText* text = y->ToText();
                                 std::string t = text->Value();
                                 arrival = fromStr<int>(t);
                             }
-                            if (xValue == "interval") {
+                            else if (xValue == "interval") {
                                 TiXmlNode* y = x->FirstChild();
                                 TiXmlText* text = y->ToText();
                                 std::string t = text->Value();
                                 interval = fromStr<int>(t);
+                            } else {
+                                std::string errorStr = "Invalid tagname found. Program terminated...";
+                                std::cerr << errorStr << std::endl;
+                                throw ReaderException(errorStr); 
                             }
                         }
 
                         myAirplane->setFlightPlan(destination, departure, arrival, interval);
+                    } else { 
+                        std::string errorStr = "Invalid tagname found. Program terminated...";
+                        std::cerr << errorStr << std::endl;
+                        throw ReaderException(errorStr);
                     }
                 }
 
+                myAirplane->setSize(size);
+                myAirplane->setEngine(engine);
+                myAirplane->setType(type);
                 myAirplane->setId(gAIRPLANE_ID);
                 gAIRPLANE_ID++;
 
@@ -259,11 +286,15 @@ ElementType elementType(const std::string& element) {
     if (element == "AIRPORT") {
         type = AIRPORT;
     }
-    if (element == "AIRPLANE") {
+    else if (element == "AIRPLANE") {
         type = AIRPLANE;
     }
-    if (element == "RUNWAY") {
+    else if (element == "RUNWAY") {
         type = RUNWAY;
+    } else {
+        std::string errorStr = "Invalid tagname found. Program terminated...";
+        std::cerr << errorStr << std::endl;
+        throw ReaderException(errorStr); 
     }
 
     return type;
