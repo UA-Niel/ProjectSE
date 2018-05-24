@@ -1,2 +1,5 @@
 17/05:
     13:45-15:00: update van contracten (alles is nu setter ipv private variabele)
+
+24/05:
+    13:45-15:45 use case 3.4

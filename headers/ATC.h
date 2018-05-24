@@ -6,6 +6,7 @@
 #define PROJECTSE_ATC_H
 
 #include <iostream>
+#include <vector>
 #include "ApTime.h"
 
 
@@ -13,6 +14,7 @@ class ATC {
 private:
     std::string _callsign; /**<Member to hold the callsign of the ATC*/
     ATC* _initCheck; /**<Member used for properlyInitialized function*/
+    std::vector<std::string> _natoAlphabet;
 public:
 
     /**
@@ -73,6 +75,29 @@ public:
      * - REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
      */
     bool operator==(ATC& atc);
+
+    /**
+     * \brief Generates a vector containing the NATO alphabet
+     * @return vector of strings containing the NATO alphabet
+     *
+     * **Postconditions:**
+     * - ENSURE(natoAlphabet.size() == 36, "Incorrect size of NATO alphabet vector");
+     */
+    static std::vector<std::string> generateNato();
+
+    /**
+     * \brief Converts an integer to its equivalent in NATO alphabet
+     * @param input Integer to convert
+     * @return String containing the NATO equivalent of the integer
+     */
+    static std::string intToNato(int input);
+
+    /**
+     * \brief Converts a char to its equivalent in NATO alphabet
+     * @param input Char to convert
+     * @return String containing the NATO equivalent of the integer
+     */
+    static std::string charToNato(char input);
 };
 
 
