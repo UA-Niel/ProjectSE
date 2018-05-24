@@ -2,6 +2,7 @@
 #include "../../headers/Airport.h"
 #include "../../headers/Runway.h"
 #include "../../headers/Gate.h"
+#include "../../headers/Exceptions.h"
 
 TEST_F(ReaderTests, testingInput) {
     ////////////////////////////////////////////
@@ -75,5 +76,13 @@ TEST_F(ReaderTests, testingInput) {
     
     EXPECT_TRUE(a->getFlightPlan()->interval == 1);    
     EXPECT_FALSE(a->getFlightPlan()->interval == 0);
+
 }
 
+TEST_F(ReaderTests, what) {
+    try {
+        loadAirportFromFile("other/testfiles/testinput3.xml");
+    } catch(ReaderException& e) {
+        EXPECT_STREQ(e.what(), "Reader Exception:\n\twhat(): Error reading end tag.\n");
+    }
+}

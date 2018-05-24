@@ -1,0 +1,33 @@
+<file>
+    <AIRPORD>
+        <name>name</name>
+        <iata>IATA</iata>
+        <callsign>callsign</callsign>
+        <gates>10</gates>
+    </AIRPORD>
+    <RUNWAY>
+        <name>name</name>
+        <airport>IATA</airport>
+        <type>asphalt</type>
+        <length>1000</length>
+        <TAXIROUTE>
+            <taxipoint>Alpha</taxipoint>
+        </TAXIROUTE>
+    </RUNWAY>
+    <AIRPLANE>
+        <number>number</number>
+        <callsign>callsign</callsign>
+        <model>model</model>
+        <status>Approaching</status>
+        <passengers>20</passengers>
+        <type>airline</type>
+        <engine>jet</engine>
+        <size>large</size>
+        <FLIGHTPLAN>
+            <destination>LCY</destination>
+            <departure>15</departure>
+            <arrival>45</arrival>
+            <interval>1</interval>
+        </FLIGHTPLAN>
+    </AIRPLANE>
+</file>

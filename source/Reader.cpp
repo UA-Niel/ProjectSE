@@ -7,6 +7,7 @@
 #include "../headers/IO/library/tinyxml.h"
 #include "../headers/IO/library/tinystr.h"
 #include "../headers/utils.h"
+#include "../headers/Exceptions.h"
 
 #include <fstream>
 #include <string>
@@ -22,8 +23,9 @@ Airport* loadAirportFromFile(const char* fileName) {
     
     //Loading file and check if it loaded correct
     if (!doc.LoadFile(fileName)) {
-        std::cerr<< "Error: " << doc.ErrorDesc() << std::endl;
-    
+        std::string errorStr = doc.ErrorDesc();
+        std::cerr << errorStr << std::endl;
+        throw ReaderException(errorStr);
     } else { 
 
         //Create instance of Airport
