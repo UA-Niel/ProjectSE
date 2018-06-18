@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include "ApTime.h"
+#include "Airport.h"
 
 
 class ATC {
@@ -15,6 +16,7 @@ private:
     std::string _callsign; /**<Member to hold the callsign of the ATC*/
     ATC* _initCheck; /**<Member used for properlyInitialized function*/
     std::vector<std::string> _natoAlphabet;
+    Airport* _airport;
 public:
 
     /**
@@ -30,7 +32,7 @@ public:
      * **Postconditions:**
      * - ENSURE(properlyInitialized(), "ATC is not initialized correctly");
      */
-    ATC(const std::string &callsign);
+    ATC(const std::string &callsign, Airport* airport);
 
     /**
      * \brief Getter for Callsign
@@ -89,6 +91,9 @@ public:
      * \brief Converts an integer to its equivalent in NATO alphabet
      * @param input Integer to convert
      * @return String containing the NATO equivalent of the integer
+     *
+     * **Postconditions:**
+     * - ENSURE(!result.empty(), "Error converting integer to NATO equivalent");
      */
     static std::string intToNato(int input);
 
@@ -96,8 +101,29 @@ public:
      * \brief Converts a char to its equivalent in NATO alphabet
      * @param input Char to convert
      * @return String containing the NATO equivalent of the integer
+     *
+     * **Postconditions:**
+     * - ENSURE(pos > 0 && pos < 36, "Incorrect input given");
      */
     static std::string charToNato(char input);
+
+    bool landingInitial();
+
+    bool landingAt5000();
+
+    bool landingAt3000(Airplane* plane);
+
+    bool landingEnd(Airplane* plane);
+
+    bool departureOfGate();
+
+    bool departureWaitingAtRunway(Airplane* plane);
+
+    bool departureWaitingOnRunway();
+
+    bool emergencyHigherThan3000(Airplane* plane);
+
+    bool emergencyLowerThan3000(Airplane* plane);
 };
 
 

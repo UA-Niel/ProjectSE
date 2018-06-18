@@ -7,7 +7,7 @@
 #include "../headers/ApTime.h"
 #include "../headers/utils.h"
 
-ATC::ATC(const std::string &callsign) : _callsign(callsign) {
+ATC::ATC(const std::string &callsign, Airport* airport) : _callsign(callsign), _airport(airport) {
     _initCheck = this;
     _natoAlphabet = generateNato();
     ENSURE(properlyInitialized(), "ATC is not initialized correctly");
@@ -85,20 +85,101 @@ std::vector<std::string> ATC::generateNato() {
 
 std::string ATC::intToNato(int input) {
     std::vector<std::string> natoAlphabet = generateNato();
-    std::string res;
+    std::string result;
     std::string num = ToString(input);
-    for(auto& ch : num){
+    for(unsigned int i = 0; i<num.size(); i++){
+        char ch  = num[i];
         int current = ch - '0';
-        res.insert(res.end(), natoAlphabet[current].begin(), natoAlphabet[current].end());
-        res.push_back(' ');
+        result.insert(result.end(), natoAlphabet[current].begin(), natoAlphabet[current].end());
+        result.push_back(' ');
     }
-    res.erase(res.end()-1);
-    ENSURE(!res.empty(), "Error converting integer to NATO equivalent");
-    return res;
+    result.erase(result.end()-1);
+    ENSURE(!result.empty(), "Error converting integer to NATO equivalent");
+    return result;
 }
 
 std::string ATC::charToNato(char input) {
     std::vector<std::string> natoAlphabet = generateNato();
     int pos = tolower(input) - 87;
+    ENSURE(pos > 0 && pos < 36, "Incorrect input given");
     return natoAlphabet[pos];
+}
+
+bool ATC::landingInitial() {
+    REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+    if(!_airport->getWaitingPattern5000()){
+        _airport->setWaitingPattern5000(true);
+        return true;
+    }
+    return false;
+}
+
+bool ATC::landingAt5000() {
+    REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+    if(!_airport->getWaitingPattern3000()){
+        _airport->setWaitingPattern5000(false);
+        _airport->setWaitingPattern3000(true);
+        return true;
+    }
+    return false;
+}
+
+bool ATC::landingAt3000(Airplane* plane) {
+    REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+    //First check for free runway in the airport
+    Runway* freeRunway = plane->checkFreeRunway(_airport);
+    if(freeRunway == NULL) return false;
+
+    //If runway found, add plane to runway
+    freeRunway->addAirplane(plane);
+    _airport->setWaitingPattern3000(false);
+    return true;
+}
+
+bool ATC::landingEnd(Airplane* plane){
+    //Look for free gate, if none found continue
+    Gate* freeGate = _airport->getFreeGate();
+    if(freeGate == NULL) {
+        return false;
+    }
+    //Clear the runway if the plane is moving to the gate
+    Runway* currentRunway = _airport->getRunwayWithPlane(plane);
+    currentRunway->clearRunway();
+    plane->setStatus(Airplane::TAXIING_TO_GATE);
+    freeGate->setPlaneAtGate(plane);
+    return true;
+}
+
+bool ATC::departureOfGate() {
+    REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+    return true;
+}
+
+bool ATC::departureWaitingAtRunway(Airplane* plane) {
+    REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+    Runway* freeRunway = plane->checkFreeRunway(_airport);
+    if(freeRunway == NULL) return false;
+
+    Gate* currentGate = _airport->getGateWithPlane(plane);
+    //clear current Gate and assign plane to runway
+    if(currentGate != NULL)
+        currentGate->clearGate();
+
+    freeRunway->addAirplane(plane);
+    return true;
+}
+
+bool ATC::departureWaitingOnRunway() {
+    REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+    return true;
+}
+
+bool ATC::emergencyHigherThan3000(Airplane* plane) {
+    REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+    return plane->getFuelState() == Airplane::EMPTY;
+}
+
+bool ATC::emergencyLowerThan3000(Airplane* plane) {
+    REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+    return plane->getFuelState() == Airplane::EMPTY;
 }

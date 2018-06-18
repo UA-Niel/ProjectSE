@@ -352,6 +352,47 @@ public:
      */
     bool operator==(Airport& airport);
 
+    /**
+     * \brief Getter for the waiting pattern at 3000ft.
+     * @return True if a plane is in the waiting pattern at 3000ft.
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+     */
+    bool getWaitingPattern3000();
+
+    /**
+     * \brief Setter for the waiting pattern at 3000ft.
+     * @param waiting Boolean: true if a plane is waiting, false if there is not
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(getWaitingPattern3000() == waiting, "Unable to set new waiting pattern for 3000ft.");
+     */
+    void setWaitingPattern3000(bool waiting);
+
+    /**
+     * \brief Getter for the waiting pattern at 5000ft.
+     * @return True if a plane is in the waiting pattern at 5000ft.
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+     */
+    bool getWaitingPattern5000();
+
+    /**
+     * \brief Setter for the waiting pattern at 5000ft.
+     * @param waiting Boolean: true if a plane is waiting, false if there is not
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+     *
+     * **Postconditions:**
+     * - ENSURE(getWaitingPattern5000() == waiting, "Unable to set new waiting pattern for 5000ft.");
+     */
+    void setWaitingPattern5000(bool waiting);
 
 private:
     vector<Airplane*> _airplanesOnAirport; /**<Vector of pointers to airplanes*/
@@ -361,6 +402,8 @@ private:
     string _name; /**<Airport name string*/
     string _IATA; /**<Airport IATA string*/
     string _callsign; /**<Airport callsign string*/
+    bool _waitPattern5000; /**<Member checking for the wait pattern at 5000 ft, true if there is a plane*/
+    bool _waitPattern3000; /**<Member checking for the wait pattern at 3000 ft, true if there is a plane*/
     //Init check:
     Airport* _initCheck; /**<member used in @see properlyInitialized to check if the airplane is initalized correctly*/
 };

@@ -126,7 +126,7 @@ void Airplane::setType(std::string type) {
         char& c = type[i];
         c = toupper(c);
     }
- 
+
     if (type == "PRIVATE" && (this->size == Airplane::SMALL || (this->size == Airplane::MEDIUM && this->engine == Airplane::JET))) {
         this->type = Airplane::PRIVATE; 
     }

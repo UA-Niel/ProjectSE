@@ -21,7 +21,6 @@ private:
     AirportExporter& _exporter; /**<Member containing the exporter for the Simulator*/
     Airport* _airport; /**<Member containing the airport which needs to be simulated*/
     Simulator* _initCheck; /**<Member used for properlyInitialized function*/
-    bool _communicationOutput; /**<Member bool which is true if communication needs to be printed*/
     ATC* _atc;/**<Member containing the AirTraffic Commander*/
     ApTime* _time; /**<Member containing current time*/
 public:
@@ -127,7 +126,7 @@ public:
      * **Preconditions:**
      * - REQUIRE(this->properlyInitalized(), "Simulator is not initalized correctly");
      */
-    void doSimulation(ofstream& output, bool communicationOut = true);
+    void doSimulation(ofstream& output, int ticks);
 
     /**
      * \brief Does the simulation if an Airplane is approaching
@@ -240,26 +239,6 @@ public:
      */
     void doSimulationDeparting(Airplane* plane, ofstream& comm);
 
-    /**
-     * \brief Setter for Communication Output boolean
-     * @param _communicationOutput Communication output boolean
-     *
-     * **Preconditions:**
-     * - REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
-     *
-     * **Postconditions:**
-     * - ENSURE(isCommunicationOutput() == _communicationOutput, "Error setting communication output boolean");
-     */
-    void set_communicationOutput(bool _communicationOutput);
-
-    /**
-     * \brief Getter for Communication output
-     * @return True if communication output is true
-     *
-     * **Preconditions:**
-     * - REQUIRE(this->properlyInitalized(), "Simulator is not initialized correctly");
-     */
-    bool isCommunicationOutput() const;
 
 };
 

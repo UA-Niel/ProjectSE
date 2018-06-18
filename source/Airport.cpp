@@ -192,6 +192,8 @@ Airport::Airport(const vector<Runway*> _runways, const vector<Gate*> _gates, int
                                                                  _airportId(_airportId), _name(_name), _IATA(_IATA),
                                                                  _callsign(_callsign) {
     _initCheck = this;
+    _waitPattern3000 = false;
+    _waitPattern5000 = false;
     ENSURE(this->properlyInitialized(), "Airport is not initialized correctly");
 }
 
@@ -261,4 +263,26 @@ bool Airport::operator==(Airport &airport) {
             airport.getName() == _name &&
             airport.getId() == _airportId &&
             airport.getIATA() == _IATA;
+}
+
+bool Airport::getWaitingPattern3000() {
+    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+    return _waitPattern3000;
+}
+
+void Airport::setWaitingPattern3000(bool waiting) {
+    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+    _waitPattern3000 = waiting;
+    ENSURE(getWaitingPattern3000() == waiting, "Unable to set new waiting pattern for 3000ft.");
+}
+
+bool Airport::getWaitingPattern5000() {
+    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+    return _waitPattern5000;
+}
+
+void Airport::setWaitingPattern5000(bool waiting) {
+    REQUIRE(this->properlyInitialized(), "Airport is not initialized correctly");
+    _waitPattern5000 = waiting;
+    ENSURE(getWaitingPattern5000() == waiting, "Unable to set new waiting pattern for 5000ft.");
 }

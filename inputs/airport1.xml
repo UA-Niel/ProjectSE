@@ -16,6 +16,9 @@
     <model>Cessna 340</model>
     <status>Approaching</status>
     <passengers>8</passengers>
+    <type>private</type>
+    <size>small</size>
+    <engine>jet</engine>
 </AIRPLANE>
 <AIRPLANE>
     <number>747</number>
@@ -23,6 +26,9 @@
     <model>Boeing747</model>
     <passengers>200</passengers>
     <status>Standing</status>
+    <type>airline</type>
+    <size>large</size>
+    <engine>propellor</engine>
 </AIRPLANE>
 
 </file>
