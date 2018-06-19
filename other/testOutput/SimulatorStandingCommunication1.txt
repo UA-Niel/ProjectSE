@@ -1,4 +1,4 @@
 [12:00] [plane]
 $ plane is ready to taxi
 [12:01] [atc]
-$ <taxi instructions>
+$ taxi to runway

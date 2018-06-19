@@ -190,7 +190,7 @@ bool ATC::emergencyLowerThan3000(Airplane* plane) {
 
 std::string ATC::stringToNato(string &str) {
     string res;
-    for(int i = 0; i<str.size(); i++){
+    for(unsigned int i = 0; i<str.size(); i++){
         char ch = str[i];
         if(isdigit(ch)){
             res += ATC::intToNato(ch - '0');

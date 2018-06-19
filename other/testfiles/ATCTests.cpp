@@ -127,7 +127,7 @@ TEST_F(ATCTests, ATC_landingAt5000Test){
     p->setWaitingPattern3000(true);
     EXPECT_FALSE(atc.landingAt5000());
     EXPECT_TRUE(p->getWaitingPattern3000());
-    EXPECT_TRUE(p->getWaitingPattern5000());
+    EXPECT_FALSE(p->getWaitingPattern5000());
     delete p;
 }
 
@@ -148,6 +148,9 @@ TEST_F(ATCTests, ATC_landingEndTest){
     Airport p;
     ATC atc("atc", &p);
     Airplane plane;
+    Runway r;
+    r.addAirplane(&plane);
+    p.addRunway(&r);
 
     EXPECT_FALSE(atc.landingEnd(&plane));
 
@@ -171,6 +174,7 @@ TEST_F(ATCTests, ATC_departureWaitingAtRunway){
     Gate g;
     p.addGate(&g);
     Airplane plane;
+    plane.setStatus(Airplane::TAXIING_TO_GATE);
     g.setPlaneAtGate(&plane);
 
     EXPECT_FALSE(atc.departureWaitingAtRunway(&plane));

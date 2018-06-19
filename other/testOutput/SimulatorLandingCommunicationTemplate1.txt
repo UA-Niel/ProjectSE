@@ -1,8 +1,4 @@
 [12:00] [atc]
-$ plane, hold south on the one eighty radial, expect further clearance at <time>
-[12:00] [plane]
-$ Holding south on the one eighty radial, plane
-[12:01] [atc]
 $ plane, descend and maintain three thousand feet.
-[12:02] [plane]
+[12:01] [plane]
 $ Descend and maintain three thousand feet, plane.

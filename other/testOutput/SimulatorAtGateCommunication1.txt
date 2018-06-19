@@ -1,6 +1,12 @@
-[12:00] [plane]
+[12:33] [plane]
 $ atc, plane,  requesting IFR clearancy to destination, <destination>.
-[12:01] [atc]
-$ plane, atc, cleared to <destination>, maintain five thousand, expect flight level one one zero - ten minutes after departure, squawk <squawk code>
-[12:02] [plane]
-$ Cleared to <destination>, initial altitude five thousand, expecting one zero zero in ten, squawking 0, plane
+[12:34] [atc]
+$ plane, atc, cleared to <destination>, maintain five thousand, expect flight level one one zero - ten minutes after departure, squawk zero
+[12:35] [plane]
+$ Cleared to <destination>, initial altitude five thousand, expecting one zero zero in ten, squawking zero, plane
+[12:36] [plane]
+$ atc, plane at gate two, requesting pushback
+[12:37] [atc]
+$ plane, atc, pushback approved.
+[12:38] [plane]
+$ Pushback approved, plane.
