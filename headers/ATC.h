@@ -107,23 +107,89 @@ public:
      */
     static std::string charToNato(char input);
 
+    /**
+     * \brief ATC determines if landing procedure can be started
+     * @return True if the procedure can be started
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+     */
     bool landingInitial();
 
+    /**
+     * \brief ATC determines if the plane can continue after 5000ft
+     * @return True if the plane can continue
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+     */
     bool landingAt5000();
 
+    /**
+     * \brief ATC determines if a plane can continue after 3000ft.
+     * @param plane The plane to check
+     * @return True if the plane can continue
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+     */
     bool landingAt3000(Airplane* plane);
 
+    /**
+     * \brief ATC determines if the landing procedure can be ended
+     * @param plane Plane to check procedure for
+     * @return True if the landing procedure can continue
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+     */
     bool landingEnd(Airplane* plane);
 
+    /**
+     * \brief ATC determines if the plane can depart of a gate
+     * @return True if the plane can depart
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+     */
     bool departureOfGate();
 
+    /**
+     * \brief ATC determines if the plane should wait longer at the runway
+     * @param plane Plane to check for
+     * @return True if plane can move on
+     *
+     * **Precondtions:**
+     * - REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
+     */
     bool departureWaitingAtRunway(Airplane* plane);
 
+    /**
+     * \brief ATC determines if the plane should wait longer on the runway
+     * @return True if plane can move on
+     */
     bool departureWaitingOnRunway();
 
+    /**
+     * \brief Checks for an emergency at 3000ft or lower
+     * @param plane Plane to check emergency for
+     * @return True if there is an emergency
+     */
     bool emergencyHigherThan3000(Airplane* plane);
 
+    /**
+     * \brief Checks for an emergency at 5000ft or higher
+     * @param plane Plane to check emergency for
+     * @return True if there is an emergency
+     */
     bool emergencyLowerThan3000(Airplane* plane);
+
+    /**
+     * \brief This static function converts numbers in a string to NATO numbers
+     * @param str String to convert
+     * @return String in nato
+     */
+    static std::string stringToNato(string& str);
 };
 
 

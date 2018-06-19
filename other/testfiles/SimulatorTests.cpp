@@ -12,7 +12,7 @@ TEST_F(SimulatorTests, SimulatorGetterTests){
     ofstream file1, file2;
     AirportExporter exporter(&airport, file1);
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &airport);
     Simulator sim(exporter, &airport, &time, &atc);
 
     EXPECT_TRUE(sim.getAirport() == &airport);
@@ -33,8 +33,8 @@ TEST_F(SimulatorTests, SimulatorSetterTests){
     ApTime time(12,00);
     ApTime time1(13,00);
 
-    ATC atc("atc");
-    ATC atc1("atc1");
+    ATC atc("atc", &airport);
+    ATC atc1("atc1", &airport1);
 
     Simulator simulator(exporter, &airport, &time, &atc);
     simulator.setAirport(&airport1);
@@ -60,13 +60,12 @@ TEST_F(SimulatorTests, SimulatorApproachTest){
     Airport ap;
     ap.setName("airport");
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &ap);
 
     AirportExporter exporter(myFile);
     exporter.startOutput();
 
     Simulator sim(exporter, &ap, &time, &atc);
-    sim.set_communicationOutput(true);
     sim.doSimulationApproach(&plane, commFile);
     myFile.close();
     commFile.close();
@@ -91,11 +90,10 @@ TEST_F(SimulatorTests, SimulatorLandingTest){
     Airport ap;
     ap.setName("airport");
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &ap);
     AirportExporter exporter(myFile);
     exporter.startOutput();
     Simulator sim(exporter, &ap, &time, &atc);
-    sim.set_communicationOutput(true);
     sim.doSimulationLanding(&plane, commFile);
     EXPECT_TRUE(plane.getStatus() == Airplane::LANDED);
     EXPECT_TRUE(plane.getHeight() == -10);
@@ -181,9 +179,8 @@ TEST_F(SimulatorTests, SimulatorLandedTest){
     AirportExporter exporter(myFile);
     exporter.startOutput();
     ApTime time(12,00);
-    ATC atc("Dirk");
+    ATC atc("Dirk", &ap);
     Simulator sim(exporter, &ap, &time, &atc);
-    sim.set_communicationOutput(true);
     sim.doSimulationLanded(&plane, commFile);
     myFile.close();
     commFile.close();
@@ -221,13 +218,12 @@ TEST_F(SimulatorTests, SimulatorTaxiingTest){
     ap.addGate(&g);
     ap.setName("airport");
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &ap);
 
     AirportExporter exporter(myFile);
     exporter.startOutput();
 
     Simulator sim(exporter, &ap, &time, &atc);
-    sim.set_communicationOutput(true);
     sim.doSimulationTaxiing(&plane, commFile);
 
     myFile.close();
@@ -261,13 +257,12 @@ TEST_F(SimulatorTests, SimulatorAtGateTest){
     ap.addGate(&g);
     ap.setName("airport");
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &ap);
 
     AirportExporter exporter(myFile);
     exporter.startOutput();
 
     Simulator sim(exporter, &ap, &time, &atc);
-    sim.set_communicationOutput(true);
     sim.doSimulationAtGate(&plane, commFile);
 
     myFile.close();
@@ -306,13 +301,12 @@ TEST_F(SimulatorTests, SimulatorStandingTest){
     ap.addGate(&g);
     ap.setName("airport");
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &ap);
 
     AirportExporter exporter(myFile);
     exporter.startOutput();
 
     Simulator sim(exporter, &ap, &time, &atc);
-    sim.set_communicationOutput(true);
     sim.doSimulationStanding(&plane, commFile);
     commFile.close();
     myFile.close();
@@ -337,7 +331,6 @@ TEST_F(SimulatorTests, SimulatorStandingTest){
     r.setName("runway");
     ap.addRunway(&r);
 
-    sim.set_communicationOutput(true);
     sim.doSimulationStanding(&plane, commFile);
     myFile.close();
     commFile.close();
@@ -376,7 +369,7 @@ TEST_F(SimulatorTests, SimulatorDepartingTest){
     ap.addRunway(&r);
     ap.setName("airport");
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &ap);
 
     AirportExporter exporter(myFile);
     exporter.startOutput();
@@ -419,7 +412,7 @@ TEST_F(SimulatorTests, SimulatorApproachContractViolations){
     Airport ap;
     ap.setName("airport");
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &ap);
     AirportExporter exporter(myFile);
     exporter.startOutput();
     Simulator sim(exporter, &ap, &time, &atc);
@@ -449,7 +442,7 @@ TEST_F(SimulatorTests, SimulatorLandingContractViolations){
     Airport ap;
     ap.setName("airport");
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &ap);
     AirportExporter exporter(myFile);
     exporter.startOutput();
     Simulator sim(exporter, &ap, &time, &atc);
@@ -479,7 +472,7 @@ TEST_F(SimulatorTests, SimulatorLandedContractViolations){
     Airport ap;
     ap.setName("airport");
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &ap);
     AirportExporter exporter(myFile);
     exporter.startOutput();
     Simulator sim(exporter, &ap, &time, &atc);
@@ -509,7 +502,7 @@ TEST_F(SimulatorTests, SimulatorTaxiingContractViolations){
     Airport ap;
     ap.setName("airport");
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &ap);
     AirportExporter exporter(myFile);
     exporter.startOutput();
     Simulator sim(exporter, &ap, &time, &atc);
@@ -539,7 +532,7 @@ TEST_F(SimulatorTests, SimulatorAtGateContractViolations){
     Airport ap;
     ap.setName("airport");
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &ap);
     AirportExporter exporter(myFile);
     exporter.startOutput();
     Simulator sim(exporter, &ap, &time, &atc);
@@ -569,7 +562,7 @@ TEST_F(SimulatorTests, SimulatorStandingContractViolations){
     Airport ap;
     ap.setName("airport");
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &ap);
     AirportExporter exporter(myFile);
     exporter.startOutput();
     Simulator sim(exporter, &ap, &time, &atc);
@@ -599,7 +592,7 @@ TEST_F(SimulatorTests, SimulatorDepartingContractViolations){
     Airport ap;
     ap.setName("airport");
     ApTime time(12,00);
-    ATC atc("atc");
+    ATC atc("atc", &ap);
     AirportExporter exporter(myFile);
     exporter.startOutput();
     Simulator sim(exporter, &ap, &time, &atc);

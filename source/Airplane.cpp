@@ -267,8 +267,6 @@ bool Airplane::properlyInitialized() const {
     return _initCheck == this;
 }
 
-
-
 //Constructors
 Airplane::Airplane(int airplaneId, const string &callsign, const string &_model, Airplane::Status status, const std::string& number)
         : _airplaneId(airplaneId), _callsign(callsign), _model(_model), _status(status), _number(number){
@@ -299,4 +297,64 @@ void Airplane::ascend(unsigned int amountOfFeet) {
     //int oldHeight = _height;
     _height += amountOfFeet;
     //ENSURE(getHeight() == oldHeight + amountOfFeet, "Error increasing height");
+}
+
+int Airplane::timeCheckChangeAlt() {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    if(getEngine() == Airplane::PROPELLOR) return 2;
+    return 1;
+}
+
+int Airplane::timeCheckLanding(){
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    return 2;
+}
+
+int Airplane::timeCheckTakeOff(){
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    if(getEngine() == Airplane::PROPELLOR) return 3;
+    return 2;
+}
+
+int Airplane::timeCheckPushBack(){
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    if(getSize() == SMALL) return 1;
+    if(getSize() == MEDIUM) return 2;
+    return 3;
+}
+
+int Airplane::timeCheckTaxiing(){
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    return 5;
+}
+
+int Airplane::timeCheckLineUp() {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    return 1;
+}
+
+int Airplane::timeCheckCrossRunway() {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    return 1;
+}
+
+int Airplane::timeCheckBoarding() {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    if(getSize() == Airplane::SMALL) return 5;
+    if(getSize() == Airplane::MEDIUM) return 10;
+    return 15;
+}
+
+int Airplane::timeCheckExiting() {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    if(getSize() == Airplane::SMALL) return 5;
+    if(getSize() == Airplane::MEDIUM) return 10;
+    return 15;
+}
+
+int Airplane::timeCheckTechnicalCheck() {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    if(getSize() == Airplane::SMALL) return 1;
+    if(getSize() == Airplane::MEDIUM) return 2;
+    return 3;
 }

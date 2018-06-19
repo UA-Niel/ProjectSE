@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <fstream>
+#include "headers/IO/AirportExporter.h"
 #include "headers/Airplane.h"
 #include "headers/Airport.h"
 #include "headers/IO/Reader.h"

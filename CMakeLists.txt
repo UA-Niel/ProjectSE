@@ -17,7 +17,6 @@ set(DEBUG_SOURCE_FILES
         headers/Runway.h
         headers/Airport.h
         headers/Airplane.h
-        headers/IO/AirportExporter.h
         headers/Simulator.h
         headers/Exceptions.h
         headers/ApTime.h
@@ -26,7 +25,6 @@ set(DEBUG_SOURCE_FILES
         source/Runway.cpp
         source/Airport.cpp
         source/Airplane.cpp
-        source/AirportExporter.cpp
         source/Simulator.cpp
         source/ApTime.cpp
         source/ATC.cpp
@@ -73,11 +71,11 @@ set(RELEASE_SOURCE_FILES
         headers/Exceptions.h
         headers/ApTime.h
         headers/ATC.h
+        source/AirportExporter.cpp
         source/Gate.cpp
         source/Runway.cpp
         source/Airport.cpp
         source/Airplane.cpp
-        source/AirportExporter.cpp
         source/Simulator.cpp
         source/ApTime.cpp
         source/ATC.cpp
