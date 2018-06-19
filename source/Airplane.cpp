@@ -113,10 +113,42 @@ int Airplane::getAmountOfPassengers() {
 void Airplane::setFuelState(const Airplane::FuelState state) {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     this->_fuelState = state;
+
+    if (state == Airplane::EMPTY) this->_fuelLevel = 0;
+    if (state == Airplane::WARNING) this->_fuelLevel = 150;
+    if (state == Airplane::OKAY) this->_fuelLevel = 2000;
+    if (state == Airplane::FULL) this->_fuelLevel = 2500;
+}
+void Airplane::downFuelLevel() {
+    if (this->size == Airplane::SMALL) {
+        if (this->engine == Airplane::PROPELLOR) {
+            this->_fuelLevel -= 10;
+        } else if (this->engine == Airplane::JET) {
+            this->_fuelLevel -= 25;
+        }
+    } else if (this->size == Airplane::MEDIUM) {
+        if (this->engine == Airplane::PROPELLOR) {
+            this->_fuelLevel -= 50;
+        } else if (this->engine == Airplane::JET) {
+            this->_fuelLevel -= 175;
+        }
+    } else if (this->size == Airplane::LARGE) {
+        if (this->engine == Airplane::PROPELLOR) {
+            this->_fuelLevel -= 100;
+        } else if (this->engine == Airplane::JET) {
+            this->_fuelLevel -= 250;
+        }
+    } else {return;}
+    
 }
 Airplane::FuelState& Airplane::getFuelState() {
     REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
     return this->_fuelState;
+}
+
+int Airplane::getFuelLevel() {
+    REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
+    return this->_fuelLevel;
 }
 
 void Airplane::setType(std::string type) {
@@ -127,6 +159,23 @@ void Airplane::setType(std::string type) {
         c = toupper(c);
     }
 
+    if (type == "PRIVATE") {
+        this->type = Airplane::PRIVATE; 
+    }
+    else if (type == "AIRLINE") {
+        this->type = Airplane::AIRLINE;
+    }
+    else if (type == "MILITARY") {
+        this->type = Airplane::MILITARY;
+    }
+    else if (type == "EMERGENCY") {
+        this->type = Airplane::EMERGENCY;
+    } else {
+        std::cerr << "Invalid type given..." << std::endl;
+        throw ReaderException("Invalid type given");
+    }
+
+/*
     if (type == "PRIVATE" && ((this->size == Airplane::SMALL || (this->size == Airplane::MEDIUM && this->engine == Airplane::JET)) || this->size == 0)) {
         this->type = Airplane::PRIVATE; 
     }
@@ -142,6 +191,7 @@ void Airplane::setType(std::string type) {
         std::cerr << "Invalid type given for current size and engine..." << std::endl;
         throw ReaderException("Invalid type given for current size and engine");
     }
+*/
 
 }
 
@@ -162,10 +212,9 @@ void Airplane::setEngine(std::string engine) {
         c = toupper(c);
     }
    
-   /*
-    if (engine == "JET") this->engine = Airplane::JET; V
+   
+    if (engine == "JET") this->engine = Airplane::JET;
     if (engine == "PROPELLOR") this->engine = Airplane::PROPELLOR;
-    if (engine == "GLIDER") this->engine = Airplane::GLIDER;*/
 }
     
 
@@ -221,38 +270,38 @@ Airplane::FlightPlan* Airplane::getFlightPlan() {
 bool Airplane::isValid() {
     if (this->type == Airplane::PRIVATE) {
         if (this->size == Airplane::SMALL) {
-            if (!(this->engine == Airplane::PROPELLOR || this->engine == Airplane::PROPELLOR))
-                return false;
+            if (this->engine == Airplane::PROPELLOR || this->engine == Airplane::JET)
+                return true;
         } if (this->size == Airplane::MEDIUM) {
-            if (!(this->engine == Airplane::JET))
-                return false;
+            if ((this->engine == Airplane::JET))
+                return true;
         } else {
             return false;
         }
     } else if (this->type == Airplane::AIRLINE) {
         if (this->size == Airplane::MEDIUM) {
-            if (!(this->engine == Airplane::PROPELLOR || this->engine == Airplane::JET))
-                return false;
+            if ((this->engine == Airplane::PROPELLOR || this->engine == Airplane::JET))
+                return true;
         } else if (this->size == Airplane::LARGE) {
-            if (!(this->engine == Airplane::JET))
-                return false;
+            if ((this->engine == Airplane::JET))
+                return true;
         } else {
             return false;
         }
     } else if (this->type == Airplane::MILITARY) {
         if (this->size == Airplane::SMALL) {
-            if (!(this->engine == Airplane::JET))
-                return false;
+            if ((this->engine == Airplane::JET))
+                return true;
         } else if (this->size == Airplane::LARGE) {
-            if (!(this->engine == Airplane::PROPELLOR))
-                return false;
+            if ((this->engine == Airplane::PROPELLOR))
+                return true;
         } else {
             return false;
         }
     } else if (this->type == Airplane::EMERGENCY) {
         if (this->size == Airplane::SMALL) {
-            if (!(this->engine == Airplane::PROPELLOR))
-                return false;
+            if ((this->engine == Airplane::PROPELLOR))
+                return true;
         } else {
             return false;
         }
@@ -260,7 +309,7 @@ bool Airplane::isValid() {
         return false;
     }
 
-    return true;
+    return false;
 }
 
 bool Airplane::properlyInitialized() const {

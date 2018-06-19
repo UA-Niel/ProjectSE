@@ -28,6 +28,7 @@ set(DEBUG_SOURCE_FILES
         source/Simulator.cpp
         source/ApTime.cpp
         source/ATC.cpp
+        source/AirportExporter.cpp
 
         headers/IO/library/tinystr.cpp
         headers/IO/library/tinystr.h
@@ -35,6 +36,7 @@ set(DEBUG_SOURCE_FILES
         headers/IO/library/tinyxml.h
         headers/IO/library/tinyxmlerror.cpp
         headers/IO/library/tinyxmlparser.cpp
+        headers/IO/AirportExporter.h
 
         source/Reader.cpp
         headers/IO/Reader.h

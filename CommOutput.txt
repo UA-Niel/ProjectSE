@@ -1,70 +1,50 @@
-[12:00] [Cessna 842]
-$ Antwerp Tower, Cessna 842, arriving at Antwerp International Airport.
+[12:00] [callsign]
+$ Antwerp Tower, callsign, arriving at name.
 [12:01] [Antwerp Tower]
-$ Cessna 842, radar contact, descend and maintain five thousand feet, squawk Zero
-[12:02] [Cessna 842]
-$ Descend and maintain five thousand feet, squawking Zero, Cessna 842
-[12:03] [Boeing 747]
-$ Boeing 747 is ready to taxi
-[12:04] [Antwerp Tower]
-$ taxi to runway
-[12:05] [Boeing 747]
-$ Antwerp Tower, Boeing 747, holding short at 11R.
-[12:06] [Antwerp Tower]
-$ Boeing 747, hold position.
-[12:07] [Boeing 747]
-$ Holding position, Boeing 747.
-[12:08] [Boeing 747]
-$ Antwerp Tower, Boeing 747, holding short at 11R.
-[12:09] [Antwerp Tower]
-$ Boeing 747, runway 11R cleared for take-off.
-[12:10] [Boeing 747]
-$ Runway 11R cleared for take-off.
-[12:11] [Antwerp Tower]
-$ Boeing 747, runway 11R cleared for take-off.
-[12:12] [Boeing 747]
-$ Runway 11R cleared for take-off.
+$ callsign, radar contact, descend and maintain five thousand feet, squawk zero
+[12:02] [callsign]
+$ Descend and maintain five thousand feet, squawking zero, callsign
+[12:08] [Antwerp Tower]
+$ callsign, descend and maintain three thousand feet.
+[12:09] [callsign]
+$ Descend and maintain three thousand feet, callsign.
+[12:12] [Antwerp Tower]
+$ callsign, cleared ILS approach runway, name.
+[12:13] [callsign]
+$ Cleared ILS approach runway name, callsign
+[12:19] [callsign]
+$ Antwerp Tower, callsign, runway name vacated.
 [12:20] [Antwerp Tower]
-$ Cessna 842, descend and maintain three thousand feet.
-[12:21] [Cessna 842]
-$ Descend and maintain three thousand feet, Cessna 842.
-[12:24] [Antwerp Tower]
-$ Cessna 842, cleared ILS approach runway, 11R.
-[12:25] [Cessna 842]
-$ Cleared ILS approach runway 11R, Cessna 842
-[12:31] [Cessna 842]
-$ Antwerp Tower, Cessna 842, runway 11R vacated.
-[12:32] [Antwerp Tower]
-$ taxi to gate One
-[12:49] [Cessna 842]
-$ Antwerp Tower, Cessna 842,  requesting IFR clearancy to destination, <destination>.
-[12:50] [Antwerp Tower]
-$ Cessna 842, Antwerp Tower, cleared to <destination>, maintain five thousand, expect flight level one one zero - ten minutes after departure, squawk zero
-[12:51] [Cessna 842]
-$ Cleared to <destination>, initial altitude five thousand, expecting one zero zero in ten, squawking zero, Cessna 842
-[12:52] [Cessna 842]
-$ Antwerp Tower, Cessna 842 at gate One, requesting pushback
-[12:53] [Antwerp Tower]
-$ Cessna 842, Antwerp Tower, pushback approved.
-[12:54] [Cessna 842]
-$ Pushback approved, Cessna 842.
-[12:56] [Cessna 842]
-$ Cessna 842 is ready to taxi
-[12:57] [Antwerp Tower]
+$ taxi to gate one
+[12:59] [callsign]
+$ Antwerp Tower, callsign,  requesting IFR clearancy to destination, <destination>.
+[13:00] [Antwerp Tower]
+$ callsign, Antwerp Tower, cleared to <destination>, maintain five thousand, expect flight level one one zero - ten minutes after departure, squawk zero
+[13:01] [callsign]
+$ Cleared to <destination>, initial altitude five thousand, expecting one zero zero in ten, squawking zero, callsign
+[13:02] [callsign]
+$ Antwerp Tower, callsign at gate one, requesting pushback
+[13:03] [Antwerp Tower]
+$ callsign, Antwerp Tower, pushback approved.
+[13:04] [callsign]
+$ Pushback approved, callsign.
+[13:08] [callsign]
+$ callsign is ready to taxi
+[13:09] [Antwerp Tower]
 $ taxi to runway
-[12:58] [Cessna 842]
-$ Antwerp Tower, Cessna 842, holding short at 11R.
-[12:59] [Antwerp Tower]
-$ Cessna 842, hold position.
-[13:00] [Cessna 842]
-$ Holding position, Cessna 842.
-[13:01] [Cessna 842]
-$ Antwerp Tower, Cessna 842, holding short at 11R.
-[13:02] [Antwerp Tower]
-$ Cessna 842, runway 11R cleared for take-off.
-[13:03] [Cessna 842]
-$ Runway 11R cleared for take-off.
-[13:04] [Antwerp Tower]
-$ Cessna 842, runway 11R cleared for take-off.
-[13:05] [Cessna 842]
-$ Runway 11R cleared for take-off.
+[13:10] [callsign]
+$ Antwerp Tower, callsign, holding short at name.
+[13:11] [Antwerp Tower]
+$ callsign, hold position.
+[13:12] [callsign]
+$ Holding position, callsign.
+[13:13] [callsign]
+$ Antwerp Tower, callsign, holding short at name.
+[13:14] [Antwerp Tower]
+$ callsign, runway name cleared for take-off.
+[13:15] [callsign]
+$ Runway name cleared for take-off.
+[13:16] [Antwerp Tower]
+$ callsign, runway name cleared for take-off.
+[13:17] [callsign]
+$ Runway name cleared for take-off.

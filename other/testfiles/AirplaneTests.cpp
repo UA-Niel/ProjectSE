@@ -228,3 +228,33 @@ TEST_F(AirplaneTests, AirplaneAscend){
 
 
 }
+TEST_F (AirplaneTests, Validation) {
+    Airplane airplane;
+    airplane.setType("PRIVATE");
+    airplane.setSize("SMALL");
+    airplane.setEngine("JET");
+    EXPECT_TRUE(airplane.isValid());
+    EXPECT_FALSE(!airplane.isValid());
+
+    Airplane airplane2;
+    airplane2.setType("PRIVATE");
+    airplane2.setSize("LARGE");
+    airplane2.setEngine("JET");
+    EXPECT_TRUE(!airplane2.isValid());
+    EXPECT_FALSE(airplane2.isValid());
+    
+    Airplane airplane3;
+    airplane3.setType("AIRLINE");
+    airplane3.setSize("LARGE");
+    airplane3.setEngine("JET");
+    EXPECT_TRUE(airplane3.isValid());
+    EXPECT_FALSE(!airplane3.isValid());
+    
+    Airplane airplane4;
+    airplane4.setType("EMERGENCY");
+    airplane4.setSize("SMALL");
+    airplane4.setEngine("JET");
+    EXPECT_TRUE(!airplane4.isValid());
+    EXPECT_FALSE(airplane4.isValid());
+    
+}

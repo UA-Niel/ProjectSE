@@ -381,6 +381,11 @@ public:
     int getAmountOfPassengers();
 
     /**
+     * \brief Down the fuel-level
+     */
+    void downFuelLevel();
+
+    /**
      * \brief Sets the fuel state
      *
      * @param FuelState state
@@ -389,7 +394,14 @@ public:
      * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly");
      */
     void setFuelState(const FuelState state);
-    
+
+    /**
+     *
+     * \brief return fuellevel
+     * @return int fuellevel
+     */
+    int getFuelLevel();
+
     /**
      * \brief Returns the fuel state
      *
@@ -554,6 +566,7 @@ private:
 
     int _amountOfPassengers; /**<Variable to hold current amount of passengers on this plane*/
     FuelState _fuelState; /**<Variable to hold the current fuel state*/
+    int _fuelLevel; /**<Varialbe to hold the current fuel level*/
     Type type; /**<Variable to hold type of the airplane*/
     Engine engine; /**<Variable to hold type of engine*/
     Size size; /**<Variable to hold size of airplane*/

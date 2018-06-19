@@ -66,6 +66,8 @@ void Simulator::doSimulation(ofstream& output, int ticks) {
 
             string message;
 
+            plane->downFuelLevel();
+
             if(status == Airplane::APPROACHING){
                 doSimulationApproach(plane, output);
             }
@@ -439,3 +441,53 @@ void Simulator::setTime(ApTime* time) {
     ENSURE(getTime() == time, "Error setting new time for the Simulator");
 }
 
+void Simulator::doSimulationFuelEmergency(Airplane* plane, ofstream& comm) {
+   if (plane->getHeight() >= 3000) {
+        ENSURE(plane->getHeight() >= 3000, "Height should be above 3000");
+        ENSURE(plane->getFuelLevel() <= 0, "Fuel should be below 0");
+        //Contact luchtverkeersleider                                              
+        std::string msg = "Mayday mayday mayday" + _atc->getCallsign() + ", " + plane->getCallsign() + "request immediate landing, " + ToString(plane->getAmountOfPassengers()) + " persons on board.";
+        comm << _atc->atcMessage(_time, plane->getCallsign(), msg);
+        //Clear runway
+        std::vector<Runway*> runways = this->getAirport()->getRunways();
+        Runway* emergencyRunway;
+        for (unsigned int i = 0; i < runways.size(); i++) {
+            if (runways[i]->getAirplanesOnRunway().size() == 0) {
+                emergencyRunway = runways[i];
+                break;
+            } 
+        }
+        if (emergencyRunway == NULL && runways.size() > 0) {
+            runways[0]->clearRunway();
+            emergencyRunway = runways[0];
+        } else {return;}
+
+        //Land vliegtuig
+        this->doSimulationLanding(plane, comm);
+        //Passagiers uitstappen
+        this->doSimulationTaxiing(plane, comm);
+        //Technische controler     
+        //Tanken
+        this->doSimulationAtGate(plane, comm);
+        this->doSimulationStanding(plane, comm);
+
+        //ATC message 
+        msg =  _atc->getCallsign() + "roger mayday, " + "squawk seven seven zero zero , cleared ILS landing runway " + emergencyRunway->getName();
+        comm << _atc->atcMessage(_time, plane->getCallsign(), msg);
+
+        return;      
+   } else {
+        ENSURE(plane->getHeight() < 3000, "Height should be below 3000");
+        ENSURE(plane->getFuelLevel() <= 0, "Fuel should be below 0");
+        
+        std::string msg = "Mayday mayday mayday" + _atc->getCallsign() + ", " + plane->getCallsign() + "we are landing now!!! " + ToString(plane->getAmountOfPassengers()) + " persons on board.";
+        comm << _atc->atcMessage(_time, plane->getCallsign(), msg);
+        
+        //ATC message 
+        msg =  _atc->getCallsign() + "roger mayday, " + "squawk seven seven zero zero , hulp is sent ";
+        comm << _atc->atcMessage(_time, plane->getCallsign(), msg);
+    
+    return;
+   }                                                                         
+   return;                                                                    
+}

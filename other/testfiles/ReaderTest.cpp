@@ -98,5 +98,15 @@ TEST_F(ReaderTests, what) {
         EXPECT_STREQ(e.what(), "Reader Exception:\n\twhat(): Invalid tagname found. Program terminated...\n");
     }
 
-
+    try {
+        loadAirportFromFile("other/testfiles/testinput6.xml");
+    } catch(ReaderException& e) {
+        EXPECT_STREQ(e.what(), "Reader Exception:\n\twhat(): Airplane combination invalid...\n");
+    }
+    
+    try {
+        loadAirportFromFile("other/testfiles/testinput7.xml");
+    } catch(ReaderException& e) {
+        EXPECT_STREQ(e.what(), "Reader Exception:\n\twhat(): Airplane combination invalid...\n");
+    }
 }

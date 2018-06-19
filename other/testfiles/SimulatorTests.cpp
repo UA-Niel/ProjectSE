@@ -614,3 +614,24 @@ TEST_F(SimulatorTests, SimulatorDepartingContractViolations){
     EXPECT_DEATH(sim.doSimulationDeparting(&plane, myFile), "Airplane status should be DEPARTING");
     myFile.close();
 }
+
+TEST_F(SimulatorTests, FuelEmergency) { 
+    ofstream myFile("");
+    AirportExporter exporter(myFile);
+    exporter.startOutput();
+    
+    Airport ap;
+    ATC atc("atc", &ap);
+    ApTime time(12,00);
+    Simulator sim(exporter, &ap, &time, &atc);
+    ap.setName("airport");
+    Runway run;
+    run.setName("runway");
+    ap.addRunway(&run);
+
+    Airplane plane;
+    plane.setHeight(3001);
+    plane.setFuelState(Airplane::WARNING);
+
+    EXPECT_DEATH(sim.doSimulationFuelEmergency(&plane, myFile), "Fuel should be below 0");
+}

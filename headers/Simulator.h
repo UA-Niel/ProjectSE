@@ -239,6 +239,12 @@ public:
      */
     void doSimulationDeparting(Airplane* plane, ofstream& comm);
 
+    /*
+     * \brief Does the simulation of emergency
+     * @param plane the plane in emergency
+     * @param comm Ofstream for communication output
+     */
+    void doSimulationFuelEmergency(Airplane* plane, ofstream& comm);
 
 };
 

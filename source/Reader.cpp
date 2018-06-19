@@ -268,7 +268,13 @@ Airport* loadAirportFromFile(const char* fileName) {
                 gAIRPLANE_ID++;
 
                 //Add airplane
-                myAirport->addAirplane(myAirplane);
+                if (myAirplane->isValid()) {
+                    myAirport->addAirplane(myAirplane);
+                } else {
+                    std::string errorStr = "Airplane combination invalid...";
+                    std::cerr << errorStr << std::endl;
+                    throw ReaderException(errorStr);
+                }
             }
         }
 
