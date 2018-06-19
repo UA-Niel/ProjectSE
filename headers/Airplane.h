@@ -418,6 +418,13 @@ public:
     FlightPlan* getFlightPlan();
 
     /**
+     * 
+     * \brief Checks if the properties (type, size, and engine) are compatible
+     * @return true if it's valid and compatible
+     */
+    bool isValid();
+
+    /**
      * \brief constructor of the airplane class
      *
      * This constructor takes an id, callsign, model and status

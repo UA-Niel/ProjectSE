@@ -122,14 +122,15 @@ TEST_F(AirportOutputTests, AirplaneDetailsOutput){
     Airplane plane2(2, "my callsign 2", "my model 2", Airplane::STANDING, "my number 2");
     Airplane plane3(3, "my callsign 3", "my model 3", Airplane::STANDING, "my number 3");
 
-    plane2.setEngine(Airplane::GLIDER);
+    plane2.setEngine(Airplane::PROPELLOR);
     plane2.setSize(Airplane::SMALL);
-    plane2.setType(Airplane::ALASKAN);
+    plane2.setType(Airplane::EMERGENCY);
     plane3.setEngine(Airplane::JET);
     plane3.setSize(Airplane::LARGE);
-    plane3.setType(Airplane::PRIVATE);
+    plane3.setType(Airplane::AIRLINE);
 
-    airport.addAirplane(&plane2); airport.addAirplane(&plane3);
+    airport.addAirplane(&plane2);
+    airport.addAirplane(&plane3);
 
     airportExporter.outputPlaneDetails();
     myFile.close();
