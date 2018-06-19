@@ -157,6 +157,15 @@ void Simulator::doSimulationLanding(Airplane *plane, ofstream& comm) {
     if(plane->getHeight() <= 0){
         plane->setStatus(Airplane::LANDED);
     }else{
+        if (plane->getHeight() == 10000) {
+           std::string msg = plane->getCallsign() + ", request to descend to 5000ft";
+           comm << _atc->atcMessage(_time, _atc->getCallsign(), msg);
+            msg = "Descend permitted " + plane->getCallsign();
+            comm << _atc->atcMessage(_time, plane->getCallsign(), msg);
+                (*_time)++;;
+                return;
+        }
+
         if(plane->getHeight() == 5000){
             string msg;
             if(!_atc->landingAt5000()) {
