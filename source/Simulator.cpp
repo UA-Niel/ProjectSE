@@ -163,6 +163,7 @@ void Simulator::doSimulationLanding(Airplane *plane, ofstream& comm) {
             msg = "Descend permitted " + plane->getCallsign();
             comm << _atc->atcMessage(_time, plane->getCallsign(), msg);
                 (*_time)++;;
+                plane->approach();
                 return;
         }
 
@@ -224,6 +225,7 @@ void Simulator::doSimulationLanded(Airplane *plane, ofstream& comm) {
     REQUIRE(plane->getStatus() == Airplane::LANDED, "Airplane must be in LANDED state");
 
     string message;
+
     //Search for runway with plane assigned to
     Runway* currentRunway = _airport->getRunwayWithPlane(plane);
 
@@ -257,6 +259,7 @@ void Simulator::doSimulationTaxiing(Airplane *plane, ofstream& comm) {
     REQUIRE(plane->properlyInitialized(), "Airplane is not initialized correctly");
     REQUIRE(plane->getStatus() == Airplane::TAXIING_TO_GATE, "Status of airplane has to be TAXIING TO GATE");
 
+
     string message;
     Gate* currentGate = _airport->getGateWithPlane(plane);
     message = plane->getCallsign() + " is taxiing to Gate " + ToString(currentGate->getId())
@@ -277,6 +280,8 @@ void Simulator::doSimulationAtGate(Airplane *plane, ofstream& comm) {
 
     if(!_atc->departureOfGate())
         return;
+
+
 
     string message;
     Gate* currentGate = _airport->getGateWithPlane(plane);

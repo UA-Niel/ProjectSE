@@ -17,7 +17,7 @@
     <status>Approaching</status>
     <passengers>8</passengers>
     <type>private</type>
-    <size>small</size>
+    <size>medium</size>
     <engine>jet</engine>
 </AIRPLANE>
 <AIRPLANE>
@@ -28,7 +28,7 @@
     <status>Standing</status>
     <type>airline</type>
     <size>large</size>
-    <engine>propellor</engine>
+    <engine>jet</engine>
 </AIRPLANE>
 
 </file>
