@@ -182,6 +182,8 @@ const std::string &Airport::getCallsign() const{
 Airport::Airport(){
     _airportId = -1;
     _callsign = "";
+    _waitPattern5000 = false;
+    _waitPattern3000 = false;
     _name = "";
     _IATA = "";
     _initCheck = this;

@@ -43,42 +43,42 @@ bool ATC::operator==(ATC &atc) {
 
 std::vector<std::string> ATC::generateNato() {
     std::vector<std::string> natoAlphabet;
-    natoAlphabet.push_back("Zero");
-    natoAlphabet.push_back("One");
-    natoAlphabet.push_back("Two");
-    natoAlphabet.push_back("Three");
-    natoAlphabet.push_back("Four");
-    natoAlphabet.push_back("Five");
-    natoAlphabet.push_back("Six");
-    natoAlphabet.push_back("Seven");
-    natoAlphabet.push_back("Eight");
-    natoAlphabet.push_back("Nine");
-    natoAlphabet.push_back("Alpha");
-    natoAlphabet.push_back("Bravo");
-    natoAlphabet.push_back("Charlie");
-    natoAlphabet.push_back("Delta");
-    natoAlphabet.push_back("Echo");
-    natoAlphabet.push_back("Foxtrot");
-    natoAlphabet.push_back("Golf");
-    natoAlphabet.push_back("Hotel");
-    natoAlphabet.push_back("India");
-    natoAlphabet.push_back("Juliett");
-    natoAlphabet.push_back("Kilo");
-    natoAlphabet.push_back("Lima");
-    natoAlphabet.push_back("Mike");
-    natoAlphabet.push_back("November");
-    natoAlphabet.push_back("Oscar");
-    natoAlphabet.push_back("Papa");
-    natoAlphabet.push_back("Quebec");
-    natoAlphabet.push_back("Romeo");
-    natoAlphabet.push_back("Sierra");
-    natoAlphabet.push_back("Tango");
-    natoAlphabet.push_back("Uniform");
-    natoAlphabet.push_back("Victor");
-    natoAlphabet.push_back("Whiskey");
-    natoAlphabet.push_back("Xray");
-    natoAlphabet.push_back("Yankee");
-    natoAlphabet.push_back("Zulu");
+    natoAlphabet.push_back("zero");
+    natoAlphabet.push_back("one");
+    natoAlphabet.push_back("two");
+    natoAlphabet.push_back("three");
+    natoAlphabet.push_back("four");
+    natoAlphabet.push_back("five");
+    natoAlphabet.push_back("six");
+    natoAlphabet.push_back("seven");
+    natoAlphabet.push_back("eight");
+    natoAlphabet.push_back("nine");
+    natoAlphabet.push_back("alpha");
+    natoAlphabet.push_back("bravo");
+    natoAlphabet.push_back("charlie");
+    natoAlphabet.push_back("delta");
+    natoAlphabet.push_back("echo");
+    natoAlphabet.push_back("foxtrot");
+    natoAlphabet.push_back("golf");
+    natoAlphabet.push_back("hotel");
+    natoAlphabet.push_back("india");
+    natoAlphabet.push_back("juliett");
+    natoAlphabet.push_back("kilo");
+    natoAlphabet.push_back("lima");
+    natoAlphabet.push_back("mike");
+    natoAlphabet.push_back("november");
+    natoAlphabet.push_back("oscar");
+    natoAlphabet.push_back("papa");
+    natoAlphabet.push_back("quebec");
+    natoAlphabet.push_back("romeo");
+    natoAlphabet.push_back("sierra");
+    natoAlphabet.push_back("tango");
+    natoAlphabet.push_back("uniform");
+    natoAlphabet.push_back("victor");
+    natoAlphabet.push_back("whiskey");
+    natoAlphabet.push_back("xray");
+    natoAlphabet.push_back("yankee");
+    natoAlphabet.push_back("zulu");
     ENSURE(natoAlphabet.size() == 36, "Incorrect size of NATO alphabet vector");
     return natoAlphabet;
 }
@@ -86,6 +86,10 @@ std::vector<std::string> ATC::generateNato() {
 std::string ATC::intToNato(int input) {
     std::vector<std::string> natoAlphabet = generateNato();
     std::string result;
+    if(input < 0){
+        result += "minus ";
+        input = -input;
+    }
     std::string num = ToString(input);
     for(unsigned int i = 0; i<num.size(); i++){
         char ch  = num[i];
@@ -182,4 +186,19 @@ bool ATC::emergencyHigherThan3000(Airplane* plane) {
 bool ATC::emergencyLowerThan3000(Airplane* plane) {
     REQUIRE(this->properlyInitialized(), "ATC is not initialized correctly");
     return plane->getFuelState() == Airplane::EMPTY;
+}
+
+std::string ATC::stringToNato(string &str) {
+    string res;
+    for(int i = 0; i<str.size(); i++){
+        char ch = str[i];
+        if(isdigit(ch)){
+            res += ATC::intToNato(ch - '0');
+            res.append(" ");
+        }else{
+            res += ch;
+        }
+    }
+    res.erase(res.end()-1);
+    return res;
 }

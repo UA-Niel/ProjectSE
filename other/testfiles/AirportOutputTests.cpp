@@ -122,9 +122,7 @@ TEST_F(AirportOutputTests, AirplaneDetailsOutput){
     Airplane plane2(2, "my callsign 2", "my model 2", Airplane::STANDING, "my number 2");
     Airplane plane3(3, "my callsign 3", "my model 3", Airplane::STANDING, "my number 3");
 
-    plane2.setEngine(Airplane::GLIDER);
     plane2.setSize(Airplane::SMALL);
-    plane2.setType(Airplane::ALASKAN);
     plane3.setEngine(Airplane::JET);
     plane3.setSize(Airplane::LARGE);
     plane3.setType(Airplane::PRIVATE);

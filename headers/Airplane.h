@@ -84,6 +84,97 @@ public:
     };
 
     /**
+     * \brief Determine how long it takes to change altitude
+     * @return Integer return the time it takes
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly")
+     */
+    int timeCheckChangeAlt();
+
+    /**
+     * \brief Determine how long it takes to land
+     * @return Integer return the time it takes
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly")
+     */
+    int timeCheckLanding();
+
+    /**
+     * \brief Determine how long it takes to take off
+     * @return Integer return the time it takes
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly")
+     */
+    int timeCheckTakeOff();
+
+    /**
+     * \brief Determine how long it takes to push back
+     * @return Integer return the time it takes
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly")
+     */
+    int timeCheckPushBack();
+
+    /**
+     * \brief Determine how long it takes to taxi (per step)
+     * @return Integer return the time it takes
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly")
+     */
+    int timeCheckTaxiing();
+
+    /**
+     * \brief Determine how long it takes to line up
+     * @return Integer return the time it takes
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly")
+     */
+    int timeCheckLineUp();
+
+    /**
+     * \brief Determine how long it takes to cross a runway
+     * @return Integer return the time it takes
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly")
+     */
+    int timeCheckCrossRunway();
+
+    /**
+     * \brief Determine how long it takes to board
+     * @return Integer return the time it takes
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly")
+     */
+    int timeCheckBoarding();
+
+    /**
+     * \brief Determine how long it takes to exit
+     * @return Integer return the time it takes
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly")
+     */
+    int timeCheckExiting();
+
+    /**
+     * \brief Determine how long it takes to check for technical malfunctions
+     * @return Integer return the time it takes
+     *
+     * **Preconditions:**
+     * - REQUIRE(this->properlyInitialized(), "Airplane is not initialized correctly")
+     */
+    int timeCheckTechnicalCheck();
+
+
+    /**
      * \brief checks if the Airplane class is initialized correctly
      * @return returns true if the Airplane is correctly initialized
      */

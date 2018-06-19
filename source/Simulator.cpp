@@ -11,8 +11,6 @@
 #include <cstdlib>
 #include <fstream>
 
-//#include <windows.h>
-
 using namespace std;
 
 
@@ -199,6 +197,7 @@ void Simulator::doSimulationLanding(Airplane *plane, ofstream& comm) {
 
         //let plane approach more
         plane->approach();
+        (*_time) += plane->timeCheckChangeAlt();
         //give output feedback
         message = plane->getCallsign() + " descended to " + ToString(plane->getHeight()) + "ft.";
         _exporter.outputString(message);
@@ -216,6 +215,8 @@ void Simulator::doSimulationLanded(Airplane *plane, ofstream& comm) {
     string message;
     //Search for runway with plane assigned to
     Runway* currentRunway = _airport->getRunwayWithPlane(plane);
+
+    (*_time) += plane->timeCheckLanding();
 
     message = plane->getCallsign() + " landed at Runway " + currentRunway->getName();
     _exporter.outputString(message);
@@ -251,6 +252,8 @@ void Simulator::doSimulationTaxiing(Airplane *plane, ofstream& comm) {
               + " of " + _airport->getName();
     _exporter.outputString(message);
 
+    (*_time) += plane->timeCheckTaxiing();
+
     plane->setStatus(Airplane::AT_GATE);
 
     ENSURE(plane->getStatus() == Airplane::AT_GATE, "Status of airplane should be AT GATE");
@@ -271,18 +274,26 @@ void Simulator::doSimulationAtGate(Airplane *plane, ofstream& comm) {
               + plane->getCallsign() + " at Gate " + ToString(currentGate->getId())
               + " of " + _airport->getName();
     _exporter.outputString(message);
+
+    (*_time) += plane->timeCheckExiting();
+
     //technical checkup
     message = plane->getCallsign() + " has been checked for technical issues";
     _exporter.outputString(message);
+
+    (*_time) += plane->timeCheckTechnicalCheck();
+
     //refueling
     plane->setFuelState(Airplane::FULL);
     message = plane->getCallsign() + " has been refueled";
     _exporter.outputString(message);
+
+
     //boarding
     message = ToString(plane->getAmountOfPassengers()) + " passengers have boarded " + plane->getCallsign()
               + " at Gate " + ToString(currentGate->getId()) + " of " + _airport->getName();
     _exporter.outputString(message);
-
+    (*_time) += plane->timeCheckBoarding();
 
     string msg = _atc->getCallsign() + ", " + plane->getCallsign() + ", " +
                  " requesting IFR clearancy to destination, <destination>.";
@@ -311,6 +322,7 @@ void Simulator::doSimulationAtGate(Airplane *plane, ofstream& comm) {
     comm << _atc->atcMessage(_time, plane->getCallsign(), msg);
     (*_time)++;
 
+    (*_time)+= plane->timeCheckPushBack();
 
     plane->setStatus(Airplane::STANDING);
 
@@ -383,6 +395,7 @@ void Simulator::doSimulationStanding(Airplane *plane, ofstream& comm) {
     (*_time)++;
 
     plane->setStatus(Airplane::DEPARTING);
+    (*_time)+= plane->timeCheckTakeOff();
 
     ENSURE(plane->getStatus() == Airplane::DEPARTING, "Airplane status should be DEPARTING");
     ENSURE(currentGate->getPlaneAtGate() == NULL, "Gate should be empty");
